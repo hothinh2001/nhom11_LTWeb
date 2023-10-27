@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../../assets/css/main&productList.css"/>
     <link rel="stylesheet" href="../../assets/css/grid.css"/>
     <link rel="stylesheet" href="../../assets/css/responsive.css"/>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="./style.css"/>
     <link rel="stylesheet" href="../../assets/css/responsive.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -30,7 +30,6 @@
     <link
             href="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css"
             rel="stylesheet"
-
     />
 </head>
 <body>
@@ -157,9 +156,7 @@
                                             </div>
                                         </div>
                                         <div class="header__cart-item-body">
-                        <span class="header__cart-item-description"
-                        >SIZE: M - Màu: Xanh</span
-                        >
+
                                             <span class="header__cart-item-remove">Xóa</span>
                                         </div>
                                     </div>
@@ -379,8 +376,7 @@
         </ul>
     </header>
     <!-- Header end -->
-    <!-- Container product detail start -->
-
+    <!-- Container start -->
     <div class="app__container">
         <div class="grid wide">
             <!-- Breadcrumb start -->
@@ -391,252 +387,169 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </li>
 
-                    <li class="breadcrumb-item">
-                        <a href="#" class="breadcrumb-item__link"> Danh mục một </a>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </li>
                     <li class="breadcrumb-item breadcrumb-item--active">
-                        <a href="#" class="breadcrumb-item__link">
-                            Bio-zeem Siêu úm</a
-                        >
+                        <a href="#" class="breadcrumb-item__link"> Giỏ hàng </a>
                     </li>
                 </ul>
             </div>
 
             <!-- Breadcrumb end -->
 
-            <!-- Product detail start -->
+            <!-- Cart detail start -->
+            <div class="cart-detail">
+                <div class="cart-detail-wrapper row">
+                    <div class="col l-8 m-12 c-12 cart-detail__left">
+                        <div class="cart-detail__left-wrapper">
+                            <div class="cart-detail__left-heading">
+                                <h3 class="cart-detail__left-heading-title">Giỏ hàng</h3>
+                                <span class="cart-detail__left-heading-quantity"
+                                >2 sản phẩm</span
+                                >
+                            </div>
+                            <div class="cart-detail__left-body">
+                                <ul class="cart-detail__left-list">
+                                    <li class="cart-detail__left-item">
+                                        <div class="cart-detail__left-item-img">
+                                            <img
+                                                    src="../../assets/img/ga/ga-sieu-um.png"
+                                                    alt=""
+                                                    class="cart-detail__left-item-img-src"
+                                            />
+                                        </div>
+                                        <div class="cart-detail__left-item-info">
+                                            <div class="cart-detail__left-item-head">
+                                                <h5 class="cart-detail__left-item-name">
+                                                    Bio-zeem Siêu úm
+                                                </h5>
+                                                <div class="cart-detail__left-item-price-wrap">
+                              <span class="cart-detail__left-item-price"
+                              >565.000đ</span
+                              >
+                                                    <span class="cart-detail__left-item-multiply">
+                                x
+                              </span>
+                                                    <span class="cart-detail__left-item-qnt">1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-detail__left-item-body">
 
-            <div class="product-detail">
-                <div class="product-title">
-                    <div class="product-name"><h3>Bio-zeem Siêu úm</h3></div>
-                    <div class="product-describe"><h3>Thức ăn hỗn hợp cho Gà thịt Siêu úm từ 01 - 07 ngày tuổi</h3>
-                    </div>
-                </div>
-                <div class="product-detail-wrapper row">
-                    <div class="col l-5 m-12 c-12 product-detail__img-wrapper">
-                        <div class="product-detail__img">
-                            <img
-                                    src="../../assets/img/ga/ga-sieu-um.png"
-                                    alt=""
-                                    class="product-detail__img-main"
-                                    id="main-image"
-                            />
+                                                <span class="cart-detail__left-item-remove"
+                                                >Xóa</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart-detail__left-item">
+                                        <div class="cart-detail__left-item-img">
+                                            <img
+                                                    src="../../assets/img/ga/con-co-ai-cap.png"
+                                                    alt=""
+                                                    class="cart-detail__left-item-img-src"
+                                            />
+                                        </div>
+                                        <div class="cart-detail__left-item-info">
+                                            <div class="cart-detail__left-item-head">
+                                                <h5 class="cart-detail__left-item-name">
+                                                    Con Cò Ai cập
+                                                </h5>
+                                                <div class="cart-detail__left-item-price-wrap">
+                              <span class="cart-detail__left-item-price"
+                              >535.000đ</span
+                              >
+                                                    <span class="cart-detail__left-item-multiply"
+                                                    >x</span
+                                                    >
+                                                    <span class="cart-detail__left-item-qnt">1</span>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="cart-detail__left-item-body">
+
+                                                <span class="cart-detail__left-item-remove"
+                                                >Xóa</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="col l-7 m-12 c-12 product-detail__info-wrapper">
-                        <div class="product-detail__info">
-                            <div class="button-describe">
-                                <button type="button" class="btn btn-danger btn-material">Thông tin nguyên liệu</button>
-                                <button type="button" class="btn btn-danger btn-nutrition">Thông tin dinh dưỡng</button>
-                                <button type="button" class="btn btn-danger btn-tutorial">Hướng dẫn sử dụng</button>
-
+                    <div class="col l-4 m-12 c-12 cart-detail__right">
+                        <div class="cart-detail__right-wrapper">
+                            <div class="cart-detail__right-heading">
+                                <h3 class="cart-detail__right-heading-title">Thông tin</h3>
                             </div>
-                            <div class="product-detail__describe description-material" style="display: none">
-                                Bột ngũ cốc (bắp, tấm, khoai mì,…) phụ phẩm ngũ cốc (cám gạo, cám mì,…), đạm động vật,
-                                đạm thực vật (khô dầu đậu nành, khô dầu hạt cải,...), premix vi khoáng - vitamin, axit
-                                amin, chất phụ gia, khoáng đa lượng,...
-                            </div>
-                            <div class="product-detail__describe description-nutrition">
-                                * Độ ẩm (%) max: 13 <br>
-                                * Protein thô (%) min: 23<br>
-                                * Xơ thô (%) max: 7<br>
-                                * Canxi (%) min - max: 0,7 - 1,6<br>
-                                * P tổng số (%) min-max: 0,5 - 1,1<br>
-                                * Lysine tổng số (%) min: 1,2<br>
-                                * Methionine + Cystine tổng số (%) min: 1<br>
-                                * Năng lượng trao đổi (Kcal/kg) min: 3,050<br>
-                            </div>
-                            <div class="product-detail__describe description-tutorial" style="display: none">
-                                * Thức ăn hỗn hợp đầy đủ dinh dưỡng dùng cho gà lông màu từ 01 - 21 ngày tuổi.<br>
-                                * Không nên trộn thêm các nguyên liệu khác.
-                            </div>
-                            <div class="product-detail__info-price">
-                    <span class="product-detail__info-price-current"
-                    >565.000đ</span
-                    >
-                            </div>
-                            <div class="product-detail__info-quantity">
-                    <span class="product-detail__info-quantity-title"
-                    >Số lượng:</span
-                    >
-                                <div class="product-detail__info-quantity-btn">
-                      <span class="product-detail__info-quantity-btn-minus"
-                      ><i class="fa-solid fa-minus"></i
-                      ></span>
-                                    <input
-                                            type="text"
-                                            class="product-detail__info-quantity-btn-input"
-                                            value="1"
-                                    />
-                                    <span class="product-detail__info-quantity-btn-plus"
-                                    ><i class="fa-solid fa-plus"></i
-                                    ></span>
-
+                            <div class="cart-detail__right-body">
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Tạm tính</span
+                      >
+                                    <span class="cart-detail__right-body-item-value"
+                                    >1.100.000đ</span
+                                    >
                                 </div>
-                                <div class="product-detail__info-inventory">
-                      <span class="product-detail__info-inventory-quantity">
-                        Còn 100 sản phẩm
-                      </span>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Phí vận chuyển</span
+                      >
+                                    <span class="cart-detail__right-body-item-value"
+                                    >30.000đ</span
+                                    >
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Tổng cộng</span
+                      >
+                                    <span class="cart-detail__right-body-item-value"
+                                    >1.130.000đ</span
+                                    >
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Mã giảm giá</span
+                      >
+                                    <span class="cart-detail__right-body-item-value"
+                                    >- 0đ</span
+                                    >
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Thành tiền</span
+                      >
+                                    <span class="cart-detail__right-body-item-value"
+                                    >1.130.000đ</span
+                                    >
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Tiết kiệm</span
+                      >
+                                    <span class="cart-detail__right-body-item-value">0đ</span>
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Điểm tích lũy</span
+                      >
+                                    <span class="cart-detail__right-body-item-value">0đ</span>
                                 </div>
                             </div>
-
-                            <div class="product-detail__info-cart-btn">
-                                <button class="btn--cart__add">
-                                    <i class="fas fa-cart-plus"></i>
-                                    Thêm vào giỏ hàng
-                                </button>
-                                <button class="btn--cart__buyNow">Mua ngay</button>
-                            </div>
+                        </div>
+                        <div class="cart-detail__right-footer">
+                            <a href="#">
+                                <button type="button" class="btn btn-primary btn-material">Tiến hành đặt hàng</button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="product-related">
-                <div class="best__selling">
-                    <div class="best__selling--title">
-                        <div class="title-item">
-                            <h2>Sản phẩm liên quan</h2>
-                            <div class="line"></div>
-                        </div>
-                        <a>Xem tất cả</a>
-                    </div>
-                    <div class="best__selling--content">
-                        <div class="row sm-gutter product-item-wrapper">
-                            <div class="col l-2-4 m-4 c-6">
-                                <!-- Product Item -->
-                                <a
-                                        class="product-item"
-                                        href="/pages/product-detail/index.html"
-                                >
-                                    <div class="product-item__img">
-                                        <img src="../../assets/img/ga/c24s.png" alt=""></div>
-                                    <h4 class="product-item__title">
-                                        Con Cò C24S
-                                    </h4>
-                                    <h4 class="product-item__name">
-                                        Thức ăn hỗn hợp cho gà đẻ cao sản
-                                    </h4>
-                                    <div class="product-item__price">
-                      <span class="product-item__price-current"
-                      >565.000đ</span
-                      >
-                                    </div>
-                                    <div class="product-item__action">
-                                        <!-- product-item__like--liked -->
-                                        <span class="product-item__like"> </span>
-                                        <div class="product-item__rating"></div>
-                                        <div class="product-item__sold"></div>
-                                    </div>
-                                    <div class="product-item__origin">
-                                        <span class="product-item__brand">KONOVA</span>
-                                    </div>
-                                    <div class="product-item__favourite"></div>
-                                </a>
-                            </div>
-                            <div class="col l-2-4 m-4 c-6">
-                                <!-- Product Item -->
-                                <a
-                                        class="product-item"
-                                        href="/pages/product-detail/index.html"
-                                >
-                                    <div class="product-item__img">
-                                        <img src="../../assets/img/ga/con-co-ai-cap.png" alt=""></div>
-                                    <h4 class="product-item__title">
-                                        Con Cò Ai cập
-                                    </h4>
-                                    <h4 class="product-item__name">
-                                        Thức ăn hỗn hợp dùng cho gà đẻ Ai Cập
-                                    </h4>
-                                    <div class="product-item__price">
-                      <span class="product-item__price-current"
-                      >565.000đ</span
-                      >
-                                    </div>
-                                    <div class="product-item__action">
-                                        <!-- product-item__like--liked -->
-                                        <span class="product-item__like"> </span>
-                                        <div class="product-item__rating"></div>
-                                        <div class="product-item__sold"></div>
-                                    </div>
-                                    <div class="product-item__origin">
-                                        <span class="product-item__brand">KONOVA</span>
-                                    </div>
-                                    <div class="product-item__favourite"></div>
-                                </a>
-                            </div>
-                            <div class="col l-2-4 m-4 c-6">
-                                <!-- Product Item -->
-                                <a
-                                        class="product-item"
-                                        href="/pages/product-detail/index.html"
-                                >
-                                    <div class="product-item__img">
-                                        <img src="../../assets/img/ga/c21.png" alt=""></div>
-                                    <h4 class="product-item__title">
-                                        Con Cò C21
-                                    </h4>
-                                    <h4 class="product-item__name">
-                                        Thức ăn đậm đặc dạng bột cho gà đẻ
-                                    </h4>
-                                    <div class="product-item__price">
-                      <span class="product-item__price-current"
-                      >565.000đ</span
-                      >
-                                    </div>
-                                    <div class="product-item__action">
-                                        <!-- product-item__like--liked -->
-                                        <span class="product-item__like"> </span>
-                                        <div class="product-item__rating"></div>
-                                        <div class="product-item__sold"></div>
-                                    </div>
-                                    <div class="product-item__origin">
-                                        <span class="product-item__brand">KONOVA</span>
-                                    </div>
-                                    <div class="product-item__favourite"></div>
-                                </a>
-                            </div>
-                            <div class="col l-2-4 m-4 c-6">
-                                <!-- Product Item -->
-                                <a
-                                        class="product-item"
-                                        href="/pages/product-detail/index.html"
-                                >
-                                    <div class="product-item__img">
-                                        <img src="../../assets/img/ga/c24.png" alt=""></div>
-                                    <h4 class="product-item__title">
-                                        Con Cò C24
-                                    </h4>
-                                    <h4 class="product-item__name">
-                                        Thức ăn hỗn hợp cho gà đẻ
-                                    </h4>
-                                    <div class="product-item__price">
-                      <span class="product-item__price-current"
-                      >565.000đ</span
-                      >
-                                    </div>
-                                    <div class="product-item__action">
-                                        <!-- product-item__like--liked -->
-                                        <span class="product-item__like"> </span>
-                                        <div class="product-item__rating"></div>
-                                        <div class="product-item__sold"></div>
-                                    </div>
-                                    <div class="product-item__origin">
-                                        <span class="product-item__brand">KONOVA</span>
-                                    </div>
-                                    <div class="product-item__favourite"></div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <!-- Cart detail end -->
         </div>
     </div>
 
-    <!-- Breadcrumb end -->
-    <!-- Container product detail end  -->
-
+    <!--      footer page-->
 
     <footer class="" id="footer">
         <div class="grid wide">
@@ -679,7 +592,7 @@
                                                         id="menu-item-2398"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2398"
                                                 >
-                                                    <a href="#"
+                                                    <a href="https://cargillfeed.com.vn/gioi-thieu/"
                                                     >Giới thiệu Cargill Việt Nam</a
                                                     >
                                                 </li>
@@ -688,7 +601,7 @@
                                                         class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item menu-item-2399"
                                                 >
                                                     <a
-                                                            href="#"
+                                                            href="https://cargillfeed.com.vn/san-pham/"
                                                             aria-current="page"
                                                     >Sản phẩm</a
                                                     >
@@ -698,7 +611,7 @@
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2400"
                                                 >
                                                     <a
-                                                            href="#"
+                                                            href="https://cargillfeed.com.vn/tin-tuc-su-kien/"
                                                     >Tin tức &amp; Sự kiện</a
                                                     >
                                                 </li>
@@ -756,9 +669,27 @@
                 </div>
                 <div class="footer--item footer--social">
                     <div class="">
-                        <div class="quality">
-                            <img src="https://www.anovafeed.vn/Data/Sites/1/media/trangchu/ky-hieu-dathongbao.png">
-                        </div>
+                        <h3 class="footer__heading">Theo dõi</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="#" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="#" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-instagram"></i>
+                                    Instagram
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="#" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-linkedin"></i>
+                                    Linkedin
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -914,7 +845,7 @@
     </div>
 </div>
 <!-- Modal form end -->
-<script src="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
 <script src="main.js"></script>
+<script src="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
