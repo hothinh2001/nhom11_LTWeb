@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- favicon -->
+    <link
+            rel="shortcut icon"
+            href="./assets/img/favicon_icon.png"
+            type="image/x-icon"
+    />
+    <title>Shop Manager</title>
+    <link rel="stylesheet" href="../../assets/css/normalize.css"/>
+    <link rel="stylesheet" href="../../assets/css/base.css"/>
+    <link rel="stylesheet" href="../../assets/css/main&productList.css"/>
+    <link rel="stylesheet" href="../../assets/css/grid.css"/>
+    <link rel="stylesheet" href="../../assets/css/responsive.css"/>
+    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="../../assets/css/responsive.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            rel="stylesheet"
+            href="../../assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+    />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            href="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+</head>
+<body>
+<div class="app">
+    <!-- Header start -->
+    <header class="header">
+        <div class="grid wide">
+            <nav class="navbar hide-on-mobile-tablet">
+                <ul class="navbar__list">
+                </ul>
+                <ul class="navbar__list">
+                    <li
+                            class="navbar__item navbar__item--strong navbar__item--separate js-register"
+                    >
+                        Đăng ký
+                    </li>
+                    <li class="navbar__item navbar__item--strong js-login">
+                        Đăng nhập
+                    </li>
+                    <!-- <li class="navbar__item navbar__user">
+                              <img
+                                src="https://files.fullstack.edu.vn/f8-prod/user_photos/245298/6319feb32c9c6.jpg"
+                                alt="User"
+                                class="navbar__user-img"
+                              />
+                              <span class="navbar__user-name">Lee Trung Nhan</span>
+                              <ul class="navbar__user-menu">
+                                <li class="navbar__user-item">
+                                  <a href="" class="navbar__user-link">Tài khoản của tôi</a>
+                                </li>
+                                <li class="navbar__user-item">
+                                  <a href="" class="navbar__user-link">Đơn mua</a>
+                                </li>
+                                <li class="navbar__user-item navbar__user-item-separate">
+                                  <a href="" class="navbar__user-link">Đăng xuất</a>
+                                </li>
+                              </ul>
+                            </li> -->
+                </ul>
+            </nav>
+            <div class="header-with-search">
+                <label for="mobile-search-checkbox" class="header__mobile-search"
+                ><i
+                        class="fa-solid fa-magnifying-glass header__mobile-search-icon"
+                ></i
+                ></label>
+                <div class="header__logo hide-on-tablet">
+                    <div class="header__logo-container">
+                        <div class="logo-holder logo-4">
+                            <a href="/" class="header__logo-link">
+                                <img src="../../assets/img/logo.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <input
+                        type="checkbox"
+                        hidden
+                        id="mobile-search-checkbox"
+                        class="header__search-checkbox"
+                />
+                <div class="header__search">
+                    <div class="header__search-input-wrapper">
+                        <input
+                                type="text"
+                                class="header__search-input"
+                                placeholder="Nhập để tìm kiếm sản phẩm"
+                        />
+                        <div class="header__search-history">
+                            <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                            <ul class="header__search-history-list">
+                                <li class="header__search-history-item">
+                                    <a href="" class="header__search-history-link">Thức ăn cho heo thịt</a>
+                                </li>
+                                <li class="header__search-history-item">
+                                    <a href="" class="header__search-history-link">thức ăn cho gà đẻ trứng</a>
+                                </li>
+                                <li class="header__search-history-item">
+                                    <a href="" class="header__search-history-link">thức ăn cho cá</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button class="header__search-btn">
+                        <i
+                                class="header__search-btn-icon fa-solid fa-magnifying-glass"
+                        ></i>
+                    </button>
+                </div>
+                <!-- Header Cart start -->
+                <div class="header__cart">
+                    <div class="header__cart-wrapper">
+                        <i class="header__cart-icon fas fa-shopping-cart"></i>
+                        <span class="header__cart-notice">3</span>
+                        <!-- No item in cart header__cart-list--nocart -->
+                        <div class="header__cart-list">
+                            <img
+                                    src="../../assets/img/no_cart.png"
+                                    alt=""
+                                    class="header__cart-nocart-img"
+                            />
+                            <span class="header__cart-nocart-msg">Chưa có sản phẩm</span>
+
+                            <!-- Cart index product start -->
+                            <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                            <ul class="header__cart-list-item">
+                                <li class="header__cart-item">
+                                    <img
+                                            src="https://down-vn.img.susercontent.com/file/vn-11134201-23020-z3aqucatywnvbe_tn"
+                                            alt=""
+                                            class="header__cart-img"
+                                    />
+                                    <div class="header__cart-item-info">
+                                        <div class="header__cart-item-head">
+                                            <h5 class="header__cart-item-name">
+                                                Áo Thun Unisex BAD HABITS LOVER - Local Brand Chính
+                                                Hãng
+                                            </h5>
+                                            <div class="header__cart-item-price-wrap">
+                                                <span class="header__cart-item-price">400.000đ</span>
+                                                <span class="header__cart-item-multiply"> x </span>
+                                                <span class="header__cart-item-qnt">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="header__cart-item-body">
+
+                                            <span class="header__cart-item-remove">Xóa</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="header__cart-item">
+                                    <img
+                                            src="https://down-vn.img.susercontent.com/file/dd44320a188b3df8627218ab7fa92192_tn"
+                                            alt=""
+                                            class="header__cart-img"
+                                    />
+                                    <div class="header__cart-item-info">
+                                        <div class="header__cart-item-head">
+                                            <h5 class="header__cart-item-name">
+                                                Áo Thun Local Brand Unisex Karants Premium 100% Cotton
+                                                Most Famous - KR22
+                                            </h5>
+                                            <div class="header__cart-item-price-wrap">
+                                                <span class="header__cart-item-price">330.000đ</span>
+                                                <span class="header__cart-item-multiply">x</span>
+                                                <span class="header__cart-item-qnt">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        >SIZE: S - Màu: Xanh</span
+                        >
+                                            <span class="header__cart-item-remove">Xóa</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="header__cart-item">
+                                    <img
+                                            src="https://down-vn.img.susercontent.com/file/vn-11134201-23020-z3aqucatywnvbe_tn"
+                                            alt=""
+                                            class="header__cart-img"
+                                    />
+                                    <div class="header__cart-item-info">
+                                        <div class="header__cart-item-head">
+                                            <h5 class="header__cart-item-name">
+                                                Áo Thun Unisex BAD HABITS LOVER - Local Brand Chính
+                                                Hãng
+                                            </h5>
+                                            <div class="header__cart-item-price-wrap">
+                                                <span class="header__cart-item-price">400.000đ</span>
+                                                <span class="header__cart-item-multiply"> x </span>
+                                                <span class="header__cart-item-qnt">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        >SIZE: M - Màu: Xanh</span
+                        >
+                                            <span class="header__cart-item-remove">Xóa</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="header__cart-item">
+                                    <img
+                                            src="https://down-vn.img.susercontent.com/file/dd44320a188b3df8627218ab7fa92192_tn"
+                                            alt=""
+                                            class="header__cart-img"
+                                    />
+                                    <div class="header__cart-item-info">
+                                        <div class="header__cart-item-head">
+                                            <h5 class="header__cart-item-name">
+                                                Áo Thun Local Brand Unisex Karants Premium 100% Cotton
+                                                Most Famous - KR22
+                                            </h5>
+                                            <div class="header__cart-item-price-wrap">
+                                                <span class="header__cart-item-price">330.000đ</span>
+                                                <span class="header__cart-item-multiply">x</span>
+                                                <span class="header__cart-item-qnt">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        >SIZE: S - Màu: Xanh</span
+                        >
+                                            <span class="header__cart-item-remove">Xóa</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="header__cart-item">
+                                    <img
+                                            src="https://down-vn.img.susercontent.com/file/vn-11134201-23020-z3aqucatywnvbe_tn"
+                                            alt=""
+                                            class="header__cart-img"
+                                    />
+                                    <div class="header__cart-item-info">
+                                        <div class="header__cart-item-head">
+                                            <h5 class="header__cart-item-name">
+                                                Áo Thun Unisex BAD HABITS LOVER - Local Brand Chính
+                                                Hãng
+                                            </h5>
+                                            <div class="header__cart-item-price-wrap">
+                                                <span class="header__cart-item-price">400.000đ</span>
+                                                <span class="header__cart-item-multiply"> x </span>
+                                                <span class="header__cart-item-qnt">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        >SIZE: M - Màu: Xanh</span
+                        >
+                                            <span class="header__cart-item-remove">Xóa</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="header__cart-item">
+                                    <img
+                                            src="https://down-vn.img.susercontent.com/file/dd44320a188b3df8627218ab7fa92192_tn"
+                                            alt=""
+                                            class="header__cart-img"
+                                    />
+                                    <div class="header__cart-item-info">
+                                        <div class="header__cart-item-head">
+                                            <h5 class="header__cart-item-name">
+                                                Áo Thun Local Brand Unisex Karants Premium 100% Cotton
+                                                Most Famous - KR22
+                                            </h5>
+                                            <div class="header__cart-item-price-wrap">
+                                                <span class="header__cart-item-price">330.000đ</span>
+                                                <span class="header__cart-item-multiply">x</span>
+                                                <span class="header__cart-item-qnt">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        >SIZE: S - Màu: Xanh</span
+                        >
+                                            <span class="header__cart-item-remove">Xóa</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="header__cart-item">
+                                    <img
+                                            src="https://down-vn.img.susercontent.com/file/vn-11134201-23020-z3aqucatywnvbe_tn"
+                                            alt=""
+                                            class="header__cart-img"
+                                    />
+                                    <div class="header__cart-item-info">
+                                        <div class="header__cart-item-head">
+                                            <h5 class="header__cart-item-name">
+                                                Áo Thun Unisex BAD HABITS LOVER - Local Brand Chính
+                                                Hãng
+                                            </h5>
+                                            <div class="header__cart-item-price-wrap">
+                                                <span class="header__cart-item-price">400.000đ</span>
+                                                <span class="header__cart-item-multiply"> x </span>
+                                                <span class="header__cart-item-qnt">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        >SIZE: M - Màu: Xanh</span
+                        >
+                                            <span class="header__cart-item-remove">Xóa</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="header__cart-item">
+                                    <img
+                                            src="https://down-vn.img.susercontent.com/file/dd44320a188b3df8627218ab7fa92192_tn"
+                                            alt=""
+                                            class="header__cart-img"
+                                    />
+                                    <div class="header__cart-item-info">
+                                        <div class="header__cart-item-head">
+                                            <h5 class="header__cart-item-name">
+                                                Áo Thun Local Brand Unisex Karants Premium 100% Cotton
+                                                Most Famous - KR22
+                                            </h5>
+                                            <div class="header__cart-item-price-wrap">
+                                                <span class="header__cart-item-price">330.000đ</span>
+                                                <span class="header__cart-item-multiply">x</span>
+                                                <span class="header__cart-item-qnt">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        >SIZE: S - Màu: Xanh</span
+                        >
+                                            <span class="header__cart-item-remove">Xóa</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a
+                                    href="/pages/cart/index.html"
+                                    class="header__cart-view-cart btn-base btn--primary"
+                            >
+                                Xem giỏ hàng
+                            </a>
+                            <!-- Cart index product start -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Header Cart end -->
+            </div>
+        </div>
+        <ul class="header__sort-bar">
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">Liên quan</a>
+            </li>
+            <li class="header__sort-item header__sort-item--active">
+                <a href="" class="header__sort-link"> Mới nhất </a>
+            </li>
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link"> Bán chạy </a>
+            </li>
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">
+                    Giá
+                    <i class="header__sort-icon fas fa-angle-down"></i>
+                </a>
+            </li>
+        </ul>
+    </header>
+    <!-- Header end -->
+    <!-- Container start -->
+    <div class="app__container">
+        <div class="grid wide">
+            <!-- Breadcrumb start -->
+            <div class="breadcrumb-wrapper">
+                <ul class="breadcrumb-content">
+                    <li class="breadcrumb-item">
+                        <a href="#" class="breadcrumb-item__link"> Trang chủ </a>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </li>
+
+                    <li class="breadcrumb-item breadcrumb-item--active">
+                        <a href="#" class="breadcrumb-item__link"> Giỏ hàng </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Breadcrumb end -->
+
+            <!-- Cart detail start -->
+            <div class="cart-detail">
+                <div class="cart-detail-wrapper row">
+                    <div class="col l-8 m-12 c-12 cart-detail__left">
+                        <div class="cart-detail__left-wrapper">
+                            <div class="cart-detail__left-heading">
+                                <h3 class="cart-detail__left-heading-title">Giỏ hàng</h3>
+                                <span class="cart-detail__left-heading-quantity"
+                                >2 sản phẩm</span
+                                >
+                            </div>
+                            <div class="cart-detail__left-body">
+                                <ul class="cart-detail__left-list">
+                                    <li class="cart-detail__left-item">
+                                        <div class="cart-detail__left-item-img">
+                                            <img
+                                                    src="../../assets/img/ga/ga-sieu-um.png"
+                                                    alt=""
+                                                    class="cart-detail__left-item-img-src"
+                                            />
+                                        </div>
+                                        <div class="cart-detail__left-item-info">
+                                            <div class="cart-detail__left-item-head">
+                                                <h5 class="cart-detail__left-item-name">
+                                                    Bio-zeem Siêu úm
+                                                </h5>
+                                                <div class="cart-detail__left-item-price-wrap">
+                              <span class="cart-detail__left-item-price"
+                              >565.000đ</span
+                              >
+                                                    <span class="cart-detail__left-item-multiply">
+                                x
+                              </span>
+                                                    <span class="cart-detail__left-item-qnt">1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-detail__left-item-body">
+
+                                                <span class="cart-detail__left-item-remove"
+                                                >Xóa</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart-detail__left-item">
+                                        <div class="cart-detail__left-item-img">
+                                            <img
+                                                    src="../../assets/img/ga/con-co-ai-cap.png"
+                                                    alt=""
+                                                    class="cart-detail__left-item-img-src"
+                                            />
+                                        </div>
+                                        <div class="cart-detail__left-item-info">
+                                            <div class="cart-detail__left-item-head">
+                                                <h5 class="cart-detail__left-item-name">
+                                                    Con Cò Ai cập
+                                                </h5>
+                                                <div class="cart-detail__left-item-price-wrap">
+                              <span class="cart-detail__left-item-price"
+                              >535.000đ</span
+                              >
+                                                    <span class="cart-detail__left-item-multiply"
+                                                    >x</span
+                                                    >
+                                                    <span class="cart-detail__left-item-qnt">1</span>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="cart-detail__left-item-body">
+
+                                                <span class="cart-detail__left-item-remove"
+                                                >Xóa</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-4 m-12 c-12 cart-detail__right">
+                        <div class="cart-detail__right-wrapper">
+                            <div class="cart-detail__right-heading">
+                                <h3 class="cart-detail__right-heading-title">Thông tin</h3>
+                            </div>
+                            <div class="cart-detail__right-body">
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Tạm tính</span
+                      >
+                                    <span class="cart-detail__right-body-item-value"
+                                    >1.100.000đ</span
+                                    >
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Phí vận chuyển</span
+                      >
+                                    <span class="cart-detail__right-body-item-value"
+                                    >30.000đ</span
+                                    >
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Tổng cộng</span
+                      >
+                                    <span class="cart-detail__right-body-item-value"
+                                    >1.130.000đ</span
+                                    >
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Mã giảm giá</span
+                      >
+                                    <span class="cart-detail__right-body-item-value"
+                                    >- 0đ</span
+                                    >
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Thành tiền</span
+                      >
+                                    <span class="cart-detail__right-body-item-value"
+                                    >1.130.000đ</span
+                                    >
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Tiết kiệm</span
+                      >
+                                    <span class="cart-detail__right-body-item-value">0đ</span>
+                                </div>
+                                <div class="cart-detail__right-body-item">
+                      <span class="cart-detail__right-body-item-label"
+                      >Điểm tích lũy</span
+                      >
+                                    <span class="cart-detail__right-body-item-value">0đ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-detail__right-footer">
+                            <a href="#">
+                                <button type="button" class="btn btn-primary btn-material">Tiến hành đặt hàng</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart detail end -->
+        </div>
+    </div>
+
+    <!--      footer page-->
+
+    <footer class="" id="footer">
+        <div class="grid wide">
+            <div class="footer--content">
+                <div class="footer--item">
+                    <p>
+                        © 2019 Cargill, Incorporated.<br/>Bản Quyền Được Bảo Lưu.
+                        <br/>Phát triển bởi
+                        BA AE SIÊU NHÂN
+                    </p>
+                </div>
+                <div class="footer--item">
+                    <div class="col-inner">
+                        <div
+                                id="gap-2083060811"
+                                class="gap-element clearfix show-for-medium"
+                                style="display: block; height: auto"
+                        ></div>
+                        <h5>Văn phòng Cargill tại Việt Nam</h5>
+                        <p>
+                            Lầu 10-11, Trung tâm Thương mại Maple Tree 1060 Nguyễn Văn Linh,
+                            P. Tân Phong, Q.7, TP Hồ Chí Minh, Việt Nam<br/>Tel:
+                            +84-28-5416 1515<br/>Fax: +84-28-5416 0495
+                        </p>
+                    </div>
+                </div>
+                <div class="footer--item footer--item-2">
+                    <div class="col-inner">
+                        <h5>Chuyên mục</h5>
+                        <div class="row row-small" id="row-1858634641">
+                            <div class="col medium-6 small-12 large-6">
+                                <div class="col-inner">
+                                    <div class="vinahi-menuwrap">
+                                        <div class="menu-menu-chuyen-muc-footer-left-container">
+                                            <ul
+                                                    id="menu-menu-chuyen-muc-footer-left"
+                                                    class="vinahi-menu"
+                                            >
+                                                <li
+                                                        id="menu-item-2398"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2398"
+                                                >
+                                                    <a href="https://cargillfeed.com.vn/gioi-thieu/"
+                                                    >Giới thiệu Cargill Việt Nam</a
+                                                    >
+                                                </li>
+                                                <li
+                                                        id="menu-item-2399"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item menu-item-2399"
+                                                >
+                                                    <a
+                                                            href="https://cargillfeed.com.vn/san-pham/"
+                                                            aria-current="page"
+                                                    >Sản phẩm</a
+                                                    >
+                                                </li>
+                                                <li
+                                                        id="menu-item-2400"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2400"
+                                                >
+                                                    <a
+                                                            href="https://cargillfeed.com.vn/tin-tuc-su-kien/"
+                                                    >Tin tức &amp; Sự kiện</a
+                                                    >
+                                                </li>
+                                                <li
+                                                        id="menu-item-2401"
+                                                        class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2401"
+                                                >
+                                                    <a
+                                                            href="https://cargillfeed.com.vn/kien-thuc-chan-nuoi/"
+                                                    >Kiến thức chăn nuôi</a
+                                                    >
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col medium-6 small-12 large-6">
+                                <div class="col-inner">
+                                    <div class="vinahi-menuwrap">
+                                        <div class="menu-menu-chuyen-muc-footer-right-container">
+                                            <ul
+                                                    id="menu-menu-chuyen-muc-footer-right"
+                                                    class="vinahi-menu"
+                                            >
+                                                <li
+                                                        id="menu-item-2411"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2411"
+                                                >
+                                                    <a href="https://cargillfeed.com.vn/lien-he/"
+                                                    >Liên hệ</a
+                                                    >
+                                                </li>
+                                                <li
+                                                        id="menu-item-2412"
+                                                        class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2412"
+                                                >
+                                                    <a href="https://cargillfeed.com.vn/tuyen-dung/"
+                                                    >Tuyển dụng</a
+                                                    >
+                                                </li>
+                                                <li
+                                                        id="menu-item-2413"
+                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2413"
+                                                >
+                                                    <a href="#">Học viện ANA</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer--item footer--social">
+                    <div class="">
+                        <h3 class="footer__heading">Theo dõi</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="#" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="#" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-instagram"></i>
+                                    Instagram
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="#" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-linkedin"></i>
+                                    Linkedin
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer end -->
+</div>
+<!-- Modal form start -->
+<div class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__body">
+        <!-- Register form start -->
+        <div id="regiter-form" class="auth-form">
+            <div class="auth-form__container">
+                <div class="auth-form__header">
+                    <h3 class="auth-form__heading">Đăng ký</h3>
+                    <span class="auth-form__switch-btn js-switch-login"
+                    >Đăng nhập</span
+                    >
+                </div>
+                <div class="auth-form__form">
+                    <div class="auth-form__group">
+                        <input
+                                type="email"
+                                class="auth-form__input"
+                                placeholder="Email của bạn"
+                        />
+                    </div>
+                    <div class="auth-form__group">
+                        <input
+                                type="password"
+                                class="auth-form__input"
+                                placeholder="Mật khẩu của bạn"
+                        />
+                    </div>
+                    <div class="auth-form__group">
+                        <input
+                                type="password"
+                                class="auth-form__input"
+                                placeholder="Nhập lại mật khẩu"
+                        />
+                    </div>
+                </div>
+                <div class="auth-form__aside">
+                    <p class="auth-form__policy-text">
+                        Bằng việc đăng ký, bạn đã đồng ý với Shop về
+                        <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a>
+                        &
+                        <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
+                    </p>
+                </div>
+                <div class="auth-form__controls">
+                    <button class="btn btn--normal auth-form__control-back-btn">
+                        TRỞ LẠI
+                    </button>
+                    <button class="btn btn--primary">ĐĂNG KÝ</button>
+                </div>
+            </div>
+            <div class="auth-form__socials">
+                <a
+                        href=""
+                        class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
+                >
+                    <i
+                            class="auth-form__socials-icon fa-brands fa-facebook-square"
+                    ></i>
+                    <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                </a>
+                <a
+                        href=""
+                        class="auth-form__socials--google btn btn--size-s btn--with-icon"
+                >
+              <span class="auth-form__logo-social-img">
+                <img
+                        src="../../assets/img/google_signin.png"
+                        alt="Google"
+                        class="google-login__img"
+                />
+              </span>
+                    <span class="auth-form__socials-title">Kết nối với Google</span>
+                </a>
+            </div>
+        </div>
+        <!-- Register form end -->
+        <!-- Login form start -->
+        <div id="login-form" class="auth-form">
+            <div class="auth-form__container">
+                <div class="auth-form__header">
+                    <h3 class="auth-form__heading">Đăng nhập</h3>
+                    <span class="auth-form__switch-btn js-switch-register"
+                    >Đăng ký</span
+                    >
+                </div>
+                <div class="auth-form__form">
+                    <div class="auth-form__group">
+                        <input
+                                type="email"
+                                class="auth-form__input"
+                                placeholder="Email của bạn"
+                        />
+                    </div>
+                    <div class="auth-form__group">
+                        <input
+                                type="password"
+                                class="auth-form__input"
+                                placeholder="Mật khẩu của bạn"
+                        />
+                    </div>
+                </div>
+                <div class="auth-form__aside">
+                    <div class="auth-form__help">
+                        <a href="" class="auth-form__help-link auth-form__help-forgot">
+                            Quên mật khẩu
+                        </a>
+                        <span class="auth-form__help-separate"></span>
+                        <a href="" class="auth-form__help-link"> Cần trợ giúp? </a>
+                    </div>
+                </div>
+                <div class="auth-form__controls">
+                    <button class="btn btn--normal auth-form__control-back-btn">
+                        TRỞ LẠI
+                    </button>
+                    <button class="btn btn--primary">ĐĂNG NHẬP</button>
+                </div>
+            </div>
+            <div class="auth-form__socials">
+                <a
+                        href=""
+                        class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
+                >
+                    <i
+                            class="auth-form__socials-icon fa-brands fa-facebook-square"
+                    ></i>
+                    <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                </a>
+                <a
+                        href=""
+                        class="auth-form__socials--google btn btn--size-s btn--with-icon"
+                >
+                    <!-- <i class="auth-form__socials-icon fa-brands fa-google"></i> -->
+                    <span class="auth-form__logo-social-img">
+                <img
+                        src="../../assets/img/google_signin.png"
+                        alt="Google"
+                        class="google-login__img"
+                />
+              </span>
+                    <span class="auth-form__socials-title">Kết nối với Google</span>
+                </a>
+            </div>
+        </div>
+        <!-- Login form end -->
+    </div>
+</div>
+<!-- Modal form end -->
+<script src="main.js"></script>
+<script src="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
