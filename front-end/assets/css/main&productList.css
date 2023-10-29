@@ -121,6 +121,11 @@
     display: flex;
 }
 
+.navbar__list a {
+    color: black !important;
+    font-size: 16px !important;
+}
+
 .navbar__item {
     margin: 0 8px;
     position: relative;
@@ -1711,4 +1716,10 @@ i.product-item__like-icon-fill {
 
 .vinahi-menu li {
     margin-bottom: 6px;
+}
+
+.quality img {
+    height: 100px;
+    margin-left: -80px;
+    margin-top: 32px;
 }

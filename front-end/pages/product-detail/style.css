@@ -313,6 +313,10 @@ a {
     display: block;
 }
 
+.product-detail__info-cart-btn a {
+    color: white !important;;
+}
+
 .product-related {
     margin: 0 -8px;
 }
@@ -423,3 +427,4 @@ a {
 .vinahi-menu a {
     text-decoration: none !important;
 }
+

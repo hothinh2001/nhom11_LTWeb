@@ -6,7 +6,7 @@
     <!-- favicon -->
     <link
             rel="shortcut icon"
-            href="./assets/img/favicon_icon.png"
+            href="../../assets/img/logo.jpg"
             type="image/x-icon"
     />
     <title>Shop Manager</title>
@@ -44,10 +44,10 @@
                     <li
                             class="navbar__item navbar__item--strong navbar__item--separate js-register"
                     >
-                        Đăng ký
+                        <a href="../../pages/register/index.html"> Đăng ký</a>
                     </li>
                     <li class="navbar__item navbar__item--strong js-login">
-                        Đăng nhập
+                        <a href="../../pages/login/index.html"> Đăng nhập </a>
                     </li>
                     <!--                <li class="navbar__item navbar__user">-->
                     <!--                    <img-->
@@ -748,7 +748,7 @@
                                                 >
                                                     <a
                                                             href="https://cargillfeed.com.vn/tin-tuc-su-kien/"
-                                                    >Tin tức &amp; Sự kiện</a
+                                                    >Tin tức & Sự kiện</a
                                                     >
                                                 </li>
                                                 <li
@@ -805,27 +805,9 @@
                 </div>
                 <div class="footer--item footer--social">
                     <div class="">
-                        <h3 class="footer__heading">Theo dõi</h3>
-                        <ul class="footer-list">
-                            <li class="footer-item">
-                                <a href="#" class="footer-item__link">
-                                    <i class="footer-item__icon fab fa-facebook"></i>
-                                    Facebook
-                                </a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="#" class="footer-item__link">
-                                    <i class="footer-item__icon fab fa-instagram"></i>
-                                    Instagram
-                                </a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="#" class="footer-item__link">
-                                    <i class="footer-item__icon fab fa-linkedin"></i>
-                                    Linkedin
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="quality">
+                            <img src="https://www.anovafeed.vn/Data/Sites/1/media/trangchu/ky-hieu-dathongbao.png">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -833,153 +815,7 @@
     </footer>
     <!-- Footer end -->
 </div>
-<!-- Modal form start -->
-<div class="modal">
-    <div class="modal__overlay"></div>
-    <div class="modal__body">
-        <!-- Register form start -->
-        <div id="regiter-form" class="auth-form">
-            <div class="auth-form__container">
-                <div class="auth-form__header">
-                    <h3 class="auth-form__heading">Đăng ký</h3>
-                    <span class="auth-form__switch-btn js-switch-login"
-                    >Đăng nhập</span
-                    >
-                </div>
-                <div class="auth-form__form">
-                    <div class="auth-form__group">
-                        <input
-                                type="email"
-                                class="auth-form__input"
-                                placeholder="Email của bạn"
-                        />
-                    </div>
-                    <div class="auth-form__group">
-                        <input
-                                type="password"
-                                class="auth-form__input"
-                                placeholder="Mật khẩu của bạn"
-                        />
-                    </div>
-                    <div class="auth-form__group">
-                        <input
-                                type="password"
-                                class="auth-form__input"
-                                placeholder="Nhập lại mật khẩu"
-                        />
-                    </div>
-                </div>
-                <div class="auth-form__aside">
-                    <p class="auth-form__policy-text">
-                        Bằng việc đăng ký, bạn đã đồng ý với Shop về
-                        <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a>
-                        &
-                        <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
-                    </p>
-                </div>
-                <div class="auth-form__controls">
-                    <button class="btn btn--normal auth-form__control-back-btn">
-                        TRỞ LẠI
-                    </button>
-                    <button class="btn btn--primary">ĐĂNG KÝ</button>
-                </div>
-            </div>
-            <div class="auth-form__socials">
-                <a
-                        href=""
-                        class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
-                >
-                    <i
-                            class="auth-form__socials-icon fa-brands fa-facebook-square"
-                    ></i>
-                    <span class="auth-form__socials-title">Kết nối với Facebook</span>
-                </a>
-                <a
-                        href=""
-                        class="auth-form__socials--google btn btn--size-s btn--with-icon"
-                >
-              <span class="auth-form__logo-social-img">
-                <img
-                        src="../../assets/img/google_signin.png"
-                        alt="Google"
-                        class="google-login__img"
-                />
-              </span>
-                    <span class="auth-form__socials-title">Kết nối với Google</span>
-                </a>
-            </div>
-        </div>
-        <!-- Register form end -->
-        <!-- Login form start -->
-        <div id="login-form" class="auth-form">
-            <div class="auth-form__container">
-                <div class="auth-form__header">
-                    <h3 class="auth-form__heading">Đăng nhập</h3>
-                    <span class="auth-form__switch-btn js-switch-register"
-                    >Đăng ký</span
-                    >
-                </div>
-                <div class="auth-form__form">
-                    <div class="auth-form__group">
-                        <input
-                                type="email"
-                                class="auth-form__input"
-                                placeholder="Email của bạn"
-                        />
-                    </div>
-                    <div class="auth-form__group">
-                        <input
-                                type="password"
-                                class="auth-form__input"
-                                placeholder="Mật khẩu của bạn"
-                        />
-                    </div>
-                </div>
-                <div class="auth-form__aside">
-                    <div class="auth-form__help">
-                        <a href="" class="auth-form__help-link auth-form__help-forgot">
-                            Quên mật khẩu
-                        </a>
-                        <span class="auth-form__help-separate"></span>
-                        <a href="" class="auth-form__help-link"> Cần trợ giúp? </a>
-                    </div>
-                </div>
-                <div class="auth-form__controls">
-                    <button class="btn btn--normal auth-form__control-back-btn">
-                        TRỞ LẠI
-                    </button>
-                    <button class="btn btn--primary">ĐĂNG NHẬP</button>
-                </div>
-            </div>
-            <div class="auth-form__socials">
-                <a
-                        href=""
-                        class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
-                >
-                    <i
-                            class="auth-form__socials-icon fa-brands fa-facebook-square"
-                    ></i>
-                    <span class="auth-form__socials-title">Kết nối với Facebook</span>
-                </a>
-                <a
-                        href=""
-                        class="auth-form__socials--google btn btn--size-s btn--with-icon"
-                >
-                    <!-- <i class="auth-form__socials-icon fa-brands fa-google"></i> -->
-                    <span class="auth-form__logo-social-img">
-                <img
-                        src="../../assets/img/google_signin.png"
-                        alt="Google"
-                        class="google-login__img"
-                />
-              </span>
-                    <span class="auth-form__socials-title">Kết nối với Google</span>
-                </a>
-            </div>
-        </div>
-        <!-- Login form end -->
-    </div>
-</div>
+
 <!-- Modal form end -->
 <script src="main.js"></script>
 <script src="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
