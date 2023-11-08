@@ -5,6 +5,13 @@ a {
     font-weight: 700;
     cursor: pointer;
 }
+body .hide-navbar-nav{
+    display: none;
+}
+
+.breadcrumb-wrapper {
+    margin: 0 -15px;
+}
 
 .product-detail {
     padding-bottom: 10px;

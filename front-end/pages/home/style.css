@@ -1,3 +1,4 @@
+
 a {
     text-decoration: none !important;
     color: white;
@@ -92,11 +93,18 @@ a {
     background-color: white;
 }
 
-.best__selling--content .product-item__img img{
+.best__selling--content .product-item__img img {
     width: 238px;
     height: 300px;
 }
-.product-item__img{
+
+.product-item__img {
     padding-top: 0;
 }
 
+.mobile-header__nav {
+    display: none;
+}
+.header__navbar-nav{
+    /*display: none;*/
+}
