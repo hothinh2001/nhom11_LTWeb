@@ -731,8 +731,8 @@
 
 .header__cart-list {
     position: absolute;
-    top: calc(100% + 10px);
-    right: -30rem;
+    top: calc(100% + 18px);
+    right: -3rem;
     background-color: var(--white-color);
     width: 40rem;
     border-radius: 2px;
@@ -751,7 +751,7 @@
     border: 15px solid transparent;
     border-bottom: 10px solid var(--white-color);
     top: -2.4rem;
-    right: 33rem;
+    right: 4rem;
     cursor: pointer;
 }
 
