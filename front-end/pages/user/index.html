@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Đăng nhập</title>
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="wrapper">
+  <form action="" id="form-login">
+    <h1 class="form-heading">Thông tin chỉnh sửa</h1>
+    <div class="form-group">
+      <i class="far fa-user"></i>
+      <input type="text" class="form-input" placeholder="Họ và tên" />
+    </div>
+
+    <div class="form-group" style="border-bottom:none">
+      <label style="margin: 5px" for="dateOfBirth">Ngày sinh</label>
+      <input type="text" class="form-contol" id="dateOfBirth" name="dateOfBirth">
+      <span
+              style="font-size: 14px;">dd/mm/yyyy</span>
+    </div>
+
+    <div class="form-group" style="width: 50%;border-bottom:none">
+      <label>Giới tính</label>
+      <select  id="gender" name="gender"
+               style="width: 100%; font-size: 16px; padding: 6.5px 10px">
+        <option value="khac">Khác</option>
+        <option value="Nam">Nam</option>
+        <option value="Nu">Nữ</option>
+      </select>
+
+    </div>
+
+    <div class="form-group">
+      <i class="fas fa-address-card"></i>
+      <input type="text" class="form-input" placeholder="Địa chỉ " />
+    </div>
+
+    <div class="form-group">
+      <i class="fas fa-envelope-open"></i>
+      <input type="text" class="form-input" placeholder="Email" />
+    </div>
+    <div class="form-group">
+      <i class="fas fa-phone"></i>
+      <input type="text" class="form-input" placeholder="Số điện thoại" />
+    </div>
+    <div class="form-avata">
+      <form method="POST">
+        <div class="picture col-half" style="width: 30%;text-align: center;margin-left: 80px; ">
+          <div id="picture">
+            <img id="preview" alt=""
+                 style="width: 266px;border-radius: 50%; border: 1px solid; height: 266px;"/>
+          </div>
+        </div>
+          <label for="file-upload" class="custom-file-upload">
+            Chọn ảnh mới
+          </label>
+          <input id="file-upload" type="file" name="file"/>
+        <button type="submit" class=" btn btn-primary" id="save_1" style="height: 45px">Lưu ảnh</button>
+    </div>
+    <div><a href="" class="quenmatkhau-link">Hủy</a>
+    </div>
+    <div>
+      <input type="submit" value="Cập Nhật " class="form-submit" />
+    </div>
+  </form>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+<script src="app.js"></script>
+</html>
