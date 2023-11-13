@@ -1537,3 +1537,24 @@ i.product-item__like-icon-fill {
 .breadcrumb-item--active .breadcrumb-item__link {
     color: var(--primary-color);
 }
+.container-top {
+    width: 100%;
+}
+.contact-item__img {
+    padding-top: 100%;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: top center;
+    margin-left: -20%;
+
+
+}
+.row sm-gutter app__content {
+    width: 50%;
+    float: left;
+}
+.container-right {
+
+    width: 50%;
+    float: right;
+}
