@@ -1212,7 +1212,6 @@ body .navbar-light .navbar-toggler {
             rgba(0, 0, 0, 0.5) 50%
     );
     background-blend-mode: soft-light, screen;
-    padding-bottom: 40px;
 }
 
 .category {
