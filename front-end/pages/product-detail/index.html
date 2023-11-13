@@ -50,37 +50,32 @@
                     <li class="navbar__item navbar__item--strong js-login">
                         <a href="../../pages/login/index.html"> Đăng nhập </a>
                     </li>
-                    <!--                <li class="navbar__item navbar__user">-->
-                    <!--                    <img-->
-                    <!--                            src="https://files.fullstack.edu.vn/f8-prod/user_photos/245298/6319feb32c9c6.jpg"-->
-                    <!--                            alt="User"-->
-                    <!--                            class="navbar__user-img"-->
-                    <!--                    />-->
-                    <!--                    <span class="navbar__user-name">Lee Trung Nhan</span>-->
-                    <!--                    <ul class="navbar__user-menu">-->
-                    <!--                        <li class="navbar__user-item">-->
-                    <!--                            <a href="" class="navbar__user-link">Tài khoản của tôi</a>-->
-                    <!--                        </li>-->
-                    <!--                        <li class="navbar__user-item">-->
-                    <!--                            <a href="" class="navbar__user-link">Đơn mua</a>-->
-                    <!--                        </li>-->
-                    <!--                        <li class="navbar__user-item navbar__user-item-separate">-->
-                    <!--                            <a href="" class="navbar__user-link">Đăng xuất</a>-->
-                    <!--                        </li>-->
-                    <!--                    </ul>-->
-                    <!--                </li>-->
+                    <li class="navbar__item navbar__user">
+                        <img
+                                src="../../assets/img/user_avatar.png"
+                                alt="User"
+                                class="navbar__user-img"
+                        />
+                        <span class="navbar__user-name">Tran Ngoc Bao Tran</span>
+                        <ul class="navbar__user-menu">
+                            <li class="navbar__user-item">
+                                <a href="../user/index.html" class="navbar__user-link">Tài khoản của tôi</a>
+                            </li>
+                            <li class="navbar__user-item">
+                                <a href="" class="navbar__user-link">Đơn mua</a>
+                            </li>
+                            <li class="navbar__user-item navbar__user-item-separate">
+                                <a href="" class="navbar__user-link">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <div class="header-with-search">
-                <label for="mobile-search-checkbox" class="header__mobile-search"
-                ><i
-                        class="fa-solid fa-magnifying-glass header__mobile-search-icon"
-                ></i
-                ></label>
                 <div class="header__logo hide-on-tablet">
                     <div class="header__logo-container">
                         <div class="logo-holder logo-4">
-                            <a href="/" class="header__logo-link">
+                            <a href="../home/index.html" class="header__logo-link">
                                 <img src="../../assets/img/logo.jpg" alt="">
                             </a>
                         </div>
@@ -132,108 +127,148 @@
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link nav-link-sm active" aria-current="page"
-                                           href="../home/index.html">Trang chủ</a>
-                                    </li>
-                                    <li class="nav-item dropdown header__cart-wrapper">
-                                        <a class="nav-link nav-link-sm dropdown-toggle" href="#" id="productDropdown"
-                                           role="button"
-                                           data-bs-toggle="dropdown" aria-expanded="false">
-                                            Sản phẩm
-                                        </a>
-                                        <div class="header__cart-list-product">
-                                            <!-- Cart index product start -->
-                                            <div class="header__cart-list-product-type">
-                                                <div class="header__cart-list-product-name">
-                                                    <a href="#" class="header__cart-list-product-link">
-                                                        Thức ăn cho Heo
-                                                    </a>
-                                                    <hr width="30%" align="left"/>
-                                                    <ul class="header__cart-list-product-item">
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#">Heo con</a>
-                                                        </li>
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#">Heo thịt</a>
-                                                        </li>
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#">Heo nái</a>
-                                                        </li>
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#">Heo đực</a>
-                                                        </li>
-                                                    </ul>
+                                <div class="navbar-nav">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link nav-link-sm active" aria-current="page"
+                                               href="../home/index.html">Trang chủ</a>
+                                        </li>
+                                        <li class="nav-item dropdown header__cart-wrapper">
+                                            <a class="nav-link nav-link-sm dropdown-toggle" href="#"
+                                               id="productDropdown"
+                                               role="button"
+                                               data-bs-toggle="dropdown" aria-expanded="false">
+                                                Sản phẩm
+                                            </a>
+                                            <div class="header__cart-list-product">
+                                                <!-- Cart index product start -->
+                                                <div class="header__cart-list-product-type">
+                                                    <div class="header__cart-list-product-name">
+                                                        <a href="#" class="header__cart-list-product-link">
+                                                            Thức ăn cho Heo
+                                                        </a>
+                                                        <hr width="30%" align="left"/>
+                                                        <ul class="header__cart-list-product-item">
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#">Heo con</a>
+                                                            </li>
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#">Heo thịt</a>
+                                                            </li>
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#">Heo nái</a>
+                                                            </li>
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#">Heo đực</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="header__cart-list-product-name">
+                                                        <a href="#" class="header__cart-list-product-link">
+                                                            Thức ăn cho Cá
+                                                        </a>
+                                                        <hr width="30%" align="left"/>
+                                                        <ul class="header__cart-list-product-item">
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#">Cá có vảy</a>
+                                                            </li>
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#">Cá tra, Cá Basa</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="header__cart-list-product-name">
+                                                        <a href="#" class="header__cart-list-product-link">
+                                                            Thức ăn Gia cầm
+                                                        </a>
+                                                        <hr width="30%" align="left"/>
+                                                        <ul class="header__cart-list-product-item">
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#">Gà thịt</a>
+                                                            </li>
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#"> Gà đẻ</a>
+                                                            </li>
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#"> Gà ta, Gà tàu</a>
+                                                            </li>
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#">Gà thịt thả vườn</a>
+                                                            </li>
+                                                            <li class="header__cart-item-product">
+                                                                <a href="#"> Gà giống bố mẹ</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                                <div class="header__cart-list-product-name">
-                                                    <a href="#" class="header__cart-list-product-link">
-                                                        Thức ăn cho Cá
-                                                    </a>
-                                                    <hr width="30%" align="left"/>
-                                                    <ul class="header__cart-list-product-item">
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#">Cá có vảy</a>
-                                                        </li>
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#">Cá tra, Cá Basa</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="header__cart-list-product-name">
-                                                    <a href="#" class="header__cart-list-product-link">
-                                                        Thức ăn Gia cầm
-                                                    </a>
-                                                    <hr width="30%" align="left"/>
-                                                    <ul class="header__cart-list-product-item">
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#">Gà thịt</a>
-                                                        </li>
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#"> Gà đẻ</a>
-                                                        </li>
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#"> Gà ta, Gà tàu</a>
-                                                        </li>
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#">Gà thịt thả vườn</a>
-                                                        </li>
-                                                        <li class="header__cart-item-product">
-                                                            <a href="#"> Gà giống bố mẹ</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                <!-- Cart index product start -->
                                             </div>
-                                            <!-- Cart index product start -->
+                                        </li>
+                                        <li class="nav-item dropdown header__cart-wrapper">
+                                            <a class="nav-link nav-link-lg dropdown-toggle" href="#" id="navbarDropdown"
+                                               role="button"
+                                               data-bs-toggle="dropdown" aria-expanded="false">
+                                                Tin tức & Sự kiện
+                                            </a>
+                                            <div class="header__cart-list-news ">
+                                                <!-- Cart index product start -->
+                                                <ul class="header__cart-list-item">
+                                                    <li class="header__cart-item-news">
+                                                        Bản tin doanh nghiệp
+                                                    </li>
+                                                    <hr width="30%" align="left"/>
+                                                    <li class="header__cart-item-news">
+                                                        Animal Feed
+                                                    </li>
+                                                </ul>
+                                                <!-- Cart index product start -->
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link nav-link-lg" href="#">Kiến thức chăn nuôi</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link nav-link-sm" href="#">Liên hệ</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="navbar-nav hide-navbar-nav">
+                                    <div class="header__search">
+                                        <div class="header__search-input-wrapper">
+                                            <input
+                                                    type="text"
+                                                    class="header__search-input"
+                                                    placeholder="Tìm kiếm..."
+                                            />
+                                            <div class="header__search-history">
+                                                <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                                                <ul class="header__search-history-list">
+                                                    <li class="header__search-history-item">
+                                                        <a href="" class="header__search-history-link">Thức ăn cho heo
+                                                            thịt</a>
+                                                    </li>
+                                                    <li class="header__search-history-item">
+                                                        <a href="" class="header__search-history-link">thức ăn cho gà đẻ
+                                                            trứng</a>
+                                                    </li>
+                                                    <li class="header__search-history-item">
+                                                        <a href="" class="header__search-history-link">thức ăn cho
+                                                            cá</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </li>
-                                    <li class="nav-item dropdown header__cart-wrapper">
-                                        <a class="nav-link nav-link-lg dropdown-toggle" href="#" id="navbarDropdown"
-                                           role="button"
-                                           data-bs-toggle="dropdown" aria-expanded="false">
-                                            Tin tức & Sự kiện
-                                        </a>
-                                        <div class="header__cart-list-news ">
-                                            <!-- Cart index product start -->
-                                            <ul class="header__cart-list-item">
-                                                <li class="header__cart-item-news">
-                                                    Bản tin doanh nghiệp
-                                                </li>
-                                                <hr width="30%" align="left"/>
-                                                <li class="header__cart-item-news">
-                                                    Animal Feed
-                                                </li>
-                                            </ul>
-                                            <!-- Cart index product start -->
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link nav-link-lg" href="#">Kiến thức chăn nuôi</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link nav-link-sm" href="#">Liên hệ</a>
-                                    </li>
-                                </ul>
+
+                                        <button class="header__search-btn">
+                                            <i
+                                                    class="header__search-btn-icon fa-solid fa-magnifying-glass"
+                                            ></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                                <!--                   form search-->
                                 <form class="d-flex">
                                     <div class="header__search">
                                         <div class="header__search-input-wrapper">
@@ -291,44 +326,17 @@
                             <ul class="header__cart-list-item">
                                 <li class="header__cart-item">
                                     <img
-                                            src="https://down-vn.img.susercontent.com/file/vn-11134201-23020-z3aqucatywnvbe_tn"
+                                            src="../../assets/img/ga/c24s.png"
                                             alt=""
                                             class="header__cart-img"
                                     />
                                     <div class="header__cart-item-info">
                                         <div class="header__cart-item-head">
                                             <h5 class="header__cart-item-name">
-                                                Áo Thun Unisex BAD HABITS LOVER - Local Brand Chính
-                                                Hãng
+                                                Con Cò 00-09
                                             </h5>
                                             <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">400.000đ</span>
-                                                <span class="header__cart-item-multiply"> x </span>
-                                                <span class="header__cart-item-qnt">1</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                        <span class="header__cart-item-description"
-                        ></span
-                        >
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header__cart-item">
-                                    <img
-                                            src="https://down-vn.img.susercontent.com/file/dd44320a188b3df8627218ab7fa92192_tn"
-                                            alt=""
-                                            class="header__cart-img"
-                                    />
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">
-                                                Áo Thun Local Brand Unisex Karants Premium 100% Cotton
-                                                Most Famous - KR22
-                                            </h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">330.000đ</span>
+                                                <span class="header__cart-item-price">550.000đ</span>
                                                 <span class="header__cart-item-multiply">x</span>
                                                 <span class="header__cart-item-qnt">1</span>
                                             </div>
@@ -343,44 +351,17 @@
                                 </li>
                                 <li class="header__cart-item">
                                     <img
-                                            src="https://down-vn.img.susercontent.com/file/vn-11134201-23020-z3aqucatywnvbe_tn"
+                                            src="../../assets/img/ga/c24.png"
                                             alt=""
                                             class="header__cart-img"
                                     />
                                     <div class="header__cart-item-info">
                                         <div class="header__cart-item-head">
                                             <h5 class="header__cart-item-name">
-                                                Áo Thun Unisex BAD HABITS LOVER - Local Brand Chính
-                                                Hãng
+                                                Con Cò C24
                                             </h5>
                                             <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">400.000đ</span>
-                                                <span class="header__cart-item-multiply"> x </span>
-                                                <span class="header__cart-item-qnt">1</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                        <span class="header__cart-item-description"
-                        ></span
-                        >
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header__cart-item">
-                                    <img
-                                            src="https://down-vn.img.susercontent.com/file/dd44320a188b3df8627218ab7fa92192_tn"
-                                            alt=""
-                                            class="header__cart-img"
-                                    />
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">
-                                                Áo Thun Local Brand Unisex Karants Premium 100% Cotton
-                                                Most Famous - KR22
-                                            </h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">330.000đ</span>
+                                                <span class="header__cart-item-price">550.000đ</span>
                                                 <span class="header__cart-item-multiply">x</span>
                                                 <span class="header__cart-item-qnt">1</span>
                                             </div>
@@ -395,96 +376,17 @@
                                 </li>
                                 <li class="header__cart-item">
                                     <img
-                                            src="https://down-vn.img.susercontent.com/file/vn-11134201-23020-z3aqucatywnvbe_tn"
+                                            src="../../assets/img/ga/c24s.png"
                                             alt=""
                                             class="header__cart-img"
                                     />
                                     <div class="header__cart-item-info">
                                         <div class="header__cart-item-head">
                                             <h5 class="header__cart-item-name">
-                                                Áo Thun Unisex BAD HABITS LOVER - Local Brand Chính
-                                                Hãng
+                                                Con Cò Ai cập
                                             </h5>
                                             <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">400.000đ</span>
-                                                <span class="header__cart-item-multiply"> x </span>
-                                                <span class="header__cart-item-qnt">1</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                        <span class="header__cart-item-description"
-                        ></span
-                        >
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header__cart-item">
-                                    <img
-                                            src="https://down-vn.img.susercontent.com/file/dd44320a188b3df8627218ab7fa92192_tn"
-                                            alt=""
-                                            class="header__cart-img"
-                                    />
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">
-                                                Áo Thun Local Brand Unisex Karants Premium 100% Cotton
-                                                Most Famous - KR22
-                                            </h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">330.000đ</span>
-                                                <span class="header__cart-item-multiply">x</span>
-                                                <span class="header__cart-item-qnt">1</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                        <span class="header__cart-item-description"
-                        ></span
-                        >
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header__cart-item">
-                                    <img
-                                            src="https://down-vn.img.susercontent.com/file/vn-11134201-23020-z3aqucatywnvbe_tn"
-                                            alt=""
-                                            class="header__cart-img"
-                                    />
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">
-                                                Áo Thun Unisex BAD HABITS LOVER - Local Brand Chính
-                                                Hãng
-                                            </h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">400.000đ</span>
-                                                <span class="header__cart-item-multiply"> x </span>
-                                                <span class="header__cart-item-qnt">1</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                        <span class="header__cart-item-description"
-                        ></span
-                        >
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header__cart-item">
-                                    <img
-                                            src="https://down-vn.img.susercontent.com/file/dd44320a188b3df8627218ab7fa92192_tn"
-                                            alt=""
-                                            class="header__cart-img"
-                                    />
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">
-                                                Áo Thun Local Brand Unisex Karants Premium 100% Cotton
-                                                Most Famous - KR22
-                                            </h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">330.000đ</span>
+                                                <span class="header__cart-item-price">550.000đ</span>
                                                 <span class="header__cart-item-multiply">x</span>
                                                 <span class="header__cart-item-qnt">1</span>
                                             </div>
@@ -499,7 +401,7 @@
                                 </li>
                             </ul>
                             <a
-                                    href="/pages/cart/index.html"
+                                    href="../cart/index.html"
                                     class="header__cart-view-cart btn-base btn--primary"
                             >
                                 Xem giỏ hàng
@@ -788,7 +690,7 @@
                         BA AE SIÊU NHÂN
                     </p>
                 </div>
-                <div class="footer--item">
+                <div class="footer--item hide-on-mobile">
                     <div class="col-inner">
                         <div
                                 id="gap-2083060811"
@@ -803,7 +705,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="footer--item footer--item-2">
+                <div class="footer--item footer--item-2 hide-on-tablet">
                     <div class="col-inner">
                         <h5>Chuyên mục</h5>
                         <div class="row row-small" id="row-1858634641">
