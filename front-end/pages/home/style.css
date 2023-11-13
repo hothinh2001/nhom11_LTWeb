@@ -102,9 +102,11 @@ a {
     padding-top: 0;
 }
 
+
 .mobile-header__nav {
     display: none;
 }
 .header__navbar-nav{
     /*display: none;*/
 }
+

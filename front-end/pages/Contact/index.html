@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link
+            rel="shortcut icon"
+            href="../../assets/img/logo.jpg"
+            type="image/x-icon"
+    />
+    <title>Contact</title>
+    <link rel="stylesheet" href="../../assets/css/normalize.css"/>
+    <link rel="stylesheet" href="../../assets/css/base.css"/>
+    <link rel="stylesheet" href="../../assets/css/main&productList.css"/>
+    <link rel="stylesheet" href="../../assets/css/grid.css"/>
+    <link rel="stylesheet" href="../../assets/css/responsive.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="stylesheet" href="./style.css"/>
+    <link
+            rel="stylesheet"
+            href="../../assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+    />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            href="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css"
+            rel="stylesheet"
+
+    />
+</head>
+<body>
+<!-- Header start -->
+<header class="header">
+    <div class="grid wide">
+        <nav class="navbar hide-on-mobile-tablet">
+            <ul class="navbar__list">
+            </ul>
+            <ul class="navbar__list">
+                <li
+                        class="navbar__item navbar__item--strong navbar__item--separate js-register"
+                >
+                    <a href="../../pages/register/index.html"> Đăng ký</a>
+                </li>
+                <li class="navbar__item navbar__item--strong js-login">
+                    <a href="../../pages/login/index.html"> Đăng nhập </a>
+                </li>
+
+            </ul>
+        </nav>
+        <div class="header-with-search">
+            <label for="mobile-search-checkbox" class="header__mobile-search"
+            ><i
+                    class="fa-solid fa-magnifying-glass header__mobile-search-icon"
+            ></i
+            ></label>
+            <div class="header__logo hide-on-tablet">
+                <div class="header__logo-container">
+                    <div class="logo-holder logo-4">
+                        <a href="/" class="header__logo-link">
+                            <img src="../../assets/img/logo.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <input
+                    type="checkbox"
+                    hidden
+                    id="mobile-search-checkbox"
+                    class="header__search-checkbox"
+            />
+
+            <div class="header__navbar">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-sm active" aria-current="page"
+                                       href="../home/index.html">Trang chủ</a>
+                                </li>
+                                <li class="nav-item dropdown header__cart-wrapper">
+                                    <a class="nav-link nav-link-sm dropdown-toggle" href="#" id="productDropdown"
+                                       role="button"
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                        Sản phẩm
+                                    </a>
+                                    <div class="header__cart-list-product">
+                                        <!-- Cart index product start -->
+                                        <div class="header__cart-list-product-type">
+                                            <div class="header__cart-list-product-name">
+                                                <a href="#" class="header__cart-list-product-link">
+                                                    Thức ăn cho Heo
+                                                </a>
+                                                <hr width="30%" align="left"/>
+                                                <ul class="header__cart-list-product-item">
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#">Heo con</a>
+                                                    </li>
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#">Heo thịt</a>
+                                                    </li>
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#">Heo nái</a>
+                                                    </li>
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#">Heo đực</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="header__cart-list-product-name">
+                                                <a href="#" class="header__cart-list-product-link">
+                                                    Thức ăn cho Cá
+                                                </a>
+                                                <hr width="30%" align="left"/>
+                                                <ul class="header__cart-list-product-item">
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#">Cá có vảy</a>
+                                                    </li>
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#">Cá tra, Cá Basa</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="header__cart-list-product-name">
+                                                <a href="#" class="header__cart-list-product-link">
+                                                    Thức ăn Gia cầm
+                                                </a>
+                                                <hr width="30%" align="left"/>
+                                                <ul class="header__cart-list-product-item">
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#">Gà thịt</a>
+                                                    </li>
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#"> Gà đẻ</a>
+                                                    </li>
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#"> Gà ta, Gà tàu</a>
+                                                    </li>
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#">Gà thịt thả vườn</a>
+                                                    </li>
+                                                    <li class="header__cart-item-product">
+                                                        <a href="#"> Gà giống bố mẹ</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Cart index product start -->
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown header__cart-wrapper">
+                                    <a class="nav-link nav-link-lg dropdown-toggle" href="#" id="navbarDropdown"
+                                       role="button"
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                        Tin tức & Sự kiện
+                                    </a>
+                                    <div class="header__cart-list-news ">
+                                        <!-- Cart index product start -->
+                                        <ul class="header__cart-list-item">
+                                            <li class="header__cart-item-news">
+                                                Bản tin doanh nghiệp
+                                            </li>
+                                            <hr width="30%" align="left"/>
+                                            <li class="header__cart-item-news">
+                                                Animal Feed
+                                            </li>
+                                        </ul>
+                                        <!-- Cart index product start -->
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-lg" href="#">Kiến thức chăn nuôi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-sm" href="#">Liên hệ</a>
+                                </li>
+                            </ul>
+                            <form class="d-flex">
+                                <div class="header__search">
+                                    <div class="header__search-input-wrapper">
+                                        <input
+                                                type="text"
+                                                class="header__search-input"
+                                                placeholder="Tìm kiếm..."
+                                        />
+                                        <div class="header__search-history">
+                                            <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                                            <ul class="header__search-history-list">
+                                                <li class="header__search-history-item">
+                                                    <a href="" class="header__search-history-link">Thức ăn cho heo
+                                                      </a>
+                                                </li>
+                                                <li class="header__search-history-item">
+                                                    <a href="" class="header__search-history-link">thức ăn cho gà đẻ
+                                                      </a>
+                                                </li>
+                                                <li class="header__search-history-item">
+                                                    <a href="" class="header__search-history-link">thức ăn cho cá</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <button class="header__search-btn">
+                                        <i
+                                                class="header__search-btn-icon fa-solid fa-magnifying-glass"
+                                        ></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- Header Cart start -->
+            <div class="header__cart">
+                <div class="header__cart-wrapper">
+                    <i class="header__cart-icon fas fa-shopping-cart"></i>
+                    <span class="header__cart-notice">7</span>
+                    <!-- No item in cart header__cart-list--nocart -->
+                    <div class="header__cart-list">
+                        <img
+                                src="../../assets/img/no_cart.png"
+                                alt=""
+                                class="header__cart-nocart-img"
+                        />
+                        <span class="header__cart-nocart-msg">Chưa có sản phẩm</span>
+
+                        <!-- Cart index product start -->
+                        <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                        <ul class="header__cart-list-item">
+                            <li class="header__cart-item">
+                                <img
+                                        src="../../assets/img/heo/1.png"
+                                        alt=""
+                                        class="header__cart-img"
+                                />
+                                <div class="header__cart-item-info">
+                                    <div class="header__cart-item-head">
+                                        <h5 class="header__cart-item-name">
+                                            Con Cò 00-09
+                                        </h5>
+                                        <div class="header__cart-item-price-wrap">
+                                            <span class="header__cart-item-price">400.000đ</span>
+                                            <span class="header__cart-item-multiply"> x </span>
+                                            <span class="header__cart-item-qnt">1</span>
+                                        </div>
+                                    </div>
+                                    <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        ></span
+                        >
+                                        <span class="header__cart-item-remove">Xóa</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__cart-item">
+                                <img
+                                        src="../../assets/img/heo/2.png"
+                                        alt=""
+                                        class="header__cart-img"
+                                />
+                                <div class="header__cart-item-info">
+                                    <div class="header__cart-item-head">
+                                        <h5 class="header__cart-item-name">
+                                            Porcy 00-09
+                                        </h5>
+                                        <div class="header__cart-item-price-wrap">
+                                            <span class="header__cart-item-price">330.000đ</span>
+                                            <span class="header__cart-item-multiply">x</span>
+                                            <span class="header__cart-item-qnt">1</span>
+                                        </div>
+                                    </div>
+                                    <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        ></span
+                        >
+                                        <span class="header__cart-item-remove">Xóa</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__cart-item">
+                                <img
+                                        src="../../assets/img/heo/3.png"
+                                        alt=""
+                                        class="header__cart-img"
+                                />
+                                <div class="header__cart-item-info">
+                                    <div class="header__cart-item-head">
+                                        <h5 class="header__cart-item-name">
+                                            Porcy 09-20
+                                        </h5>
+                                        <div class="header__cart-item-price-wrap">
+                                            <span class="header__cart-item-price">400.000đ</span>
+                                            <span class="header__cart-item-multiply"> x </span>
+                                            <span class="header__cart-item-qnt">1</span>
+                                        </div>
+                                    </div>
+                                    <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        ></span
+                        >
+                                        <span class="header__cart-item-remove">Xóa</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__cart-item">
+                                <img
+                                        src="../../assets/img/heo/4.png"
+                                        alt=""
+                                        class="header__cart-img"
+                                />
+                                <div class="header__cart-item-info">
+                                    <div class="header__cart-item-head">
+                                        <h5 class="header__cart-item-name">
+                                            Con Cò 09-20
+                                        </h5>
+                                        <div class="header__cart-item-price-wrap">
+                                            <span class="header__cart-item-price">330.000đ</span>
+                                            <span class="header__cart-item-multiply">x</span>
+                                            <span class="header__cart-item-qnt">1</span>
+                                        </div>
+                                    </div>
+                                    <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        ></span
+                        >
+                                        <span class="header__cart-item-remove">Xóa</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__cart-item">
+                                <img
+                                        src="../../assets/img/heo/5.png"
+                                        alt=""
+                                        class="header__cart-img"
+                                />
+                                <div class="header__cart-item-info">
+                                    <div class="header__cart-item-head">
+                                        <h5 class="header__cart-item-name">
+                                            Porcy Mới S00+
+                                        </h5>
+                                        <div class="header__cart-item-price-wrap">
+                                            <span class="header__cart-item-price">400.000đ</span>
+                                            <span class="header__cart-item-multiply"> x </span>
+                                            <span class="header__cart-item-qnt">1</span>
+                                        </div>
+                                    </div>
+                                    <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        ></span
+                        >
+                                        <span class="header__cart-item-remove">Xóa</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__cart-item">
+                                <img
+                                        src="../../assets/img/heo/6.png"
+                                        alt=""
+                                        class="header__cart-img"
+                                />
+                                <div class="header__cart-item-info">
+                                    <div class="header__cart-item-head">
+                                        <h5 class="header__cart-item-name">
+                                            Delice 15
+                                        </h5>
+                                        <div class="header__cart-item-price-wrap">
+                                            <span class="header__cart-item-price">330.000đ</span>
+                                            <span class="header__cart-item-multiply">x</span>
+                                            <span class="header__cart-item-qnt">1</span>
+                                        </div>
+                                    </div>
+                                    <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        ></span
+                        >
+                                        <span class="header__cart-item-remove">Xóa</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__cart-item">
+                                <img
+                                        src="../../assets/img/heo/7.png"
+                                        alt=""
+                                        class="header__cart-img"
+                                />
+                                <div class="header__cart-item-info">
+                                    <div class="header__cart-item-head">
+                                        <h5 class="header__cart-item-name">
+                                            Big One 1
+                                        </h5>
+                                        <div class="header__cart-item-price-wrap">
+                                            <span class="header__cart-item-price">400.000đ</span>
+                                            <span class="header__cart-item-multiply"> x </span>
+                                            <span class="header__cart-item-qnt">1</span>
+                                        </div>
+                                    </div>
+                                    <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        ></span
+                        >
+                                        <span class="header__cart-item-remove">Xóa</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__cart-item">
+                                <img
+                                        src="../../assets/img/heo/8.png"
+                                        alt=""
+                                        class="header__cart-img"
+                                />
+                                <div class="header__cart-item-info">
+                                    <div class="header__cart-item-head">
+                                        <h5 class="header__cart-item-name">
+                                            Big One 2
+                                        </h5>
+                                        <div class="header__cart-item-price-wrap">
+                                            <span class="header__cart-item-price">330.000đ</span>
+                                            <span class="header__cart-item-multiply">x</span>
+                                            <span class="header__cart-item-qnt">1</span>
+                                        </div>
+                                    </div>
+                                    <div class="header__cart-item-body">
+                        <span class="header__cart-item-description"
+                        ></span
+                        >
+                                        <span class="header__cart-item-remove">Xóa</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <a
+                                href="/pages/cart/index.html"
+                                class="header__cart-view-cart btn-base btn--primary"
+                        >
+                            Xem giỏ hàng
+                        </a>
+                        <!-- Cart index product start -->
+                    </div>
+                </div>
+            </div>
+            <!-- Header Cart end -->
+        </div>
+
+        <!-- Breadcrumb start -->
+        <div class="breadcrumb-wrapper">
+            <ul class="breadcrumb-content">
+                <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-item__link"> Trang chủ </a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </li>
+
+                <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-item__link"> Liên Hệ </a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <!--container start-->
+        <div class="app__container">
+            <div class="grid wide">
+                <div class = "container-top" >
+                    <div class="row sm-gutter app__content">
+                        <div class="contact-item__img" style="background-image: url('../../assets/img/Contact/VNMap.png');">
+
+                        </div>
+                    </div>
+
+                    <div class = "container-right">
+                        <h1>Hệ Thống Nhà Máy Con Cò Việt Nam</h1>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--footer star-->
+        <footer class="" id="footer">
+            <div class="grid wide ">
+                <div class="footer--content">
+                    <div class="footer--item">
+                        <p>
+                            © 2019 Cargill, Incorporated.<br/>Bản Quyền Được Bảo Lưu.
+                            <br/>Phát triển bởi
+                            BA AE SIÊU NHÂN
+                        </p>
+                    </div>
+                    <div class="footer--item">
+                        <div class="col-inner">
+                            <div
+                                    id="gap-2083060811"
+                                    class="gap-element clearfix show-for-medium"
+                                    style="display: block; height: auto"
+                            ></div>
+                            <h5>Văn phòng Cargill tại Việt Nam</h5>
+                            <p>
+                                Lầu 10-11, Trung tâm Thương mại Maple Tree 1060 Nguyễn Văn Linh,
+                                P. Tân Phong, Q.7, TP Hồ Chí Minh, Việt Nam<br/>Tel:
+                                +84-28-5416 1515<br/>Fax: +84-28-5416 0495
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer--item footer--item-2">
+                        <div class="col-inner">
+                            <h5>Chuyên mục</h5>
+                            <div class="row row-small" id="row-1858634641">
+                                <div class="col medium-6 small-12 large-6">
+                                    <div class="col-inner">
+                                        <div class="vinahi-menuwrap">
+                                            <div class="menu-menu-chuyen-muc-footer-left-container">
+                                                <ul
+                                                        id="menu-menu-chuyen-muc-footer-left"
+                                                        class="vinahi-menu"
+                                                >
+                                                    <li
+                                                            id="menu-item-2398"
+                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2398"
+                                                    >
+                                                        <a href="https://cargillfeed.com.vn/gioi-thieu/"
+                                                        >Giới thiệu Cargill Việt Nam</a
+                                                        >
+                                                    </li>
+                                                    <li
+                                                            id="menu-item-2399"
+                                                            class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item menu-item-2399"
+                                                    >
+                                                        <a
+                                                                href="https://cargillfeed.com.vn/san-pham/"
+                                                                aria-current="page"
+                                                        >Sản phẩm</a
+                                                        >
+                                                    </li>
+                                                    <li
+                                                            id="menu-item-2400"
+                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2400"
+                                                    >
+                                                        <a
+                                                                href="https://cargillfeed.com.vn/tin-tuc-su-kien/"
+                                                        >Tin tức & Sự kiện</a
+                                                        >
+                                                    </li>
+                                                    <li
+                                                            id="menu-item-2401"
+                                                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2401"
+                                                    >
+                                                        <a
+                                                                href="https://cargillfeed.com.vn/kien-thuc-chan-nuoi/"
+                                                        >Kiến thức chăn nuôi</a
+                                                        >
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col medium-6 small-12 large-6">
+                                    <div class="col-inner">
+                                        <div class="vinahi-menuwrap">
+                                            <div class="menu-menu-chuyen-muc-footer-right-container">
+                                                <ul
+                                                        id="menu-menu-chuyen-muc-footer-right"
+                                                        class="vinahi-menu"
+                                                >
+                                                    <li
+                                                            id="menu-item-2411"
+                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2411"
+                                                    >
+                                                        <a href="https://cargillfeed.com.vn/lien-he/"
+                                                        >Liên hệ</a
+                                                        >
+                                                    </li>
+                                                    <li
+                                                            id="menu-item-2412"
+                                                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2412"
+                                                    >
+                                                        <a href="https://cargillfeed.com.vn/tuyen-dung/"
+                                                        >Tuyển dụng</a
+                                                        >
+                                                    </li>
+                                                    <li
+                                                            id="menu-item-2413"
+                                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2413"
+                                                    >
+                                                        <a href="#">Học viện ANA</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer--item footer--social">
+                        <div class="">
+                            <div class="quality">
+                                <img src="https://www.anovafeed.vn/Data/Sites/1/media/trangchu/ky-hieu-dathongbao.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer end -->
+
+</body>
+</html>
