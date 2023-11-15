@@ -18,9 +18,14 @@ body a {
 }
 
 main {
-    height: 100vh;
+    height: 100%;
     background-color: #e9edf2;
     padding: 30px;
+}
+
+ol, ul {
+    margin: 0;
+    padding: 0 !important;
 }
 
 #menu-toggle {
@@ -316,7 +321,6 @@ main {
 .page-header h1, .page-header small {
     color: #74767d;
 }
-
 
 
 input, button, select {
