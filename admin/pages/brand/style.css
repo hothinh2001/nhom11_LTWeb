@@ -312,7 +312,8 @@ header {
     border-bottom: 1px solid #dee2e8;
     padding: 50px 10px;
 }
-.page-header button{
+
+.page-header button {
     float: right;
 }
 
@@ -396,48 +397,24 @@ input, button, select {
 .content-title {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     background-color: #E9edf2;
     padding: 16px;
 }
 
 .content-title-item {
-    width: 20%;
+    width: 30%;
     text-align: center;
     font-weight: 600;
 }
 
 .content-title-stt {
-    width: 5%;
-}
-
-.content-title-image {
-
-}
-
-.content-title-image img {
-    height: 111px;
+    width: 15%;
 }
 
 .content-title-name {
-
-}
-
-.content-title-price {
-
-}
-
-.content-title-category {
-
-}
-
-.content-title-brand {
-
-}
-
-.content-title-quantity {
-
+    width: 50%;
 }
 
 .content-title-edit {
