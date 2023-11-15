@@ -5,7 +5,6 @@
 
 .header {
     height: var(--header-height);
-    /*background: linear-gradient(-90deg, #efd5ff 0%, #515ada 100%);*/
     background: linear-gradient(-90deg, #a2a2a2 0%, #2b2b2b 100%);
     padding-top: 0.2rem;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -13,6 +12,7 @@
 }
 
 .header__logo-link {
+    margin-top: -50px;
     text-decoration: none;
     color: transparent;
 }
@@ -1222,6 +1222,7 @@ body .navbar-light .navbar-toggler {
     );
     background-blend-mode: soft-light, screen;
     padding-bottom: 40px;
+
 }
 
 .category {
@@ -1705,7 +1706,6 @@ i.product-item__like-icon-fill {
     color: white;
 
    margin-bottom : -100px;
-
 }
 
 .footer--item a {

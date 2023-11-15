@@ -6,7 +6,7 @@
     <!-- favicon -->
     <link
             rel="shortcut icon"
-            href="./assets/img/favicon_icon.png"
+            href="./assets/img/logo.jpg"
             type="image/x-icon"
     />
     <title>Product List</title>
@@ -50,25 +50,25 @@
                     <li class="navbar__item navbar__item--strong js-login">
                         Đăng nhập
                     </li>
-                    <!--                <li class="navbar__item navbar__user">-->
-                    <!--                    <img-->
-                    <!--                            src="https://files.fullstack.edu.vn/f8-prod/user_photos/245298/6319feb32c9c6.jpg"-->
-                    <!--                            alt="User"-->
-                    <!--                            class="navbar__user-img"-->
-                    <!--                    />-->
-                    <!--                    <span class="navbar__user-name">Lee Trung Nhan</span>-->
-                    <!--                    <ul class="navbar__user-menu">-->
-                    <!--                        <li class="navbar__user-item">-->
-                    <!--                            <a href="" class="navbar__user-link">Tài khoản của tôi</a>-->
-                    <!--                        </li>-->
-                    <!--                        <li class="navbar__user-item">-->
-                    <!--                            <a href="" class="navbar__user-link">Đơn mua</a>-->
-                    <!--                        </li>-->
-                    <!--                        <li class="navbar__user-item navbar__user-item-separate">-->
-                    <!--                            <a href="" class="navbar__user-link">Đăng xuất</a>-->
-                    <!--                        </li>-->
-                    <!--                    </ul>-->
-                    <!--                </li>-->
+                    <li class="navbar__item navbar__user">
+                        <img
+                                src="../../assets/img/user_avatar.png"
+                                alt="User"
+                                class="navbar__user-img"
+                        />
+                        <span class="navbar__user-name">Tran Ngoc Bao Tran</span>
+                        <ul class="navbar__user-menu">
+                            <li class="navbar__user-item">
+                                <a href="../user/index.html" class="navbar__user-link">Tài khoản của tôi</a>
+                            </li>
+                            <li class="navbar__user-item">
+                                <a href="" class="navbar__user-link">Đơn mua</a>
+                            </li>
+                            <li class="navbar__user-item navbar__user-item-separate">
+                                <a href="" class="navbar__user-link">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <div class="header-with-search">
@@ -92,37 +92,7 @@
                         id="mobile-search-checkbox"
                         class="header__search-checkbox"
                 />
-                <!--            <div class="header__search">-->
-                <!--                <div class="header__search-input-wrapper">-->
-                <!--                    <input-->
-                <!--                            type="text"-->
-                <!--                            class="header__search-input"-->
-                <!--                            placeholder="Nhập để tìm kiếm sản phẩm"-->
-                <!--                    />-->
-                <!--                    <div class="header__search-history">-->
-                <!--                        <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>-->
-                <!--                        <ul class="header__search-history-list">-->
-                <!--                            <li class="header__search-history-item">-->
-                <!--                                <a href="" class="header__search-history-link">Thức ăn cho heo thịt</a>-->
-                <!--                            </li>-->
-                <!--                            <li class="header__search-history-item">-->
-                <!--                                <a href="" class="header__search-history-link">thức ăn cho gà đẻ trứng</a>-->
-                <!--                            </li>-->
-                <!--                            <li class="header__search-history-item">-->
-                <!--                                <a href="" class="header__search-history-link">thức ăn cho cá</a>-->
-                <!--                            </li>-->
-                <!--                        </ul>-->
-                <!--                    </div>-->
-                <!--                </div>-->
 
-                <!--                <button class="header__search-btn">-->
-                <!--                    <i-->
-                <!--                            class="header__search-btn-icon fa-solid fa-magnifying-glass"-->
-                <!--                    ></i>-->
-                <!--                </button>-->
-                <!--            </div>-->
-
-                <!--            navbar header-->
                 <div class="header__navbar">
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
@@ -513,12 +483,12 @@
                     </li>
 
                     <li class="breadcrumb-item">
-                        <a href="#" class="breadcrumb-item__link"> Danh mục một </a>
+                        <a href="#" class="breadcrumb-item__link"> Danh sách sản phẩm </a>
                         <i class="fa-solid fa-chevron-right"></i>
                     </li>
                     <li class="breadcrumb-item breadcrumb-item--active">
                         <a href="#" class="breadcrumb-item__link">
-                            Bio-zeem Siêu úm</a
+                            Thức ăn cho heo</a
                         >
                     </li>
                 </ul>
@@ -566,7 +536,24 @@
                                     <p style="font-size: 16px;">Mới Nhất</p>
 
                                 </button>
-                                <button class="home-filter__btn btn"> <p style="font-size: 16px;">Bán Chạy</p></button>
+<!--                                <button class="home-filter__btn btn"> <p style="font-size: 16px;">Bán Chạy</p></button>-->
+                                <div class="select-input">
+                                    <span class="select-input__label">Thương hiệu</span>
+                                    <i class="select-input__icon fas fa-chevron-down"></i>
+                                    <!-- List option -->
+                                    <ul class="select__input-list">
+                                        <li class="select__input-item">
+                                            <a href="" class="select__input-link"
+                                            >Cargill</a
+                                            >
+                                        </li>
+                                        <li class="select__input-item">
+                                            <a href="" class="select__input-link"
+                                            >Con Cò</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
                                 <div class="select-input">
                                     <span class="select-input__label">Giá</span>
                                     <i class="select-input__icon fas fa-chevron-down"></i>
@@ -989,7 +976,9 @@
             <!-- Container end -->
             <!--footer star-->
 
-            <footer class="" id="footer">
+
+            <footer class="footer" id="footer">
+
                 <div class="grid wide">
                     <div class="footer--content">
                         <div class="footer--item">
@@ -1031,7 +1020,7 @@
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2398"
                                                         >
                                                             <a href="#"
-                                                            >Giới thiệu Cargill Việt Nam</a
+                                                            >Giới thiệu Con Cò Việt Nam</a
                                                             >
                                                         </li>
                                                         <li
@@ -1066,8 +1055,7 @@
                                                                         id="menu-item-2398"
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2398"
                                                                 >
-                                                                    <a href="https://cargillfeed.com.vn/gioi-thieu/"
-                                                                    >Giới thiệu Cargill Việt Nam</a
+
                                                                     >
                                                                 </li>
                                                                 <li
@@ -1147,7 +1135,7 @@
                         <div class="footer--item footer--social">
                             <div class="">
                                 <div class="quality">
-                                    <img src="https://www.anovafeed.vn/Data/Sites/1/media/trangchu/ky-hieu-dathongbao.png"
+                                    <img src="../../assets/img/ky-hieu-dathongbao.png"
                                          alt="">
 
                                 </div>
@@ -1156,86 +1144,6 @@
                     </footer>
             <!-- Footer end -->
         </div>
-
-        <!-- Modal form start -->
-        <div class="modal">
-            <div class="modal__overlay"></div>
-            <div class="modal__body">
-                <!-- Register form start -->
-                <div id="regiter-form" class="auth-form">
-                    <div class="auth-form__container">
-                        <div class="auth-form__header">
-                            <h3 class="auth-form__heading">Đăng ký</h3>
-                            <span class="auth-form__switch-btn js-switch-login"
-                            >Đăng nhập</span
-                            >
-                        </div>
-                        <div class="auth-form__form">
-                            <div class="auth-form__group">
-                                <input
-                                        type="email"
-                                        class="auth-form__input"
-                                        placeholder="Email của bạn"
-                                />
-                            </div>
-                            <div class="auth-form__group">
-                                <input
-                                        type="password"
-                                        class="auth-form__input"
-                                        placeholder="Mật khẩu của bạn"
-                                />
-                            </div>
-                            <div class="auth-form__group">
-                                <input
-                                        type="password"
-                                        class="auth-form__input"
-                                        placeholder="Nhập lại mật khẩu"
-                                />
-                            </div>
-                        </div>
-                        <div class="auth-form__aside">
-                            <p class="auth-form__policy-text">
-                                Bằng việc đăng ký, bạn đã đồng ý với Shop về
-                                <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a>
-                                &
-                                <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
-                            </p>
-                        </div>
-                        <div class="auth-form__controls">
-                            <button class="btn btn--normal auth-form__control-back-btn">
-                                TRỞ LẠI
-                            </button>
-                            <button class="btn btn--primary">ĐĂNG KÝ</button>
-                        </div>
-                    </div>
-                    <div class="auth-form__socials">
-                        <a
-                                href=""
-                                class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
-                        >
-                            <i
-                                    class="auth-form__socials-icon fa-brands fa-facebook-square"
-                            ></i>
-                            <span class="auth-form__socials-title">Kết nối với Facebook</span>
-                        </a>
-                        <a
-                                href=""
-                                class="auth-form__socials--google btn btn--size-s btn--with-icon"
-                        >
-              <span class="auth-form__logo-social-img">
-                <img
-                        src="../../assets/img/google_signin.png"
-                        alt="Google"
-                        class="google-login__img"
-                />
-              </span>
-                            <span class="auth-form__socials-title">Kết nối với Google</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Register form end -->
-
-        <!-- Modal form end -->
         <script src="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="main.js"></script>
 </body>
