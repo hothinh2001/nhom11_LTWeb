@@ -19,7 +19,6 @@ body a {
 
 main {
     height: 100vh;
-    background-color: #e9edf2;
     padding: 30px;
 }
 
@@ -257,9 +256,6 @@ header {
     font-size: .8rem;
 }
 
-main {
-    margin-top: 60px;
-}
 
 .page-content {
     width: 100%;
@@ -311,6 +307,10 @@ main {
 .page-header {
     background: #E9edf2;
     border-bottom: 1px solid #dee2e8;
+    padding: 50px 10px;
+}
+.page-header button{
+    float: right;
 }
 
 .page-header h1, .page-header small {
@@ -318,80 +318,10 @@ main {
 }
 
 
-.indicator {
-    height: 10px;
-    border-radius: 4px;
-}
-
-.indicator.one {
-    background: #22baa0;
-}
-
-.indicator.two {
-    background: #11a8c3;
-}
-
-.indicator.three {
-    background: #f6d433;
-}
-
-.indicator.four {
-    background: #f25656;
-}
-
-
 input, button, select {
     outline: none;
 }
 
-
-table {
-    border-collapse: collapse;
-}
-
-table thead tr {
-    background: #e9edf2;
-}
-
-table thead th {
-    padding: 1rem 0rem;
-    text-align: left;
-    color: #444;
-    font-size: .9rem;
-}
-
-table thead th:first-child {
-    padding-left: 1rem;
-}
-
-table tbody td {
-    padding: 1rem 0rem;
-    color: #444;
-}
-
-table tbody td:first-child {
-    padding-left: 1rem;
-    color: var(--main-color);
-    font-weight: 600;
-    font-size: .9rem;
-}
-
-table tbody tr {
-    border-bottom: 1px solid #dee2e8;
-}
-
-.client-img {
-    margin-right: .5rem;
-    border: 2px solid #b0b0b0;
-    height: 45px;
-    width: 45px;
-}
-
-.actions span {
-    display: inline-block;
-    font-size: 1.5rem;
-    margin-right: .5rem;
-}
 
 .paid {
     display: inline-block;
@@ -458,4 +388,63 @@ table tbody tr {
     table {
         width: 900px;
     }
+}
+
+.content-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E9edf2;
+    padding: 16px;
+}
+
+.content-title-item {
+    width: 20%;
+    text-align: center;
+    font-weight: 600;
+}
+
+.content-title-stt {
+    width: 5%;
+}
+
+.content-title-image {
+
+}
+
+.content-title-image img {
+    height: 111px;
+}
+
+.content-title-name {
+
+}
+
+.content-title-price {
+
+}
+
+.content-title-category {
+
+}
+
+.content-title-brand {
+
+}
+
+.content-title-quantity {
+
+}
+
+.content-title-edit {
+
+}
+
+.content-title-edit a {
+    font-size: 28px;
+}
+
+.content-title-delete {
+
 }
