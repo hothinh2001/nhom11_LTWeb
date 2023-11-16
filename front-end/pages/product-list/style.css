@@ -5,9 +5,15 @@ body a {
     font-weight: 700;
     cursor: pointer;
 }
+
+.m-4 {
+    margin: 0 !important;
+}
+
 .app {
     overflow: hidden;
 }
+
 .header {
     height: var(--header-height);
     padding-top: 0.2rem;
@@ -18,6 +24,7 @@ body a {
     text-decoration: none;
     color: transparent;
 }
+
 /* Header sort */
 .header__sort-bar {
     position: fixed;
@@ -33,12 +40,15 @@ body a {
     border-bottom: 1px solid #e5e5e5;
     display: none;
 }
+
 .header__sort-item {
     flex: 1px;
 }
+
 .header__sort-item:first-child .header__sort-link::before {
     display: none;
 }
+
 .header__sort-link {
     text-decoration: none;
     color: var(--text-color);
@@ -49,6 +59,7 @@ body a {
     text-align: center;
     position: relative;
 }
+
 .header__sort-link::before {
     content: "";
     display: block;
@@ -59,9 +70,11 @@ body a {
     border-left: 2px solid #e5e5e5;
     transform: translateY(-50%);
 }
+
 .header__sort-item--active .header__sort-link {
     color: var(--primary-color);
 }
+
 .header__sort-item--active .header__sort-link::after {
     /* make a bootom line for this tag */
     content: "";
@@ -74,6 +87,7 @@ body a {
     background-color: var(--primary-color);
     border-radius: 2px;
 }
+
 .category {
     background: transparent;
 
@@ -91,7 +105,7 @@ body a {
     margin-left: 10px;
     line-height: 45px;
     border-radius: 20px;
-    height: 7%;
+    height: 5%;
 }
 
 .cate-item a {
@@ -652,15 +666,18 @@ body a {
     display: flex;
     align-items: center;
 }
+
 .header__mobile-search {
     padding: 0 16px;
     display: none;
 }
+
 .header__mobile-search-icon {
     font-size: 2.6rem;
     color: var(--white-color);
     display: none;
 }
+
 .header__search {
     height: 40px;
     flex: 1;
@@ -670,9 +687,11 @@ body a {
     align-items: center;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
+
 .header__search-checkbox:checked ~ .header__search {
     display: flex;
 }
+
 /* header cart */
 
 .header__cart {
@@ -750,7 +769,7 @@ body a {
     display: none;
     margin: 0 auto;
     margin-bottom: 20px;
-    margin-left:-20px;
+    margin-left: -20px;
 }
 
 .header__cart-nocart-msg {
@@ -1151,6 +1170,7 @@ body a {
 .mobile-category {
     display: none;
 }
+
 .mobile-category__list {
     display: flex;
     list-style: none;
@@ -1158,23 +1178,29 @@ body a {
     max-width: 100%;
     overflow-x: auto;
 }
+
 .mobile-category__list::-webkit-scrollbar {
     display: none;
 }
+
 .mobile-category__item {
     flex-shrink: 0;
     margin-right: 10px;
 
 }
+
 .mobile-category__item:nth-of-type(3n + 1) .mobile-category__link {
     background-color: #be5353;
 }
+
 .mobile-category__item:nth-of-type(3n + 2) .mobile-category__link {
     background-color: #529c45;
 }
+
 .mobile-category__item:nth-of-type(3n + 3) .mobile-category__link {
     background-color: #514b9e;
 }
+
 .mobile-category__link {
     --line-height: 2rem;
     text-decoration: none;
@@ -1293,9 +1319,7 @@ body a {
 }
 
 .product-item {
-    /* background-color: var(--white-color); */
-
-    background-color: #ffffff;
+    width: 150px;
     background-image: linear-gradient(180deg, #ffffff 63%, #e8d8ff 99%);
     margin-top: 10px;
     display: block;
@@ -1523,9 +1547,11 @@ i.product-item__like-icon-fill {
     font-weight: 600;
     color: var(--white-color);
 }
+
 .breadcrumb-wrapper {
     padding: 5px 0;
 }
+
 .breadcrumb-content {
     margin: 8px 8px;
     padding: 10px 0;
@@ -1536,11 +1562,13 @@ i.product-item__like-icon-fill {
     border-radius: 3px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
 .breadcrumb-item {
     display: inline-block;
     text-decoration: none;
     font-size: 1.2rem;
 }
+
 .breadcrumb-item__link {
     display: inline-block;
     padding: 0 10px;
@@ -1548,12 +1576,23 @@ i.product-item__like-icon-fill {
     color: var(--text-color);
     font-size: 1.4rem;
 }
+
 .breadcrumb-item--active .breadcrumb-item__link {
     color: var(--primary-color);
 }
+
 .select-input__label {
     border-radius: 8px; /* Đặt bán kính góc thành 8px hoặc giá trị mong muốn */
     padding: 8px; /* Thêm padding nếu cần thiết để tạo ra hiệu ứng bo tròn */
     display: inline-block; /* Để có thể thiết lập chiều rộng và chiều cao cho span */
+}
+.select-input{
+    margin: 0 12px;
+}
+
+body .btn-load-more {
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 24px;
 }
 
