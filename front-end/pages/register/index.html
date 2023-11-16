@@ -45,12 +45,14 @@
           <input
             type="email"
             class="auth-form__input"
+            id="registerEmail"
             placeholder="Email của bạn"
           />
         </div>
         <div class="auth-form__group">
           <input
             type="password"
+            id="registerPass"
             class="auth-form__input"
             placeholder="Mật khẩu của bạn"
           />
@@ -58,6 +60,7 @@
         <div class="auth-form__group">
           <input
             type="password"
+            id="confirmPass"
             class="auth-form__input"
             placeholder="Nhập lại mật khẩu"
           />
@@ -75,7 +78,7 @@
         <a href="../home/index.html"><button class="btn btn--normal auth-form__control-back-btn">
           TRỞ LẠI
         </button></a>
-        <button class="btn btn--primary">ĐĂNG KÝ</button>
+        <button class="btn btn--primary" onclick="register()">ĐĂNG KÝ</button>
       </div>
     </div>
     <div class="auth-form__socials">
@@ -105,6 +108,7 @@
   </div>
 </div>
   <!-- Register form end -->
+<script src="main.js"></script>
   </body>
   </html>
   
