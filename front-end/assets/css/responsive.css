@@ -107,6 +107,7 @@
     .header__cart-list-product {
         top: calc(100% + -29px);
         right: 19rem;
+        width: 25%;
 
     }
 
