@@ -59,7 +59,6 @@ function login() {
         alert("Mật khẩu không đúng");
         return;
     }
-    alert("Đăng nhập thành công");
     window.location.href = "../home/index.html";
 }
 
