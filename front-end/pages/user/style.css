@@ -10,6 +10,41 @@ body a {
     text-decoration: none;
     font-weight: 700;
 }
+* {
+    box-sizing: border-box;
+  }
+.container{
+	height: 100vh;
+	padding-top: 10px;
+	background: linear-gradient(-90deg, #a2a2a2 0%, #494949 100%);
+}
+.header {
+	height: var(--header-height);
+	/*background: linear-gradient(-90deg, #efd5ff 0%, #515ada 100%);*/
+	padding-top: 0.2rem;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.header__logo img {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	float: left;
+}
+ .header__logo {
+	 display: flex;
+	 justify-content: left;
+	 align-items: center;
+	 margin-left: 180px;
+
+ }
+.header__login{
+ float: right;
+	margin-top: 16px;
+}
+body .header__login h1{
+	font-size: 3.5rem ;
+}
 
 #wrapper {
     margin-top: 32px;
