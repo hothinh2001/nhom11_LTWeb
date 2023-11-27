@@ -1,10 +1,14 @@
-
 @charset "UTF-8";
 
 body {
-	background-size: cover;
-  background-position-y: -80px;
-  font-size: 16px;
+    background-size: cover;
+    background-position-y: -80px;
+    font-size: 16px;
+}
+
+body a {
+    text-decoration: none;
+    font-weight: 700;
 }
 * {
     box-sizing: border-box;
@@ -43,71 +47,114 @@ body .header__login h1{
 }
 
 #wrapper {
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    margin-top: 32px;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #form-login {
-	max-width: 500px;
-	background: white;
-	flex-grow: 1;
-	padding: 30px 30px 40px;
-	box-shadow: 0px 0px 17px 2px rgba(0, 0, 0, 0.8);
+    font-size: 14px;
+    max-width: 1000px;
+    background: white;
+    flex-grow: 1;
+    padding: 30px 30px 40px;
+    box-shadow: 0px 0px 17px 2px rgba(0, 0, 0, 0.8);
 }
 
 .form-heading {
-	font-size: 25px;
-	color: black;
-	text-align: center;
-	margin-bottom: 30px;
+    font-size: 25px;
+    color: black;
+    text-align: center;
+    margin-bottom: 30px;
 }
-.form-group{
-	border-bottom: 1px solid black;
-	margin-top: 15px;
-	margin-bottom: 20px;
-	display: flex;
+
+.form-group {
+    border-bottom: 1px solid black;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.form-group-dateOfBirth {
+    width: 64px;
+}
+
+.form-contol {
+    padding: 5px 0;
+}
+
+.form-group i {
+    color: black;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-right: 10px;
+}
+
+.form-group-birth {
+    margin-left: 8px;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.picture {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-input {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: black;
+    flex-grow: 1;
+}
+
+.form-input::placeholder {
+    color: #555555;
+}
+
+#eye i {
+    padding-top: 6px;
+    cursor: pointer;
 
 }
-.form-group i{
-  color: black;
-  font-size: 14px;
-  padding-top: 5px;
-  padding-right:10px;
+
+.quenmatkhau-link a {
+    align-content: end;
 }
-.form-input{
-	background: transparent;
-	border: 0;
-	outline: 0;
-	color: black;
-	flex-grow: 1;
-}
-.form-input::placeholder{
-	color:#555555;
-}
-#eye i{
-  padding-top: 6px;
-  cursor: pointer;
+
+.form-submit {
+    color: white;
+    background: #0a0a0a;
+    border: 1px solid #f5f5f5;
+    text-transform: uppercase;
+    padding: 10px 50px;
+    transition: 0.25s ease-in-out;
+    margin-top: 30px;
 
 }
-.quenmatkhau-link a{
-  align-content: right;
+
+.form-submit:hover {
+    border: 1px solid #3366FF;
+    background: #605d5d;
 }
-.form-submit{
-  background: transparent;
-  boder: 1px solid #f5f5f5;
-  width: 100%;
-  text-transform: uppercase;
-  padding: 6px 10px;
-  transition: 0.25s ease-in-out;
-  margin-top: 30px;
 
+.form-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.form-submit:hover{
-  border: 1px solid #3366FF;
-  background: #c6c6e6;
 
+.form-avatar {
+    margin-left: 50px;
+}
 
-
+body .btn-save {
+    font-size: 14px;
+    padding: 10px 24px;
 }
