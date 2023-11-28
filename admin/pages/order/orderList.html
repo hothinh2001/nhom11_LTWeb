@@ -94,7 +94,7 @@
     </header>
     <div class="records table-responsive">
         <div style="margin: 12px; text-align: center">
-            <h2>Danh sách đơn hàng đang đợi</h2>
+            <h2>Danh sách đơn hàng</h2>
         </div>
 
         <div class="record-header">
@@ -105,27 +105,22 @@
                         <option value="id">ID đơn hàng</option>
                         <option value="name">Tên khách hàng</option>
                         <option value="date">Date</option>
-                        <option value="paystatus">Payment Status</option>
-                        <option value="total">Total</option>
-                        <option value="paymethob">Payment Methob</option>
-                        <option value="action">Action</option>
                     </select>
-                    <input type="text" placeholder="Nhập dữ liệu"
+                    <div class="browse">
+                        <select name="" id="" >
+                            <option value="">Delivered</option>
+                            <option value="">Shipped</option>
+                            <option value="">Processing</option>
+                        </select>
+                    </div>
+                    <input type="search" placeholder="Search" class="record-search"
                            style="height: 35px;border: 1px solid #b0b0b0;border-radius: 3px;display: inline-block;padding: 0rem 0.5rem;margin-right: 0.8rem;color: #666;">
                     <button type="submit">Tìm</button>
                 </div>
             </form>
 
 
-            <div class="browse">
-                <input type="search" placeholder="Search" class="record-search">
-                <select name="" id="">
-                    <option value="">Status</option>
-                    <option value="">Refund</option>
-                    <option value="">Paid</option>
-                    <option value="">Cash on Delivery</option>
-                </select>
-            </div>
+
         </div>
 
         <div>
