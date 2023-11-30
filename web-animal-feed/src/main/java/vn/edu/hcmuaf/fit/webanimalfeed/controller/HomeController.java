@@ -1,7 +1,10 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.controller;
 
+import vn.edu.hcmuaf.fit.webanimalfeed.dao.DAO;
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.ProductDAO;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Category;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.SlideShow;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -15,12 +18,14 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ProductDAO dao = new ProductDAO();
-        List<Product> list = dao.getAllProduct();
-        request.setAttribute("listP", list);
 
-        request.getRequestDispatcher("product-detail.jsp").forward(request, response);
-        System.out.println("list: " + list);
+
+        DAO dao = new DAO();
+        List< SlideShow > list = dao.getAllSlideShow();
+        List<Category> listCate = dao.getAllCategory();
+        request.setAttribute("listSS", list);
+        request.setAttribute("listCate", listCate);
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     @Override
