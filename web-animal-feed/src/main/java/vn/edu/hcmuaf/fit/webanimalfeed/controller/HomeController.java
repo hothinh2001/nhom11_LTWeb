@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.webanimalfeed.controller;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.DAO;
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.ProductDAO;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Category;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.SlideShow;
 
@@ -21,7 +22,9 @@ public class HomeController extends HttpServlet {
 
         DAO dao = new DAO();
         List< SlideShow > list = dao.getAllSlideShow();
+        List<Category> listCate = dao.getAllCategory();
         request.setAttribute("listSS", list);
+        request.setAttribute("listCate", listCate);
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 

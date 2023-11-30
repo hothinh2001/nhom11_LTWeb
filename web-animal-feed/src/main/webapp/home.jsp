@@ -395,42 +395,14 @@
                 </div>
 
                 <div class="category">
-                    <div class="cate-item">
-                        <a href="../product-list/index.html">
-                            <img
-                                    src="https://cargillfeed.com.vn/wp-content/webp-express/webp-images/uploads/2019/11/heo-icon.png.webp"
-                                    alt=""
-                            />
-                            Thức ăn cho Heo
-                        </a>
-                    </div>
-                    <div class="cate-item">
-                        <a href="../product-list/index.html">
-                            <img
-                                    src="https://cargillfeed.com.vn/wp-content/webp-express/webp-images/uploads/2019/11/ga-icon.png.webp"
-                                    alt=""
-                            />
-                            Thức ăn Gia cầm
-                        </a>
-                    </div>
-                    <div class="cate-item">
-                        <a href="../product-list/index.html">
-                            <img
-                                    src="https://cargillfeed.com.vn/wp-content/webp-express/webp-images/uploads/2019/11/icon-ca-light.png.webp"
-                                    alt=""
-                            />
-                            Thức ăn cho Cá
-                        </a>
-                    </div>
-                    <div class="cate-item">
-                        <a href="../product-list/index.html">
-                            <img
-                                    src="https://cargillfeed.com.vn/wp-content/webp-express/webp-images/uploads/2019/11/icon-tom-light.png.webp"
-                                    alt=""
-                            />
-                            Thức ăn cho Tôm
-                        </a>
-                    </div>
+                    <c:forEach var="category" items="${listCate}">
+                        <div class="cate-item">
+                            <a href="../product-list/index.html">
+                                <img src="${category.getIconCate()}" alt=""/>
+                                ${category.getName()}
+                            </a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
             <!-- san pham ba chay -->

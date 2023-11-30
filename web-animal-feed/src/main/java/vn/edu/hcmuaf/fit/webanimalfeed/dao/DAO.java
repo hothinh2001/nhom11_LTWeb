@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.dao;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.context.DBContext;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Category;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.SlideShow;
 
 import java.sql.Connection;
@@ -39,12 +40,38 @@ public class DAO {
         return list;
     }
 
+    public List<Category> getAllCategory() {
+        List<Category> list = new ArrayList<>();
+        String query = "SELECT id,name, iconCate FROM categories";
+        try {
+            // Kết nối đến MySQL
+            Connection conn = new DBContext().getConnection();
+
+            // Tạo PreparedStatement và thực hiện truy vấn
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            // Xử lý kết quả và thêm vào danh sách
+            while (rs.next()) {
+                list.add(new Category(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("iconCate")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 
 
     public static void main(String[] args) {
         DAO dao = new DAO();
-        List<SlideShow> list = dao.getAllSlideShow();
-        for (SlideShow product : list) {
+        List<Category> list = dao.getAllCategory();
+        for (Category product : list) {
             System.out.println(product);
         }
     }
