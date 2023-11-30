@@ -1,13 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Modern Admin Dashboard</title>
-    <link rel="stylesheet" href="../../assets/css/dashboard/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-    <link rel="stylesheet"
-          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <title>Modern Admin Dashboard</title>
+   <link rel="stylesheet" href="/admin/assets/css/dashboard/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
 <input type="checkbox" id="menu-toggle">
@@ -30,7 +31,7 @@
         <div class="side-menu">
             <ul>
                 <li>
-                    <a href="index.html" class="active">
+                    <a href="../dashboard/index.html" class="active" >
                         <span class="las la-home"></span>
                         <small>Dashboard</small>
                     </a>
@@ -42,7 +43,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../order/orderList.html">
+                    <a href="../order/orderList.html" >
                         <span class="las la-shopping-cart"></span>
                         <small>Order List</small>
                     </a>
@@ -60,11 +61,9 @@
                     </a>
                 </li>
             </ul>
-
         </div>
     </div>
 </div>
-
 <div class="main-content">
 
     <header>
@@ -92,74 +91,73 @@
                 </div>
             </div>
         </div>
+
     </header>
 
 
-    <main>
+  <main>
 
-        <div class="page-header">
-            <h1>Dashboard</h1>
-            <small>Home / Dashboard</small>
-        </div>
+    <div class="page-header">
+      <h1>Dashboard</h1>
+      <small>Home / Dashboard</small>
+    </div>
 
-        <div class="page-content">
+    <div class="page-content">
 
-            <div class="analytics">
+      <div class="analytics">
 
-                <div class="card">
-                    <div class="card-head">
-                        <h2>107,200</h2>
-                        <span class="las la-shopping-basket"></span>
-                    </div>
-                    <div class="card-progress">
-                        <small>Tổng số Đơn hàng đang có</small>
-                        <div class="card-indicator">
-                            <div class="indicator one" style="width: 60%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-head">
-                        <h2>340,230</h2>
-                        <span class="las la-users"></span>
-                    </div>
-                    <div class="card-progress">
-                        <small>Tổng số khách hàng đăng kí</small>
-                        <div class="card-indicator">
-                            <div class="indicator two" style="width: 80%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-head">
-                        <h2 class="price-tour-format">$653,200</h2>
-                        <span class="las la-archive"></span>
-                    </div>
-                    <div class="card-progress">
-                        <small>Tổng doanh thu </small>
-                        <div class="card-indicator">
-                            <div class="indicator three" style="width: 65%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-head">
-                        <h2>47,500</h2>
-                        <span class="las la-spinner"></span>
-                    </div>
-                    <div class="card-progress">
-                        <small>Đơn hàng đang đợi</small>
-                        <div class="card-indicator">
-                            <div class="indicator four" style="width: 90%"></div>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="card">
+          <div class="card-head">
+            <h2>107,200</h2>
+            <span class="las la-shopping-basket"></span>
+          </div>
+          <div class="card-progress">
+            <small>Tổng số Đơn hàng đang có</small>
+            <div class="card-indicator">
+              <div class="indicator one" style="width: 60%"></div>
             </div>
+          </div>
+        </div>
+          <div class="card">
+              <div class="card-head">
+                  <h2>340,230</h2>
+                  <span class="las la-users"></span>
+              </div>
+              <div class="card-progress">
+                  <small>Tổng số khách hàng đăng kí</small>
+                  <div class="card-indicator">
+                      <div class="indicator two" style="width: 80%"></div>
+                  </div>
+              </div>
+          </div>
 
+          <div class="card">
+              <div class="card-head">
+                  <h2 class="price-tour-format">$653,200</h2>
+                  <span class="las la-archive"></span>
+              </div>
+              <div class="card-progress">
+                  <small>Tổng doanh thu </small>
+                  <div class="card-indicator">
+                      <div class="indicator three" style="width: 65%"></div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-head">
+                  <h2>47,500</h2>
+                  <span class="las la-spinner"></span>
+              </div>
+              <div class="card-progress">
+                  <small>Đơn hàng đang đợi</small>
+                  <div class="card-indicator">
+                      <div class="indicator four" style="width: 90%"></div>
+                  </div>
+              </div>
+          </div>
+
+</main>
 
             <div class="records table-responsive">
                 <div style="margin: 12px; text-align: center">
@@ -173,11 +171,11 @@
                             <select name="" style="width: 100%;">
                                 <option value="id">ID đơn hàng</option>
                                 <option value="name">Tên khách hàng</option>
-                                <option value="date">Date</option>
+                    
                                 <option value="paystatus">Payment Status</option>
-                                <option value="total">Total</option>
+                                <option value="total">Order Status </option>
                                 <option value="paymethob">Payment Methob</option>
-                                <option value="action">Action</option>
+                                
                             </select>
                             <input type="text" placeholder="Nhập dữ liệu"
                                    style="height: 35px;border: 1px solid #b0b0b0;border-radius: 3px;display: inline-block;padding: 0rem 0.5rem;margin-right: 0.8rem;color: #666;">
@@ -186,18 +184,11 @@
                     </form>
 
 
-                    <div class="browse">
-                        <input type="search" placeholder="Search" class="record-search">
-                        <select name="" id="">
-                            <option value="">Status</option>
-                            <option value="">Refund</option>
-                            <option value="">Paid</option>
-                            <option value="">Cash on Delivery</option>
-                        </select>
-                    </div>
+                    
                 </div>
-                =========================================
-                <div>
+
+                  <div>
+
                     <table width="100%">
                         <thead>
                         <tr>
@@ -332,7 +323,9 @@
         </div>
 
 
-    </main>
+
+      </div>
+
 
 </div>
 </body>
