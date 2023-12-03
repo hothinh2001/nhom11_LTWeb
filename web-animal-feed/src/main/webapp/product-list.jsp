@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: MSI
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -520,289 +522,39 @@
                             </div>
 
 
-                            <div class="home-product">
-                                <!-- Grid -> Row -> Column -->
+                            <div class="best__selling--content">
                                 <div class="row sm-gutter product-item-wrapper">
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a
-                                                class="product-item"
-                                                href="../product-detail/index.html"
-                                        >
-
-
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/1.png');"></div>
-
-
-                                            <h4 class="product-item__name">
-                                                Thức ăn tập ăn cho heo con từ 9kg đến 20kg - DELICE B
-                                            </h4>
-                                            <div class="product-item__price">
-
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span
-                                                >
-                                            </div>
-                                            <div class="product-item__origin">
-
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-
-
-                                        </a>
-                                    </div>
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a class="product-item" href="#">
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/2.png');"></div>
-                                            <h4 class="product-item__name">
-                                                Thức ăn tập ăn cho heo con từ 7 ngày tuổi - 9kg POROCY 00-09
-                                            </h4>
-                                            <div class="product-item__price">
-
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span
-                                                >
-                                            </div>
-                                            <div class="product-item__origin">
-
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-
-
-                                        </a>
-                                    </div>
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a class="product-item" href="#">
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/3.png');"></div>
-                                            <h4 class="product-item__name">
-                                                Thức ăn tập ăn cho heo con từ 7 ngày tuổi - 9kg Con Cò 00-99
-
-                                            </h4>
-                                            <div class="product-item__price">
-
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span
-                                                >
-                                            </div>
-                                            <div class="product-item__origin">
-
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-
-
-                                        </a>
-                                    </div>
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a class="product-item" href="#">
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/4.png');"></div>
-                                            <h4 class="product-item__name">
-                                                Thức ăn hỗn hợp cho heo con từ 9kg - 20kg - PROCY 09-20
-                                            </h4>
-                                            <div class="product-item__price">
-
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span
-                                                >
-                                            </div>
-
-                                            <div class="product-item__origin">
-
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-
-
-                                        </a>
-                                    </div>
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a class="product-item" href="#">
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/5.png');"></div>
-                                            <h4 class="product-item__name">
-                                                Thức ăn hỗn hợp cho heo con từ 9kg - 20kg
-                                                Con Cò 09-20
-
-                                            </h4>
-                                            <div class="product-item__price">
-
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span
-                                                >
-                                            </div>
-                                            <div class="product-item__origin">
-
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-
-
-                                        </a>
-                                    </div>
-
-
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a class="product-item" href="#">
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/8.png');"></div>
-                                            <h4 class="product-item__name">
-                                                Hỗn hợp dùng cho heo thịt từ 15kg đến 30kg Big One 1
-
-                                            </h4>
-                                            <div class="product-item__price">
-
-                                                <span class="product-item__price-current"
-                                                >465.000đ</span
-                                                >
-                                            </div>
-                                            <div class="product-item__origin">
-
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-
-
-                                        </a>
-                                    </div>
-
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a
-                                                class="product-item"
-                                                href="../product-detail/index.html"
-                                        >
-
-
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/1.png');"></div>
-
-
-                                            <h4 class="product-item__name">
-                                                Thức ăn tập ăn cho heo con từ 9kg đến 20kg - DELICE B
-                                            </h4>
-                                            <div class="product-item__price">
-
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span
-                                                >
-                                            </div>
-                                            <div class="product-item__origin">
-
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a class="product-item"
-                                           href="../product-detail/index.html">
-
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/1.png');"></div>
-
-
-                                            <h4 class="product-item__name">
-                                                Thức ăn tập ăn cho heo con từ 9kg đến 20kg - DELICE B
-                                            </h4>
-                                            <div class="product-item__price">
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span>
-                                            </div>
-                                            <div class="product-item__origin">
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a class="product-item"
-                                           href="../product-detail/index.html">
-
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/1.png');"></div>
-
-
-                                            <h4 class="product-item__name">
-                                                Thức ăn tập ăn cho heo con từ 9kg đến 20kg - DELICE B
-                                            </h4>
-                                            <div class="product-item__price">
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span>
-                                            </div>
-                                            <div class="product-item__origin">
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a class="product-item"
-                                           href="../product-detail/index.html">
-
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/1.png');"></div>
-
-
-                                            <h4 class="product-item__name">
-                                                Thức ăn tập ăn cho heo con từ 9kg đến 20kg - DELICE B
-                                            </h4>
-                                            <div class="product-item__price">
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span>
-                                            </div>
-                                            <div class="product-item__origin">
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a class="product-item"
-                                           href="../product-detail/index.html">
-
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/1.png');"></div>
-
-
-                                            <h4 class="product-item__name">
-                                                Thức ăn tập ăn cho heo con từ 9kg đến 20kg - DELICE B
-                                            </h4>
-                                            <div class="product-item__price">
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span>
-                                            </div>
-                                            <div class="product-item__origin">
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col l-2-4 m-4 c-6">
-                                        <!-- Product Item -->
-                                        <a class="product-item"
-                                           href="../product-detail/index.html">
-
-                                            <div class="product-item__img"
-                                                 style="background-image: url('././assets/img/heo/1.png');"></div>
-
-                                            <h4 class="product-item__name">
-                                                Thức ăn tập ăn cho heo con từ 9kg đến 20kg - DELICE B
-                                            </h4>
-                                            <div class="product-item__price">
-                                                <span class="product-item__price-current"
-                                                >456.500đ</span>
-                                            </div>
-                                            <div class="product-item__origin">
-                                                <span class="product-item__origin-name">CON CÒ</span>
-                                            </div>
-                                        </a>
-                                    </div>
-
+                                    <c:forEach items="${listP}" var="product">
+                                        <div class="col l-2-4 c-6">
+                                            <!-- Product Item -->
+                                            <a
+                                                    class="product-item"
+                                                    href="${pageContext.request.contextPath}/detail?pid=${product.id}"
+                                            >
+                                                <div class="product-item__img">
+                                                    <img src="././assets/img/heo/1.png" alt=""></div>
+                                                <h4 class="product-item__title">
+                                                        ${product.getName()}
+                                                </h4>
+                                                <h4 class="product-item__name">
+                                                        ${product.getNameDetail()}
+                                                </h4>
+                                                <div class="product-item__price">
+                                                    <span class="product-item__price-current">${product.getPrice()}đ</span>
+                                                </div>
+                                                <div class="product-item__action">
+                                                    <!-- product-item__like--liked -->
+                                                    <span class="product-item__like"> </span>
+                                                    <div class="product-item__rating"></div>
+                                                    <div class="product-item__sold"></div>
+                                                </div>
+                                                <div class="product-item__origin">
+                                                    <span class="product-item__brand">Con Cò</span>
+                                                </div>
+                                                <div class="product-item__favourite"></div>
+                                            </a>
+                                        </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                             <button type="button" class="btn btn-primary btn-load-more">Xem thêm</button>
