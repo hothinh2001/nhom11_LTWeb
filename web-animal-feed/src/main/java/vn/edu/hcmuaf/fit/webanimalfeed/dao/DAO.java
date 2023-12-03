@@ -17,7 +17,7 @@ public class DAO {
 
     public List<SlideShow> getAllSlideShow() {
         List<SlideShow> list = new ArrayList<>();
-        String query = "SELECT id,urlImage FROM slideshows";
+        String query = "SELECT id,urlImage FROM slideShows";
         try {
             // Kết nối đến MySQL
             Connection conn = new DBContext().getConnection();
