@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.dao;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.context.DBContext;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Category;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
 
 import java.sql.Connection;
@@ -29,6 +30,8 @@ public class ProductDAO {
 
             // Xử lý kết quả và thêm vào danh sách
             while (rs.next()) {
+                Category category = new Category();
+                category.setNameCate(rs.getString("nameCate"));
                 list.add(new Product(
                         rs.getInt("id"),
                         rs.getString("name"),
@@ -37,7 +40,8 @@ public class ProductDAO {
                         rs.getString("ingredients"),
                         rs.getString("nutritionInfo"),
                         rs.getString("usageInstruction"),
-                        rs.getString("urlImage")
+                        rs.getString("urlImage"),
+                        category
                 ));
             }
 

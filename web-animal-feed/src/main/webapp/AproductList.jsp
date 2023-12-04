@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: MSI
@@ -108,10 +109,12 @@
         <div class="page-header">
             <h1>Danh sách sản phẩm</h1>
             <small>Home / Danh sách sản phẩm</small>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="redirectToProductPage()">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    onclick="redirectToProductPage()">
                 Thêm sản phẩm
             </button>
         </div>
+
 
         <div class="page-content">
             <div class="content-title">
@@ -126,79 +129,36 @@
                 <div class="content-title-item content-title-delete">Xóa sản phẩm</div>
             </div>
             <hr style="margin: 0; height: 2px">
-            <div class="content-title">
-                <div class="content-title-item content-title-stt">1</div>
-                <div class="content-title-item content-title-image">
-                    <img src="admin/assets/images/ga/c21.png">
-                </div>
-                <div class="content-title-item content-title-name">Con Cò C21</div>
-                <div class="content-title-item content-title-price">465.000</div>
-                <div class="content-title-item content-title-category">Thức ăn Gia Cầm</div>
-                <div class="content-title-item content-title-brand">Con Cò</div>
-                <div class="content-title-item content-title-quantity">500</div>
-                <div class="content-title-item content-title-edit">
-                    <a href="../productEdit/product.html">
-                        <span class="las la-edit"></span>
-                    </a>
+            <c:forEach items="${listP}" var="p">
+                    <div class="content-title">
+                        <div class="content-title-item content-title-stt">${p.getId()}</div>
+                        <div class="content-title-item content-title-image">
+                            <img src="${p.getUrlImage()}" alt="${p.getName()}">
+                        </div>
+                        <div class="content-title-item content-title-name">${p.getName()}</div>
+                        <div class="content-title-item content-title-price">${p.getPrice()}</div>
+                        <div class="content-title-item content-title-category">${p.getCategory().getNameCate()}</div>
+                        <div class="content-title-item content-title-brand">Con cò</div>
+                            <%--                    <div class="content-title-item content-title-quantity">${p.inventoryId.getQuantity()}</div>--%>
+                        <div class="content-title-item content-title-quantity">500</div>
+
+                        <div class="content-title-item content-title-edit">
+                            <a href="../productEdit/product.html">
+                                <span class="las la-edit"></span>
+                            </a>
 
 
-                </div>
-                <div class="content-title-item content-title-delete">
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                        <span class="las la-trash"></span>
-                    </button>
-                </div>
-            </div>
-            <div class="content-title">
-                <div class="content-title-item content-title-stt">2</div>
-                <div class="content-title-item content-title-image">
-                    <img src="admin/assets/images/ga/c24s.png">
-                </div>
-                <div class="content-title-item content-title-name">Con Cò C24s</div>
-                <div class="content-title-item content-title-price">465.000</div>
-                <div class="content-title-item content-title-category">Thức ăn Gia Cầm</div>
-                <div class="content-title-item content-title-brand">Con Cò</div>
-                <div class="content-title-item content-title-quantity">40</div>
-                <div class="content-title-item content-title-edit">
-                    <a href="../productEdit/product.html">
-                        <span class="las la-edit"></span>
-                    </a>
-
-
-                </div>
-                <div class="content-title-item content-title-delete">
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                        <span class="las la-trash"></span>
-                    </button>
-                </div>
-            </div>
-            <div class="content-title">
-                <div class="content-title-item content-title-stt">3</div>
-                <div class="content-title-item content-title-image">
-                    <img src="admin/assets/images/ga/con-co-ai-cap.png">
-                </div>
-                <div class="content-title-item content-title-name">Con Cò Ai Cập</div>
-                <div class="content-title-item content-title-price">465.000</div>
-                <div class="content-title-item content-title-category">Thức ăn Gia Cầm</div>
-                <div class="content-title-item content-title-brand">Con Cò</div>
-                <div class="content-title-item content-title-quantity">10</div>
-                <div class="content-title-item content-title-edit">
-                    <a href="../productEdit/product.html">
-                        <span class="las la-edit"></span>
-                    </a>
-
-
-                </div>
-                <div class="content-title-item content-title-delete">
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                        <span class="las la-trash"></span>
-                    </button>
-                </div>
-            </div>
+                        </div>
+                        <div class="content-title-item content-title-delete">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                <span class="las la-trash"></span>
+                            </button>
+                        </div>
+                    </div>
+            </c:forEach>
         </div>
+
 
     </main>
 

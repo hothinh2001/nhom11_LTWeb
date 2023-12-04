@@ -9,11 +9,12 @@ public class Product {
     private String nutritionInfo;
     private String usageInstruction;
     private String urlImage;
+    private Category category;
 
     public Product() {
     }
 
-    public Product(int id, String name, String nameDetail, double price, String ingredients, String nutritionInfo, String usageInstruction, String urlImage) {
+    public Product(int id, String name, String nameDetail, double price, String ingredients, String nutritionInfo, String usageInstruction, String urlImage, Category category) {
         this.id = id;
         this.name = name;
         this.nameDetail = nameDetail;
@@ -22,6 +23,7 @@ public class Product {
         this.nutritionInfo = nutritionInfo;
         this.usageInstruction = usageInstruction;
         this.urlImage = urlImage;
+        this.category = category;
     }
 
     public int getId() {
@@ -86,6 +88,10 @@ public class Product {
 
     public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
     @Override

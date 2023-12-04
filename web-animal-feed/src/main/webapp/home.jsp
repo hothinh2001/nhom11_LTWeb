@@ -399,7 +399,7 @@
                         <div class="cate-item">
                             <a href="../product-list/index.html">
                                 <img src="${category.getIconCate()}" alt=""/>
-                                    ${category.getName()}
+                                    ${category.getNameCate()}
                             </a>
                         </div>
                     </c:forEach>

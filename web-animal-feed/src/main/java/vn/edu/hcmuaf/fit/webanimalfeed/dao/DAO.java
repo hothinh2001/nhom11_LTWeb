@@ -42,7 +42,7 @@ public class DAO {
 
     public List<Category> getAllCategory() {
         List<Category> list = new ArrayList<>();
-        String query = "SELECT id,name, iconCate FROM categories";
+        String query = "SELECT id,nameCate, iconCate FROM categories";
         try {
             // Kết nối đến MySQL
             Connection conn = new DBContext().getConnection();
@@ -55,7 +55,7 @@ public class DAO {
             while (rs.next()) {
                 list.add(new Category(
                         rs.getInt("id"),
-                        rs.getString("name"),
+                        rs.getString("nameCate"),
                         rs.getString("iconCate")
                 ));
             }
@@ -65,7 +65,6 @@ public class DAO {
         }
         return list;
     }
-
 
 
     public static void main(String[] args) {
