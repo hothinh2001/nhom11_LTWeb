@@ -130,32 +130,32 @@
             </div>
             <hr style="margin: 0; height: 2px">
             <c:forEach items="${listP}" var="p">
-                    <div class="content-title">
-                        <div class="content-title-item content-title-stt">${p.getId()}</div>
-                        <div class="content-title-item content-title-image">
-                            <img src="${p.getUrlImage()}" alt="${p.getName()}">
-                        </div>
-                        <div class="content-title-item content-title-name">${p.getName()}</div>
-                        <div class="content-title-item content-title-price">${p.getPrice()}</div>
-                        <div class="content-title-item content-title-category">${p.getCategory().getNameCate()}</div>
-                        <div class="content-title-item content-title-brand">Con cò</div>
-                            <%--                    <div class="content-title-item content-title-quantity">${p.inventoryId.getQuantity()}</div>--%>
-                        <div class="content-title-item content-title-quantity">500</div>
-
-                        <div class="content-title-item content-title-edit">
-                            <a href="../productEdit/product.html">
-                                <span class="las la-edit"></span>
-                            </a>
-
-
-                        </div>
-                        <div class="content-title-item content-title-delete">
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                <span class="las la-trash"></span>
-                            </button>
-                        </div>
+                <div class="content-title">
+                    <div class="content-title-item content-title-stt">${p.getId()}</div>
+                    <div class="content-title-item content-title-image">
+                        <img src="${p.getUrlImage()}" alt="${p.getName()}">
                     </div>
+                    <div class="content-title-item content-title-name">${p.getName()}</div>
+                    <div class="content-title-item content-title-price">${p.getPrice()}</div>
+                    <div class="content-title-item content-title-category">${p.getCategory().getNameCate()}</div>
+                    <div class="content-title-item content-title-brand">${p.getBrand().getNameBrand()}</div>
+                        <%--                    <div class="content-title-item content-title-quantity">${p.inventoryId.getQuantity()}</div>--%>
+                    <div class="content-title-item content-title-quantity">${p.getInventory().getQuantity()}</div>
+
+                    <div class="content-title-item content-title-edit">
+                        <a href="../productEdit/product.html">
+                            <span class="las la-edit"></span>
+                        </a>
+
+
+                    </div>
+                    <div class="content-title-item content-title-delete">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                            <span class="las la-trash"></span>
+                        </button>
+                    </div>
+                </div>
             </c:forEach>
         </div>
 

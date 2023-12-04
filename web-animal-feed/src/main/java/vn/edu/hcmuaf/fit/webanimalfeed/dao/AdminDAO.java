@@ -1,7 +1,9 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.dao;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.context.DBContext;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Brand;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Category;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Inventory;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
 
 import java.sql.Connection;
@@ -64,7 +66,7 @@ public class AdminDAO {
                 "    p.nutritionInfo, \n" +
                 "    p.usageInstruction,\n" +
                 "    c.`nameCate` AS nameCate,\n" +
-                "\t\tb. `name`  AS nameBrand,\n" +
+                "\t\tb. `nameBrand`  AS nameBrand,\n" +
                 "\t\ti.quantity AS Quantity\n" +
                 "FROM products p\n" +
                 "JOIN categories c ON p.categoryId = c.id\n" +
@@ -82,6 +84,11 @@ public class AdminDAO {
             while (rs.next()) {
                 Category category = new Category();
                 category.setNameCate(rs.getString("nameCate"));
+                Brand brand = new Brand();
+                brand.setNameBrand(rs.getString("nameBrand"));
+                Inventory inventory = new Inventory();
+                inventory.setQuantity(rs.getInt("Quantity"));
+
                 list.add(new Product(
                         rs.getInt("id"),
                         rs.getString("name"),
@@ -91,7 +98,10 @@ public class AdminDAO {
                         rs.getString("nutritionInfo"),
                         rs.getString("usageInstruction"),
                         rs.getString("urlImage"),
-                        category
+                        category,
+                        brand,
+                        inventory
+
                 ));
             }
 
