@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -408,7 +409,7 @@
                 </li>
                 <li class="breadcrumb-item breadcrumb-item--active">
                     <a href="#" class="breadcrumb-item__link">
-                        Bio-zeem Siêu úm</a
+                        ${detail.getNameDetail()}</a
                     >
                 </li>
             </ul>
@@ -420,15 +421,15 @@
 
         <div class="product-detail">
             <div class="product-title">
-                <div class="product-name"><h3>Bio-zeem Siêu úm</h3></div>
-                <div class="product-describe"><h3>Thức ăn hỗn hợp cho Gà thịt Siêu úm từ 01 - 07 ngày tuổi</h3>
+                <div class="product-name"><h3>${detail.getName()}</h3></div>
+                <div class="product-describe"><h3>${detail.getNameDetail()}</h3>
                 </div>
             </div>
             <div class="product-detail-wrapper row">
                 <div class="col l-5 m-12 c-12 product-detail__img-wrapper">
                     <div class="product-detail__img">
                         <img
-                                src="././assets/img/ga/ga-sieu-um.png"
+                                src="${detail.getUrlImage()}"
                                 alt=""
                                 class="product-detail__img-main"
                                 id="main-image"
@@ -444,28 +445,18 @@
 
                         </div>
                         <div class="product-detail__describe description-material" style="display: none">
-                            Bột ngũ cốc (bắp, tấm, khoai mì,…) phụ phẩm ngũ cốc (cám gạo, cám mì,…), đạm động vật,
-                            đạm thực vật (khô dầu đậu nành, khô dầu hạt cải,..), premix vi khoáng - vitamin, axit
-                            amin, chất phụ gia, khoáng đa lượng,..
+                            ${detail.getIngredients()}
                         </div>
                         <div class="product-detail__describe description-nutrition">
-                            * Độ ẩm (%) max: 13 <br>
-                            * Protein thô (%) min: 23<br>
-                            * Xơ thô (%) max: 7<br>
-                            * Canxi (%) min - max: 0,7 - 1,6<br>
-                            * P tổng số (%) min-max: 0,5 - 1,1<br>
-                            * Lysine tổng số (%) min: 1,2<br>
-                            * Methionine + Cystine tổng số (%) min: 1<br>
-                            * Năng lượng trao đổi (Kcal/kg) min: 3,050<br>
+                            ${detail.getNutritionInfo()}
                         </div>
                         <div class="product-detail__describe description-tutorial" style="display: none">
-                            * Thức ăn hỗn hợp đầy đủ dinh dưỡng dùng cho gà lông màu từ 01 - 21 ngày tuổi.<br>
-                            * Không nên trộn thêm các nguyên liệu khác.
+                            ${detail.getUsageInstruction()}
                         </div>
                         <div class="product-detail__info-price">
-                    <span class="product-detail__info-price-current"
-                    >565.000đ</span
-                    >
+                            <span class="product-detail__info-price-current"
+                            >${detail.getPrice()}đ</span
+                            >
                         </div>
                         <div class="product-detail__info-quantity">
                     <span class="product-detail__info-quantity-title"
@@ -494,7 +485,7 @@
 
                         <div class="product-detail__info-cart-btn">
                             <button class="btn--cart__add">
-                                <a href="./cart/index.html">
+                                <a href="add-cart?id=${detail.getId()}">
                                     <i class="fas fa-cart-plus"></i>
                                     Thêm vào giỏ hàng
                                 </a>
@@ -750,6 +741,6 @@
 <!-- Footer end -->
 <!-- Modal form end -->
 <script src="././assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
-<script src="main.js"></script>
+<script src="./assets/js/productDetail.js"></script>
 </body>
 </html>
