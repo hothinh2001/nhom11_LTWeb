@@ -2,19 +2,23 @@ package vn.edu.hcmuaf.fit.webanimalfeed.entity;
 
 public class Category {
     private int id;
-    private String name;
+    private String nameCate;
     private String iconCate;
 
-    public Category(String name, String iconCate) {
-        this.name = name;
+    public Category(String nameCate, String iconCate) {
+        this.nameCate = nameCate;
         this.iconCate = iconCate;
 
     }
 
     public Category(int id, String name, String iconCate) {
         this.id = id;
-        this.name = name;
+        this.nameCate = name;
         this.iconCate = iconCate;
+    }
+
+    public Category() {
+
     }
 
     public int getId() {
@@ -25,12 +29,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameCate() {
+        return nameCate;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameCate(String nameCate) {
+        this.nameCate = nameCate;
     }
 
     public String getIconCate() {
@@ -45,7 +49,7 @@ public class Category {
     public String toString() {
         return "Category{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + nameCate + '\'' +
                 ", iconCate='" + iconCate + '\'' +
                 '}';
     }
