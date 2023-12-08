@@ -12,30 +12,31 @@
 />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
     />
-   
+
 </head>
 <body>
 <header class="header">
-  <div class="grid wide">
-    <div class="header__logo hide-on-tablet">
-      <div class="header__logo-container">
-        <div class="logo-holder logo-4">
-          <a href="/" class="header__logo-link">
-            <img src="../../assets/img/logo.jpg" alt="">
-          </a>
+    <div class="grid wide">
+        <div class="header__logo hide-on-tablet">
+            <div class="header__logo-container">
+                <div class="logo-holder logo-4">
+                    <a href="../home/index.html" class="header__logo-link">
+                        <img src="../../assets/img/logo.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="header__login">
+                <h1>Đăng kí</h1>
+            </div>
         </div>
-      </div>
-      <div class="header__login">
-        <h1>Đăng kí</h1>
-      </div>
-    </div>
 
-  </div>
+    </div>
 </header>
 <div class="container">
+
 <div id="regiter-form" class="auth-form">
     <div class="auth-form__container">
       <div class="auth-form__header">
@@ -104,51 +105,52 @@
             class="auth-form__input"
             placeholder="Nhập lại mật khẩu"
           />
+          
+       <div class="auth-form__aside">
+                <p class="auth-form__policy-text">
+                    Bằng việc đăng ký, bạn đã đồng ý với Shop về
+                    <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a>
+                    &
+                    <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
+                </p>
+            </div>
+            <div class="auth-form__controls">
+                <a href="../home/index.html">
+                    <button class="btn btn--normal auth-form__control-back-btn">
+                        TRỞ LẠI
+                    </button>
+                </a>
+                <button class="btn btn--primary" onclick="register()">ĐĂNG KÝ</button>
+            </div>
         </div>
-      </div>
-      <div class="auth-form__aside">
-        <p class="auth-form__policy-text">
-          Bằng việc đăng ký, bạn đã đồng ý với Shop về
-          <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a>
-          &
-          <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
-        </p>
-      </div>
-      <div class="auth-form__controls">
-        <a href="../home/index.html"><button class="btn btn--normal auth-form__control-back-btn">
-          TRỞ LẠI
-        </button></a>
-        <button class="btn btn--primary" onclick="register()">ĐĂNG KÝ</button>
-      </div>
-    </div>
-    <div class="auth-form__socials">
-      <a
-        href=""
-        class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
-      >
-        <i
-          class="auth-form__socials-icon fa-brands fa-facebook-square"
-        ></i>
-        <span class="auth-form__socials-title">Kết nối với Facebook</span>
-      </a>
-      <a
-        href=""
-        class="auth-form__socials--google btn btn--size-s btn--with-icon"
-      >
+        <div class="auth-form__socials">
+            <a
+                    href=""
+                    class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
+            >
+                <i
+                        class="auth-form__socials-icon fa-brands fa-facebook-square"
+                ></i>
+                <span class="auth-form__socials-title">Kết nối với Facebook</span>
+            </a>
+            <a
+                    href=""
+                    class="auth-form__socials--google btn btn--size-s btn--with-icon"
+            >
         <span class="auth-form__logo-social-img">
           <img
-            src="../../assets/img/google_signin.png"
-            alt="Google"
-            class="google-login__img"
+                  src="../../assets/img/google_signin.png"
+                  alt="Google"
+                  class="google-login__img"
           />
         </span>
-        <span class="auth-form__socials-title">Kết nối với Google</span>
-      </a>
+                <span class="auth-form__socials-title">Kết nối với Google</span>
+            </a>
+        </div>
     </div>
-  </div>
 </div>
-  <!-- Register form end -->
+<!-- Register form end -->
 <script src="main.js"></script>
-  </body>
-  </html>
+</body>
+</html>
   

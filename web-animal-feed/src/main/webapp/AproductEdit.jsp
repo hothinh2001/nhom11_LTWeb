@@ -1,0 +1,183 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: MSI
+  Date: 12/3/2023
+  Time: 9:37 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Modern Admin Dashboard</title>
+    <!--  <link rel="stylesheet" href="/assets/css/dashboard.css">-->
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="admin/assets/css/AproductEdit.css">
+    <link rel="stylesheet"
+          href="assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<input type="checkbox" id="menu-toggle">
+<div class="sidebar">
+    <div class="side-header">
+
+        <h3>M<span>odern</span></h3>
+    </div>
+
+    <div class="side-content">
+        <div class="profile">
+            <div class="">
+                <img alt='TravelerWP'
+                     class='avatar avatar-50 photo profile-img bg-img' height='50' width='50' loading='lazy'
+                     decoding='async'/>
+            </div>
+            <h4 class="user-name">TRAN NGOC BAO TRAN</h4>
+            <span class="user-role"></span>
+        </div>
+
+        <div class="side-menu">
+            <ul>
+                <li>
+                    <a href="admin/pages/dashboard/index.html" class="active">
+                        <span class="las la-home"></span>
+                        <small>Dashboard</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/pages/product/productList/index.html">
+                        <span class="las la-clipboard-list"></span>
+                        <small>Product List</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/pages/order/orderList.html">
+                        <span class="las la-shopping-cart"></span>
+                        <small>Order List</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/pages/category/index.html">
+                        <span class="las la-clipboard-list"></span>
+                        <small>Danh mục</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/pages/brand/index.html">
+                        <span class="las la-clipboard-list"></span>
+                        <small>Thương hiệu</small>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="main-content">
+
+    <header>
+        <div class="header-content">
+            <label for="menu-toggle">
+                <span class="las la-bars"></span>
+            </label>
+
+            <div class="header-menu">
+                <label>
+                    <span class="las la-search"></span>
+                </label>
+
+
+                <div class="notify-icon">
+                    <span class="las la-bell"></span>
+                    <span class="notify">3</span>
+                </div>
+
+                <div class="user">
+                    <div class="bg-img" style="background-image: url(admin/assets/images/profile/user-1.jpg)"></div>
+
+                    <span class="las la-power-off"></span>
+                    <span>Đăng xuất</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="page-header">
+            <h1>Tạo sản phẩm</h1>
+            <small>Home / Tạo sản phẩm</small>
+        </div>
+
+        <div class="page-content">
+
+            <div class="form-content">
+                <div class="form-content-left">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Tên sản phẩm</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput2" class="form-label">Tên mô tả sản phẩm</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput2">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Thông tin nguyên liệu</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Thông tin dinh dưỡng</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Hướng dẫn sử dụng</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput3" class="form-label">Giá của sản phẩm</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput3">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput4" class="form-label">Thêm ảnh</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput4">
+                    </div>
+
+                </div>
+                <div class="form-content-right">
+                    <div class="form-content-right-top">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput5" class="form-label">Số lượng trong kho</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput5">
+                        </div>
+                        <div class="form-content-category">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Loại sản phẩm</option>
+                                <option value="1">Thức ăn cho Heo</option>
+                                <option value="2">Thức ăn cho Cá</option>
+                                <option value="3">Thức ăn Gia cầm</option>
+                            </select>
+                        </div>
+                        <div class="form-content-brand">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Thương hiệu</option>
+                                <option value="1">Con cò</option>
+                                <option value="2">Bigboss</option>
+                                <option value="3">HPfeed</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-content-button">
+                        <button type="button" class="btn btn-primary btn-lg">Tạo sản phẩm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</div>
+</body>
+
+</html>
