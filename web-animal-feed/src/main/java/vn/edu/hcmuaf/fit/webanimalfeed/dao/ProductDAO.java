@@ -1,19 +1,20 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.dao;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.context.DBContext;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Brand;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Category;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Inventory;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ProductDAO {
-    Connection conn = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
+    static Connection conn = null;
+    static PreparedStatement ps = null;
+    static ResultSet rs = null;
 
     //getAllProduct
     public List<Product> getAllProduct() {
@@ -38,6 +39,7 @@ public class ProductDAO {
                         rs.getString("nutritionInfo"),
                         rs.getString("usageInstruction"),
                         rs.getString("urlImage")
+
                 ));
             }
 
@@ -60,6 +62,58 @@ public class ProductDAO {
             }
         }
         return list;
+    }
+
+    // hiển thị sản phẩm by id
+    public static Product getProductById(String id) {
+        String query = "SELECT\n" +
+                "    p.id,\n" +
+                "    p.name,\n" +
+                "    p.nameDetail,\n" +
+                "    p.urlImage,\n" +
+                "    p.price,\n" +
+                "    p.ingredients, \n" +
+                "    p.nutritionInfo, \n" +
+                "    p.usageInstruction,\n" +
+                "    c.`nameCate` AS nameCate,\n" +
+                "\t\tb. `nameBrand`  AS nameBrand,\n" +
+                "\t\ti.quantity AS Quantity\n" +
+                "FROM products p\n" +
+                "JOIN categories c ON p.categoryId = c.id\n" +
+                "JOIN brands b ON p.brandId = b.id\n" +
+                "JOIN inventories i ON p.inventoryId = i.id\n" +
+                "WHERE p.id = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Category category = new Category();
+                category.setNameCate(rs.getString("nameCate"));
+                Brand brand = new Brand();
+                brand.setNameBrand(rs.getString("nameBrand"));
+                Inventory inventory = new Inventory();
+                inventory.setQuantity(rs.getInt("Quantity"));
+                return new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("nameDetail"),
+                        rs.getDouble("price"),
+                        rs.getString("ingredients"),
+                        rs.getString("nutritionInfo"),
+                        rs.getString("usageInstruction"),
+                        rs.getString("urlImage"),
+                        category,
+                        brand,
+                        inventory
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     public static void main(String[] args) throws Exception {

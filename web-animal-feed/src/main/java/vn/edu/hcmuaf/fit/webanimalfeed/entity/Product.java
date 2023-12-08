@@ -9,11 +9,12 @@ public class Product {
     private String nutritionInfo;
     private String usageInstruction;
     private String urlImage;
+    private Category category;
+    private Brand brand;
+    private Inventory inventory;
 
-    public Product() {
-    }
-
-    public Product(int id, String name, String nameDetail, double price, String ingredients, String nutritionInfo, String usageInstruction, String urlImage) {
+    public Product(int id, String name, String nameDetail, double price, String ingredients,
+                   String nutritionInfo, String usageInstruction, String urlImage) {
         this.id = id;
         this.name = name;
         this.nameDetail = nameDetail;
@@ -22,6 +23,22 @@ public class Product {
         this.nutritionInfo = nutritionInfo;
         this.usageInstruction = usageInstruction;
         this.urlImage = urlImage;
+    }
+
+    public Product(int id, String name, String nameDetail, double price, String ingredients,
+                   String nutritionInfo, String usageInstruction, String urlImage, Category category,
+                   Brand brand, Inventory inventory) {
+        this.id = id;
+        this.name = name;
+        this.nameDetail = nameDetail;
+        this.price = price;
+        this.ingredients = ingredients;
+        this.nutritionInfo = nutritionInfo;
+        this.usageInstruction = usageInstruction;
+        this.urlImage = urlImage;
+        this.category = category;
+        this.brand = brand;
+        this.inventory = inventory;
     }
 
     public int getId() {
@@ -88,6 +105,30 @@ public class Product {
         this.urlImage = urlImage;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -99,6 +140,9 @@ public class Product {
                 ", nutritionInfo='" + nutritionInfo + '\'' +
                 ", usageInstruction='" + usageInstruction + '\'' +
                 ", urlImage='" + urlImage + '\'' +
+                ", category=" + category +
+                ", brand=" + brand +
+                ", inventory=" + inventory +
                 '}';
     }
 }

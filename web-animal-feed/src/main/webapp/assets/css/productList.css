@@ -90,12 +90,10 @@ body a {
 
 .category {
     background: transparent;
-
 }
 
 .category .cate-item:last-child {
     margin-bottom: 0 !important;
-
 }
 
 .cate-item {
@@ -122,9 +120,7 @@ body a {
     display: inline-block;
     min-width: 60px;
     margin-right: 50px;
-
 }
-
 
 .navbar {
     display: flex;
@@ -970,6 +966,7 @@ body a {
 }
 
 .header__search-btn-icon {
+    margin-left: 19px;
     font-size: 1.4rem;
     color: var(--white-color);
 }
@@ -1186,7 +1183,6 @@ body a {
 .mobile-category__item {
     flex-shrink: 0;
     margin-right: 10px;
-
 }
 
 .mobile-category__item:nth-of-type(3n + 1) .mobile-category__link {
@@ -1307,6 +1303,22 @@ body a {
 }
 
 /* Product Item */
+.best__selling--content a {
+    border: 2px solid #f5f5f5;
+    background-image: none !important;
+    background-color: white;
+    width: 190px;
+}
+
+.best__selling--content .product-item__img img {
+    width: 180px;
+    height: 240px;
+}
+
+body .product-item__img {
+    padding-top: 0;
+}
+
 .home-product {
     margin-bottom: 20px;
     width: 100%;
@@ -1462,7 +1474,6 @@ i.product-item__like-icon-fill {
 
 .product-item__origin-name {
     font-weight: 500;
-
 }
 
 .product-item__favourite {
@@ -1470,7 +1481,7 @@ i.product-item__like-icon-fill {
     top: 10px;
     left: -5px;
     /* color: var(--primary-color);
-      background-color: currentColor; */
+        background-color: currentColor; */
     background-image: linear-gradient(
             to right,
             #ff8177 0%,
@@ -1586,7 +1597,8 @@ i.product-item__like-icon-fill {
     padding: 8px; /* Thêm padding nếu cần thiết để tạo ra hiệu ứng bo tròn */
     display: inline-block; /* Để có thể thiết lập chiều rộng và chiều cao cho span */
 }
-.select-input{
+
+.select-input {
     margin: 0 12px;
 }
 
@@ -1594,5 +1606,5 @@ body .btn-load-more {
     padding: 8px;
     font-size: 16px;
     margin-bottom: 24px;
+    margin-top: 24px;
 }
-
