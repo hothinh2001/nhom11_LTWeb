@@ -22,10 +22,10 @@
                 <li
                         class="navbar__item navbar__item--strong navbar__item--separate js-register"
                 >
-                    <a href="././pages/register/index.html"> Đăng ký</a>
+                    <a href="SignUp.jsp"> Đăng ký</a>
                 </li>
                 <li class="navbar__item navbar__item--strong js-login">
-                    <a href="././pages/login/index.html"> Đăng nhập </a>
+                    <a href="Login.jsp"> Đăng nhập </a>
                 </li>
                 <li class="navbar__item navbar__user">
                     <img
@@ -33,7 +33,7 @@
                             alt="User"
                             class="navbar__user-img"
                     />
-                    <span class="navbar__user-name">Tran Ngoc Bao Tran</span>
+                    <span class="navbar__user-name">Xin Chao ${sessionScope.USER}</span>
                     <ul class="navbar__user-menu">
                         <li class="navbar__user-item">
                             <a href="./user/index.html" class="navbar__user-link">Tài khoản của tôi</a>

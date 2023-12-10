@@ -9,18 +9,17 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginDao {
+public class Signup {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public Users checkLogin(String user, String pass) {
+    public Users checkUserExist(String user) {
         try {
-            String query = "select username, password from where username =? and password=? "
+            String query = "select * from where username =?"
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, user);
-            ps.setString(2, pass);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Users u = new Users(rs.getInt(1),
@@ -40,9 +39,24 @@ public class LoginDao {
             }
 
         } catch (Exception e) {
-
         }
         return null;
+    }
+    public void signup(String email, String username, String dateOfBirth,String gender, String phone, String pass){
+        String querry ="insert into users values (?,?,?,?,?,?)";
+        try{
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, email);
+            ps.setString(2, username);
+            ps.setString(3, dateOfBirth);
+            ps.setString(4, gender);
+            ps.setString(5, phone);
+            ps.setString(6, pass);
+            ps.executeUpdate();
+        }catch(Exception e){
+
+        }
 
     }
 }
