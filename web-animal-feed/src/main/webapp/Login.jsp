@@ -42,6 +42,10 @@
             ></a>
           </div>
           <div class="auth-form__form" action="XulyLogin" method="post">
+
+         // đoạn mess thông báo
+          <p class="text-danger">${mess}</p>
+
             <div class="auth-form__group">
               <input
                 type="text"
@@ -55,7 +59,7 @@
               <input
                 type="password"
                 class="auth-form__input"
-                name="password"
+                name=""
                 placeholder="Mật khẩu của bạn"
               />
             </div>
