@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.controller;
 
-import vn.edu.hcmuaf.fit.webanimalfeed.dao.LoginDao;
+import vn.edu.hcmuaf.fit.webanimalfeed.dao.Signup;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Users;
 
 import javax.servlet.*;
@@ -21,24 +21,23 @@ public class XulySignup extends HttpServlet {
         String phone = request.getParameter("phone");
         String pass = request.getParameter("pass");
         String repass = request.getParameter("repass");
-        if(!pass.equals(repass)){
-            request.setAttribute("mess","Mật khẩu không trùng khớp");
-            request.getRequestDispatcher("Signup.jsp").forward(request,response);
-        }else{
-            Signup dao = new Signup();
-            Users u = dao.checkUserExist(user);
-            if( u==null){
-                //duoc add vao
-                dao.signup(email,username,dateOfBirtf,gender,phone,pass);
-                response.sendRedirect("home.jsp");
-
-
-            }else{
+//        if(!pass.equals(repass)){
+//            request.setAttribute("mess","Mật khẩu không trùng khớp");
+//            request.getRequestDispatcher("Signup.jsp").forward(request,response);
+//        }else{
+//            Signup dao = new Signup();
+//            String user;
+//            Users u = dao.checkUserExist(user);
+//            if( u==null){
+//                //duoc add vao
+//                dao.signup(email, username, dateOfBirth, gender, phone, pass);
+//                response.sendRedirect("home.jsp");
+//
+//
+//            }else{
                 //bị trung username
                 response.sendRedirect("Login.jsp");
             }
-        }
-        }
 
 
         @Override

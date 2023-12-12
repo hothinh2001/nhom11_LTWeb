@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
 
 
     <link
@@ -21,7 +23,7 @@
             <div class="header__logo-container">
                 <div class="logo-holder logo-4">
                     <a href="../home/index.html" class="header__logo-link">
-                        <img src="../../assets/img/logo.jpg" alt="">
+                        <img src="././assets/img/logo.jpg" alt="">
                     </a>
                 </div>
             </div>
@@ -33,6 +35,7 @@
     </div>
 </header>
 <div class="container">
+<form action="login" method="post">
     <div id="login-form" class="auth-form">
         <div class="auth-form__container">
           <div class="auth-form__header">
@@ -41,9 +44,9 @@
               >Đăng ký</span
             ></a>
           </div>
-          <div class="auth-form__form" action="XulyLogin" method="post">
+          <div class="auth-form__form">
 
-         // đoạn mess thông báo
+
           <p class="text-danger">${mess}</p>
 
             <div class="auth-form__group">
@@ -59,7 +62,7 @@
               <input
                 type="password"
                 class="auth-form__input"
-                name=""
+                name="password"
                 placeholder="Mật khẩu của bạn"
               />
             </div>
@@ -111,6 +114,7 @@
         </div>
 
       </div>
+      </form>
 </div>
 </body>
 </html>
