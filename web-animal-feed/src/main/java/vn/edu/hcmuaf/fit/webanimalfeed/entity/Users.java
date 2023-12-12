@@ -3,7 +3,7 @@ package vn.edu.hcmuaf.fit.webanimalfeed.entity;
 public class Users{
     private int id;
     private String name;
-    private String avata;
+    private String avatar;
     private String username;
     private String gender;
     private String birthdate;
@@ -14,10 +14,10 @@ public class Users{
     private String address;
     private boolean emailConfirmed;
 
-    public Users(int id, String name, String avata, String username, String gender, String birthdate, int roleId, String phone, String email, String password, String address, boolean emailConfirmed) {
+    public Users(int id, String name, String avatar, String username, String gender, String birthdate, int roleId, String phone, String email, String password, String address, boolean emailConfirmed) {
         this.id = id;
         this.name = name;
-        this.avata = avata;
+        this.avatar = avatar;
         this.username = username;
         this.gender = gender;
         this.birthdate = birthdate;
@@ -45,12 +45,12 @@ public class Users{
         this.name = name;
     }
 
-    public String getAvata() {
-        return avata;
+    public String getavatar() {
+        return avatar;
     }
 
-    public void setAvata(String avata) {
-        this.avata = avata;
+    public void setavatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getUsername() {
@@ -130,7 +130,7 @@ public class Users{
         return "Users{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", avata='" + avata + '\'' +
+                ", avatar='" + avatar + '\'' +
                 ", username='" + username + '\'' +
                 ", gender='" + gender + '\'' +
                 ", birthdate='" + birthdate + '\'' +
