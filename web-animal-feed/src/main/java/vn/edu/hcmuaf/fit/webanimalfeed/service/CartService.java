@@ -1,13 +1,12 @@
-package vn.edu.hcmuaf.fit.webanimalfeed.cart;
+package vn.edu.hcmuaf.fit.webanimalfeed.service;
 
-import vn.edu.hcmuaf.fit.webanimalfeed.dao.ProductDAO;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.CartProduct;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
-import vn.edu.hcmuaf.fit.webanimalfeed.service.ProductService;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cart {
+public class CartService {
 
     Map<Integer, CartProduct> data = new HashMap<>();
 
@@ -30,22 +29,22 @@ public class Cart {
 
     }
 
-//    public boolean add(int id, int quantity) {
-//        if (data.containsKey(id)) {
-//            CartProduct cartProduct = data.get(id);
-//            cartProduct.setQuantity(cartProduct.getQuantity() + quantity);
-//            return true;
-//        }
-//        return false;
-//    }
-
     public boolean remove(int id) {
         if (!data.containsKey(id)) return false;
         data.remove(id);
         return true;
     }
 
+
     public int getTotalQuantity() {
         return data.size();
+    }
+
+    public Map<Integer, CartProduct> getData() {
+        return data;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
