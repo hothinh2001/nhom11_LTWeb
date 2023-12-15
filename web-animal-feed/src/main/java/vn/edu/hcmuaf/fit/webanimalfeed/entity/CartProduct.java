@@ -1,10 +1,10 @@
-package vn.edu.hcmuaf.fit.webanimalfeed.cart;
+package vn.edu.hcmuaf.fit.webanimalfeed.entity;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
 
 public class CartProduct {
-    int quantity;
-    Product product;
+    private int quantity;
+    private Product product;
 
 
     public int getQuantity() {
@@ -24,10 +24,12 @@ public class CartProduct {
     }
 
     public CartProduct(int quantity, Product p) {
+        this.quantity = quantity;
+        this.product = p;
     }
 
     public void increQuantity(int quantity) {
-        this.quantity += this.quantity;
+        this.quantity += quantity;
     }
 
     public void decreQuantity() {
@@ -37,4 +39,11 @@ public class CartProduct {
         }
     }
 
+    @Override
+    public String toString() {
+        return "CartProduct{" +
+                "quantity=" + quantity +
+                ", product=" + product +
+                '}';
+    }
 }

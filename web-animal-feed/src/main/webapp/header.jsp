@@ -3,14 +3,14 @@
 
 <%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.entity.Product" %>
 <%@ page import="java.util.List" %>
-<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.cart.Cart" %>
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.service.CartService" %>
 <%@ page import="java.util.ArrayList" %>
 
 <%
     List<Product> data = (List<Product>) request.getAttribute("data");
     if (data == null) data = new ArrayList<>();
-    Cart cart = (Cart) session.getAttribute("cart");
-    if (cart == null) cart = new Cart();
+    CartService cart = (CartService) session.getAttribute("cart");
+    if (cart == null) cart = new CartService();
 %>
 <!-- Header start -->
 <header class="header">
@@ -257,7 +257,7 @@
             <div class="header__cart">
                 <div class="header__cart-wrapper">
                     <i class="header__cart-icon fas fa-shopping-cart"></i>
-                    <span class="header__cart-notice"><%= cart.getTotalQuantity()%></span>
+                    <span class="header__cart-notice"> <%= cart.getTotalQuantity() %> </span>
                     <!-- No item in cart header__cart-list--nocart -->
                     <div class="header__cart-list">
                         <img
@@ -272,67 +272,17 @@
                         <ul class="header__cart-list-item">
                             <li class="header__cart-item">
                                 <img
-                                        src="././assets/img/ga/c24s.png"
+                                        src="././assets/img/ga/ga-sieu-um.png"
                                         alt=""
                                         class="header__cart-img"
                                 />
                                 <div class="header__cart-item-info">
                                     <div class="header__cart-item-head">
                                         <h5 class="header__cart-item-name">
-                                            Con Cò 00-09
+                                            Con gà siêu úm
                                         </h5>
                                         <div class="header__cart-item-price-wrap">
-                                            <span class="header__cart-item-price">550.000đ</span>
-                                            <span class="header__cart-item-multiply">x</span>
-                                            <span class="header__cart-item-qnt">1</span>
-                                        </div>
-                                    </div>
-                                    <div class="header__cart-item-body">
-                        <span class="header__cart-item-description"
-                        ></span
-                        >
-                                        <span class="header__cart-item-remove">Xóa</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="header__cart-item">
-                                <img
-                                        src="././assets/img/ga/c24.png"
-                                        alt=""
-                                        class="header__cart-img"
-                                />
-                                <div class="header__cart-item-info">
-                                    <div class="header__cart-item-head">
-                                        <h5 class="header__cart-item-name">
-                                            Con Cò C24
-                                        </h5>
-                                        <div class="header__cart-item-price-wrap">
-                                            <span class="header__cart-item-price">550.000đ</span>
-                                            <span class="header__cart-item-multiply">x</span>
-                                            <span class="header__cart-item-qnt">1</span>
-                                        </div>
-                                    </div>
-                                    <div class="header__cart-item-body">
-                        <span class="header__cart-item-description"
-                        ></span
-                        >
-                                        <span class="header__cart-item-remove">Xóa</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="header__cart-item">
-                                <img
-                                        src="././assets/img/ga/c24s.png"
-                                        alt=""
-                                        class="header__cart-img"
-                                />
-                                <div class="header__cart-item-info">
-                                    <div class="header__cart-item-head">
-                                        <h5 class="header__cart-item-name">
-                                            Con Cò Ai cập
-                                        </h5>
-                                        <div class="header__cart-item-price-wrap">
-                                            <span class="header__cart-item-price">550.000đ</span>
+                                            <span class="header__cart-item-price">550000đ</span>
                                             <span class="header__cart-item-multiply">x</span>
                                             <span class="header__cart-item-qnt">1</span>
                                         </div>
