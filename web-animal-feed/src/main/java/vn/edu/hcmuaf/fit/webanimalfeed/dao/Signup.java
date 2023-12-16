@@ -16,7 +16,7 @@ public class Signup {
 
     public Users checkUserExist(String user) {
         try {
-            String query = "select * from where username =?"
+            String query = "select * from where username =?";
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, user);
@@ -33,8 +33,8 @@ public class Signup {
                         rs.getString(9),
                         rs.getString(10),
                         rs.getString(11),
-                        rs.getString(12),
-                        )
+                        rs.getBoolean(12)
+                        );
                 return u;
             }
 
@@ -43,7 +43,7 @@ public class Signup {
         return null;
     }
     public void signup(String email, String username, String dateOfBirth,String gender, String phone, String pass){
-        String querry ="insert into users values (?,?,?,?,?,?)";
+        String query ="insert into users values (?,?,?,?,?,?)";
         try{
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);

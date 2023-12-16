@@ -1,7 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.entity.Product" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.cart.Cart" %><%--
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.service.CartService" %><%--
   Created by IntelliJ IDEA.
   User: MSI
   Date: 11/28/2023

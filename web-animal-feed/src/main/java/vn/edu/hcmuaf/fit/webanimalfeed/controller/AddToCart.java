@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.controller;
 
-import vn.edu.hcmuaf.fit.webanimalfeed.cart.Cart;
+import vn.edu.hcmuaf.fit.webanimalfeed.service.CartService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -18,12 +18,11 @@ public class AddToCart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
-        if (cart == null) cart = new Cart();
+        CartService cart = (CartService) session.getAttribute("cartMap");
+        if (cart == null) cart = new CartService();
         String id = request.getParameter("id");
         cart.add(Integer.parseInt(id));
-        session.setAttribute("cart", cart);
-
-        request.getRequestDispatcher("product-list").forward(request, response);
+        session.setAttribute("cartMap", cart);
+        request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
 }
