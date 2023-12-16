@@ -6,8 +6,6 @@ import vn.edu.hcmuaf.fit.webanimalfeed.entity.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Signup {
     Connection conn = null;
@@ -16,35 +14,36 @@ public class Signup {
 
     public Users checkUserExist(String user) {
         try {
-            String query = "select * from where username =?";
+            String query = "select * from user where username =?";
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, user);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Users u = new Users(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getInt(7),
-                        rs.getString(8),
-                        rs.getString(9),
-                        rs.getString(10),
-                        rs.getString(11),
-                        rs.getBoolean(12)
-                        );
-                return u;
+                return new Users(rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("avatar"),
+                        rs.getString("username"),
+                        rs.getString("gender"),
+                        rs.getString("birthdate"),
+                        rs.getInt("roleId"),
+                        rs.getString("phone"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getString("address"),
+                        rs.getBoolean("emailConfirmed")
+                );
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
-    public void signup(String email, String username, String dateOfBirth,String gender, String phone, String pass){
-        String query ="insert into users values (?,?,?,?,?,?)";
-        try{
+
+    public void AddSignup(String email, String username, String dateOfBirth, String gender, String phone, String pass) {
+        String query = "insert into users values (?,?,?,?,?,?)";
+        try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, email);
@@ -54,9 +53,12 @@ public class Signup {
             ps.setString(5, phone);
             ps.setString(6, pass);
             ps.executeUpdate();
-        }catch(Exception e){
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
     }
 }
+
+
+
+
