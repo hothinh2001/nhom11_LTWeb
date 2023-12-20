@@ -9,10 +9,17 @@ import javax.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "XulySignup", value = "/signup")
-public class XulySignup extends HttpServlet {
+@WebServlet(name = "SignupController", value = "/SignupController")
+public class SignupController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         response.setContentType("text/html;charset=utf-8");
         String email = request.getParameter("email");
         String username = request.getParameter("username");
@@ -21,27 +28,26 @@ public class XulySignup extends HttpServlet {
         String phone = request.getParameter("phone");
         String pass = request.getParameter("pass");
         String repass = request.getParameter("repass");
-//        if(!pass.equals(repass)){
-//            request.setAttribute("mess","Mật khẩu không trùng khớp");
-//            request.getRequestDispatcher("Signup.jsp").forward(request,response);
-//        }else{
-//            Signup dao = new Signup();
-//            String user;
-//            Users u = dao.checkUserExist(user);
-//            if( u==null){
-//                //duoc add vao
-//                dao.signup(email, username, dateOfBirth, gender, phone, pass);
-//                response.sendRedirect("home.jsp");
-//
-//
-//            }else{
-                //bị trung username
+        if (!pass.equals(repass)) {
+            request.setAttribute("mess", "Mật khẩu không trùng khớp");
+            request.getRequestDispatcher("Signup.jsp").forward(request, response);
+        } else {
+            Signup dao = new Signup();
+            Users u = dao.checkUserExist(username);
+            if (u == null) {
+                //duoc add vao
+                dao.AddSignup(email, username, date, gender, phone, pass);
+                response.sendRedirect("home.jsp");
+
+
+            } else {
+                // bị trung username
                 response.sendRedirect("Login.jsp");
+
             }
-
-
-        @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            doGet(request, response);
         }
     }
+}
+
+
+
