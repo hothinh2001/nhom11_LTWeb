@@ -79,8 +79,7 @@
         <div class="product-detail">
             <div class="product-title">
                 <div class="product-name"><h3>${detail.getName()}</h3></div>
-                <div class="product-describe"><h3>${detail.getNameDetail()}</h3>
-                </div>
+                <div class="product-describe"><h3>${detail.getNameDetail()}</h3></div>
             </div>
             <div class="product-detail-wrapper row">
                 <div class="col l-5 m-12 c-12 product-detail__img-wrapper">
