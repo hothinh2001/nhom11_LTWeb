@@ -1,16 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.entity.Product" %>
-<%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.service.CartService" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.impl.CartServiceImpl" %>
 
 <%
-    List<Product> data = (List<Product>) request.getAttribute("data");
-    if (data == null) data = new ArrayList<>();
     CartService cart = (CartService) session.getAttribute("cart");
-    if (cart == null) cart = new CartService();
+    if (cart == null) cart = new CartServiceImpl();
 %>
 <!-- Header start -->
 <header class="header">

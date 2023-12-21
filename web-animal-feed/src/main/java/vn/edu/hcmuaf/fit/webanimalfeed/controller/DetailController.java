@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.webanimalfeed.controller;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.ProductDAO;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
+import vn.edu.hcmuaf.fit.webanimalfeed.service.ProductService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -20,8 +21,8 @@ public class DetailController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String id = request.getParameter("pid");
-        ProductDAO dao = new ProductDAO();
-        Product product = dao.getProductById(id);
+        ProductService productService = ProductService.getInstance();
+        Product product = productService.getProductById(id);
         request.setAttribute("detail", product);
         request.getRequestDispatcher("product-detail.jsp").forward(request, response);
     }
