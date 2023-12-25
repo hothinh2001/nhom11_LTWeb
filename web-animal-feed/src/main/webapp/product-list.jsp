@@ -184,7 +184,7 @@
                                                     href="${pageContext.request.contextPath}/detail?pid=${product.id}"
                                             >
                                                 <div class="product-item__img">
-                                                    <img src="././assets/img/heo/1.png" alt=""></div>
+                                                    <img src="${product.getUrlImage()}" alt=""></div>
                                                 <h4 class="product-item__title">
                                                         ${product.getName()}
                                                 </h4>
