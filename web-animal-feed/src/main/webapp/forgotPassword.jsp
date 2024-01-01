@@ -21,7 +21,7 @@
       <div class="header__logo-container">
         <div class="logo-holder logo-4">
           <a href="" class="header__logo-link">
-            <img src="../../assets/img/logo.jpg" alt="">
+            <img src="././assets/img/logo.jpg" alt="">
           </a>
         </div>
       </div>
@@ -61,7 +61,7 @@
       </div>
 
       <div class="auth-form__controls">
-        <a href="" ><button class="btn btn--normal auth-form__control-back-btn">
+        <a href="Login.jsp" ><button class="btn btn--normal auth-form__control-back-btn">
           TRỞ LẠI
         </button>
         </a>

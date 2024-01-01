@@ -26,13 +26,16 @@ public class NewPassword extends HttpServlet {
 		HttpSession session = request.getSession();
 		String newPassword = request.getParameter("password");
 		String confPassword = request.getParameter("confPassword");
+		String email =request.getParameter("email");
+
 		RequestDispatcher dispatcher = null;
 		if (newPassword != null && confPassword != null && newPassword.equals(confPassword)) {
 			try {
 				ForgotPass forgot = new ForgotPass();
 				Users u = forgot.updatePass(newPassword,email);
 
-				if(rowCount >0){
+				//if(rowCount >0){
+				if{
 					request.setAttribute("status", "resetSuccess");
 					dispatcher = request.getRequestDispatcher("Login.jsp");
 				} else {
