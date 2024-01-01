@@ -12,10 +12,13 @@ public class DBContext {
 
     // Insert your other code right after this comment
     // Change/update information of your database connection, DO NOT change name of instance variables in this class
+//    private static final String dbName = "animal-feed";
+//    private static final String userID = "root";
+//    private static final String password = "admin";
+
     private static final String dbName = "animal-feed";
     private static final String userID = "root";
     private static final String password = "admin";
-
     public static void main(String[] args) {
         try {
             System.out.println(new DBContext().getConnection() + "");
