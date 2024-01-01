@@ -30,8 +30,9 @@ public class NewPassword extends HttpServlet {
 		if (newPassword != null && confPassword != null && newPassword.equals(confPassword)) {
 			try {
 				ForgotPass forgot = new ForgotPass();
-				Users users = forgot.updatePass(newPassword, email);
-				if (rs > 0){
+				Users u = forgot.updatePass(newPassword,email);
+
+				if(rowCount >0){
 					request.setAttribute("status", "resetSuccess");
 					dispatcher = request.getRequestDispatcher("Login.jsp");
 				} else {

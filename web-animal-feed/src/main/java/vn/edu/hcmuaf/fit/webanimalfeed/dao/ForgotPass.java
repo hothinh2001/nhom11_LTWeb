@@ -9,16 +9,35 @@ public class ForgotPass {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    public Users updatePass(String newPassword, String email) throws Exception {
+    public Users updatePass(String newPassword, String email)  {
         String querry = "update users set password = ? where email = ?";
-        conn = new DBContext().getConnection();
+        try {
+            conn = new DBContext().getConnection();
+
         ps = conn.prepareStatement(querry);
         ps.setString(1, newPassword);
         ps.setString(2, email);
       //  ps.setString(2, (String) session.getAttribute("email"));
-        rs = ps.executeQuery();
-        int rowCount = ps.executeUpdate();
-
+        ps.executeUpdate();
+//        int rowCount = ps.executeUpdate();
+        while (rs.next()) {
+            return new Users(rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getString("avatar"),
+                    rs.getString("username"),
+                    rs.getString("gender"),
+                    rs.getString("birthdate"),
+                    rs.getInt("roleId"),
+                    rs.getString("phone"),
+                    rs.getString("email"),
+                    rs.getString("password"),
+                    rs.getString("address"),
+                    rs.getBoolean("emailConfirmed")
+            );
+        }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         return null;
     }
 }
