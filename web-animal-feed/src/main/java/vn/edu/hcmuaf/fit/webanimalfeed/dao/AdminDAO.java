@@ -93,7 +93,7 @@ public class AdminDAO {
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("nameDetail"),
-                        rs.getDouble("price"),
+                        rs.getInt("price"),
                         rs.getString("ingredients"),
                         rs.getString("nutritionInfo"),
                         rs.getString("usageInstruction"),
@@ -124,6 +124,31 @@ public class AdminDAO {
             }
         }
         return list;
+    }
+
+    public void insertProduct(String name, String nameDetail, String urlImage, String price, String ingredients, String nutritionInfo, String usageInstruction, String inventoryId, String categoryId, String brandId, String createdAt, String modifiedAt) {
+        String query = "INSERT INTO products (name,nameDetail, price,ingredients,nutritionInfo,usageInstruction, categoryId, inventoryId, brandId, urlImage, createdAt, modifiedAt)\n" +
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, name);
+            ps.setString(2, nameDetail);
+            ps.setString(3, price);
+            ps.setString(4, ingredients);
+            ps.setString(5, nutritionInfo);
+            ps.setString(6, usageInstruction);
+            ps.setString(7, categoryId);
+            ps.setString(8, inventoryId);
+            ps.setString(9, brandId);
+            ps.setString(10, urlImage);
+            ps.setString(11, createdAt);
+            ps.setString(12, modifiedAt);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

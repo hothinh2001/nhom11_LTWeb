@@ -4,7 +4,7 @@ public class Product {
     private int id;
     private String name;
     private String nameDetail;
-    private double price;
+    private int price;
     private String ingredients;
     private String nutritionInfo;
     private String usageInstruction;
@@ -13,7 +13,7 @@ public class Product {
     private Brand brand;
     private Inventory inventory;
 
-    public Product(int id, String name, String nameDetail, double price, String ingredients,
+    public Product(int id, String name, String nameDetail, int price, String ingredients,
                    String nutritionInfo, String usageInstruction, String urlImage) {
         this.id = id;
         this.name = name;
@@ -25,7 +25,7 @@ public class Product {
         this.urlImage = urlImage;
     }
 
-    public Product(int id, String name, String nameDetail, double price, String ingredients,
+    public Product(int id, String name, String nameDetail, int price, String ingredients,
                    String nutritionInfo, String usageInstruction, String urlImage, Category category,
                    Brand brand, Inventory inventory) {
         this.id = id;
@@ -65,11 +65,11 @@ public class Product {
         this.nameDetail = nameDetail;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
