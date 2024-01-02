@@ -1,4 +1,8 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.entity.Inventory" %>
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.entity.Brand" %>
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.entity.Category" %>
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.dao.DAO" %><%--
   Created by IntelliJ IDEA.
   User: MSI
   Date: 12/3/2023
@@ -6,6 +10,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% DAO dao = new DAO();
+    List<Category> listC = dao.getAllCategory();
+    List<Brand> listB = dao.getAllBrands();
+    List<Inventory> listI = dao.getAllInventories();
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,67 +123,82 @@
         </div>
 
         <div class="page-content">
-
-            <div class="form-content">
-                <div class="form-content-left">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Tên sản phẩm</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput2" class="form-label">Tên mô tả sản phẩm</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput2">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Thông tin nguyên liệu</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Thông tin dinh dưỡng</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Hướng dẫn sử dụng</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput3" class="form-label">Giá của sản phẩm</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput3">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput4" class="form-label">Thêm ảnh</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput4">
-                    </div>
-
-                </div>
-                <div class="form-content-right">
-                    <div class="form-content-right-top">
+            <form action="add" method="post">
+                <div class="form-content">
+                    <div class="form-content-left">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput5" class="form-label">Số lượng trong kho</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput5">
+                            <label for="exampleFormControlInput1" class="form-label">Tên sản phẩm</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1">
                         </div>
-                        <div class="form-content-category">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Loại sản phẩm</option>
-                                <option value="1">Thức ăn cho Heo</option>
-                                <option value="2">Thức ăn cho Cá</option>
-                                <option value="3">Thức ăn Gia cầm</option>
-                            </select>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput2" class="form-label">Tên mô tả sản phẩm</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput2">
                         </div>
-                        <div class="form-content-brand">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Thương hiệu</option>
-                                <option value="1">Con cò</option>
-                                <option value="2">Bigboss</option>
-                                <option value="3">HPfeed</option>
-                            </select>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Thông tin nguyên liệu</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Thông tin dinh dưỡng</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Hướng dẫn sử dụng</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput3" class="form-label">Giá của sản phẩm</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput3">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput4" class="form-label">Thêm ảnh</label>
+                            <input type="url" class="form-control" id="exampleFormControlInput4">
+                        </div>
+
                     </div>
-                    <div class="form-content-button">
-                        <button type="button" class="btn btn-primary btn-lg">Tạo sản phẩm</button>
+                    <div class="form-content-right">
+                        <div class="form-content-right-top">
+                            <%--                            <div class="mb-3">--%>
+                            <%--                                <label for="exampleFormControlInput5" class="form-label">Số lượng trong kho</label>--%>
+                            <%--                                <input type="email" class="form-control" id="exampleFormControlInput5">--%>
+                            <%--                            </div>--%>
+                            <div class="form-content-category">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Kho</option>
+                                    <% for (Inventory i : listI) { %>
+                                    <option value="<%=i.getId()%>"><%=i.getnote()%>
+                                    </option>
+                                    <% }
+                                    %>
+                                </select>
+                            </div>
+                            <div class="form-content-category">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Loại sản phẩm</option>
+                                    <% for (Category c : listC) { %>
+                                    <option value="<%=c.getId()%>"><%=c.getNameCate()%>
+                                    </option>
+                                    <% }
+                                    %>
+                                </select>
+                            </div>
+                            <div class="form-content-brand">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Thương hiệu</option>
+                                    <% for (Brand b : listB) { %>
+                                    <option value="<%= b.getId() %>"><%= b.getNameBrand() %>
+                                        <% }
+                                        %>
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-content-button">
+                            <button type="submit" class="btn btn-primary btn-lg" value="/add">Tạo sản phẩm</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
 
     </main>

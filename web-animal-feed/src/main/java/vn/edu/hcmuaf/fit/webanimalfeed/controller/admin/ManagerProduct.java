@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.webanimalfeed.controller;
+package vn.edu.hcmuaf.fit.webanimalfeed.controller.admin;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.AdminDAO;
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.DAO;
@@ -21,6 +21,8 @@ public class ManagerProduct extends HttpServlet {
         dao.getAllCategory();
         request.setAttribute("listP", Adao.getAllProduct());
         request.setAttribute("listC", dao.getAllCategory());
+        request.setAttribute("listB", dao.getAllBrands());
+        request.setAttribute("listI", dao.getAllInventories());
         request.getRequestDispatcher("AproductList.jsp").forward(request, response);
 
 
