@@ -387,6 +387,19 @@ table tbody tr {
     font-size: .8rem;
 }
 
+.form-content-created {
+    margin: 6px;
+}
+
+.form-content-created input {
+    margin-left: 8px;
+}
+
+.form-content-modified {
+    margin: 0 6px;
+}
+
+
 @media only screen and (max-width: 1200px) {
     .analytics {
         grid-template-columns: repeat(2, 1fr);

@@ -35,7 +35,7 @@ public class NewPassword extends HttpServlet {
 				Users u = forgot.updatePass(newPassword,email);
 
 				//if(rowCount >0){
-				if{
+				if (u != null) {
 					request.setAttribute("status", "resetSuccess");
 					dispatcher = request.getRequestDispatcher("Login.jsp");
 				} else {

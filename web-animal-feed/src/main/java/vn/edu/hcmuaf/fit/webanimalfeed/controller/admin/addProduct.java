@@ -18,21 +18,24 @@ public class addProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF8");
         String name = request.getParameter("name");
         String nameDetail = request.getParameter("nameDetail");
-        String image = request.getParameter("urlImage");
-        String price = request.getParameter("price");
         String ingredients = request.getParameter("ingredients");
         String nutritionInfo = request.getParameter("nutritionInfo");
         String usageInstruction = request.getParameter("usageInstruction");
+        String price = request.getParameter("price");
+        String image = request.getParameter("urlImage");
+        String quantityAvailable = request.getParameter("quantityAvailable");
+        String brandId = request.getParameter("brandId");
         String inventoryId = request.getParameter("inventoryId");
         String categoryId = request.getParameter("categoryId");
-        String brandId = request.getParameter("brandId");
         String createdAt = request.getParameter("createdAt");
         String modifiedAt = request.getParameter("modifiedAt");
 
+
         AdminDAO dao = new AdminDAO();
-        dao.insertProduct(name, nameDetail, image, price, ingredients, nutritionInfo, usageInstruction, inventoryId, categoryId, brandId, createdAt, modifiedAt);
+        dao.insertProduct(name, nameDetail, ingredients, nutritionInfo, usageInstruction, price, image, quantityAvailable, inventoryId, categoryId, brandId, createdAt, modifiedAt);
         response.sendRedirect("manager");
 
     }
