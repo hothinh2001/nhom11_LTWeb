@@ -17,21 +17,22 @@ public class AdminDAO {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public void editProduct(String name, String nameDetail, String urlImage, String price, String ingredients, String nutritionInfo, String usageInstruction, String inventoryId, String categoryId, String brandId, String createdAt, String modifiedAt, String pid) {
+    public void editProduct(String name, String nameDetail, String urlImage, String price, String ingredients, String nutritionInfo, String usageInstruction, String quantityAvailable, String inventoryId, String categoryId, String brandId, String createdAt, String modifiedAt, String pid) {
         String query = "UPDATE products\n" +
-                "SET [name] = ?,\n" +
-                "[nameDetail] = ?,\n" +
-                "[urlImage]= ?,\n" +
-                "[price]= ?,\n" +
-                "[ingredients]= ?,\n" +
-                "[nutritionInfo]= ?,\n" +
-                "[usageInstruction]= ?,\n" +
-                "[inventoryId]= ?,\n" +
-                "[categoryId]= ?\n" +
-                "[brandId]= ?\n" +
-                "[createdAt]= ?\n" +
-                "[modifiedAt]= ?\n" +
-                "where id =?\n";
+                "SET name = ?,\n" +
+                "    nameDetail = ?,\n" +
+                "    urlImage = ?,\n" +
+                "    price = ?,\n" +
+                "    ingredients = ?,\n" +
+                "    nutritionInfo = ?,\n" +
+                "    usageInstruction = ?,\n" +
+                "    quantityAvailable = ?,\n" +
+                "    inventoryId = ?,\n" +
+                "    categoryId = ?,\n" +
+                "    brandId = ?,\n" +
+                "    createdAt = ?,\n" +
+                "    modifiedAt = ?\n" +
+                "WHERE id = ?;\n";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -42,12 +43,13 @@ public class AdminDAO {
             ps.setString(5, ingredients);
             ps.setString(6, nutritionInfo);
             ps.setString(7, usageInstruction);
-            ps.setString(8, inventoryId);
-            ps.setString(9, categoryId);
-            ps.setString(10, brandId);
-            ps.setString(11, createdAt);
-            ps.setString(12, modifiedAt);
-            ps.setString(13, pid);
+            ps.setString(8, quantityAvailable);
+            ps.setString(9, inventoryId);
+            ps.setString(10, categoryId);
+            ps.setString(11, brandId);
+            ps.setString(12, createdAt);
+            ps.setString(13, modifiedAt);
+            ps.setString(14, pid);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

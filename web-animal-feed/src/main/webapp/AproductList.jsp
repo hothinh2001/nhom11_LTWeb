@@ -143,17 +143,20 @@
                     <div class="content-title-item content-title-quantity">${p.getQuantityAvailable()}</div>
 
                     <div class="content-title-item content-title-edit">
-                        <a href="../productEdit/product.html">
+                        <a href="loadProduct?pid=${p.getId()}">
                             <span class="las la-edit"></span>
                         </a>
 
 
                     </div>
                     <div class="content-title-item content-title-delete">
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                            <span class="las la-trash"></span>
-                        </button>
+                        <a href="delete?pid=${p.getId()}">
+                            <button id="deleteButton" value="delete" type="button" class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                <span class="las la-trash"></span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </c:forEach>
@@ -166,8 +169,9 @@
 <script src="./assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
 <script>
     function redirectToProductPage() {
-        window.location.href = "AproductEdit.jsp";
+        window.location.href = "addProduct.jsp";
     }
 </script>
+
 </body>
 </html>

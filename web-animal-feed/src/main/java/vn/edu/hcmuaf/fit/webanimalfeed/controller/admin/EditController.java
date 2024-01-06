@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.webanimalfeed.controller;
+package vn.edu.hcmuaf.fit.webanimalfeed.controller.admin;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.AdminDAO;
 
@@ -28,15 +28,15 @@ public class EditController extends HttpServlet {
         String ingredients = request.getParameter("ingredients");
         String nutritionInfo = request.getParameter("nutritionInfo");
         String usageInstruction = request.getParameter("usageInstruction");
+        String quantityAvailable = request.getParameter("quantityAvailable");
         String inventoryId = request.getParameter("inventoryId");
         String categoryId = request.getParameter("categoryId");
         String brandId = request.getParameter("brandId");
         String createdAt = request.getParameter("createdAt");
         String modifiedAt = request.getParameter("modifiedAt");
 
-
         AdminDAO dao = new AdminDAO();
-        dao.editProduct(name, nameDetail, urlImage, price, ingredients, nutritionInfo, usageInstruction, inventoryId, categoryId, brandId, createdAt, modifiedAt, pid);
+        dao.editProduct(name, nameDetail, urlImage, price, ingredients, nutritionInfo, usageInstruction, quantityAvailable, inventoryId, categoryId, brandId, createdAt, modifiedAt, pid);
         response.sendRedirect("manager");
     }
 }

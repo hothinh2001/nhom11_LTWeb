@@ -154,6 +154,7 @@ public class Product {
                 ", category=" + category +
                 ", brand=" + brand +
                 ", inventory=" + inventory +
+                ", quantityAvailable=" + quantityAvailable +
                 '}';
     }
 }
