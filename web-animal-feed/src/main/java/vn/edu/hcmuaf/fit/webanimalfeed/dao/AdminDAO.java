@@ -17,21 +17,22 @@ public class AdminDAO {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public void editProduct(String name, String nameDetail, String urlImage, String price, String ingredients, String nutritionInfo, String usageInstruction, String inventoryId, String categoryId, String brandId, String createdAt, String modifiedAt, String pid) {
+    public void editProduct(String name, String nameDetail, String urlImage, String price, String ingredients, String nutritionInfo, String usageInstruction, String quantityAvailable, String inventoryId, String categoryId, String brandId, String createdAt, String modifiedAt, String pid) {
         String query = "UPDATE products\n" +
-                "SET [name] = ?,\n" +
-                "[nameDetail] = ?,\n" +
-                "[urlImage]= ?,\n" +
-                "[price]= ?,\n" +
-                "[ingredients]= ?,\n" +
-                "[nutritionInfo]= ?,\n" +
-                "[usageInstruction]= ?,\n" +
-                "[inventoryId]= ?,\n" +
-                "[categoryId]= ?\n" +
-                "[brandId]= ?\n" +
-                "[createdAt]= ?\n" +
-                "[modifiedAt]= ?\n" +
-                "where id =?\n";
+                "SET name = ?,\n" +
+                "    nameDetail = ?,\n" +
+                "    urlImage = ?,\n" +
+                "    price = ?,\n" +
+                "    ingredients = ?,\n" +
+                "    nutritionInfo = ?,\n" +
+                "    usageInstruction = ?,\n" +
+                "    quantityAvailable = ?,\n" +
+                "    inventoryId = ?,\n" +
+                "    categoryId = ?,\n" +
+                "    brandId = ?,\n" +
+                "    createdAt = ?,\n" +
+                "    modifiedAt = ?\n" +
+                "WHERE id = ?;\n";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -42,12 +43,13 @@ public class AdminDAO {
             ps.setString(5, ingredients);
             ps.setString(6, nutritionInfo);
             ps.setString(7, usageInstruction);
-            ps.setString(8, inventoryId);
-            ps.setString(9, categoryId);
-            ps.setString(10, brandId);
-            ps.setString(11, createdAt);
-            ps.setString(12, modifiedAt);
-            ps.setString(13, pid);
+            ps.setString(8, quantityAvailable);
+            ps.setString(9, inventoryId);
+            ps.setString(10, categoryId);
+            ps.setString(11, brandId);
+            ps.setString(12, createdAt);
+            ps.setString(13, modifiedAt);
+            ps.setString(14, pid);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -65,6 +67,7 @@ public class AdminDAO {
                 "    p.ingredients, \n" +
                 "    p.nutritionInfo, \n" +
                 "    p.usageInstruction,\n" +
+                "    p.quantityAvailable,\n" +
                 "    c.`nameCate` AS nameCate,\n" +
                 "\t\tb. `nameBrand`  AS nameBrand,\n" +
                 "\t\ti.quantity AS Quantity\n" +
@@ -100,8 +103,8 @@ public class AdminDAO {
                         rs.getString("urlImage"),
                         category,
                         brand,
-                        inventory
-
+                        inventory,
+                        rs.getInt("quantityAvailable")
                 ));
             }
 
@@ -126,30 +129,45 @@ public class AdminDAO {
         return list;
     }
 
-    public void insertProduct(String name, String nameDetail, String urlImage, String price, String ingredients, String nutritionInfo, String usageInstruction, String inventoryId, String categoryId, String brandId, String createdAt, String modifiedAt) {
-        String query = "INSERT INTO products (name,nameDetail, price,ingredients,nutritionInfo,usageInstruction, categoryId, inventoryId, brandId, urlImage, createdAt, modifiedAt)\n" +
-                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    public void insertProduct(String name, String nameDetail, String ingredients, String nutritionInfo, String usageInstruction, String price, String urlImage, String quantityAvailable, String inventoryId, String categoryId, String brandId, String createdAt, String modifiedAt) {
+        String query = "INSERT INTO products (name, nameDetail, ingredients, nutritionInfo, usageInstruction, price, urlImage, quantityAvailable, inventoryId, categoryId,  brandId,  createdAt, modifiedAt)\n" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, name);
             ps.setString(2, nameDetail);
-            ps.setString(3, price);
-            ps.setString(4, ingredients);
-            ps.setString(5, nutritionInfo);
-            ps.setString(6, usageInstruction);
-            ps.setString(7, categoryId);
-            ps.setString(8, inventoryId);
-            ps.setString(9, brandId);
-            ps.setString(10, urlImage);
-            ps.setString(11, createdAt);
-            ps.setString(12, modifiedAt);
+            ps.setString(3, ingredients);
+            ps.setString(4, nutritionInfo);
+            ps.setString(5, usageInstruction);
+            ps.setString(6, price);
+            ps.setString(7, urlImage);
+            ps.setString(8, quantityAvailable);
+            ps.setString(9, inventoryId);
+            ps.setString(10, categoryId);
+            ps.setString(11, brandId);
+            ps.setString(12, createdAt);
+            ps.setString(13, modifiedAt);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    public void deleteProduct(String pid) {
+        String query = "DELETE FROM products WHERE id = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, pid);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void main(String[] args) {
         AdminDAO dao = new AdminDAO();

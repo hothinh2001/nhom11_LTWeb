@@ -75,6 +75,7 @@ public class ProductDAO {
                 "    p.ingredients, \n" +
                 "    p.nutritionInfo, \n" +
                 "    p.usageInstruction,\n" +
+                "    p.quantityAvailable,\n" +
                 "    c.`nameCate` AS nameCate,\n" +
                 "\t\tb. `nameBrand`  AS nameBrand,\n" +
                 "\t\ti.quantity AS Quantity\n" +
@@ -106,7 +107,8 @@ public class ProductDAO {
                         rs.getString("urlImage"),
                         category,
                         brand,
-                        inventory
+                        inventory,
+                        rs.getInt("quantityAvailable")
                 );
             }
         } catch (Exception e) {

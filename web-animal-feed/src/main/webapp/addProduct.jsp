@@ -128,42 +128,49 @@
                     <div class="form-content-left">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tên sản phẩm</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                            <input name="name" type="text" class="form-control" id="exampleFormControlInput1" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput2" class="form-label">Tên mô tả sản phẩm</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput2">
+                            <input name="nameDetail" type="text" class="form-control" id="exampleFormControlInput2"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Thông tin nguyên liệu</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea name="ingredients" class="form-control" id="exampleFormControlTextarea1"
+                                      rows="3" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Thông tin dinh dưỡng</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+                            <textarea name="nutritionInfo" class="form-control" id="exampleFormControlTextarea2"
+                                      rows="3" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Hướng dẫn sử dụng</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"></textarea>
+                            <textarea name="usageInstruction" class="form-control" id="exampleFormControlTextarea3"
+                                      rows="3" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput3" class="form-label">Giá của sản phẩm</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput3">
+                            <input name="price" type="text" class="form-control" id="exampleFormControlInput3" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput4" class="form-label">Thêm ảnh</label>
-                            <input type="url" class="form-control" id="exampleFormControlInput4">
+                            <input name="urlImage" type="url" class="form-control" id="exampleFormControlInput4"
+                                   required>
                         </div>
-
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput4" class="form-label">Số lượng trong kho</label>
+                            <input name="quantityAvailable" type="number" class="form-control"
+                                   id="exampleFormControlInput5"
+                                   required>
+                        </div>
                     </div>
                     <div class="form-content-right">
                         <div class="form-content-right-top">
-                            <%--                            <div class="mb-3">--%>
-                            <%--                                <label for="exampleFormControlInput5" class="form-label">Số lượng trong kho</label>--%>
-                            <%--                                <input type="email" class="form-control" id="exampleFormControlInput5">--%>
-                            <%--                            </div>--%>
                             <div class="form-content-category">
-                                <select class="form-select" aria-label="Default select example">
+                                <select name="inventoryId" class="form-select" aria-label="Default select example"
+                                        required>
                                     <option selected>Kho</option>
                                     <% for (Inventory i : listI) { %>
                                     <option value="<%=i.getId()%>"><%=i.getnote()%>
@@ -173,17 +180,18 @@
                                 </select>
                             </div>
                             <div class="form-content-category">
-                                <select class="form-select" aria-label="Default select example">
+                                <select name="categoryId" class="form-select" aria-label="Default select example"
+                                        required>
                                     <option selected>Loại sản phẩm</option>
                                     <% for (Category c : listC) { %>
-                                    <option value="<%=c.getId()%>"><%=c.getNameCate()%>
+                                    <option value="<%= c.getId() %>"><%= c.getNameCate() %>
                                     </option>
                                     <% }
                                     %>
                                 </select>
                             </div>
                             <div class="form-content-brand">
-                                <select class="form-select" aria-label="Default select example">
+                                <select name="brandId" class="form-select" aria-label="Default select example" required>
                                     <option selected>Thương hiệu</option>
                                     <% for (Brand b : listB) { %>
                                     <option value="<%= b.getId() %>"><%= b.getNameBrand() %>
@@ -192,9 +200,17 @@
                                     </option>
                                 </select>
                             </div>
+                            <div class="form-content-created">
+                                <label for="datepicker">Chọn ngày tạo:</label>
+                                <input type="date" id="datepicker" name="createdAt" required/>
+                            </div>
+                            <div class="form-content-modified">
+                                <label for="datepicker">Ngày chỉnh sửa:</label>
+                                <input type="date" id="datepicker2" name="modifiedAt" required/>
+                            </div>
                         </div>
                         <div class="form-content-button">
-                            <button type="submit" class="btn btn-primary btn-lg" value="/add">Tạo sản phẩm</button>
+                            <button type="submit" class="btn btn-primary btn-lg" value="add">Tạo sản phẩm</button>
                         </div>
                     </div>
                 </div>
