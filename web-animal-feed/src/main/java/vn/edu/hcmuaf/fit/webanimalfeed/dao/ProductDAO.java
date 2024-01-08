@@ -34,7 +34,7 @@ public class ProductDAO {
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("nameDetail"),
-                        rs.getDouble("price"),
+                        rs.getInt("price"),
                         rs.getString("ingredients"),
                         rs.getString("nutritionInfo"),
                         rs.getString("usageInstruction"),
@@ -75,6 +75,7 @@ public class ProductDAO {
                 "    p.ingredients, \n" +
                 "    p.nutritionInfo, \n" +
                 "    p.usageInstruction,\n" +
+                "    p.quantityAvailable,\n" +
                 "    c.`nameCate` AS nameCate,\n" +
                 "\t\tb. `nameBrand`  AS nameBrand,\n" +
                 "\t\ti.quantity AS Quantity\n" +
@@ -99,14 +100,15 @@ public class ProductDAO {
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("nameDetail"),
-                        rs.getDouble("price"),
+                        rs.getInt("price"),
                         rs.getString("ingredients"),
                         rs.getString("nutritionInfo"),
                         rs.getString("usageInstruction"),
                         rs.getString("urlImage"),
                         category,
                         brand,
-                        inventory
+                        inventory,
+                        rs.getInt("quantityAvailable")
                 );
             }
         } catch (Exception e) {

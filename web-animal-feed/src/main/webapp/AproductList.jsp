@@ -11,11 +11,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="admin/assets/css/AproductList.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/AproductList.css">
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet"
-          href="assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+          href="${pageContext.request.contextPath}/assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <title>Title</title>
 </head>
 <body>
@@ -140,20 +140,23 @@
                     <div class="content-title-item content-title-category">${p.getCategory().getNameCate()}</div>
                     <div class="content-title-item content-title-brand">${p.getBrand().getNameBrand()}</div>
                         <%--                    <div class="content-title-item content-title-quantity">${p.inventoryId.getQuantity()}</div>--%>
-                    <div class="content-title-item content-title-quantity">${p.getInventory().getQuantity()}</div>
+                    <div class="content-title-item content-title-quantity">${p.getQuantityAvailable()}</div>
 
                     <div class="content-title-item content-title-edit">
-                        <a href="../productEdit/product.html">
+                        <a href="loadProduct?pid=${p.getId()}">
                             <span class="las la-edit"></span>
                         </a>
 
 
                     </div>
                     <div class="content-title-item content-title-delete">
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                            <span class="las la-trash"></span>
-                        </button>
+                        <a href="delete?pid=${p.getId()}">
+                            <button id="deleteButton" value="delete" type="button" class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                <span class="las la-trash"></span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </c:forEach>
@@ -166,8 +169,9 @@
 <script src="./assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
 <script>
     function redirectToProductPage() {
-        window.location.href = "../productEdit/product.html";
+        window.location.href = "addProduct.jsp";
     }
 </script>
+
 </body>
 </html>
