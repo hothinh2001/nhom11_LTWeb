@@ -46,5 +46,39 @@ public class UserEditDao {
         }
         return null;
     }
+    //dem so khach hang dang ki
+    public static Users countUserRoles(){
+            String query = "SELECT count u FROM users u JOIN roles r ON u.roleId = r.id WHERE name = 'user' " ;
+            try {
+                // Kết nối đến MySQL
+                Connection conn = new DBContext().getConnection();
+
+                // Tạo PreparedStatement và thực hiện truy vấn
+                PreparedStatement ps = conn.prepareStatement(query);
+                ResultSet rs = ps.executeQuery();
+
+                // Xử lý kết quả và thêm vào danh sách
+                while (rs.next()) {
+                    return new Users(rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getString("avatar"),
+                            rs.getString("username"),
+                            rs.getString("gender"),
+                            rs.getString("birthdate"),
+                            rs.getInt("roleId"),
+                            rs.getString("phone"),
+                            rs.getString("email"),
+                            rs.getString("password"),
+                            rs.getString("address"),
+                            rs.getBoolean("emailConfirmed")
+                    );
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+        }
+        return null;
+    }
 
 }
