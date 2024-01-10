@@ -14,21 +14,24 @@
             <ul class="navbar__list">
             </ul>
             <ul class="navbar__list">
+            <c:if test="${sessionScope.acc == null}">
                 <li
                         class="navbar__item navbar__item--strong navbar__item--separate js-register"
                 >
-                    <a href="SignUp.jsp"> Đăng ký</a>
+                    <a href="Signup.jsp"> Đăng ký</a>
                 </li>
                 <li class="navbar__item navbar__item--strong js-login">
                     <a href="Login.jsp"> Đăng nhập </a>
                 </li>
+                </c:if>
+                <c:if test="${sessionScope.acc !=null}">
                 <li class="navbar__item navbar__user">
                     <img
                             src="././assets/img/user_avatar.png"
                             alt="User"
                             class="navbar__user-img"
                     />
-                    <span class="navbar__user-name">Xin Chao ${sessionScope.USER}</span>
+                    <span class="navbar__user-name">Xin Chao </span>
                     <ul class="navbar__user-menu">
                         <li class="navbar__user-item">
                             <a href="./user/index.html" class="navbar__user-link">Tài khoản của tôi</a>
@@ -36,11 +39,13 @@
                         <li class="navbar__user-item">
                             <a href="" class="navbar__user-link">Đơn mua</a>
                         </li>
+
                         <li class="navbar__user-item navbar__user-item-separate">
                             <a href="" class="navbar__user-link">Đăng xuất</a>
                         </li>
                     </ul>
                 </li>
+                  </c:if>
             </ul>
         </nav>
         <div class="header-with-search">
