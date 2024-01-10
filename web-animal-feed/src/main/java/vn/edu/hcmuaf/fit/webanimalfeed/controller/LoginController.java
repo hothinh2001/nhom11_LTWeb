@@ -16,31 +16,29 @@ public class LoginController extends HttpServlet {
         doPost(request, response);
 
 
+    }
 
-}
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=utf-8");
-        try{
-            String user = request.getParameter("username");
-            String pass = request.getParameter("password");
-            LoginDao loginDao = new LoginDao();
-            Users u =  loginDao.checkLogin(user, pass);
-            if(null == u){
-                request.setAttribute("mess","Username hoặc mật khẩu không đúng!");
-                request.getRequestDispatcher("Login.jsp").forward(request,response);
-            }else{
-                HttpSession session= request.getSession();
-                session.setAttribute("acc",u);
-                    response.sendRedirect("home");
-            }
+
+        String user = request.getParameter("username");
+        String pass = request.getParameter("password");
+        LoginDao loginDao = new LoginDao();
+        int role = loginDao.checkRole(user, pass);
+        Users u = loginDao.checkLogin(user, pass);
+        if (null == u) {
+            request.setAttribute("mess", "Username hoặc mật khẩu không đúng!");
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", u);
+            if (role == 1)
+                response.sendRedirect("manager");
+            else if (role == 2)
+                response.sendRedirect("home");
         }
-        catch (Exception e){
-
-        }
-
-
-
     }
+
 }

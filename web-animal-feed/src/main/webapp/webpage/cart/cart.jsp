@@ -74,7 +74,7 @@
         <div class="breadcrumb-wrapper">
             <ul class="breadcrumb-content">
                 <li class="breadcrumb-item">
-                    <a href="#" class="breadcrumb-item__link"> Trang chủ </a>
+                    <a href="home" class="breadcrumb-item__link"> Trang chủ </a>
                     <i class="fa-solid fa-chevron-right"></i>
                 </li>
 

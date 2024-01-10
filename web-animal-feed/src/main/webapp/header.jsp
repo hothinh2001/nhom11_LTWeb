@@ -6,6 +6,7 @@
 <%
     CartService cart = (CartService) session.getAttribute("cart");
     if (cart == null) cart = new CartServiceImpl();
+
 %>
 <!-- Header start -->
 <header class="header">
@@ -52,8 +53,8 @@
             <div class="header__logo hide-on-tablet">
                 <div class="header__logo-container">
                     <div class="logo-holder logo-4">
-                        <a href="./home/index.html" class="header__logo-link">
-                            <img src="././assets/img/logo.jpg" alt="">
+                        <a href="home" class="header__logo-link">
+                            <img src="${pageContext.request.contextPath}/assets/img/logo.jpg" alt="">
                         </a>
                     </div>
                 </div>
@@ -110,7 +111,7 @@
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
                                         <a class="nav-link nav-link-sm active" aria-current="page"
-                                           href="./home/index.html">Trang chủ</a>
+                                           href="home">Trang chủ</a>
                                     </li>
                                     <li class="nav-item dropdown header__cart-wrapper">
                                         <a class="nav-link nav-link-sm dropdown-toggle"
@@ -212,7 +213,7 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link nav-link-sm" href="./Contact/index.html">Liên hệ</a>
+                                        <a class="nav-link nav-link-sm" href="">Liên hệ</a>
                                     </li>
                                 </ul>
                             </div>
@@ -297,7 +298,7 @@
                             </li>
                         </ul>
                         <a
-                                href="./cart/index.html"
+                                href="${pageContext.request.contextPath}/webpage/cart/cart.jsp"
                                 class="header__cart-view-cart btn-base btn--primary"
                         >
                             Xem giỏ hàng

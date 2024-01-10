@@ -129,9 +129,9 @@
                 <div class="content-title-item content-title-delete">Xóa sản phẩm</div>
             </div>
             <hr style="margin: 0; height: 2px">
-            <c:forEach items="${listP}" var="p">
+            <c:forEach items="${listP}" var="p" varStatus="loop">
                 <div class="content-title">
-                    <div class="content-title-item content-title-stt">${p.getId()}</div>
+                    <div class="content-title-item content-title-stt">${loop.index + 1}</div>
                     <div class="content-title-item content-title-image">
                         <img src="${p.getUrlImage()}" alt="${p.getName()}">
                     </div>
