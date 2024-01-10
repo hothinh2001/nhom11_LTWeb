@@ -1,9 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html>
 <head>
-<meta charset='utf-8'>
+    <meta charset="UTF-8"/>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>Snippet - BBBootstrap</title>
+<title>Forget Password</title>
 <link
 	href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css'
 	rel='stylesheet'>
@@ -64,10 +65,15 @@ body {
 						</div>
 					</div>
 					<div class="card-footer">
-						<button class="btn btn-success" type="submit">Lấy mật khẩu</button>
-						<button class="btn btn-danger" type="submit">Trở về Đăng nhập</button>
+						<button  class="btn btn-success" type="submit">Lấy mật khẩu</button>
 					</div>
 				</form>
+				<div class="card-footer">
+				<a href="Login.jsp">
+               <button class="btn btn-danger">Trở về Đăng nhập</button>
+               </a>
+               </div>
+
 			</div>
 		</div>
 	</div>
