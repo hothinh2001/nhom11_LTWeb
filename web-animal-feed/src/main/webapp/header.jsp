@@ -27,11 +27,11 @@
                 <c:if test="${sessionScope.acc !=null}">
                 <li class="navbar__item navbar__user">
                     <img
-                            src="././assets/img/user_avatar.png"
+                            src="${sessionScope.acc.avatar}"
                             alt="User"
                             class="navbar__user-img"
                     />
-                    <span class="navbar__user-name">Xin Chao ${sessionScope.acc.user} </span>
+                    <span class="navbar__user-name">Xin Chao ${sessionScope.acc.name} </span>
                     <ul class="navbar__user-menu">
                         <li class="navbar__user-item">
                             <a href="./user/index.html" class="navbar__user-link">Tài khoản của tôi</a>

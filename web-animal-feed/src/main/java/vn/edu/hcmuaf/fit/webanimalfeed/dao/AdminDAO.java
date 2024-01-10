@@ -13,26 +13,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminDAO {
-    Connection conn = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
+    static Connection conn = null;
+    static PreparedStatement ps = null;
+    static ResultSet rs = null;
 
-    public void editProduct(String name, String nameDetail, String urlImage, String price, String ingredients, String nutritionInfo, String usageInstruction, String quantityAvailable, String inventoryId, String categoryId, String brandId, String createdAt, String modifiedAt, String pid) {
+    public void editProduct(String name, String nameDetail, String urlImage, String price, String ingredients, String nutritionInfo, String usageInstruction, String quantityAvailable, String inventoryId, String categoryId, String brandId, String pid) {
         String query = "UPDATE products\n" +
-                "SET name = ?,\n" +
-                "    nameDetail = ?,\n" +
-                "    urlImage = ?,\n" +
-                "    price = ?,\n" +
-                "    ingredients = ?,\n" +
-                "    nutritionInfo = ?,\n" +
-                "    usageInstruction = ?,\n" +
-                "    quantityAvailable = ?,\n" +
-                "    inventoryId = ?,\n" +
-                "    categoryId = ?,\n" +
-                "    brandId = ?,\n" +
-                "    createdAt = ?,\n" +
-                "    modifiedAt = ?\n" +
-                "WHERE id = ?;\n";
+                "SET `name` = ?,\n" +
+                "    `nameDetail` = ?,\n" +
+                "    `urlImage` = ?,\n" +
+                "   `price` = ?,\n" +
+                "    `ingredients` = ?,\n" +
+                "    `nutritionInfo` = ?,\n" +
+                "    `usageInstruction` = ?,\n" +
+                "    `quantityAvailable` = ?,\n" +
+                "    `inventoryId` = ?,\n" +
+                "    `categoryId` = ?,\n" +
+                "    `brandId` = ?\n" +
+                "WHERE id = ?\n";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -44,12 +42,10 @@ public class AdminDAO {
             ps.setString(6, nutritionInfo);
             ps.setString(7, usageInstruction);
             ps.setString(8, quantityAvailable);
-            ps.setString(9, inventoryId);
-            ps.setString(10, categoryId);
-            ps.setString(11, brandId);
-            ps.setString(12, createdAt);
-            ps.setString(13, modifiedAt);
-            ps.setString(14, pid);
+            ps.setInt(9, Integer.parseInt(inventoryId));
+            ps.setInt(10, Integer.parseInt(categoryId));
+            ps.setInt(11, Integer.parseInt(brandId));
+            ps.setInt(12, Integer.parseInt(pid));
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -168,12 +164,83 @@ public class AdminDAO {
         }
     }
 
+    public static Product getProductById(String id) {
+        String query = "SELECT\n" +
+                "    p.id,\n" +
+                "    p.name,\n" +
+                "    p.nameDetail,\n" +
+                "    p.urlImage,\n" +
+                "    p.price,\n" +
+                "    p.ingredients,\n" +
+                "    p.nutritionInfo,\n" +
+                "    p.usageInstruction,\n" +
+                "    p.quantityAvailable,\n" +
+                "    c.`nameCate` AS nameCate,\n" +
+                "    c.`iconCate` AS iconCate,\n" +
+                "\t\tc.`id` AS categoryId,\n" +
+                "    b.`nameBrand` AS nameBrand,\n" +
+                "\t\tb.`id` AS brandId,\n" +
+                "    i.quantity AS Quantity,\n" +
+                "\t\ti.id AS inventoryId,\n" +
+                "    i.note AS note\n" +
+                "FROM\n" +
+                "    products p\n" +
+                "JOIN\n" +
+                "    categories c ON p.categoryId = c.id\n" +
+                "JOIN\n" +
+                "    brands b ON p.brandId = b.id\n" +
+                "JOIN\n" +
+                "    inventories i ON p.inventoryId = i.id\n" +
+                "WHERE p.id = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Category category = new Category();
+                category.setId(rs.getInt("categoryId"));
+
+
+                category.setNameCate(rs.getString("nameCate"));
+                category.setIconCate(rs.getString("iconCate"));
+
+                Brand brand = new Brand();
+                brand.setId(rs.getInt("brandId"));
+                brand.setNameBrand(rs.getString("nameBrand"));
+
+
+                Inventory inventory = new Inventory();
+                inventory.setQuantity(rs.getInt("Quantity"));
+                inventory.setId(rs.getInt("inventoryId"));
+                inventory.setnote(rs.getString("note"));
+                Product product = new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("nameDetail"),
+                        rs.getInt("price"),
+                        rs.getString("ingredients"),
+                        rs.getString("nutritionInfo"),
+                        rs.getString("usageInstruction"),
+                        rs.getString("urlImage"),
+                        category,
+                        brand,
+                        inventory,
+                        rs.getInt("quantityAvailable")
+                );
+                return product;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
     public static void main(String[] args) {
         AdminDAO dao = new AdminDAO();
-        List<Product> list = dao.getAllProduct();
-        for (Product p : list) {
-            System.out.println(p);
-        }
+        Product product = dao.getProductById("1");
+        System.out.println(product);
     }
+
 }
