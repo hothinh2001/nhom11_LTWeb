@@ -31,8 +31,8 @@ public class LoginController extends HttpServlet {
                 request.setAttribute("mess","Username hoặc mật khẩu không đúng!");
                 request.getRequestDispatcher("Login.jsp").forward(request,response);
             }else{
-//                HttpSession session= request.getSession();
-//                session.setAttribute("USER",user);
+                HttpSession session= request.getSession();
+                session.setAttribute("acc",u);
                     response.sendRedirect("home");
             }
         }

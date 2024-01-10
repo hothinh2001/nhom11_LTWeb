@@ -14,7 +14,7 @@ public class Signup {
 
     public Users checkUserExist(String user) {
         try {
-            String query = "select * from user where username =?";
+            String query = "select * from users where username =?";
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, user);
