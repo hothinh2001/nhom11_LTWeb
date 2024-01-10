@@ -79,11 +79,11 @@
             </div>
           </div>
           <div class="auth-form__controls">
-           <a href="../home/index.html" ><button class="btn btn--normal auth-form__control-back-btn">
+           <a href="home.jsp" ><button class="btn btn--normal auth-form__control-back-btn">
               TRỞ LẠI
             </button>
               </a>
-            <button class="btn btn--primary">ĐĂNG NHẬP</button>
+            <button type="submit" value="login" class="btn btn--primary">ĐĂNG NHẬP</button>
           </div>
         </div>
         <div class="auth-form__socials">

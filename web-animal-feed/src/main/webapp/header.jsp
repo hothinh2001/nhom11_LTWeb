@@ -31,7 +31,7 @@
                             alt="User"
                             class="navbar__user-img"
                     />
-                    <span class="navbar__user-name">Xin Chao </span>
+                    <span class="navbar__user-name">Xin Chao ${sessionScope.acc.user} </span>
                     <ul class="navbar__user-menu">
                         <li class="navbar__user-item">
                             <a href="./user/index.html" class="navbar__user-link">Tài khoản của tôi</a>
@@ -41,7 +41,7 @@
                         </li>
 
                         <li class="navbar__user-item navbar__user-item-separate">
-                            <a href="" class="navbar__user-link">Đăng xuất</a>
+                            <a href="logOut" class="navbar__user-link">Đăng xuất</a>
                         </li>
                     </ul>
                 </li>

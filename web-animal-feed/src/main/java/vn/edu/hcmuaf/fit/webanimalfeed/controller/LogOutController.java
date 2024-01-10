@@ -12,7 +12,7 @@ public class LogOutController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         //xoa
-        session.removeAttribute("USER");
+        session.removeAttribute("acc");
         response.sendRedirect("home.jsp");
     }
 
