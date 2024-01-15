@@ -1,7 +1,7 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.dao;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.context.DBContext;
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.Orders;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.*;
 
 
 import java.sql.Connection;
@@ -28,15 +28,21 @@ public class OrderDao {
 
                 // Xử lý kết quả và thêm vào danh sách
                 while (rs.next()) {
+                    Users users = new Users();
+                    users.setName(rs.getString("name"));
+                    Payment methob = new Payment();
+                    methob.getMethob().setNameMethob(rs.getString("nameMethob"));
+                    Status status1 = new Status();
+                    status1.setNameStatus(rs.getString("nameStatus"));
                     list.add(new Orders(
                             rs.getInt("id"),
-                            rs.getInt("userId"),
+                            users,
                             rs.getDouble("totalPrice"),
                             rs.getDouble("totalOrder"),
                             rs.getInt("quantity"),
-                            rs.getString("orderStatus"),
-                            rs.getInt("paymentId")
-
+                            status1,
+                            methob,
+                            rs.getString("dateOrder")
                     ));
                 }
 
@@ -69,28 +75,40 @@ public class OrderDao {
     //danh sach don hang có trạng thái =" ?"
     public static List<Orders> findByOrderStatus(String status){
         List<Orders> list = new ArrayList<>();
-        String query = "SELECT * FROM orders WHERE orderStatus = ?";
+        String query = "select o.id, u.`name` As userName, o.dateOrder, s.`nameStatus` As nameStatus,o.totalPrice,o.quantity, o.totalOrder, m.`nameMethob` As nameMethob , s.`nameStatus` As Orderstatus\n" +
+                "from orders o join users u on o.userId = u.id \n" +
+                "join payment p on o.paymentId = p.id\n" +
+                "join methob m on p.methobId = m.id\n" +
+                "join statused s on o.statusId = s.id\n" +
+                "where s.nameStatus = ?";
         try {
             // Kết nối đến MySQL
             Connection conn = new DBContext().getConnection();
 
             // Tạo PreparedStatement và thực hiện truy vấn
             PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1,status);
             ResultSet rs = ps.executeQuery();
 
-            // Xử lý kết quả và thêm vào danh sách
             while (rs.next()) {
+                Users users = new Users();
+                users.setName(rs.getString("userName"));
+                Methob methob = new Methob();
+                methob.setNameMethob(rs.getString("nameMethob"));
+               Payment payment = new Payment();
+               payment.setMethob(methob);
+                Status status1 = new Status();
+                status1.setNameStatus(rs.getString("nameStatus"));
                 list.add(new Orders(
                         rs.getInt("id"),
-                        rs.getInt("userId"),
+                        users,
                         rs.getDouble("totalPrice"),
                         rs.getDouble("totalOrder"),
                         rs.getInt("quantity"),
-                        rs.getString("orderStatus"),
-                        rs.getInt("paymentId")
-
-                ));
-
+                        status1,
+                        payment,
+                        rs.getString("dateOrder")
+                        ));
             }
 
         } catch (Exception e) {
@@ -112,6 +130,15 @@ public class OrderDao {
             }
         }
         return list;
+    }
+
+    public static void main(String[] args) {
+        OrderDao dao = new OrderDao();
+        List<Orders> list = dao.findByOrderStatus("processing");
+        for (Orders o : list){
+            System.out.println(o);
+        }
+
     }
     }
 
