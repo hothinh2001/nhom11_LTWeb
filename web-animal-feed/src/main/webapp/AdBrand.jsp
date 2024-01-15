@@ -155,7 +155,6 @@
                 </div>
             </div>
 
-
             <div class="page-content">
                 <div class="content-title">
                     <div class="content-title-item content-title-stt">STT</div>
@@ -173,18 +172,53 @@
                         <div class="content-title-item content-title-name">${b.getNote()}
                         </div>
                         <div class="content-title-item content-title-edit">
-                            <a href="#">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#formEditBrand${loop.index}">
                                 <span class="las la-edit"></span>
-                            </a>
+                            </button>
                         </div>
                         <div class="content-title-item content-title-delete">
-                            <a href="#">
+                            <a href="deleteBrand?bid=${b.getId()}">
                                 <button id="deleteButton" value="delete" type="button" class="btn btn-danger"
                                         data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">
                                     <span class="las la-trash"></span>
                                 </button>
                             </a>
+                        </div>
+                    </div>
+
+                    <!-- Modal edit Brand cho từng thương hiệu -->
+                    <div class="modal fade" id="formEditBrand${loop.index}" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLongTitle2" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <form method="post" action="${pageContext.request.contextPath}/editBrand?bid=${b.getId()}">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle3">Thương hiệu</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="editBrand5" class="form-label">Tên Thương hiệu</label>
+                                            <input name="nameBrand" type="text" class="form-control" id="editBrand5"
+                                                   value="${b.getNameBrand()}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="editBrand4" class="form-label">Mô tả thương hiệu</label>
+                                            <input name="note" type="text" class="form-control" id="editBrand4"
+                                                   value="${b.getNote()}">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng
+                                        </button>
+                                        <button type="submit" class="btn btn-primary" value="editBrand">Lưu</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </c:forEach>
@@ -203,5 +237,33 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="${pageContext.request.contextPath}/assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+
+<%--<script>--%>
+<%--    function submitForm() {--%>
+<%--        // Lấy ra form--%>
+<%--        var form = document.forms[0];--%>
+
+<%--        // Tạo một đối tượng XMLHttpRequest--%>
+<%--        var xhr = new XMLHttpRequest();--%>
+
+<%--        // Thiết lập phương thức và URL cho request--%>
+<%--        xhr.open(form.method, form.action, true);--%>
+
+<%--        // Thiết lập callback để xử lý khi request hoàn thành--%>
+<%--        xhr.onload = function () {--%>
+<%--            if (xhr.status === 200) {--%>
+<%--                // Xử lý khi request thành công (nếu cần)--%>
+<%--            } else {--%>
+<%--                // Xử lý khi có lỗi (nếu cần)--%>
+<%--            }--%>
+<%--        };--%>
+<%--        // Gửi request--%>
+<%--        xhr.send(new FormData(form));--%>
+
+<%--        // Ngăn chặn form submit theo cách thông thường--%>
+<%--        return false;--%>
+<%--    }--%>
+<%--</script>--%>
+
 </body>
 </html>

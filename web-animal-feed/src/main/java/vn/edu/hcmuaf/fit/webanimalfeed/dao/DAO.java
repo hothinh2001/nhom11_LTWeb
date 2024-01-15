@@ -94,6 +94,32 @@ public class DAO {
         return list;
     }
 
+    public static Brand getBrandById(String bid) {
+        String query = "SELECT id, nameBrand, note FROM brands WHERE id = ?";
+        try {
+            // Kết nối đến MySQL
+            Connection conn = new DBContext().getConnection();
+
+            // Tạo PreparedStatement và thực hiện truy vấn
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, bid);
+            ResultSet rs = ps.executeQuery();
+
+            // Xử lý kết quả và thêm vào danh sách
+            while (rs.next()) {
+                return new Brand(
+                        rs.getInt("id"),
+                        rs.getString("nameBrand"),
+                        rs.getString("note")
+                );
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public List<Inventory> getAllInventories() {
         List<Inventory> list = new ArrayList<>();
         String query = "SELECT id, note, quantity FROM inventories";
@@ -123,9 +149,7 @@ public class DAO {
 
     public static void main(String[] args) {
         DAO dao = new DAO();
-        List<Brand> list = dao.getAllBrands();
-        for (Brand product : list) {
-            System.out.println(product);
-        }
+        Brand brand = dao.getBrandById("2");
+        System.out.println(brand);
     }
 }

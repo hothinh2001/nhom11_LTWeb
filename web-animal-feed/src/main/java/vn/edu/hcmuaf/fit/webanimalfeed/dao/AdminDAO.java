@@ -252,6 +252,32 @@ public class AdminDAO {
         }
     }
 
+    public void deleteBrand(String bid) {
+        String query = "DELETE FROM brands WHERE id = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, bid);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void editBrand(String nameBrand, String note, String bid) {
+        String query = "UPDATE brands SET nameBrand = ?, note = ? WHERE id = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, nameBrand);
+            ps.setString(2, note);
+            ps.setString(3, bid);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 

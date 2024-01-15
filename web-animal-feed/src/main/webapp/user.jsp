@@ -1,19 +1,20 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
     <title>Đăng nhập</title>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="././assets/css/normalize.css"/>
-    <link rel="stylesheet" href="././assets/css/base.css"/>
-    <link rel="stylesheet" href="././assets/css/main&productList.css"/>
-    <link rel="stylesheet" href="././assets/css/grid.css"/>
-    <link rel="stylesheet" href="././assets/css/responsive.css"/>
-    <link rel="stylesheet" href="./assets/css/user.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/normalize.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/base.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main&productList.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/grid.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/responsive.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user.css"/>
     <link
             rel="stylesheet"
             href="././assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css"

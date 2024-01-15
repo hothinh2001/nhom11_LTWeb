@@ -124,12 +124,18 @@ ol, ul {
     display: block;
     padding: 1.2rem 0rem;
 }
+.side-menu ul li a .img-brand {
+    width: 44px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .side-menu a.active {
     background: #2B384E;
 }
 
-.side-menu a.active span, .side-menu a.active small {
+.side-menu a.active span {
     color: #fff;
 }
 
