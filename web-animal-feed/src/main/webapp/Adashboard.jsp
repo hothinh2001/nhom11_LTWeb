@@ -13,65 +13,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Modern Admin Dashboard</title>
-    <link rel="stylesheet" href="/admin/assets/css/dashboard/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/dashboard/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/sideBar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
 <input type="checkbox" id="menu-toggle">
-<div class="sidebar">
-    <div class="side-header">
-        <h3>M<span>odern</span></h3>
-    </div>
-
-    <div class="side-content">
-        <div class="profile">
-            <div class="">
-                <img alt='TravelerWP'
-                     class='avatar avatar-50 photo profile-img bg-img' height='50' width='50' loading='lazy'
-                     decoding='async'/>
-            </div>
-            <h4 class="user-name">TRAN NGOC BAO TRAN</h4>
-            <span class="user-role"></span>
-        </div>
-
-        <div class="side-menu">
-            <ul>
-                <li>
-                    <a href="admin/pages/dashboard/index.html" class="active" >
-                        <span class="las la-home"></span>
-                        <small>Dashboard</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="../product/productList/index.html">
-                        <span class="las la-clipboard-list"></span>
-                        <small>Product List</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="../order/orderList.html" >
-                        <span class="las la-shopping-cart"></span>
-                        <small>Order List</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin/pages/category/index.html">
-                        <span class="las la-clipboard-list"></span>
-                        <small>Danh mục</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="../brand/index.html">
-                        <span class="las la-clipboard-list"></span>
-                        <small>Thương hiệu</small>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+<jsp:include page="sideBar.jsp"/>
 <div class="main-content">
 
     <header>
