@@ -2,22 +2,13 @@ package vn.edu.hcmuaf.fit.webanimalfeed.entity;
 
 public class Orders {
     private int id;
-    private int userId;
+    private Users userId;
     private double totalPrice;
     private double totalOrder;
     private int quantity;
-    private String orderStatus;
-    private int paymentId;
-
-    public Orders(int id, int userId, double totalPrice, double totalOrder, int quantity, String orderStatus, int paymentId) {
-        this.id = id;
-        this.userId = userId;
-        this.totalPrice = totalPrice;
-        this.totalOrder = totalOrder;
-        this.quantity = quantity;
-        this.orderStatus = orderStatus;
-        this.paymentId = paymentId;
-    }
+    private Status statused;
+    private Payment paymentId;
+    private String dateOrder;
 
     public int getId() {
         return id;
@@ -27,11 +18,11 @@ public class Orders {
         this.id = id;
     }
 
-    public int getUserId() {
+    public Users getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Users userId) {
         this.userId = userId;
     }
 
@@ -59,16 +50,28 @@ public class Orders {
         this.quantity = quantity;
     }
 
-    public String getOrderStatus() {
-        return orderStatus;
+    public Status getStatused() {
+        return statused;
     }
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setStatused(Status statused) {
+        this.statused = statused;
     }
 
-    public int getPaymentId() {
+    public Payment getPaymentId() {
         return paymentId;
+    }
+
+    public void setPaymentId(Payment paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public String getDateOrder() {
+        return dateOrder;
+    }
+
+    public void setDateOrder(String dateOrder) {
+        this.dateOrder = dateOrder;
     }
 
     @Override
@@ -79,12 +82,23 @@ public class Orders {
                 ", totalPrice=" + totalPrice +
                 ", totalOrder=" + totalOrder +
                 ", quantity=" + quantity +
-                ", orderStatus='" + orderStatus + '\'' +
+                ", statused=" + statused +
                 ", paymentId=" + paymentId +
+                ", dateOrder='" + dateOrder + '\'' +
                 '}';
     }
 
-    public void setPaymentId(int paymentId) {
+    public Orders(int id, Users userId, double totalPrice, double totalOrder, int quantity, Status statused, Payment paymentId, String dateOrder) {
+        this.id = id;
+        this.userId = userId;
+        this.totalPrice = totalPrice;
+        this.totalOrder = totalOrder;
+        this.quantity = quantity;
+        this.statused = statused;
         this.paymentId = paymentId;
+        this.dateOrder = dateOrder;
+    }
+
+    public Orders() {
     }
 }
