@@ -28,6 +28,9 @@ public class Users{
         this.address = address;
         this.emailConfirmed = emailConfirmed;
     }
+    public Users(){
+
+    }
 
     public int getId() {
         return id;
