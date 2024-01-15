@@ -180,7 +180,7 @@
                                             <%= (i.getId()) == detail.getInventoryId() ? "selected" : "" %>
 
                                     >
-                                        <%=i.getnote()%>
+                                        <%=i.getNote()%>
                                     </option>
                                     <% }
                                     %>

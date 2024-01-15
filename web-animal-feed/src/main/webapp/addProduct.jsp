@@ -26,7 +26,7 @@
     <!--  <link rel="stylesheet" href="/assets/css/dashboard.css">-->
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="admin/assets/css/AproductEdit.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/AproductEdit.css">
     <link rel="stylesheet"
           href="assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
 </head>
@@ -173,7 +173,7 @@
                                         required>
                                     <option selected>Kho</option>
                                     <% for (Inventory i : listI) { %>
-                                    <option value="<%=i.getId()%>"><%=i.getnote()%>
+                                    <option value="<%=i.getId()%>"><%=i.getNote()%>
                                     </option>
                                     <% }
                                     %>

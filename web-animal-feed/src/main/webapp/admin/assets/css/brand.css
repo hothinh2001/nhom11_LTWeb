@@ -21,7 +21,8 @@ main {
     height: 100vh;
     padding: 30px;
 }
-ol, ul{
+
+ol, ul {
     padding: 0 !important;
 }
 
@@ -404,7 +405,7 @@ input, button, select {
 }
 
 .content-title-item {
-    width: 30%;
+    width: 6%;
     text-align: center;
     font-weight: 600;
 }
@@ -414,7 +415,7 @@ input, button, select {
 }
 
 .content-title-name {
-    width: 50%;
+    width: 38%;
 }
 
 .content-title-edit {

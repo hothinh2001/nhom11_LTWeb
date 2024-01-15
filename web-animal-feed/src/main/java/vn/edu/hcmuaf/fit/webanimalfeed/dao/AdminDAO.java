@@ -213,7 +213,7 @@ public class AdminDAO {
                 Inventory inventory = new Inventory();
                 inventory.setQuantity(rs.getInt("Quantity"));
                 inventory.setId(rs.getInt("inventoryId"));
-                inventory.setnote(rs.getString("note"));
+                inventory.setNote(rs.getString("note"));
                 Product product = new Product(
                         rs.getInt("id"),
                         rs.getString("name"),
@@ -237,10 +237,27 @@ public class AdminDAO {
         return null;
     }
 
+
+
+    public void insertBrand(String nameBrand, String note) {
+        String query = "INSERT INTO brands (nameBrand, note) VALUES (?, ?)";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, nameBrand);
+            ps.setString(2, note);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
     public static void main(String[] args) {
         AdminDAO dao = new AdminDAO();
-        Product product = dao.getProductById("1");
-        System.out.println(product);
+        System.out.println(dao.getProductById("1"));
     }
 
 }

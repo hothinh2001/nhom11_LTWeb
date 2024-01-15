@@ -70,7 +70,7 @@ public class DAO {
 
     public List<Brand> getAllBrands() {
         List<Brand> list = new ArrayList<>();
-        String query = "SELECT id, nameBrand FROM brands";
+        String query = "SELECT id, nameBrand, note FROM brands";
         try {
             // Kết nối đến MySQL
             Connection conn = new DBContext().getConnection();
@@ -83,7 +83,8 @@ public class DAO {
             while (rs.next()) {
                 list.add(new Brand(
                         rs.getInt("id"),
-                        rs.getString("nameBrand")
+                        rs.getString("nameBrand"),
+                        rs.getString("note")
                 ));
             }
 
@@ -122,8 +123,8 @@ public class DAO {
 
     public static void main(String[] args) {
         DAO dao = new DAO();
-        List<Inventory> list = dao.getAllInventories();
-        for (Inventory product : list) {
+        List<Brand> list = dao.getAllBrands();
+        for (Brand product : list) {
             System.out.println(product);
         }
     }
