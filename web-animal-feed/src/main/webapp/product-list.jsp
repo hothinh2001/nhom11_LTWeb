@@ -19,25 +19,25 @@
             type="image/x-icon"
     />
     <title>Product List</title>
-    <link rel="stylesheet" href="./assets/css/productList.css"/>
-    <link rel="stylesheet" href="././assets/css/normalize.css"/>
-    <link rel="stylesheet" href="././assets/css/base.css"/>
-    <link rel="stylesheet" href="././assets/css/main&productList.css"/>
-    <link rel="stylesheet" href="././assets/css/grid.css"/>
-    <link rel="stylesheet" href="././assets/css/responsive.css"/>
-    <link rel="stylesheet" href="././assets/css/responsive.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/productList.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/normalize.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/base.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main&productList.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/grid.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/responsive.css"/>
+    <link rel="stylesheet" href=".${pageContext.request.contextPath}/assets/css/responsive.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
             rel="stylesheet"
-            href="././assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+            href="${pageContext.request.contextPath}/assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
     />
     <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
             rel="stylesheet"
     />
     <link
-            href="././assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css"
+            href="${pageContext.request.contextPath}/assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css"
             rel="stylesheet"
 
     />
@@ -317,7 +317,7 @@
 </footer>
 
 
-<script src="././assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
 
 
 </body>

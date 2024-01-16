@@ -1,10 +1,7 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.dao;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.context.DBContext;
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.Brand;
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.Category;
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.Inventory;
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.SlideShow;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -146,10 +143,47 @@ public class DAO {
         return list;
     }
 
+    public List<Product> searchByName(String txtSearch) {
+        List<Product> list = new ArrayList<>();
+        String query = "SELECT * FROM products\n" +
+                "WHERE LOWER(name) LIKE LOWER(?) OR LOWER(nameDetail) LIKE LOWER(?);";
+
+        try {
+            // Kết nối đến MySQL
+            Connection conn = new DBContext().getConnection();
+
+            // Tạo PreparedStatement và thực hiện truy vấn
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + txtSearch + "%");
+            ps.setString(2, "%" + txtSearch + "%");
+            ResultSet rs = ps.executeQuery();
+
+            // Xử lý kết quả và thêm vào danh sách
+            while (rs.next()) {
+                list.add(new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("nameDetail"),
+                        rs.getInt("price"),
+                        rs.getString("ingredients"),
+                        rs.getString("nutritionInfo"),
+                        rs.getString("usageInstruction"),
+                        rs.getString("urlImage")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 
     public static void main(String[] args) {
         DAO dao = new DAO();
-        Brand brand = dao.getBrandById("2");
-        System.out.println(brand);
+        List<Product> list = dao.searchByName("con cò c24s");
+        for (Product p : list) {
+            System.out.println(p.getName() + "\t" + p.getNameDetail());
+        }
     }
 }
