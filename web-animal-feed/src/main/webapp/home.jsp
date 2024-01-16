@@ -81,7 +81,7 @@
                 <div class="category">
                     <c:forEach var="category" items="${listCate}">
                         <div class="cate-item">
-                            <a href="../product-list/index.html">
+                            <a href="product-list">
                                 <img src="${category.getIconCate()}" alt=""/>
                                     ${category.getNameCate()}
                             </a>

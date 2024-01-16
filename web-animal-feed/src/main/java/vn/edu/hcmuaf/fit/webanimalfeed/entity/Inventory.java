@@ -22,11 +22,11 @@ public class Inventory {
         this.id = id;
     }
 
-    public String getnote() {
+    public String getNote() {
         return note;
     }
 
-    public void setnote(String note) {
+    public void setNote(String note) {
         this.note = note;
     }
 

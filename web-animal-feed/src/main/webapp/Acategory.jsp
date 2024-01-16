@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="admin/assets/css/category.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/category.css">
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet"
@@ -113,52 +113,19 @@
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Danh mục</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Tên Danh mục</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1"
-                                       placeholder="Thức ăn cho Heo">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                            <button type="button" class="btn btn-primary">Lưu</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
         <div class="page-content">
             <div class="content-title">
                 <div class="content-title-item content-title-stt">STT</div>
                 <div class="content-title-item content-title-name">Tên Danh mục</div>
-                <div class="content-title-item content-title-sub-name">Danh mục con</div>
                 <div class="content-title-item content-title-edit">Thao tác</div>
             </div>
             <hr style="margin: 0; height: 2px">
             <div class="content-title">
                 <div class="content-title-item content-title-stt">1</div>
                 <div class="content-title-item content-title-name">Thức ăn cho Heo</div>
-                <div class="content-title-item content-title-sub-name">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Danh mục con</option>
-                        <option value="1">Heo con</option>
-                        <option value="4">Heo nái</option>
-                        <option value="2">Heo thịt</option>
-                        <option value="3">Heo đực</option>
-                    </select>
-                </div>
                 <div class="content-title-item content-title-edit">
                     <a href="#">
                         <span class="las la-edit"></span>
@@ -168,14 +135,6 @@
             <div class="content-title">
                 <div class="content-title-item content-title-stt">2</div>
                 <div class="content-title-item content-title-name">Thức ăn cho Cá</div>
-                <div class="content-title-item content-title-sub-name">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Danh mục con</option>
-                        <option value="1">Cá có vảy</option>
-                        <option value="2">Cá Tra</option>
-                        <option value="3">Cá Basa</option>
-                    </select>
-                </div>
                 <div class="content-title-item content-title-edit">
                     <a href="#">
                         <span class="las la-edit"></span>
@@ -185,15 +144,6 @@
             <div class="content-title">
                 <div class="content-title-item content-title-stt">3</div>
                 <div class="content-title-item content-title-name">Thức ăn Gia Cầm</div>
-                <div class="content-title-item content-title-sub-name">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Danh mục con</option>
-                        <option value="1">Gà thịt</option>
-                        <option value="4">Gà đẻ trứng</option>
-                        <option value="2">Gà ta, Gà tàu</option>
-                        <option value="3">Gà thả vườn</option>
-                    </select>
-                </div>
                 <div class="content-title-item content-title-edit">
                     <a href="#">
                         <span class="las la-edit"></span>

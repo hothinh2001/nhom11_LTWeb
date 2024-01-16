@@ -1,12 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.service.CartService" %>
 <%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.impl.CartServiceImpl" %>
 
 <%
-    CartService cart = (CartService) session.getAttribute("cart");
+    CartService cart = (CartService) session.getAttribute("cartMap");
     if (cart == null) cart = new CartServiceImpl();
+
 %>
+
 <!-- Header start -->
 <header class="header">
     <div class="grid wide">
@@ -14,46 +17,46 @@
             <ul class="navbar__list">
             </ul>
             <ul class="navbar__list">
-            <c:if test="${sessionScope.acc == null}">
-                <li
-                        class="navbar__item navbar__item--strong navbar__item--separate js-register"
-                >
-                    <a href="Signup.jsp"> Đăng ký</a>
-                </li>
-                <li class="navbar__item navbar__item--strong js-login">
-                    <a href="Login.jsp"> Đăng nhập </a>
-                </li>
+                <c:if test="${sessionScope.acc == null}">
+                    <li
+                            class="navbar__item navbar__item--strong navbar__item--separate js-register"
+                    >
+                        <a href="Signup.jsp"> Đăng ký</a>
+                    </li>
+                    <li class="navbar__item navbar__item--strong js-login">
+                        <a href="Login.jsp"> Đăng nhập </a>
+                    </li>
                 </c:if>
                 <c:if test="${sessionScope.acc !=null}">
-                <li class="navbar__item navbar__user">
-                    <img
-                            src="././assets/img/user_avatar.png"
-                            alt="User"
-                            class="navbar__user-img"
-                    />
-                    <span class="navbar__user-name">Xin Chao ${sessionScope.acc.user} </span>
-                    <ul class="navbar__user-menu">
-                        <li class="navbar__user-item">
-                            <a href="./user/index.html" class="navbar__user-link">Tài khoản của tôi</a>
-                        </li>
-                        <li class="navbar__user-item">
-                            <a href="" class="navbar__user-link">Đơn mua</a>
-                        </li>
+                    <li class="navbar__item navbar__user">
+                        <img
+                                src="${sessionScope.acc.avatar}"
+                                alt="User"
+                                class="navbar__user-img"
+                        />
+                        <span class="navbar__user-name">Xin Chao ${sessionScope.acc.name} </span>
+                        <ul class="navbar__user-menu">
+                            <li class="navbar__user-item">
+                                <a href="./user/index.html" class="navbar__user-link">Tài khoản của tôi</a>
+                            </li>
+                            <li class="navbar__user-item">
+                                <a href="" class="navbar__user-link">Đơn mua</a>
+                            </li>
 
-                        <li class="navbar__user-item navbar__user-item-separate">
-                            <a href="logOut" class="navbar__user-link">Đăng xuất</a>
-                        </li>
-                    </ul>
-                </li>
-                  </c:if>
+                            <li class="navbar__user-item navbar__user-item-separate">
+                                <a href="logOut" class="navbar__user-link">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
+                </c:if>
             </ul>
         </nav>
         <div class="header-with-search">
             <div class="header__logo hide-on-tablet">
                 <div class="header__logo-container">
                     <div class="logo-holder logo-4">
-                        <a href="./home/index.html" class="header__logo-link">
-                            <img src="././assets/img/logo.jpg" alt="">
+                        <a href="home" class="header__logo-link">
+                            <img src="${pageContext.request.contextPath}/assets/img/logo.jpg" alt="">
                         </a>
                     </div>
                 </div>
@@ -110,7 +113,7 @@
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
                                         <a class="nav-link nav-link-sm active" aria-current="page"
-                                           href="./home/index.html">Trang chủ</a>
+                                           href="home">Trang chủ</a>
                                     </li>
                                     <li class="nav-item dropdown header__cart-wrapper">
                                         <a class="nav-link nav-link-sm dropdown-toggle"
@@ -212,15 +215,16 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link nav-link-sm" href="./Contact/index.html">Liên hệ</a>
+                                        <a class="nav-link nav-link-sm" href="">Liên hệ</a>
                                     </li>
                                 </ul>
                             </div>
-                            <form class="d-flex">
+                            <form class="d-flex" method="post" action="searchName">
                                 <div class="header__search">
                                     <div class="header__search-input-wrapper">
                                         <input
-                                                type="text"
+                                                name="txt"
+                                                value="${txtS}"
                                                 class="header__search-input"
                                                 placeholder="Tìm kiếm.."
                                         />
@@ -242,7 +246,7 @@
                                         </div>
                                     </div>
 
-                                    <button class="header__search-btn">
+                                    <button class="header__search-btn" value="searchName" type="submit">
                                         <i
                                                 class="header__search-btn-icon fa-solid fa-magnifying-glass"
                                         ></i>
@@ -297,7 +301,7 @@
                             </li>
                         </ul>
                         <a
-                                href="./cart/index.html"
+                                href="${pageContext.request.contextPath}/webpage/cart/cart.jsp"
                                 class="header__cart-view-cart btn-base btn--primary"
                         >
                             Xem giỏ hàng
@@ -311,3 +315,4 @@
     </div>
 </header>
 <!-- Header end -->
+

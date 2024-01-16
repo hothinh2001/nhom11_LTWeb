@@ -157,4 +157,20 @@ public class Product {
                 ", quantityAvailable=" + quantityAvailable +
                 '}';
     }
+
+    //    get Invetory Id
+    public int getInventoryId() {
+        return this.inventory.getId();
+    }
+
+    //    get Brand Id
+    public int getBrandId() {
+        return this.brand.getId();
+    }
+
+//    get Category Id
+
+    public int getCategoryId() {
+        return this.category.getId();
+    }
 }
