@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.controller;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.DAO;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Brand;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Category;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
 
@@ -23,8 +24,10 @@ public class SearchController extends HttpServlet {
         DAO dao = new DAO();
         List<Product> list = dao.searchByName(txtSearch);
         List<Category> listCate = dao.getAllCategory();
+        List<Brand> listB = dao.getAllBrands();
 
         request.setAttribute("listP", list);
+        request.setAttribute("listB", listB);
         request.setAttribute("txtS", txtSearch);
         request.setAttribute("listCate", listCate);
         request.getRequestDispatcher("product-list.jsp").forward(request, response);

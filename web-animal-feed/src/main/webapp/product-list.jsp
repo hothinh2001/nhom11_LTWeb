@@ -74,32 +74,32 @@
             <div class="app__container">
                 <div class="grid wide">
                     <div class="row sm-gutter app__content">
-                        <div class="col l-2 m-0 c-0">
-                            <div class="cate-item">
-                                <a href="#">
-                                    <img src="././assets/img/heo-icon.png.webp" alt=""/>
-                                    Thức ăn cho heo
-                                </a>
+
+                        <div class="col l-10 m-12 c-12">
+
+                            <div class="list-group">
+                                <div class="list-group-item category">
+                                    <span><i class="fa-solid fa-list"></i></span>
+                                    Danh mục
+                                </div>
+                                <c:forEach items="${listCate}" var="c">
+                                    <a href="#"
+                                       class="list-group-item list-group-item-action cate-item">${c.getNameCate()}</a>
+                                </c:forEach>
                             </div>
-                            <div class="cate-item">
-                                <a href="#">
-                                    <img src="././assets/img/ga-icon.png.webp" alt=""
-                                    />
-                                    Thức ăn Gia cầm
-                                </a>
+
+
+                            <div class="list-group">
+                                <div class="list-group-item category">
+                                    <span><i class="fa-solid fa-tag"></i></span>
+                                    Thương hiệu
+                                </div>
+                                <c:forEach items="${listB}" var="b">
+                                    <a href="#"
+                                       class="list-group-item list-group-item-action cate-item">${b.getNameBrand()}</a>
+                                </c:forEach>
                             </div>
-                            <div class="cate-item">
-                                <a href="#">
-                                    <img src="././assets/img/icon-ca-light.png.webp" alt=""/>
-                                    Thức ăn cho Cá
-                                </a>
-                            </div>
-                            <div class="cate-item">
-                                <a href="#">
-                                    <img src="././assets/img/icon-tom-light.png.webp" alt=""/>
-                                    Thức ăn cho Tôm
-                                </a>
-                            </div>
+
                         </div>
                         <div class="col l-10 m-12 c-12">
                             <div class="home-filter hide-on-mobile-tablet">
@@ -211,6 +211,7 @@
                             </div>
                             <button type="button" class="btn btn-primary btn-load-more">Xem thêm</button>
                         </div>
+
 
                     </div>
                 </div>

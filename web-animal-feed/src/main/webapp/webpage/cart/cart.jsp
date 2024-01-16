@@ -116,7 +116,7 @@
                                             </div>
                                             <div class="cart-detail__left-item-price-wrap">
                               <span class="cart-detail__left-item-price"
-                              >565.000đ</span
+                              >${cart.getProduct().getPrice()}đ</span
                               >
                                                 <div
                                                         class="cart-detail__left-item-price-quantity"
@@ -136,7 +136,7 @@
                                                     </button>
                                                 </div>
                                                 <span class="cart-detail__left-item-price"
-                                                >${cart.getProduct().getPrice()}</span
+                                                >${cart.getProduct().getPrice()}đ</span
                                                 >
                                             </div>
 

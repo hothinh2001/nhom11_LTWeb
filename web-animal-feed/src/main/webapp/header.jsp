@@ -5,7 +5,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.impl.CartServiceImpl" %>
 
 <%
-    CartService cart = (CartService) session.getAttribute("cart");
+    CartService cart = (CartService) session.getAttribute("cartMap");
     if (cart == null) cart = new CartServiceImpl();
 
 %>
