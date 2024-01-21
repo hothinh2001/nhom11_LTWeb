@@ -160,6 +160,12 @@ public class DAO {
 
             // Xử lý kết quả và thêm vào danh sách
             while (rs.next()) {
+                Category category = new Category();
+                category.setNameCate(rs.getString("nameCate"));
+                Brand brand = new Brand();
+                brand.setNameBrand(rs.getString("nameBrand"));
+                Inventory inventory = new Inventory();
+                inventory.setQuantity(rs.getInt("Quantity"));
                 list.add(new Product(
                         rs.getInt("id"),
                         rs.getString("name"),
@@ -168,7 +174,11 @@ public class DAO {
                         rs.getString("ingredients"),
                         rs.getString("nutritionInfo"),
                         rs.getString("usageInstruction"),
-                        rs.getString("urlImage")
+                        rs.getString("urlImage"),
+                        category,
+                        brand,
+                        inventory,
+                        rs.getInt("quantityAvailable")
                 ));
             }
 

@@ -23,7 +23,7 @@ public class ManagerProduct extends HttpServlet {
         request.setAttribute("listC", dao.getAllCategory());
         request.setAttribute("listB", dao.getAllBrands());
         request.setAttribute("listI", dao.getAllInventories());
-        request.getRequestDispatcher("AproductList.jsp").forward(request, response);
+        request.getRequestDispatcher("webpage/admin/productList.jsp").forward(request, response);
 
 
     }

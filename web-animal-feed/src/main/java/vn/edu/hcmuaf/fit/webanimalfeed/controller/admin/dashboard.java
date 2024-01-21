@@ -42,7 +42,7 @@ public class dashboard extends HttpServlet {
         //hiển thị thông tin order
         List<Orders> listO = OrderDao.findAll();
         request.setAttribute("listO", listO);
-        request.getRequestDispatcher("Adashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("webpage/admin/dashboard.jsp").forward(request, response);
     }
 
     @Override

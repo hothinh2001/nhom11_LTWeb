@@ -21,10 +21,10 @@
                     <li
                             class="navbar__item navbar__item--strong navbar__item--separate js-register"
                     >
-                        <a href="Signup.jsp"> Đăng ký</a>
+                        <a href="../../Signup.jsp"> Đăng ký</a>
                     </li>
                     <li class="navbar__item navbar__item--strong js-login">
-                        <a href="Login.jsp"> Đăng nhập </a>
+                        <a href="../../Login.jsp"> Đăng nhập </a>
                     </li>
                 </c:if>
                 <c:if test="${sessionScope.acc !=null}">
@@ -265,7 +265,7 @@
                     <!-- No item in cart header__cart-list--nocart -->
                     <div class="header__cart-list">
                         <img
-                                src="././assets/img/no_cart.png"
+                                src="../../assets/img/no_cart.png"
                                 alt=""
                                 class="header__cart-nocart-img"
                         />
@@ -276,7 +276,7 @@
                         <ul class="header__cart-list-item">
                             <li class="header__cart-item">
                                 <img
-                                        src="././assets/img/ga/ga-sieu-um.png"
+                                        src="../../assets/img/ga/ga-sieu-um.png"
                                         alt=""
                                         class="header__cart-img"
                                 />

@@ -17,7 +17,7 @@ public class ManageBrand extends HttpServlet {
         DAO dao = new DAO();
         dao.getAllBrands();
         request.setAttribute("listB", dao.getAllBrands());
-        request.getRequestDispatcher("AdBrand.jsp").forward(request, response);
+        request.getRequestDispatcher("webpage/admin/brand.jsp").forward(request, response);
     }
 
     @Override

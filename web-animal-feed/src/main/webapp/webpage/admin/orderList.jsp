@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <title>Oder List</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link rel="stylesheet" href="./admin/assets/css/dashboard/style.css">
+    <link rel="stylesheet" href="../../admin/assets/css/dashboard/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/sideBar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet"
@@ -21,7 +21,7 @@
 <body>
 <input type="checkbox" id="menu-toggle">
 
-<jsp:include page="sideBar.jsp"/>
+<jsp:include page="../include/sideBar.jsp"/>
 
 <div class="main-content">
 
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="user">
-                    <div class="bg-img" style="background-image: url(admin/assets/images/profile/user-1.jpg)"></div>
+                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
 
                     <span class="las la-power-off"></span>
                     <span>Đăng xuất</span>

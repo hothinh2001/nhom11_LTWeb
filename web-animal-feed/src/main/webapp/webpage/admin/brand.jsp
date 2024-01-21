@@ -30,7 +30,7 @@
 <body>
 <input type="checkbox" id="menu-toggle">
 
-<jsp:include page="sideBar.jsp"/>
+<jsp:include page="../include/sideBar.jsp"/>
 
 <div class="main-content">
 
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="user">
-                    <div class="bg-img" style="background-image: url(admin/assets/images/profile/user-1.jpg)"></div>
+                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
 
                     <span class="las la-power-off"></span>
                     <span>Đăng xuất</span>

@@ -33,7 +33,7 @@ public class LoadProduct extends HttpServlet {
         request.setAttribute("listC", listC);
         request.setAttribute("listB", listB);
         request.setAttribute("listI", listI);
-        request.getRequestDispatcher("editProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("webpage/admin/editProduct.jsp").forward(request, response);
 
     }
 

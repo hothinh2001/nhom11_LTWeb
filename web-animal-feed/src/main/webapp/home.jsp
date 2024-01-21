@@ -42,7 +42,7 @@
 </head>
 <body>
 <!-- Header start -->
-<jsp:include page="header.jsp"/>
+<jsp:include page="webpage/include/header.jsp"/>
 <!-- Header end -->
 <div class="app__container">
     <div class="grid wide">

@@ -22,7 +22,7 @@
 <body>
 <input type="checkbox" id="menu-toggle">
 
-<jsp:include page="sideBar.jsp"/>
+<jsp:include page="../include/sideBar.jsp"/>
 
 <div class="main-content">
 
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="user">
-                    <div class="bg-img" style="background-image: url(./admin/assets/images/profile/user-1.jpg)"></div>
+                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
 
                     <span class="las la-power-off"></span>
                     <span>Đăng xuất</span>
@@ -77,7 +77,7 @@
             <div class="content-title">
                 <div class="content-title-item content-title-stt">#009</div>
                 <div class="content-title-item content-title-image">
-                    <img src="./admin/assets/images/ga/c21.png" alt="">
+                    <img src="../../admin/assets/images/ga/c21.png" alt="">
                 </div>
                 <div class="content-title-item content-title-name">Con Cò C21</div>
                 <div class="content-title-item content-title-price">4</div>

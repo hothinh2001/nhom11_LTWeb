@@ -183,14 +183,10 @@ public class AdminDAO {
                 "    i.quantity AS Quantity,\n" +
                 "\t\ti.id AS inventoryId,\n" +
                 "    i.note AS note\n" +
-                "FROM\n" +
-                "    products p\n" +
-                "JOIN\n" +
-                "    categories c ON p.categoryId = c.id\n" +
-                "JOIN\n" +
-                "    brands b ON p.brandId = b.id\n" +
-                "JOIN\n" +
-                "    inventories i ON p.inventoryId = i.id\n" +
+                "FROM products p\n" +
+                "JOIN categories c ON p.categoryId = c.id\n" +
+                "JOIN brands b ON p.brandId = b.id\n" +
+                "JOIN inventories i ON p.inventoryId = i.id\n" +
                 "WHERE p.id = ?";
         try {
             conn = new DBContext().getConnection();
@@ -200,15 +196,12 @@ public class AdminDAO {
             while (rs.next()) {
                 Category category = new Category();
                 category.setId(rs.getInt("categoryId"));
-
-
                 category.setNameCate(rs.getString("nameCate"));
                 category.setIconCate(rs.getString("iconCate"));
 
                 Brand brand = new Brand();
                 brand.setId(rs.getInt("brandId"));
                 brand.setNameBrand(rs.getString("nameBrand"));
-
 
                 Inventory inventory = new Inventory();
                 inventory.setQuantity(rs.getInt("Quantity"));

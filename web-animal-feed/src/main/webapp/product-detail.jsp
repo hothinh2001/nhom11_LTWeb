@@ -47,7 +47,7 @@
     />
 </head>
 <body>
-<jsp:include page="header.jsp"/>
+<jsp:include page="webpage/include/header.jsp"/>
 <!-- Container product detail start -->
 
 <div class="app__container">
@@ -167,130 +167,37 @@
                 </div>
                 <div class="best__selling--content">
                     <div class="row sm-gutter product-item-wrapper">
-                        <div class="col l-2-4 m-4 c-6">
-                            <!-- Product Item -->
-                            <a
-                                    class="product-item"
-                                    href="./product-detail/index.html"
-                            >
-                                <div class="product-item__img">
-                                    <img src="././assets/img/ga/c24s.png" alt=""></div>
-                                <h4 class="product-item__title">
-                                    Con Cò C24S
-                                </h4>
-                                <h4 class="product-item__name">
-                                    Thức ăn hỗn hợp cho gà đẻ cao sản
-                                </h4>
-                                <div class="product-item__price">
-                      <span class="product-item__price-current"
-                      >565.000đ</span
-                      >
-                                </div>
-                                <div class="product-item__action">
-                                    <!-- product-item__like--liked -->
-                                    <span class="product-item__like"> </span>
-                                    <div class="product-item__rating"></div>
-                                    <div class="product-item__sold"></div>
-                                </div>
-                                <div class="product-item__origin">
-                                    <span class="product-item__brand">KONOVA</span>
-                                </div>
-                                <div class="product-item__favourite"></div>
-                            </a>
-                        </div>
-                        <div class="col l-2-4 m-4 c-6">
-                            <!-- Product Item -->
-                            <a
-                                    class="product-item"
-                                    href="./product-detail/index.html"
-                            >
-                                <div class="product-item__img">
-                                    <img src="././assets/img/ga/con-co-ai-cap.png" alt=""></div>
-                                <h4 class="product-item__title">
-                                    Con Cò Ai cập
-                                </h4>
-                                <h4 class="product-item__name">
-                                    Thức ăn hỗn hợp dùng cho gà đẻ Ai Cập
-                                </h4>
-                                <div class="product-item__price">
-                      <span class="product-item__price-current"
-                      >565.000đ</span
-                      >
-                                </div>
-                                <div class="product-item__action">
-                                    <!-- product-item__like--liked -->
-                                    <span class="product-item__like"> </span>
-                                    <div class="product-item__rating"></div>
-                                    <div class="product-item__sold"></div>
-                                </div>
-                                <div class="product-item__origin">
-                                    <span class="product-item__brand">KONOVA</span>
-                                </div>
-                                <div class="product-item__favourite"></div>
-                            </a>
-                        </div>
-                        <div class="col l-2-4 m-4 c-6">
-                            <!-- Product Item -->
-                            <a
-                                    class="product-item"
-                                    href="./product-detail/index.html"
-                            >
-                                <div class="product-item__img">
-                                    <img src="././assets/img/ga/c21.png" alt=""></div>
-                                <h4 class="product-item__title">
-                                    Con Cò C21
-                                </h4>
-                                <h4 class="product-item__name">
-                                    Thức ăn đậm đặc dạng bột cho gà đẻ
-                                </h4>
-                                <div class="product-item__price">
-                      <span class="product-item__price-current"
-                      >565.000đ</span
-                      >
-                                </div>
-                                <div class="product-item__action">
-                                    <!-- product-item__like--liked -->
-                                    <span class="product-item__like"> </span>
-                                    <div class="product-item__rating"></div>
-                                    <div class="product-item__sold"></div>
-                                </div>
-                                <div class="product-item__origin">
-                                    <span class="product-item__brand">KONOVA</span>
-                                </div>
-                                <div class="product-item__favourite"></div>
-                            </a>
-                        </div>
-                        <div class="col l-2-4 m-4 c-6">
-                            <!-- Product Item -->
-                            <a
-                                    class="product-item"
-                                    href="./product-detail/index.html"
-                            >
-                                <div class="product-item__img">
-                                    <img src="././assets/img/ga/c24.png" alt=""></div>
-                                <h4 class="product-item__title">
-                                    Con Cò C24
-                                </h4>
-                                <h4 class="product-item__name">
-                                    Thức ăn hỗn hợp cho gà đẻ
-                                </h4>
-                                <div class="product-item__price">
-                      <span class="product-item__price-current"
-                      >565.000đ</span
-                      >
-                                </div>
-                                <div class="product-item__action">
-                                    <!-- product-item__like--liked -->
-                                    <span class="product-item__like"> </span>
-                                    <div class="product-item__rating"></div>
-                                    <div class="product-item__sold"></div>
-                                </div>
-                                <div class="product-item__origin">
-                                    <span class="product-item__brand">KONOVA</span>
-                                </div>
-                                <div class="product-item__favourite"></div>
-                            </a>
-                        </div>
+                        <c:forEach items="${listRelated}" var="listR">
+                            <div class="col l-2-4 m-4 c-6">
+                                <!-- Product Item -->
+                                <a
+                                        class="product-item"
+                                        href="${pageContext.request.contextPath}/detail?pid=${listR.getId()}"
+                                >
+                                    <div class="product-item__img">
+                                        <img src="${listR.getUrlImage()}" alt=""></div>
+                                    <h4 class="product-item__title">
+                                            ${listR.getName()}
+                                    </h4>
+                                    <h4 class="product-item__name">
+                                            ${listR.getNameDetail()}
+                                    </h4>
+                                    <div class="product-item__price">
+                                        <span class="product-item__price-current">${listR.getPrice()}đ</span>
+                                    </div>
+                                    <div class="product-item__action">
+                                        <!-- product-item__like--liked -->
+                                        <span class="product-item__like"> </span>
+                                        <div class="product-item__rating"></div>
+                                        <div class="product-item__sold"></div>
+                                    </div>
+                                    <div class="product-item__origin">
+                                        <span class="product-item__brand">${listR.getBrand().getNameBrand()}</span>
+                                    </div>
+                                    <div class="product-item__favourite"></div>
+                                </a>
+                            </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
