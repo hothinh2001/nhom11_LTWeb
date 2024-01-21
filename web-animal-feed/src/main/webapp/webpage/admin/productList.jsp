@@ -21,7 +21,7 @@
 </head>
 <body>
 <input type="checkbox" id="menu-toggle">
-<jsp:include page="sideBar.jsp"/>
+<jsp:include page="../include/sideBar.jsp"/>
 
 <div class="main-content">
 
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="user">
-                    <div class="bg-img" style="background-image: url(admin/assets/images/profile/user-1.jpg)"></div>
+                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
 
                     <span class="las la-power-off"></span>
                     <span>Đăng xuất</span>
@@ -87,7 +87,6 @@
                     <div class="content-title-item content-title-price">${p.getPrice()}</div>
                     <div class="content-title-item content-title-category">${p.getCategory().getNameCate()}</div>
                     <div class="content-title-item content-title-brand">${p.getBrand().getNameBrand()}</div>
-                        <%--                    <div class="content-title-item content-title-quantity">${p.inventoryId.getQuantity()}</div>--%>
                     <div class="content-title-item content-title-quantity">${p.getQuantityAvailable()}</div>
 
                     <div class="content-title-item content-title-edit">
@@ -114,7 +113,7 @@
     </main>
 
 </div>
-<script src="./assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script src="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
 <script>
     function redirectToProductPage() {
         window.location.href = "addProduct.jsp";

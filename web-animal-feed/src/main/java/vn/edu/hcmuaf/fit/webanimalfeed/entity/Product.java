@@ -14,16 +14,7 @@ public class Product {
     private Inventory inventory;
     private int quantityAvailable;
 
-    public Product(int id, String name, String nameDetail, int price, String ingredients,
-                   String nutritionInfo, String usageInstruction, String urlImage) {
-        this.id = id;
-        this.name = name;
-        this.nameDetail = nameDetail;
-        this.price = price;
-        this.ingredients = ingredients;
-        this.nutritionInfo = nutritionInfo;
-        this.usageInstruction = usageInstruction;
-        this.urlImage = urlImage;
+    public Product() {
     }
 
     public Product(int id, String name, String nameDetail, int price, String ingredients,

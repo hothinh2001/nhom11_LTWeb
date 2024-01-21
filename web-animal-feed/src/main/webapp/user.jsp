@@ -31,7 +31,7 @@
 </head>
 <body>
 <!-- Header start -->
-<jsp:include page="header.jsp"/>
+<jsp:include page="webpage/include/header.jsp"/>
 <!-- Header end -->
 <div id="wrapper">
     <form action="editUser" id="form-login">

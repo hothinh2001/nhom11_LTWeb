@@ -14,7 +14,7 @@
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet"
-          href="assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+          href="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <title>Quản lý Danh mục</title>
 </head>
 <body>
@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="user">
-                    <div class="bg-img" style="background-image: url(admin/assets/images/profile/user-1.jpg)"></div>
+                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
 
                     <span class="las la-power-off"></span>
                     <span>Đăng xuất</span>

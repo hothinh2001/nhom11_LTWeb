@@ -48,8 +48,11 @@
                 },
                 success: function (response) {
                     if (response.status === "success") {
-                        alert("Product removed from cart. Cart size: " + response.cartSize);
+                        alert(`Đã xóa sản phẩm khỏi giỏ hàng`)
                         // Cập nhật giao diện hoặc thực hiện các thao tác khác
+
+                        window.location.reload();
+
                     } else {
                         console.log(response.message)
                         alert("Failed to remove product from cart. " + response.message);
@@ -65,7 +68,7 @@
 </script>
 <body>
 <!-- Header start -->
-<jsp:include page="../../header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 <!-- Header end -->
 <!-- Container start -->
 <div class="app__container">
