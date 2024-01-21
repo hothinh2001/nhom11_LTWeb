@@ -21,7 +21,7 @@
         <div class="side-menu">
             <ul>
                 <li>
-                    <a href="../dashboard/index.html">
+                    <a href="dashboard">
                         <span class="las la-home"></span>
                         <small>Dashboard</small>
                     </a>

@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.webanimalfeed.dao;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.context.DBContext;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.*;
+import vn.edu.hcmuaf.fit.webanimalfeed.service.OrderService;
 
 
 import java.sql.Connection;
@@ -15,65 +16,79 @@ public class OrderDao {
     static PreparedStatement ps = null;
     static ResultSet rs = null;
 
-    public static List<Orders> findAll(){
-            List<Orders> list = new ArrayList<>();
-            String query = "SELECT * FROM orders";
-            try {
-                // Kết nối đến MySQL
-                Connection conn = new DBContext().getConnection();
+    public static List<Orders> findAll() {
+        List<Orders> list = new ArrayList<>();
+        String query = "SELECT \to.id, \n" +
+                "u.`name` As userName, \n" +
+                "o.dateOrder, \n" +
+                "s.`nameStatus` As nameStatus,\n" +
+                "o.totalPrice,\n" +
+                "o.quantity, \n" +
+                "o.totalOrder, \n" +
+                "m.`nameMethob` As nameMethod,\n" +
+                "s.`nameStatus` As Orderstatus\n" +
+                "        FROM orders o JOIN users u ON o.userId = u.id\n" +
+                "        JOIN payment p ON o.paymentId = p.id\n" +
+                "        JOIN methob m ON p.methobId = m.id\n" +
+                "        JOIN statused s ON o.statusId = s.id";
+        try {
+            // Kết nối đến MySQL
+            Connection conn = new DBContext().getConnection();
 
-                // Tạo PreparedStatement và thực hiện truy vấn
-                PreparedStatement ps = conn.prepareStatement(query);
-                ResultSet rs = ps.executeQuery();
+            // Tạo PreparedStatement và thực hiện truy vấn
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
 
-                // Xử lý kết quả và thêm vào danh sách
-                while (rs.next()) {
-                    Users users = new Users();
-                    users.setName(rs.getString("name"));
-                    Payment methob = new Payment();
-                    methob.getMethob().setNameMethob(rs.getString("nameMethob"));
-                    Status status1 = new Status();
-                    status1.setNameStatus(rs.getString("nameStatus"));
-                    list.add(new Orders(
-                            rs.getInt("id"),
-                            users,
-                            rs.getDouble("totalPrice"),
-                            rs.getDouble("totalOrder"),
-                            rs.getInt("quantity"),
-                            status1,
-                            methob,
-                            rs.getString("dateOrder")
-                    ));
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                // Đóng kết nối sau khi sử dụng
-                try {
-                    if (conn != null) {
-                        conn.close();
-                    }
-                    if (ps != null) {
-                        ps.close();
-                    }
-                    if (rs != null) {
-                        rs.close();
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+            // Xử lý kết quả và thêm vào danh sách
+            while (rs.next()) {
+                Users users = new Users();
+                users.setName(rs.getString("userName"));
+                Method method = new Method();
+                method.setNameMethod(rs.getString("nameMethod"));
+                Status status1 = new Status();
+                status1.setNameStatus(rs.getString("orderStatus"));
+                status1.setNameStatus(rs.getString("nameStatus"));
+                Payment payment = new Payment();
+                payment.setMethod(method);
+                payment.setStatus(status1);
+                list.add(new Orders(
+                        rs.getInt("id"),
+                        users,
+                        rs.getDouble("totalPrice"),
+                        rs.getDouble("totalOrder"),
+                        rs.getInt("quantity"),
+                        status1,
+                        payment,
+                        rs.getString("dateOrder")
+                ));
             }
-            return list;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // Đóng kết nối sau khi sử dụng
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
 
 
     }
 
 
-
-
     //danh sach don hang có trạng thái =" ?"
-    public static List<Orders> findByOrderStatus(String status){
+    public static List<Orders> findByOrderStatus(String status) {
         List<Orders> list = new ArrayList<>();
         String query = "select o.id, u.`name` As userName, o.dateOrder, s.`nameStatus` As nameStatus,o.totalPrice,o.quantity, o.totalOrder, m.`nameMethob` As nameMethob , s.`nameStatus` As Orderstatus\n" +
                 "from orders o join users u on o.userId = u.id \n" +
@@ -87,18 +102,20 @@ public class OrderDao {
 
             // Tạo PreparedStatement và thực hiện truy vấn
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1,status);
+            ps.setString(1, status);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Users users = new Users();
                 users.setName(rs.getString("userName"));
-                Methob methob = new Methob();
-                methob.setNameMethob(rs.getString("nameMethob"));
-               Payment payment = new Payment();
-               payment.setMethob(methob);
+                Method method = new Method();
+                method.setNameMethod(rs.getString("nameMethod"));
                 Status status1 = new Status();
+                status1.setNameStatus(rs.getString("orderStatus"));
                 status1.setNameStatus(rs.getString("nameStatus"));
+                Payment payment = new Payment();
+                payment.setMethod(method);
+                payment.setStatus(status1);
                 list.add(new Orders(
                         rs.getInt("id"),
                         users,
@@ -108,7 +125,7 @@ public class OrderDao {
                         status1,
                         payment,
                         rs.getString("dateOrder")
-                        ));
+                ));
             }
 
         } catch (Exception e) {
@@ -132,13 +149,22 @@ public class OrderDao {
         return list;
     }
 
+//        public static void main(String[] args) {
+//        List<Orders> list = OrderService.getAll();
+//        for (Orders o : list) {
+//            System.out.println(o);
+//        }
+//    }
     public static void main(String[] args) {
-        OrderDao dao = new OrderDao();
-        List<Orders> list = dao.findByOrderStatus("processing");
-        for (Orders o : list){
-            System.out.println(o);
+        List<Orders> list = findAll();
+        for (Orders o : list) {
+            if (o.getPaymentId() != null && o.getPaymentId().getMethod() != null) {
+                System.out.println(o.getPaymentId().getMethod().getNameMethod());
+            } else {
+                System.out.println("Some properties are null for the order with ID: " + o.getId());
+            }
         }
+    }
 
-    }
-    }
+}
 

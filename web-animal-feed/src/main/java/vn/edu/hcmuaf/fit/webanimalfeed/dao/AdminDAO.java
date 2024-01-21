@@ -238,7 +238,6 @@ public class AdminDAO {
     }
 
 
-
     public void insertBrand(String nameBrand, String note) {
         String query = "INSERT INTO brands (nameBrand, note) VALUES (?, ?)";
         try {
@@ -279,11 +278,12 @@ public class AdminDAO {
     }
 
 
-
-
     public static void main(String[] args) {
         AdminDAO dao = new AdminDAO();
-        System.out.println(dao.getProductById("1"));
+        List<Product> list = dao.getAllProduct();
+        for (Product product : list) {
+            System.out.println(product);
+        }
     }
 
 }

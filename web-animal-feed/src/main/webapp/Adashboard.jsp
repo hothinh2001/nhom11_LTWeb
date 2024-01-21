@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.entity.Orders" %>
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.service.OrderService" %>
 <%--
   Created by IntelliJ IDEA.
   User: MSI
@@ -6,6 +10,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    List<Orders> listO = OrderService.getAll();
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +22,7 @@
     <title>Modern Admin Dashboard</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/dashboard/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/sideBar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
@@ -31,7 +38,7 @@
             </label>
 
             <div class="header-menu">
-                <label for="">
+                <label>
                     <span class="las la-search"></span>
                 </label>
 
@@ -114,7 +121,8 @@
                         </div>
                     </div>
                 </div>
-
+            </div>
+        </div>
     </main>
 
     <div class="records table-responsive">
@@ -131,7 +139,7 @@
                         <option value="name">Tên khách hàng</option>
 
                         <option value="paystatus">Payment Status</option>
-                        <option value="total">Order Status </option>
+                        <option value="total">Order Status</option>
                         <option value="paymethob">Payment Methob</option>
 
                     </select>
@@ -140,7 +148,6 @@
                     <button type="submit">Tìm</button>
                 </div>
             </form>
-
 
 
         </div>
@@ -160,102 +167,44 @@
                     <th><span class="las la-sort"></span> Action</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>#5033</td>
-                    <td>
-                        <div class="client">
-                            <div class="client-info">
-                                <h4 class="st-heading">Tran Ngoc Bao Tran</h4>
+                <%--                <% for (Orders o : listO) { %>--%>
+                <c:forEach items="${listO}" var="o" varStatus="loop">
+                    <tbody>
+                    <tr>
+                        <td>#AF0${loop.index + 1}</td>
+                        <td>
+                            <div class="client">
+                                <div class="client-info">
+                                    <h4 class="st-heading">${o.getUserId().getName()}
+                                    </h4>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td>
-                        23/12/2023
-                    </td>
-                    <td>
-                        paid
-                    </td>
-                    <td class="">
-                        25
-                    </td>
-                    <td class="">Mastercard</td>
-                    <td class="loading">Processing</td>
+                        </td>
+                        <td>
+                                ${o.getDateOrder()}
+                        </td>
+                        <td>
+                                ${o.getPaymentId().getStatus().getNameStatus()}
+                        </td>
+                        <td class="">
+                                ${o.getTotalPrice()}
+                        </td>
+                        <td class="">${o.getPaymentId().getMethod().getNameMethod()}
+                        </td>
+                        <td class="loading">${o.getStatused().getNameStatus()}
+                        </td>
 
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic outlined example">
-                            <a class="edit-remove-admin"><i class="fas fa-trash-alt"></i></a>
-                            <a class="edit-remove-admin"><i class="fas fa-edit"></i></a>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <a class="edit-remove-admin"><i class="fas fa-trash-alt"></i></a>
+                                <a class="edit-remove-admin"><i class="fas fa-edit"></i></a>
 
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-
-                <tbody>
-                <tr>
-                    <td>#5099</td>
-                    <td>
-                        <div class="client">
-                            <div class="client-info">
-                                <h4 class="st-heading">Nguyen Van A</h4>
                             </div>
-                        </div>
-                    </td>
-                    <td>
-                        22/11/2023
-                    </td>
-                    <td>
-                        paid
-                    </td>
-                    <td class="">
-                        25000
-                    </td>
-                    <td class="">Mastercard</td>
-                    <td class="loading">Processing</td>
+                        </td>
+                    </tr>
+                    </tbody>
+                </c:forEach>
 
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic outlined example">
-                            <a class="edit-remove-admin"><i class="fas fa-trash-alt"></i></a>
-                            <a class="edit-remove-admin"><i class="fas fa-edit"></i></a>
-
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-
-
-                <tbody>
-                <tr>
-                    <td>#50939</td>
-                    <td>
-                        <div class="client">
-                            <div class="client-info">
-                                <h4 class="st-heading">Nguyen Van B</h4>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        22/11/2023
-                    </td>
-                    <td>
-                        paid
-                    </td>
-                    <td class="">
-                        25000
-                    </td>
-                    <td class="">Mastercard</td>
-                    <td class="loading">Processing</td>
-
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic outlined example">
-                            <a class="edit-remove-admin"><i class="fas fa-trash-alt"></i></a>
-                            <a class="edit-remove-admin"><i class="fas fa-edit"></i></a>
-
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
             </table>
 
             <!--          <div class="pagination moderm-pagination" id="moderm-pagination">-->
@@ -279,7 +228,6 @@
     </div>
 
 </div>
-
 
 
 </div>
