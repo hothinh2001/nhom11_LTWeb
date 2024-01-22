@@ -2,12 +2,13 @@
 <%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.impl.CartServiceImpl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%
     CartService cart = (CartService) session.getAttribute("cartMap");
     if (cart == null) cart = new CartServiceImpl();
 
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,24 +47,68 @@
         $(".removeFromCartButtonClick").click(function (e) {
             e.preventDefault();
             var productId = $(this).data("product-id");
-            var sessionToken = "${pageContext.request.session.getAttribute('sessionToken')}"; // Lấy token từ session
             $.ajax({
                 type: "POST",
                 url: "${pageContext.request.contextPath}/remove-from-cart",
                 data: {
-                    id: productId,
-                    token: sessionToken
+                    productId: productId,
                 },
                 success: function (response) {
                     if (response.status === "success") {
                         alert(`Đã xóa sản phẩm khỏi giỏ hàng`)
                         // Cập nhật giao diện hoặc thực hiện các thao tác khác
-
                         window.location.reload();
-
                     } else {
                         console.log(response.message)
                         alert("Failed to remove product from cart. " + response.message);
+                    }
+                },
+                error: function () {
+                    alert("Error while communicating with the server.");
+                }
+            });
+        });
+
+        $(".btn-quantity-decrease").click(function (e) {
+            e.preventDefault();
+            var productId = $(this).data("product-id");
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/decrease-quantity-product",
+                data: {
+                    productId: productId,
+                    quantity: 1,
+                },
+                success: function (response) {
+                    if (response.status === "success") {
+                        window.location.reload();
+                    } else {
+                        console.log(response.message)
+                        console.log("Failed to remove product from cart. " + response.message);
+                    }
+                },
+                error: function () {
+                    alert("Error while communicating with the server.");
+                }
+            });
+        });
+
+        $(".btn-quantity-increase").click(function (e) {
+            e.preventDefault();
+            var productId = $(this).data("product-id");
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/increase-quantity-product",
+                data: {
+                    productId: productId,
+                    quantity: 1,
+                },
+                success: function (response) {
+                    if (response.status === "success") {
+                        window.location.reload();
+                    } else {
+                        console.log(response.message)
+                        console.log("Failed to remove product from cart. " + response.message);
                     }
                 },
                 error: function () {
@@ -104,9 +149,10 @@
                     <div class="cart-detail__left-wrapper">
                         <div class="cart-detail__left-heading">
                             <h3 class="cart-detail__left-heading-title">Giỏ hàng</h3>
-                            <span class="cart-detail__left-heading-quantity"
-                            ><%= cart.getTotalQuantity() %> sản phẩm</span
-                            >
+
+                            <span class="cart-detail__left-heading-quantity">
+                                ${cartMap.data.size()} sản phẩm
+                            </span>
                         </div>
                         <div class="cart-detail__left-body">
                             <ul class="cart-detail__left-list">
@@ -126,44 +172,60 @@
                                                 </h5>
                                             </div>
                                             <div class="cart-detail__left-item-price-wrap">
-                              <span class="cart-detail__left-item-price"
-                              >${cart.getProduct().getPrice()}đ</span
-                              >
+                                                <c:set var="price" value="${cart.getProduct().getPrice()}"/>
+                                                <fmt:formatNumber type="currency"
+                                                                  currencyCode="VND"
+                                                                  value="${price}"
+                                                                  pattern="#,##0.##"
+                                                                  var="orginPrice"/>
+                                                <span class="cart-detail__left-item-price">
+                                                        ${orginPrice}vnđ
+                                                </span>
                                                 <div
                                                         class="cart-detail__left-item-price-quantity"
                                                 >
-                                                    <button>
+                                                    <button
+                                                            class="btn-quantity-decrease"
+                                                            id="btn-quantity-decrease"
+                                                            data-product-id="${cart.getProduct().getId()}"
+                                                        ${cart.quantity == 1 ? "disabled" : "" }
+                                                    >
                                                         <i class="fa-solid fa-subtract"></i>
                                                     </button>
                                                     <input
                                                             class="cart-detail__left-item-qnt"
                                                             type="text"
-                                                            value="1"
+                                                            value="${cart.quantity}"
                                                             id="quantityInput"
                                                             readonly
                                                     />
-                                                    <button>
+                                                    <button id="btn-quantity-increase"
+                                                            class="btn-quantity-increase"
+                                                            data-product-id="${cart.getProduct().getId()}">
                                                         <i class="fa-solid fa-add"></i>
                                                     </button>
                                                 </div>
-                                                <span class="cart-detail__left-item-price"
-                                                >${cart.getProduct().getPrice()}đ</span
-                                                >
+                                                <c:set var="totalPrice"
+                                                       value="${cart.getProduct().getPrice() * cart.quantity}"/>
+                                                <fmt:formatNumber type="currency"
+                                                                  currencyCode="VND"
+                                                                  value="${totalPrice}"
+                                                                  pattern="#,##0.##"
+                                                                  var="totalPriceFormat"/>
+                                                <span class="cart-detail__left-item-price">
+                                                      ${totalPriceFormat}vnđ
+                                                </span>
                                             </div>
 
                                             <div class="cart-detail__left-item-body">
                                                 <button class="cart-detail__left-item-remove removeFromCartButtonClick"
                                                         data-product-id="${cart.getProduct().getId()}">
-                                                    <i class="fa-solid fa-trash"></i
-                                                    >Xóa
-                                                </button
-                                                >
+                                                    <i class="fa-solid fa-trash"></i>Xóa
+                                                </button>
                                             </div>
                                         </div>
                                     </li>
-
                                 </c:forEach>
-
                             </ul>
                         </div>
                     </div>
@@ -180,18 +242,26 @@
                             <button class="btn-base btn-delete">Xóa giỏ hàng</button>
                         </div>
                         <div class="cart-detail__total-button">
+
                             <div class="cart-detail__total">
-                                Tổng tiền: <span class="cart-detail__btn-confirm-total-price">1.695.000đ</span>
+                                <c:set var="totalCartPrice"
+                                       value="${totalCartPrice}"/>
+                                <fmt:formatNumber type="currency"
+                                                  currencyCode="VND"
+                                                  value="${totalCartPrice}"
+                                                  pattern="#,##0.##"
+                                                  var="totalCartPriceFormat"/>
+                                Tổng tiền:
+                                <span class="cart-detail__btn-confirm-total-price">
+                                    ${totalCartPriceFormat}vnđ
+                            </span>
                             </div>
                             <div class="cart-detail__btn-confirm">
                                 <button class="btn-base btn-confirm" onclick="clickCheckout()">Tiến hành đặt hàng
                                 </button>
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
             </div>
         </div>

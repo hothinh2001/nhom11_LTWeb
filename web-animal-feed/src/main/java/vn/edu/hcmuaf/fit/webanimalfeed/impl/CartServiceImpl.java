@@ -10,25 +10,65 @@ import java.util.Map;
 
 public class CartServiceImpl implements CartService {
     private final Map<Integer, CartProduct> data = new HashMap<>();
-
     @Override
-    public boolean add(int add) {
-        return add(add, 1);
+    public boolean add(int productId) {
+        if (data.containsKey(productId)) {
+            CartProduct cartProduct = data.get(productId);
+            cartProduct.increaseQuantity(productId);
+            return true;
+        }
+        return add(productId, 1);
     }
 
     @Override
-    public boolean add(int add, int quantity) {
-        Product p = ProductService.getInstance().getProductById(String.valueOf(add));
+    public boolean add(int productId, int quantity) {
+        Product p = ProductService.getInstance().getProductById(String.valueOf(productId));
         if (p == null) return false;
         CartProduct cartProduct = null;
-        if (data.containsKey(add)) {
-            cartProduct = data.get(add);
-            cartProduct.increQuantity(quantity);
+        if (data.containsKey(productId)) {
+            cartProduct = data.get(productId);
+            cartProduct.increaseQuantity(quantity);
         } else {
             cartProduct = new CartProduct(quantity, p);
         }
-        data.put(add, cartProduct);
+        data.put(productId, cartProduct);
         return true;
+    }
+
+    @Override
+    public void increaseQuantity(int productId, int quantity) {
+        Product product = ProductService.getInstance().getProductById(String.valueOf(productId));
+        if (product == null) return;
+        CartProduct cartProduct = null;  //
+        if (data.containsKey(productId)) {
+            cartProduct = data.get(productId);
+            cartProduct.increaseQuantity(quantity);
+        } else {
+            cartProduct = new CartProduct(quantity, product);
+        }
+        data.put(productId, cartProduct);
+
+
+    }
+
+    @Override
+    public void decreaseQuantity(int productId, int quantity) {
+        Product product = ProductService.getInstance().getProductById(String.valueOf(productId));
+        if (product == null) return;
+        CartProduct cartProduct = null;  //
+        if (data.containsKey(productId)) {
+            cartProduct = data.get(productId);
+            cartProduct.decreaseQuantity(quantity);
+        } else {
+            cartProduct = new CartProduct(quantity, product);
+        }
+        data.put(productId, cartProduct);
+
+    }
+
+    @Override
+    public boolean saveCartToDatabase(String userId) {
+        return false;
     }
 
     @Override
@@ -41,6 +81,15 @@ public class CartServiceImpl implements CartService {
     @Override
     public int getTotalQuantity() {
         return data.size();
+    }
+
+    @Override
+    public long getTotalCartPrice() {
+        long total = 0;
+        for (Map.Entry<Integer, CartProduct> entry : data.entrySet()) {
+            total += entry.getValue().getTotalPrice();
+        }
+        return total;
     }
 
     @Override
