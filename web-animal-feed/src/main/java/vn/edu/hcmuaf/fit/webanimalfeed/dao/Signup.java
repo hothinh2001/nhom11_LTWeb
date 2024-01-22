@@ -21,7 +21,7 @@ public class Signup {
             ps.setString(1, user);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Role r=new Role();
+                Role r = new Role();
                 r.setNameRole(rs.getString("nameRole"));
                 return new Users(rs.getInt("id"),
                         rs.getString("name"),
@@ -45,8 +45,8 @@ public class Signup {
         return null;
     }
 
-    public void AddSignup(String email, String username, String dateOfBirth, String gender, String phone, String pass) {
-        String query = "insert into users values (?,?,?,?,?,?)";
+    public void AddSignup(String email, String username, String dateOfBirth, String gender, String phone, String pass, int role) {
+        String query = "INSERT users (email, username, birthdate, gender, phone, `password`,roleId) VALUES (?,?,?,?,?,?,?)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -56,6 +56,7 @@ public class Signup {
             ps.setString(4, gender);
             ps.setString(5, phone);
             ps.setString(6, pass);
+            ps.setInt(7, role);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

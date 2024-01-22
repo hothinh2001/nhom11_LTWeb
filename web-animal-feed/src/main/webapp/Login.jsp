@@ -22,7 +22,7 @@
         <div class="header__logo hide-on-tablet">
             <div class="header__logo-container">
                 <div class="logo-holder logo-4">
-                    <a href="../home/index.html" class="header__logo-link">
+                    <a href="home" class="header__logo-link">
                         <img src="././assets/img/logo.jpg" alt="">
                     </a>
                 </div>
@@ -40,7 +40,7 @@
         <div class="auth-form__container">
           <div class="auth-form__header">
             <h3 class="auth-form__heading">Đăng nhập</h3>
-           <a href="" > <span class="auth-form__switch-btn js-switch-register"
+           <a href="Signup.jsp" > <span class="auth-form__switch-btn js-switch-register"
               >Đăng ký</span
             ></a>
           </div>
@@ -79,7 +79,7 @@
             </div>
           </div>
           <div class="auth-form__controls">
-           <a href="home.jsp" ><button class="btn btn--normal auth-form__control-back-btn">
+           <a href="home" ><button class="btn btn--normal auth-form__control-back-btn">
               TRỞ LẠI
             </button>
               </a>

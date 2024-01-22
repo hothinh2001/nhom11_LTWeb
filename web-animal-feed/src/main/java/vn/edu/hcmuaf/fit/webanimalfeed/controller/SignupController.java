@@ -9,7 +9,7 @@ import javax.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "SignupController", value = "/SignupController")
+@WebServlet(name = "SignupController", value = "/signup")
 public class SignupController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -19,15 +19,15 @@ public class SignupController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         response.setContentType("text/html;charset=utf-8");
         String email = request.getParameter("email");
         String username = request.getParameter("username");
-        String date = request.getParameter("dateOfBirth");
+        String birthdate = request.getParameter("birthdate");
         String gender = request.getParameter("gender");
         String phone = request.getParameter("phone");
         String pass = request.getParameter("pass");
         String repass = request.getParameter("repass");
+        int role = 2;
         if (!pass.equals(repass)) {
             request.setAttribute("mess", "Mật khẩu không trùng khớp");
             request.getRequestDispatcher("Signup.jsp").forward(request, response);
@@ -36,8 +36,8 @@ public class SignupController extends HttpServlet {
             Users u = dao.checkUserExist(username);
             if (u == null) {
                 //duoc add vao
-                dao.AddSignup(email, username, date, gender, phone, pass);
-                response.sendRedirect("home.jsp");
+                dao.AddSignup(email, username, birthdate, gender, phone, pass, role);
+                response.sendRedirect("home");
 
 
             } else {
