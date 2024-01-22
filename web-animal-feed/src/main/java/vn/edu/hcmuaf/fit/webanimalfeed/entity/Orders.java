@@ -6,9 +6,21 @@ public class Orders {
     private double totalPrice;
     private double totalOrder;
     private int quantity;
-    private Status statused;
+    private Status statusId;
     private Payment paymentId;
     private String dateOrder;
+
+
+    public Orders(int id, Users userId, double totalPrice, double totalOrder, int quantity, Status statusId, Payment paymentId, String dateOrder) {
+        this.id = id;
+        this.userId = userId;
+        this.totalPrice = totalPrice;
+        this.totalOrder = totalOrder;
+        this.quantity = quantity;
+        this.statusId = statusId;
+        this.paymentId = paymentId;
+        this.dateOrder = dateOrder;
+    }
 
     public int getId() {
         return id;
@@ -50,12 +62,12 @@ public class Orders {
         this.quantity = quantity;
     }
 
-    public Status getStatused() {
-        return statused;
+    public Status getStatusId() {
+        return statusId;
     }
 
-    public void setStatused(Status statused) {
-        this.statused = statused;
+    public void setStatusId(Status statusId) {
+        this.statusId = statusId;
     }
 
     public Payment getPaymentId() {
@@ -82,21 +94,10 @@ public class Orders {
                 ", totalPrice=" + totalPrice +
                 ", totalOrder=" + totalOrder +
                 ", quantity=" + quantity +
-                ", statused=" + statused +
+                ", statusId=" + statusId +
                 ", paymentId=" + paymentId +
                 ", dateOrder='" + dateOrder + '\'' +
                 '}';
-    }
-
-    public Orders(int id, Users userId, double totalPrice, double totalOrder, int quantity, Status statused, Payment paymentId, String dateOrder) {
-        this.id = id;
-        this.userId = userId;
-        this.totalPrice = totalPrice;
-        this.totalOrder = totalOrder;
-        this.quantity = quantity;
-        this.statused = statused;
-        this.paymentId = paymentId;
-        this.dateOrder = dateOrder;
     }
 
     public Orders() {
