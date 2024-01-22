@@ -26,65 +26,14 @@
     <!--  <link rel="stylesheet" href="/assets/css/dashboard.css">-->
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="admin/assets/css/AproductEdit.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/AproductEdit.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/sideBar.css">
     <link rel="stylesheet"
-          href="assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+          href="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
 </head>
 <body>
 <input type="checkbox" id="menu-toggle">
-<div class="sidebar">
-    <div class="side-header">
-
-        <h3>M<span>odern</span></h3>
-    </div>
-
-    <div class="side-content">
-        <div class="profile">
-            <div class="">
-                <img alt='TravelerWP'
-                     class='avatar avatar-50 photo profile-img bg-img' height='50' width='50' loading='lazy'
-                     decoding='async'/>
-            </div>
-            <h4 class="user-name">TRAN NGOC BAO TRAN</h4>
-            <span class="user-role"></span>
-        </div>
-
-        <div class="side-menu">
-            <ul>
-                <li>
-                    <a href="admin/pages/dashboard/index.html" class="active">
-                        <span class="las la-home"></span>
-                        <small>Dashboard</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin/pages/product/productList/index.html">
-                        <span class="las la-clipboard-list"></span>
-                        <small>Product List</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin/pages/order/orderList.html">
-                        <span class="las la-shopping-cart"></span>
-                        <small>Order List</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin/pages/category/index.html">
-                        <span class="las la-clipboard-list"></span>
-                        <small>Danh mục</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin/pages/brand/index.html">
-                        <span class="las la-clipboard-list"></span>
-                        <small>Thương hiệu</small>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+<jsp:include page="../include/sideBar.jsp"/>
 
 <div class="main-content">
 
@@ -106,7 +55,7 @@
                 </div>
 
                 <div class="user">
-                    <div class="bg-img" style="background-image: url(admin/assets/images/profile/user-1.jpg)"></div>
+                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
 
                     <span class="las la-power-off"></span>
                     <span>Đăng xuất</span>
@@ -173,7 +122,7 @@
                                         required>
                                     <option selected>Kho</option>
                                     <% for (Inventory i : listI) { %>
-                                    <option value="<%=i.getId()%>"><%=i.getnote()%>
+                                    <option value="<%=i.getId()%>"><%=i.getNote()%>
                                     </option>
                                     <% }
                                     %>

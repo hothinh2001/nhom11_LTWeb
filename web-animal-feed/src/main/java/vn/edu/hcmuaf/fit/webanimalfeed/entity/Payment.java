@@ -1,15 +1,15 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.entity;
 
 public class Payment {
-   private int id;
-   private double fee;
-   private Methob methob;
-   private Status status;
+    private int id;
+    private double fee;
+    private Method method;
+    private Status status;
 
-    public Payment(int id, double fee, Methob methob, Status status) {
+    public Payment(int id, double fee, Method method, Status status) {
         this.id = id;
         this.fee = fee;
-        this.methob = methob;
+        this.method = method;
         this.status = status;
     }
 
@@ -29,12 +29,12 @@ public class Payment {
         this.fee = fee;
     }
 
-    public Methob getMethob() {
-        return methob;
+    public Method getMethod() {
+        return method;
     }
 
-    public void setMethob(Methob methob) {
-        this.methob = this.methob;
+    public void setMethod(Method Method) {
+        this.method = Method;
     }
 
     public Status getStatus() {
@@ -50,10 +50,11 @@ public class Payment {
         return "Payment{" +
                 "id=" + id +
                 ", fee=" + fee +
-                ", methob=" + methob +
+                ", Method=" + method +
                 ", status=" + status +
                 '}';
     }
-    public Payment(){
+
+    public Payment() {
     }
 }

@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: MSI
   Date: 12/3/2023
-  Time: 9:24 PM
+  Time: 9:40 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,12 +10,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="admin/assets/css/brand.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/category.css">
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet"
-          href="assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <title>Quản lý Thương hiệu</title>
+          href="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <title>Quản lý Danh mục</title>
 </head>
 <body>
 <input type="checkbox" id="menu-toggle">
@@ -39,31 +39,31 @@
         <div class="side-menu">
             <ul>
                 <li>
-                    <a href="admin/pages/dashboard/index.html">
+                    <a href="../dashboard/index.html">
                         <span class="las la-home"></span>
                         <small>Dashboard</small>
                     </a>
                 </li>
                 <li>
-                    <a href="admin/pages/product/productList/index.html">
+                    <a href="../product/productList/index.html">
                         <span class="las la-clipboard-list"></span>
                         <small>Product List</small>
                     </a>
                 </li>
                 <li>
-                    <a href="admin/pages/order/orderList.html">
+                    <a href="../order/orderList.html">
                         <span class="las la-shopping-cart"></span>
                         <small>Order List</small>
                     </a>
                 </li>
                 <li>
-                    <a href="admin/pages/category/index.html">
+                    <a href="admin/pages/category/index.html" class="active">
                         <span class="las la-clipboard-list"></span>
                         <small>Danh mục</small>
                     </a>
                 </li>
                 <li>
-                    <a href="admin/pages/brand/index.html" class="active">
+                    <a href="../brand/index.html">
                         <span class="las la-clipboard-list"></span>
                         <small>Thương hiệu</small>
                     </a>
@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="user">
-                    <div class="bg-img" style="background-image: url(admin/assets/images/profile/user-1.jpg)"></div>
+                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
 
                     <span class="las la-power-off"></span>
                     <span>Đăng xuất</span>
@@ -105,49 +105,27 @@
 
     <main>
         <div class="page-header">
-            <h1>Thương hiệu sản phẩm</h1>
-            <small>Home / Thương hiệu sản phẩm</small>
+            <h1>Danh mục sản phẩm</h1>
+            <small>Home / Danh mục sản phẩm</small>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Thêm Thương hiệu
+                Thêm Danh mục
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Thương hiệu</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Tên Thương hiệu</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Con cò">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                            <button type="button" class="btn btn-primary">Lưu</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
         <div class="page-content">
             <div class="content-title">
                 <div class="content-title-item content-title-stt">STT</div>
-                <div class="content-title-item content-title-name">Tên Thương hiệu</div>
+                <div class="content-title-item content-title-name">Tên Danh mục</div>
                 <div class="content-title-item content-title-edit">Thao tác</div>
             </div>
             <hr style="margin: 0; height: 2px">
             <div class="content-title">
                 <div class="content-title-item content-title-stt">1</div>
-                <div class="content-title-item content-title-name">Con cò</div>
+                <div class="content-title-item content-title-name">Thức ăn cho Heo</div>
                 <div class="content-title-item content-title-edit">
                     <a href="#">
                         <span class="las la-edit"></span>
@@ -156,7 +134,7 @@
             </div>
             <div class="content-title">
                 <div class="content-title-item content-title-stt">2</div>
-                <div class="content-title-item content-title-name">BigBoss</div>
+                <div class="content-title-item content-title-name">Thức ăn cho Cá</div>
                 <div class="content-title-item content-title-edit">
                     <a href="#">
                         <span class="las la-edit"></span>
@@ -165,7 +143,7 @@
             </div>
             <div class="content-title">
                 <div class="content-title-item content-title-stt">3</div>
-                <div class="content-title-item content-title-name">HPfeed</div>
+                <div class="content-title-item content-title-name">Thức ăn Gia Cầm</div>
                 <div class="content-title-item content-title-edit">
                     <a href="#">
                         <span class="las la-edit"></span>
@@ -186,6 +164,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<script src="assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script src="../../../front-end/assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script>
+    function redirectToProductPage() {
+        window.location.href = "../productEdit/product.html";
+    }
+</script>
 </body>
 </html>

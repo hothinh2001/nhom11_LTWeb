@@ -42,7 +42,7 @@
 </head>
 <body>
 <!-- Header start -->
-<jsp:include page="header.jsp"/>
+<jsp:include page="webpage/include/header.jsp"/>
 <!-- Header end -->
 <div class="app__container">
     <div class="grid wide">
@@ -81,7 +81,7 @@
                 <div class="category">
                     <c:forEach var="category" items="${listCate}">
                         <div class="cate-item">
-                            <a href="../product-list/index.html">
+                            <a href="product-list">
                                 <img src="${category.getIconCate()}" alt=""/>
                                     ${category.getNameCate()}
                             </a>

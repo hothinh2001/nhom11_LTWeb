@@ -12,6 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/AproductList.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/sideBar.css">
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet"
@@ -20,60 +21,7 @@
 </head>
 <body>
 <input type="checkbox" id="menu-toggle">
-<div class="sidebar">
-    <div class="side-header">
-
-        <h3>M<span>odern</span></h3>
-    </div>
-
-    <div class="side-content">
-        <div class="profile">
-            <div class="">
-                <img alt='TravelerWP'
-                     class='avatar avatar-50 photo profile-img bg-img' height='50' width='50' loading='lazy'
-                     decoding='async'/>
-            </div>
-            <h4 class="user-name">TRAN NGOC BAO TRAN</h4>
-            <span class="user-role"></span>
-        </div>
-
-        <div class="side-menu">
-            <ul>
-                <li>
-                    <a href="admin/pages/dashboard/index.html">
-                        <span class="las la-home"></span>
-                        <small>Dashboard</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin/pages/product/productList/index.html" class="active">
-                        <span class="las la-clipboard-list"></span>
-                        <small>Product List</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin/pages/order/orderList.html">
-                        <span class="las la-shopping-cart"></span>
-                        <small>Order List</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin/pages/category/index.html">
-                        <span class="las la-clipboard-list"></span>
-                        <small>Danh mục</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="../../brand/index.html">
-                        <span class="las la-clipboard-list"></span>
-                        <small>Thương hiệu</small>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-    </div>
-</div>
+<jsp:include page="../include/sideBar.jsp"/>
 
 <div class="main-content">
 
@@ -95,7 +43,7 @@
                 </div>
 
                 <div class="user">
-                    <div class="bg-img" style="background-image: url(admin/assets/images/profile/user-1.jpg)"></div>
+                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
 
                     <span class="las la-power-off"></span>
                     <span>Đăng xuất</span>
@@ -129,9 +77,9 @@
                 <div class="content-title-item content-title-delete">Xóa sản phẩm</div>
             </div>
             <hr style="margin: 0; height: 2px">
-            <c:forEach items="${listP}" var="p">
+            <c:forEach items="${listP}" var="p" varStatus="loop">
                 <div class="content-title">
-                    <div class="content-title-item content-title-stt">${p.getId()}</div>
+                    <div class="content-title-item content-title-stt">${loop.index + 1}</div>
                     <div class="content-title-item content-title-image">
                         <img src="${p.getUrlImage()}" alt="${p.getName()}">
                     </div>
@@ -139,7 +87,6 @@
                     <div class="content-title-item content-title-price">${p.getPrice()}</div>
                     <div class="content-title-item content-title-category">${p.getCategory().getNameCate()}</div>
                     <div class="content-title-item content-title-brand">${p.getBrand().getNameBrand()}</div>
-                        <%--                    <div class="content-title-item content-title-quantity">${p.inventoryId.getQuantity()}</div>--%>
                     <div class="content-title-item content-title-quantity">${p.getQuantityAvailable()}</div>
 
                     <div class="content-title-item content-title-edit">
@@ -166,7 +113,7 @@
     </main>
 
 </div>
-<script src="./assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script src="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
 <script>
     function redirectToProductPage() {
         window.location.href = "addProduct.jsp";

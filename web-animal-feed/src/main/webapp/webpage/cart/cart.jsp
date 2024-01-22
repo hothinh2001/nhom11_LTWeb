@@ -48,8 +48,11 @@
                 },
                 success: function (response) {
                     if (response.status === "success") {
-                        alert("Product removed from cart. Cart size: " + response.cartSize);
+                        alert(`Đã xóa sản phẩm khỏi giỏ hàng`)
                         // Cập nhật giao diện hoặc thực hiện các thao tác khác
+
+                        window.location.reload();
+
                     } else {
                         console.log(response.message)
                         alert("Failed to remove product from cart. " + response.message);
@@ -65,7 +68,7 @@
 </script>
 <body>
 <!-- Header start -->
-<jsp:include page="../../header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 <!-- Header end -->
 <!-- Container start -->
 <div class="app__container">
@@ -74,7 +77,7 @@
         <div class="breadcrumb-wrapper">
             <ul class="breadcrumb-content">
                 <li class="breadcrumb-item">
-                    <a href="#" class="breadcrumb-item__link"> Trang chủ </a>
+                    <a href="home" class="breadcrumb-item__link"> Trang chủ </a>
                     <i class="fa-solid fa-chevron-right"></i>
                 </li>
 
@@ -116,7 +119,7 @@
                                             </div>
                                             <div class="cart-detail__left-item-price-wrap">
                               <span class="cart-detail__left-item-price"
-                              >565.000đ</span
+                              >${cart.getProduct().getPrice()}đ</span
                               >
                                                 <div
                                                         class="cart-detail__left-item-price-quantity"
@@ -136,7 +139,7 @@
                                                     </button>
                                                 </div>
                                                 <span class="cart-detail__left-item-price"
-                                                >${cart.getProduct().getPrice()}</span
+                                                >${cart.getProduct().getPrice()}đ</span
                                                 >
                                             </div>
 

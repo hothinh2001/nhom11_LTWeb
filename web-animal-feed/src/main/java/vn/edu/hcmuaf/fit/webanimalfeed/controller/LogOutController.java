@@ -13,7 +13,7 @@ public class LogOutController extends HttpServlet {
         HttpSession session = request.getSession();
         //xoa
         session.removeAttribute("acc");
-        response.sendRedirect("home.jsp");
+        response.sendRedirect("home");
     }
 
     @Override
