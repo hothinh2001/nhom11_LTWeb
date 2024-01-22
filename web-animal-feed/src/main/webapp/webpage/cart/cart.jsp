@@ -1,5 +1,13 @@
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.service.CartService" %>
+<%@ page import="vn.edu.hcmuaf.fit.webanimalfeed.impl.CartServiceImpl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+    CartService cart = (CartService) session.getAttribute("cartMap");
+    if (cart == null) cart = new CartServiceImpl();
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,7 +85,7 @@
         <div class="breadcrumb-wrapper">
             <ul class="breadcrumb-content">
                 <li class="breadcrumb-item">
-                    <a href="home" class="breadcrumb-item__link"> Trang chủ </a>
+                    <a href="/animal-feed/home" class="breadcrumb-item__link"> Trang chủ </a>
                     <i class="fa-solid fa-chevron-right"></i>
                 </li>
 
@@ -97,7 +105,7 @@
                         <div class="cart-detail__left-heading">
                             <h3 class="cart-detail__left-heading-title">Giỏ hàng</h3>
                             <span class="cart-detail__left-heading-quantity"
-                            >2 sản phẩm</span
+                            ><%= cart.getTotalQuantity() %> sản phẩm</span
                             >
                         </div>
                         <div class="cart-detail__left-body">

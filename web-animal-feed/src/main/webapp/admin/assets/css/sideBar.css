@@ -56,12 +56,6 @@
     padding: 2rem 0rem;
 }
 
-.bg-img {
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 50%;
-}
-
 .profile-img {
     height: 80px;
     width: 80px;
