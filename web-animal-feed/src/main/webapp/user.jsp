@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,13 +36,13 @@
 <jsp:include page="webpage/include/header.jsp"/>
 <!-- Header end -->
 <div id="wrapper">
-    <form action="editUser" id="form-login">
+    <form action="loadUser" id="form-login">
         <h1 class="form-heading">Thông tin chỉnh sửa</h1>
         <div class="form-content">
             <div class="form-info">
                 <div class="form-group">
                     <i class="far fa-user"></i>
-                    <input type="text" class="form-input" name ="HoTen"placeholder="Họ và tên"/>
+                    <input type="text" class="form-input" name ="HoTen" value="${sessionScope.user.name}" />
                 </div>
 
                 <div class="form-group" style="border-bottom:none">
