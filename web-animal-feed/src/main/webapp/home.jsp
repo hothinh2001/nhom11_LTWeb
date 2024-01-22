@@ -543,9 +543,10 @@
                                                     id="menu-item-2398"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2398"
                                             >
-                                                <a href="#"
-                                                >Thức ăn cho Heo</a
-                                                >
+                                                <a href="${pageContext.request.contextPath}/product-list">
+                                                    Thức ăn cho Heo
+                                                </a>
+                                                
                                             </li>
                                             <li
                                                     id="menu-item-2399"

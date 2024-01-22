@@ -117,7 +117,7 @@
                                     </li>
                                     <li class="nav-item dropdown header__cart-wrapper">
                                         <a class="nav-link nav-link-sm dropdown-toggle"
-                                           href="./product-list/index.html" id="productDropdown"
+                                           href="${pageContext.request.contextPath}/product-list" id="productDropdown"
                                            role="button"
                                         >
                                             Thức ăn cho heo
