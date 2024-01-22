@@ -21,6 +21,7 @@ public class EditUserController extends HttpServlet {
         String phone = request.getParameter("phone");
 
         UserEditDao uD = new UserEditDao();
+        Users users = uD.getDanhsachUser(request.getParameter("username"));
         Users u = uD.edit(name, birthday, gender, address, email, phone);
          HttpSession session = request.getSession();
          session.setAttribute("USSER", u);

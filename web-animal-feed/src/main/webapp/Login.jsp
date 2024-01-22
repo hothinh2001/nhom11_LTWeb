@@ -40,7 +40,7 @@
         <div class="auth-form__container">
           <div class="auth-form__header">
             <h3 class="auth-form__heading">Đăng nhập</h3>
-           <a href="" <span class="auth-form__switch-btn js-switch-register"
+           <a href="" > <span class="auth-form__switch-btn js-switch-register"
               >Đăng ký</span
             ></a>
           </div>
@@ -113,8 +113,8 @@
         </div>
         </div>
 
+</form>
       </div>
-      </form>
 </div>
 </body>
 </html>

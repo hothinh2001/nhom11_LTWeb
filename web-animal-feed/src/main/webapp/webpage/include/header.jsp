@@ -24,7 +24,7 @@
                         <a href="../../Signup.jsp"> Đăng ký</a>
                     </li>
                     <li class="navbar__item navbar__item--strong js-login">
-                        <a href="../../Login.jsp"> Đăng nhập </a>
+                        <a href="${pageContext.request.contextPath}/Login.jsp"> Đăng nhập </a>
                     </li>
                 </c:if>
                 <c:if test="${sessionScope.acc !=null}">
@@ -37,7 +37,7 @@
                         <span class="navbar__user-name">Xin Chao ${sessionScope.acc.name} </span>
                         <ul class="navbar__user-menu">
                             <li class="navbar__user-item">
-                                <a href="./user/index.html" class="navbar__user-link">Tài khoản của tôi</a>
+                                <a href="loadUser?uid=${sessionScope.acc.id}" class="navbar__user-link">Tài khoản của tôi</a>
                             </li>
                             <li class="navbar__user-item">
                                 <a href="" class="navbar__user-link">Đơn mua</a>

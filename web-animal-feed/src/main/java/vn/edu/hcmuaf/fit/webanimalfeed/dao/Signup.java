@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.dao;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.context.DBContext;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Role;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Users;
 
 import java.sql.Connection;
@@ -20,18 +21,21 @@ public class Signup {
             ps.setString(1, user);
             rs = ps.executeQuery();
             while (rs.next()) {
+                Role r=new Role();
+                r.setNameRole(rs.getString("nameRole"));
                 return new Users(rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("avatar"),
                         rs.getString("username"),
                         rs.getString("gender"),
                         rs.getString("birthdate"),
-                        rs.getInt("roleId"),
+                        r,
                         rs.getString("phone"),
                         rs.getString("email"),
                         rs.getString("password"),
                         rs.getString("address"),
                         rs.getBoolean("emailConfirmed")
+
                 );
             }
 
