@@ -12,24 +12,19 @@ public class CartServiceImpl implements CartService {
     private final Map<Integer, CartProduct> data = new HashMap<>();
     @Override
     public boolean add(int productId) {
-        if (data.containsKey(productId)) {
-            CartProduct cartProduct = data.get(productId);
-            cartProduct.increaseQuantity(productId);
-            return true;
-        }
         return add(productId, 1);
     }
 
     @Override
     public boolean add(int productId, int quantity) {
-        Product p = ProductService.getInstance().getProductById(String.valueOf(productId));
-        if (p == null) return false;
+        Product product = ProductService.getInstance().getProductById(String.valueOf(productId));
+        if (product == null) return false;
         CartProduct cartProduct = null;
         if (data.containsKey(productId)) {
             cartProduct = data.get(productId);
             cartProduct.increaseQuantity(quantity);
         } else {
-            cartProduct = new CartProduct(quantity, p);
+            cartProduct = new CartProduct(quantity, product);
         }
         data.put(productId, cartProduct);
         return true;

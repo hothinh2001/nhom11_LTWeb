@@ -147,7 +147,7 @@
 
                         </div>
                         <div class="form-content-button">
-                            <button type="submit" class="btn btn-primary btn-lg" value="edit">Cập nhật</button>
+                            <button type="submit" class="btn btn-primary btn-lg" value="${pageContext.request.contextPath}/edit">Cập nhật</button>
                         </div>
                     </div>
                 </div>

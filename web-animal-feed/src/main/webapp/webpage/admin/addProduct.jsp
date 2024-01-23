@@ -49,7 +49,7 @@
         </div>
 
         <div class="page-content">
-            <form action="add" method="post" enctype="multipart/form-data">
+            <form action="${pageContext.request.contextPath}/add" method="post">
                 <div class="form-content">
                     <div class="form-content-left">
                         <div class="mb-3">
@@ -81,12 +81,9 @@
                             <input name="price" type="text" class="form-control" id="exampleFormControlInput3" required>
                         </div>
                         <div class="mb-3">
-                            <%--                            <label for="exampleFormControlInput4" class="form-label">Thêm ảnh</label>--%>
-                            <%--                            <input name="urlImage" type="url" class="form-control" id="exampleFormControlInput4"--%>
-                            <%--                                   required>--%>
-                            <label for="exampleFormControlInput4" class="form-label">Thêm ảnh</label>--%>
-                            <input name="urlImage" type="file" class="form-control" id="exampleFormControlInput4">
-                            <button>Upload</button>
+                            <label for="exampleFormControlInput4" class="form-label">Thêm ảnh</label>
+                            <input name="urlImage" type="url" class="form-control" id="exampleFormControlInput4"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput4" class="form-label">Số lượng trong kho</label>
@@ -139,7 +136,9 @@
                             </div>
                         </div>
                         <div class="form-content-button">
-                            <button type="submit" class="btn btn-primary btn-lg" value="add">Tạo sản phẩm</button>
+                            <button type="submit" class="btn btn-primary btn-lg"
+                                    value="${pageContext.request.contextPath}/add">Tạo sản phẩm
+                            </button>
                         </div>
                     </div>
                 </div>

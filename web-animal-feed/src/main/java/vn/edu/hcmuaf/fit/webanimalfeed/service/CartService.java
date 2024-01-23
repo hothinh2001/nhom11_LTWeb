@@ -6,9 +6,9 @@ import java.util.Map;
 
 public interface CartService {
 
-    boolean add(int add);
+    boolean add(int productId);
 
-    boolean add(int add, int quantity);
+    boolean add(int productId, int quantity);
 
     void increaseQuantity(int productId, int quantity);
 
