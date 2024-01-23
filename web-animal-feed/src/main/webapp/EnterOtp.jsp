@@ -34,7 +34,7 @@
 									<%
 		  			if(request.getAttribute("message")!=null)
 		  			{
-		  				out.print("<p class='text-danger ml-1'>"+request.getAttribute("message")+"</p>");
+		  				System.out.print("<p class='text-danger ml-1'>"+request.getAttribute("message")+"</p>");
 		  			}
 		  
 		  %>

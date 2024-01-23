@@ -34,14 +34,13 @@ public class SignupController extends HttpServlet {
         } else {
             Signup dao = new Signup();
             Users u = dao.checkUserExist(username);
-            if (u == null) {
-                //duoc add vao
+            if (u == null)  {
+                //user chưa  có nên add vào
                 dao.AddSignup(email, username, birthdate, gender, phone, pass, role);
-                response.sendRedirect("home");
-
+                response.sendRedirect("home.jsp");
 
             } else {
-                // bị trung username
+                // bị trung username đẩy về trang login
                 response.sendRedirect("Login.jsp");
 
             }
