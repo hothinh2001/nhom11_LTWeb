@@ -56,12 +56,14 @@ body {
 	<div class="container padding-bottom-3x mb-2 mt-5">
 		<div class="row justify-content-center">
 			<div class="col-lg-8 col-md-10">
-				<form class="card mt-4" action="forgotPassword" method="POST">
+				<form class="card mt-4" action="forgotPassword" method="POST" id="myForm">
 					<div class="card-body">
 						<div class="form-group">
-							<label for="email-for-pass">Nhập địa chỉ email của bạn <label> <input
-								class="form-control" type="text" name="email" id="email-for-pass" required=""><small
-								class="form-text text-muted">Nhập địa chỉ email đã đăng ký. Sau đó, chúng tôi sẽ gửi email OTP đến địa chỉ này..</small>
+							<label for="email-for-pass">Nhập địa chỉ email của bạn </label>
+								<input
+								class="form-control" type="text" name="email" id="email-for-pass" required="">
+								<small id="error_email"></small>
+								<small class="form-text text-muted">Nhập địa chỉ email đã đăng ký. Sau đó, chúng tôi sẽ gửi email OTP đến địa chỉ này..</small>
 						</div>
 					</div>
 					<div class="card-footer">
@@ -83,4 +85,31 @@ body {
 	<script type='text/javascript' src=''></script>
 	<script type='text/Javascript'></script>
 </body>
+<script>
+	$(document).ready(function (){
+		function validateEmail(sEmail){
+			var filter =/^([\w-\.]+)@((\[0-9]{1,3}\.[0-9]{1-3}\.}\.[0-9]{1-3}\.}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+			if(filter.test(sEmail)){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		$('#myForm').bind({
+			'submit': function (){
+				if(!validateEmail($('#email-for-pass').val())){
+					$('#email-for-pass').css('color','red');
+					$('#error_email').html('Email bạn nhập không hợp lệ!!');
+					return false;
+				}
+				return true;
+			},
+			'keydown': function (){
+				if($('#email-for-pass').val().length > 0){
+			$('#error_email').html('')
+				}
+			}
+		});
+	});
+</script>
 </html>
