@@ -1,0 +1,76 @@
+.header {
+    height: 130px;
+    background-color: rgb(199, 176, 176);
+}
+
+.main {
+    background-color: rgb(156, 156, 156);
+    height: 100%;
+    width: 100%;
+    padding-top: 60px;
+}
+
+.main__menu {
+    background-color: rgb(141, 137, 137);
+    height: auto;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-info {
+    padding: 40px;
+}
+
+.cart-info .line {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.cart-info {
+    font-size: 1.75rem;
+}
+
+.cart-info .line .left {
+    width: 30%;
+}
+
+.line {
+    margin: 12px 0;
+}
+.cart-method .right{
+    font-size: 1.75rem;
+}
+.cart-method .line {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.cart-method .line .left img {
+    width: 40px;
+    margin-right: 20px;
+}
+
+.title-total {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.total-price {
+    float: right;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form-btn button {
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    font-size: 2rem;
+}
+
+.line .left {
+    font-weight: 700;
+}
