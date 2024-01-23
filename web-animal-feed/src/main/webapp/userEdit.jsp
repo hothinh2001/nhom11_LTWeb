@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: MSI
+  Date: 1/23/2024
+  Time: 1:38 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -5,7 +12,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Đăng nhập</title>
+    <title>Chỉnh sửa thông tin cá nhân</title>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -36,26 +43,31 @@
 <jsp:include page="webpage/include/header.jsp"/>
 <!-- Header end -->
 <div id="wrapper">
-    <form action="loadUser" id="form-login" method="post">
+    <form action="${pageContext.request.contextPath}/editUser?uid=${user.id}" id="form-login" method="post"
+          enctype="multipart/form-data">
         <h1 class="form-heading">Thông tin chỉnh sửa</h1>
         <div class="form-content">
-            <div class="form-info" disabled="">
+            <div class="form-info">
                 <div class="form-group">
                     <i class="far fa-user"></i>
-                    <input type="text" class="form-input" name="HoTen" value="${user.name}"
-                           placeholder="Họ và Tên của bạn"/>
+                    <input type="text" class="form-input" name="HoTen" value="${user.name}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="datepicker">Ngày sinh:</label>
-                    <input value="${user.birthdate}" type="date" id="datepicker" name="birthdate"
-                           placeholder="Ngày sinh của bạn"/>
+                    <input value="${user.birthdate}" type="date" id="datepicker" name="dateOfBirth"/>
                 </div>
 
-                <div class="form-group">
-                    <label style="width: 80px">Giới tính</label>
-                    <input value="${user.gender}" type="text" class="form-input" name="address"
-                           placeholder="Giới tính của bạn"/>
+                <div class="form-group" style="width: 100%;border-bottom:none">
+                    <label for="gender" style="width: 80px">Giới tính</label>
+                    <select id="gender" name="gender"
+                            style="width: 100%; font-size: 16px; padding: 6.5px 10px">
+                        <option value="${user.gender}">${user.gender}</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Nu">Nữ</option>
+                        <option value="Khac">Khác</option>
+                    </select>
+
                 </div>
 
                 <div class="form-group">
@@ -74,18 +86,26 @@
                            placeholder="Số điện thoại"/>
                 </div>
                 <div class="btn-confirm">
-                    <a href="userEdit.jsp">
-                        <button type="button" class="form-submit">Chỉnh sửa thông tin</button>
-                    </a>
+                    <button type="submit" class="form-submit" value="${pageContext.request.contextPath}/editUser">
+                        Cập Nhật
+                    </button>
                 </div>
             </div>
             <div class="form-avatar">
                 <div class="picture col-half">
                     <div id="picture">
                         <img id="preview" alt=""
-                             style="width: 266px;border-radius: 50%; border: 1px solid; height: 266px;"
-                             src="${user.avatar}"/>
+                             style="width: 266px; border-radius: 50%; border: 1px solid; height: 266px;"
+                             src="<%= request.getContextPath() %>/uploads/<%= request.getAttribute("fileName") %>">
                     </div>
+                </div>
+                <label for="file-upload" class="custom-file-upload">
+                    Chọn ảnh mới
+                </label>
+                <input id="file-upload" type="file" name="urlImage" accept="image/*"/>
+                <button type="submit" class=" btn btn-primary btn-save" id="save_1">Lưu ảnh
+                </button>
+                <div><a href="loadUser">Hủy</a>
                 </div>
             </div>
         </div>
@@ -94,3 +114,4 @@
 
 </body>
 </html>
+

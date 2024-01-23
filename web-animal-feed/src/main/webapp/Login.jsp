@@ -11,10 +11,10 @@
 
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
     />
-   
+
 </head>
 <body>
 <header class="header">
@@ -35,86 +35,86 @@
     </div>
 </header>
 <div class="container">
-<form action="login" method="post">
-    <div id="login-form" class="auth-form">
-        <div class="auth-form__container">
-          <div class="auth-form__header">
-            <h3 class="auth-form__heading">Đăng nhập</h3>
-           <a href="Signup.jsp" > <span class="auth-form__switch-btn js-switch-register"
-              >Đăng ký</span
-            ></a>
-          </div>
-          <div class="auth-form__form">
+    <form action="login" method="post">
+        <div id="login-form" class="auth-form">
+            <div class="auth-form__container">
+                <div class="auth-form__header">
+                    <h3 class="auth-form__heading">Đăng nhập</h3>
+                    <a href="Signup.jsp"> <span class="auth-form__switch-btn js-switch-register"
+                    >Đăng ký</span
+                    ></a>
+                </div>
+                <div class="auth-form__form">
 
 
-          <p class="text-danger">${mess}</p>
+                    <p class="text-danger">${mess}</p>
 
-            <div class="auth-form__group">
-              <input
-                type="text"
-                class="auth-form__input"
-                name="username"
-                placeholder="Username"
-              />
+                    <div class="auth-form__group">
+                        <input
+                                type="text"
+                                class="auth-form__input"
+                                name="username"
+                                placeholder="Username"
+                        />
+                    </div>
+
+                    <div class="auth-form__group">
+                        <input
+                                type="password"
+                                class="auth-form__input"
+                                name="password"
+                                placeholder="Mật khẩu của bạn"
+                        />
+                    </div>
+
+                </div>
+
+                <div class="auth-form__aside">
+                    <div class="auth-form__help">
+                        <a href="GetEmail.jsp" class="auth-form__help-link auth-form__help-forgot">
+                            Quên mật khẩu
+                        </a>
+                        <span class="auth-form__help-separate"></span>
+                        <a href="" class="auth-form__help-link"> Cần trợ giúp? </a>
+                    </div>
+                </div>
+                <div class="auth-form__controls">
+                    <a href="home">
+                        <button class="btn btn--normal auth-form__control-back-btn">
+                            TRỞ LẠI
+                        </button>
+                    </a>
+                    <button type="submit" value="login" class="btn btn--primary">ĐĂNG NHẬP</button>
+                </div>
             </div>
-
-            <div class="auth-form__group">
-              <input
-                type="password"
-                class="auth-form__input"
-                name="password"
-                placeholder="Mật khẩu của bạn"
-              />
-            </div>
-
-            </div>
-
-          <div class="auth-form__aside">
-            <div class="auth-form__help">
-              <a href="GetEmail.jsp" class="auth-form__help-link auth-form__help-forgot">
-                Quên mật khẩu
-              </a>
-              <span class="auth-form__help-separate"></span>
-              <a href="" class="auth-form__help-link"> Cần trợ giúp? </a>
-            </div>
-          </div>
-          <div class="auth-form__controls">
-           <a href="home" ><button class="btn btn--normal auth-form__control-back-btn">
-              TRỞ LẠI
-            </button>
-              </a>
-            <button type="submit" value="login" class="btn btn--primary">ĐĂNG NHẬP</button>
-          </div>
-        </div>
-        <div class="auth-form__socials">
-            <a
-                    href=""
-                    class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
-            >
-                <i
-                        class="auth-form__socials-icon fa-brands fa-facebook-square"
-                ></i>
-                <span class="auth-form__socials-title">Kết nối với Facebook</span>
-            </a>
-            <a
-                    href=""
-                    class="auth-form__socials--google btn btn--size-s btn--with-icon"
-            >
-                <!-- <i class="auth-form__socials-icon fa-brands fa-google"></i> -->
-                <span class="auth-form__logo-social-img">
+            <div class="auth-form__socials">
+                <a
+                        href=""
+                        class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
+                >
+                    <i
+                            class="auth-form__socials-icon fa-brands fa-facebook-square"
+                    ></i>
+                    <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                </a>
+                <a
+                        href=""
+                        class="auth-form__socials--google btn btn--size-s btn--with-icon"
+                >
+                    <!-- <i class="auth-form__socials-icon fa-brands fa-google"></i> -->
+                    <span class="auth-form__logo-social-img">
               <img
                       src="../../assets/img/google_signin.png"
                       alt="Google"
                       class="google-login__img"
               />
             </span>
-                <span class="auth-form__socials-title">Kết nối với Google</span>
-            </a>
-        </div>
+                    <span class="auth-form__socials-title">Kết nối với Google</span>
+                </a>
+            </div>
         </div>
 
-</form>
-      </div>
+    </form>
 </div>
 </body>
 </html>
