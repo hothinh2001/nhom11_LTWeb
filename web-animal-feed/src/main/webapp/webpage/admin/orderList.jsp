@@ -14,44 +14,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <link rel="stylesheet" href="../../admin/assets/css/dashboard/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/sideBar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/headerAdmin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
-<input type="checkbox" id="menu-toggle">
 
-<jsp:include page="../include/sideBar.jsp"/>
 
 <div class="main-content">
+    <jsp:include page="../include/sideBar.jsp"/>
 
-    <header>
-        <div class="header-content">
-            <label for="menu-toggle">
-                <span class="las la-bars"></span>
-            </label>
+    <jsp:include page="headerAdmin.jsp"/>
 
-            <div class="header-menu">
-                <label for="">
-                    <span class="las la-search"></span>
-                </label>
-
-
-                <div class="notify-icon">
-                    <span class="las la-bell"></span>
-                    <span class="notify">3</span>
-                </div>
-
-                <div class="user">
-                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
-
-                    <span class="las la-power-off"></span>
-                    <span>Đăng xuất</span>
-                </div>
-            </div>
-        </div>
-
-    </header>
     <div class="records table-responsive">
         <div style="margin: 12px; text-align: center">
             <h2>Danh sách đơn hàng</h2>

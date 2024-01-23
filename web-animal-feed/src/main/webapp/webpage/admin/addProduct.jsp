@@ -28,41 +28,18 @@
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/AproductEdit.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/sideBar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/headerAdmin.css">
     <link rel="stylesheet"
           href="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
 </head>
 <body>
-<input type="checkbox" id="menu-toggle">
-<jsp:include page="../include/sideBar.jsp"/>
+
 
 <div class="main-content">
 
-    <header>
-        <div class="header-content">
-            <label for="menu-toggle">
-                <span class="las la-bars"></span>
-            </label>
+    <jsp:include page="../include/sideBar.jsp"/>
 
-            <div class="header-menu">
-                <label>
-                    <span class="las la-search"></span>
-                </label>
-
-
-                <div class="notify-icon">
-                    <span class="las la-bell"></span>
-                    <span class="notify">3</span>
-                </div>
-
-                <div class="user">
-                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
-
-                    <span class="las la-power-off"></span>
-                    <span>Đăng xuất</span>
-                </div>
-            </div>
-        </div>
-    </header>
+    <jsp:include page="headerAdmin.jsp"/>
 
 
     <main>
@@ -72,7 +49,7 @@
         </div>
 
         <div class="page-content">
-            <form action="add" method="post">
+            <form action="${pageContext.request.contextPath}/add" method="post">
                 <div class="form-content">
                     <div class="form-content-left">
                         <div class="mb-3">
@@ -159,7 +136,9 @@
                             </div>
                         </div>
                         <div class="form-content-button">
-                            <button type="submit" class="btn btn-primary btn-lg" value="add">Tạo sản phẩm</button>
+                            <button type="submit" class="btn btn-primary btn-lg"
+                                    value="${pageContext.request.contextPath}/add">Tạo sản phẩm
+                            </button>
                         </div>
                     </div>
                 </div>

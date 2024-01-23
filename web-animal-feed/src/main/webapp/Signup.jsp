@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/signup.css">
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -37,7 +37,7 @@
     </div>
 </header>
 <div class="container">
-    <form action="signupController" method="post">
+    <form action="signup" method="post">
         <div id="regiter-form" class="auth-form">
             <div class="auth-form__container">
                 <div class="auth-form__header">
@@ -66,10 +66,8 @@
                     </div>
                     <div class="auth-form__group">
                         <div class="auth-form__input" style="border:none">
-                            <label style="margin: 5px" for="dateOfBirth">Ngày sinh</label>
-                            <input type="text" class="form-contol" id="dateOfBirth" name="dateOfBirth">
-                            <span
-                                    style="font-size: 14px;">dd/mm/yyyy</span>
+                            <label for="dateOfBirth">Ngày sinh:</label>
+                            <input type="date" id="dateOfBirth" name="birthdate"/>
                         </div>
                     </div>
 
@@ -86,7 +84,7 @@
                     </div>
                     <div class="auth-form__group">
                         <input
-                                type="phone"
+                                type="number"
                                 class="auth-form__input"
                                 id="registerPhone"
                                 name="phone"
@@ -125,12 +123,12 @@
                         </p>
                     </div>
                     <div class="auth-form__controls">
-                        <a href="../home/index.html">
+                        <a href="home">
                             <button class="btn btn--normal auth-form__control-back-btn">
                                 TRỞ LẠI
                             </button>
                         </a>
-                        <button class="btn btn--primary" onclick="register()">ĐĂNG KÝ</button>
+                        <button class="btn btn--primary" type="submit" value="signup">ĐĂNG KÝ</button>
                     </div>
                 </div>
                 <div class="auth-form__socials">

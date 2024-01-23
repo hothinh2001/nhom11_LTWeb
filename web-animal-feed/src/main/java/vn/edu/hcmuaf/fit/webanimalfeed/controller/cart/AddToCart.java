@@ -2,7 +2,6 @@ package vn.edu.hcmuaf.fit.webanimalfeed.controller.cart;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.impl.CartServiceImpl;
 import vn.edu.hcmuaf.fit.webanimalfeed.service.CartService;
-import vn.edu.hcmuaf.fit.webanimalfeed.utils.TokenGenerator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,14 +20,10 @@ public class AddToCart extends HttpServlet {
         if (cart == null) {
             cart = new CartServiceImpl();
         }
-        String id = request.getParameter("id");
-        String token = TokenGenerator.generateNewToken();
-        cart.add(Integer.parseInt(id));
+        String productId = request.getParameter("id");
+        cart.add(Integer.parseInt(productId));
         session.setAttribute("cartMap", cart);
-        session.setAttribute("sessionToken", token);
-        System.out.println("Add to cart: " + token);
-
-
+        session.setAttribute(("totalCartPrice"), cart.getTotalCartPrice());
         // Thực hiện chuyển hướng sau khi thêm vào giỏ hàng
         response.sendRedirect("webpage/cart/cart.jsp");
     }

@@ -19,14 +19,14 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user.css"/>
     <link
             rel="stylesheet"
-            href="././assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+            href="${pageContext.request.contextPath}/assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
     />
     <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
             rel="stylesheet"
     />
     <link
-            href="././assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css"
+            href="${pageContext.request.contextPath}/assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css"
             rel="stylesheet"
 
     />
@@ -42,21 +42,19 @@
             <div class="form-info">
                 <div class="form-group">
                     <i class="far fa-user"></i>
-                    <input type="text" class="form-input" name ="HoTen" value="${sessionScope.user.name}" />
+                    <input type="text" class="form-input" name="HoTen" value="${user.name}"/>
                 </div>
 
-                <div class="form-group" style="border-bottom:none">
-                    <label class="form-group-dateOfBirth" for="dateOfBirth">Ngày sinh</label>
-                    <input type="text" class="form-contol" id="dateOfBirth" name="dateOfBirth">
-                    <span class="form-group-birth"
-                    >dd/mm/yyyy</span>
+                <div class="form-group">
+                    <label for="datepicker">Ngày sinh:</label>
+                    <input value="${user.birthdate}" type="date" id="datepicker" name="birthdate" required/>
                 </div>
 
                 <div class="form-group" style="width: 100%;border-bottom:none">
                     <label style="width: 80px">Giới tính</label>
                     <select id="gender" name="gender"
                             style="width: 100%; font-size: 16px; padding: 6.5px 10px">
-                        <option value="khac">Khác</option>
+                        <option value="${user.gender}">Khác</option>
                         <option value="Nam">Nam</option>
                         <option value="Nu">Nữ</option>
                     </select>
@@ -65,16 +63,16 @@
 
                 <div class="form-group">
                     <i class="fas fa-address-card"></i>
-                    <input type="text" class="form-input" name="address"placeholder="Địa chỉ "/>
+                    <input value="${user.address}" type="text" class="form-input" name="address" placeholder="Địa chỉ "/>
                 </div>
 
                 <div class="form-group">
                     <i class="fas fa-envelope-open"></i>
-                    <input type="text" class="form-input" name="email" placeholder="Email"/>
+                    <input value="${user.email}" type="email" class="form-input" name="email" placeholder="Email"/>
                 </div>
                 <div class="form-group">
                     <i class="fas fa-phone"></i>
-                    <input type="text" class="form-input" name="phone" placeholder="Số điện thoại"/>
+                    <input value="${user.phone}" type="number" class="form-input" name="phone" placeholder="Số điện thoại"/>
                 </div>
                 <div class="btn-confirm">
                     <a href="../home/index.html">
@@ -87,7 +85,7 @@
                     <div class="picture col-half">
                         <div id="picture">
                             <img id="preview" alt=""
-                                 style="width: 266px;border-radius: 50%; border: 1px solid; height: 266px;" src=""/>
+                                 style="width: 266px;border-radius: 50%; border: 1px solid; height: 266px;" src="${user.avatar}"/>
                         </div>
                     </div>
                     <label for="file-upload" class="custom-file-upload">
