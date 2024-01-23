@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.webanimalfeed.controller;
+package vn.edu.hcmuaf.fit.webanimalfeed.controller.admin;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.AdminDAO;
 
@@ -12,15 +12,10 @@ import java.io.IOException;
 public class EditController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 
-        String pid = request.getParameter("id");
+        String pid = request.getParameter("pid");
         String name = request.getParameter("name");
         String nameDetail = request.getParameter("nameDetail");
         String urlImage = request.getParameter("urlImage");
@@ -28,15 +23,18 @@ public class EditController extends HttpServlet {
         String ingredients = request.getParameter("ingredients");
         String nutritionInfo = request.getParameter("nutritionInfo");
         String usageInstruction = request.getParameter("usageInstruction");
+        String quantityAvailable = request.getParameter("quantityAvailable");
         String inventoryId = request.getParameter("inventoryId");
         String categoryId = request.getParameter("categoryId");
         String brandId = request.getParameter("brandId");
-        String createdAt = request.getParameter("createdAt");
-        String modifiedAt = request.getParameter("modifiedAt");
-
 
         AdminDAO dao = new AdminDAO();
-        dao.editProduct(name, nameDetail, urlImage, price, ingredients, nutritionInfo, usageInstruction, inventoryId, categoryId, brandId, createdAt, modifiedAt, pid);
+        dao.editProduct(name, nameDetail, urlImage, price, ingredients, nutritionInfo, usageInstruction, quantityAvailable, inventoryId, categoryId, brandId, String.valueOf(pid));
         response.sendRedirect("manager");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 }

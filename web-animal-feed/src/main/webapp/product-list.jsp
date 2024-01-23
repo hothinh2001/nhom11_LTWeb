@@ -19,25 +19,25 @@
             type="image/x-icon"
     />
     <title>Product List</title>
-    <link rel="stylesheet" href="./assets/css/productList.css"/>
-    <link rel="stylesheet" href="././assets/css/normalize.css"/>
-    <link rel="stylesheet" href="././assets/css/base.css"/>
-    <link rel="stylesheet" href="././assets/css/main&productList.css"/>
-    <link rel="stylesheet" href="././assets/css/grid.css"/>
-    <link rel="stylesheet" href="././assets/css/responsive.css"/>
-    <link rel="stylesheet" href="././assets/css/responsive.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/productList.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/normalize.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/base.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main&productList.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/grid.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/responsive.css"/>
+    <link rel="stylesheet" href=".${pageContext.request.contextPath}/assets/css/responsive.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
             rel="stylesheet"
-            href="././assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+            href="${pageContext.request.contextPath}/assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
     />
     <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
             rel="stylesheet"
     />
     <link
-            href="././assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css"
+            href="${pageContext.request.contextPath}/assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css"
             rel="stylesheet"
 
     />
@@ -45,7 +45,7 @@
 <body>
 <div class="app">
     <!-- Header start -->
-    <jsp:include page="header.jsp"/>
+    <jsp:include page="webpage/include/header.jsp"/>
     <!-- Header end -->
     <div class="app__container">
         <div class="grid wide">
@@ -74,32 +74,32 @@
             <div class="app__container">
                 <div class="grid wide">
                     <div class="row sm-gutter app__content">
-                        <div class="col l-2 m-0 c-0">
-                            <div class="cate-item">
-                                <a href="#">
-                                    <img src="././assets/img/heo-icon.png.webp" alt=""/>
-                                    Thức ăn cho heo
-                                </a>
+
+                        <div class="col l-10 m-12 c-12">
+
+                            <div class="list-group">
+                                <div class="list-group-item category">
+                                    <span><i class="fa-solid fa-list"></i></span>
+                                    Danh mục
+                                </div>
+                                <c:forEach items="${listCate}" var="c">
+                                    <a href="#"
+                                       class="list-group-item list-group-item-action cate-item">${c.getNameCate()}</a>
+                                </c:forEach>
                             </div>
-                            <div class="cate-item">
-                                <a href="#">
-                                    <img src="././assets/img/ga-icon.png.webp" alt=""
-                                    />
-                                    Thức ăn Gia cầm
-                                </a>
+
+
+                            <div class="list-group">
+                                <div class="list-group-item category">
+                                    <span><i class="fa-solid fa-tag"></i></span>
+                                    Thương hiệu
+                                </div>
+                                <c:forEach items="${listB}" var="b">
+                                    <a href="#"
+                                       class="list-group-item list-group-item-action cate-item">${b.getNameBrand()}</a>
+                                </c:forEach>
                             </div>
-                            <div class="cate-item">
-                                <a href="#">
-                                    <img src="././assets/img/icon-ca-light.png.webp" alt=""/>
-                                    Thức ăn cho Cá
-                                </a>
-                            </div>
-                            <div class="cate-item">
-                                <a href="#">
-                                    <img src="././assets/img/icon-tom-light.png.webp" alt=""/>
-                                    Thức ăn cho Tôm
-                                </a>
-                            </div>
+
                         </div>
                         <div class="col l-10 m-12 c-12">
                             <div class="home-filter hide-on-mobile-tablet">
@@ -212,6 +212,7 @@
                             <button type="button" class="btn btn-primary btn-load-more">Xem thêm</button>
                         </div>
 
+
                     </div>
                 </div>
             </div>
@@ -317,7 +318,7 @@
 </footer>
 
 
-<script src="././assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
 
 
 </body>

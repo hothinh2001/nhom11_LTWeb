@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: MSI
   Date: 12/3/2023
-  Time: 10:08 PM
+  Time: 9:40 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,18 +10,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Oder List</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link rel="stylesheet" href="./admin/assets/css/dashboard/style.css">
-    <link rel="stylesheet" href="./admin/assets/css/Aorder.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/assets/css/category.css">
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet"
+          href="../../assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <title>Quản lý Danh mục</title>
 </head>
 <body>
 <input type="checkbox" id="menu-toggle">
 <div class="sidebar">
     <div class="side-header">
+
         <h3>M<span>odern</span></h3>
     </div>
 
@@ -51,13 +51,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../order/orderList.html" class="active">
+                    <a href="../order/orderList.html">
                         <span class="las la-shopping-cart"></span>
                         <small>Order List</small>
                     </a>
                 </li>
                 <li>
-                    <a href="../category/index.html">
+                    <a href="admin/pages/category/index.html" class="active">
                         <span class="las la-clipboard-list"></span>
                         <small>Danh mục</small>
                     </a>
@@ -72,6 +72,7 @@
         </div>
     </div>
 </div>
+
 <div class="main-content">
 
     <header>
@@ -92,51 +93,82 @@
                 </div>
 
                 <div class="user">
-                    <div class="bg-img" style="background-image: url(./admin/assets/images/profile/user-1.jpg)"></div>
+                    <div class="bg-img" style="background-image: url(../../admin/assets/images/profile/user-1.jpg)"></div>
 
                     <span class="las la-power-off"></span>
                     <span>Đăng xuất</span>
                 </div>
             </div>
         </div>
-
     </header>
+
+
     <main>
         <div class="page-header">
-            <h1>Chi tiết đơn hàng</h1>
-            <small>Home /Chi tiết đơn hàng</small>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    onclick="redirectToProductPage()">
-                Thêm sản phẩm
+            <h1>Danh mục sản phẩm</h1>
+            <small>Home / Danh mục sản phẩm</small>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Thêm Danh mục
             </button>
+
+            <!-- Modal -->
+
         </div>
 
         <div class="page-content">
             <div class="content-title">
-                <div class="content-title-item content-title-stt">ID</div>
-                <div class="content-title-item content-title-image">Hình ảnh</div>
-                <div class="content-title-item content-title-name">Tên sản phẩm</div>
-                <div class="content-title-item content-title-price">Số lượng;</div>
-                <div class="content-title-item content-title-category">Tổng</div>
-
-
+                <div class="content-title-item content-title-stt">STT</div>
+                <div class="content-title-item content-title-name">Tên Danh mục</div>
+                <div class="content-title-item content-title-edit">Thao tác</div>
             </div>
             <hr style="margin: 0; height: 2px">
             <div class="content-title">
-                <div class="content-title-item content-title-stt">#009</div>
-                <div class="content-title-item content-title-image">
-                    <img src="./admin/assets/images/ga/c21.png" alt="">
+                <div class="content-title-item content-title-stt">1</div>
+                <div class="content-title-item content-title-name">Thức ăn cho Heo</div>
+                <div class="content-title-item content-title-edit">
+                    <a href="#">
+                        <span class="las la-edit"></span>
+                    </a>
                 </div>
-                <div class="content-title-item content-title-name">Con Cò C21</div>
-                <div class="content-title-item content-title-price">4</div>
-                <div class="content-title-item content-title-category">4000.00</div>
-
-
             </div>
+            <div class="content-title">
+                <div class="content-title-item content-title-stt">2</div>
+                <div class="content-title-item content-title-name">Thức ăn cho Cá</div>
+                <div class="content-title-item content-title-edit">
+                    <a href="#">
+                        <span class="las la-edit"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="content-title">
+                <div class="content-title-item content-title-stt">3</div>
+                <div class="content-title-item content-title-name">Thức ăn Gia Cầm</div>
+                <div class="content-title-item content-title-edit">
+                    <a href="#">
+                        <span class="las la-edit"></span>
+                    </a>
+                </div>
+            </div>
+
         </div>
-
     </main>
-</div>
 
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="../../../front-end/assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script>
+    function redirectToProductPage() {
+        window.location.href = "../productEdit/product.html";
+    }
+</script>
 </body>
 </html>

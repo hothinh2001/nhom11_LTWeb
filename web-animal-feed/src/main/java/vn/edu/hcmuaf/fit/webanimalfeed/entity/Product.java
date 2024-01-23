@@ -4,7 +4,7 @@ public class Product {
     private int id;
     private String name;
     private String nameDetail;
-    private double price;
+    private int price;
     private String ingredients;
     private String nutritionInfo;
     private String usageInstruction;
@@ -12,22 +12,14 @@ public class Product {
     private Category category;
     private Brand brand;
     private Inventory inventory;
+    private int quantityAvailable;
 
-    public Product(int id, String name, String nameDetail, double price, String ingredients,
-                   String nutritionInfo, String usageInstruction, String urlImage) {
-        this.id = id;
-        this.name = name;
-        this.nameDetail = nameDetail;
-        this.price = price;
-        this.ingredients = ingredients;
-        this.nutritionInfo = nutritionInfo;
-        this.usageInstruction = usageInstruction;
-        this.urlImage = urlImage;
+    public Product() {
     }
 
-    public Product(int id, String name, String nameDetail, double price, String ingredients,
+    public Product(int id, String name, String nameDetail, int price, String ingredients,
                    String nutritionInfo, String usageInstruction, String urlImage, Category category,
-                   Brand brand, Inventory inventory) {
+                   Brand brand, Inventory inventory, int quantityAvailable) {
         this.id = id;
         this.name = name;
         this.nameDetail = nameDetail;
@@ -39,6 +31,7 @@ public class Product {
         this.category = category;
         this.brand = brand;
         this.inventory = inventory;
+        this.quantityAvailable = quantityAvailable;
     }
 
     public int getId() {
@@ -65,11 +58,11 @@ public class Product {
         this.nameDetail = nameDetail;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -129,6 +122,15 @@ public class Product {
         this.inventory = inventory;
     }
 
+
+    public int getQuantityAvailable() {
+        return quantityAvailable;
+    }
+
+    public void setQuantityAvailable(int quantityAvailable) {
+        this.quantityAvailable = quantityAvailable;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -143,6 +145,23 @@ public class Product {
                 ", category=" + category +
                 ", brand=" + brand +
                 ", inventory=" + inventory +
+                ", quantityAvailable=" + quantityAvailable +
                 '}';
+    }
+
+    //    get Invetory Id
+    public int getInventoryId() {
+        return this.inventory.getId();
+    }
+
+    //    get Brand Id
+    public int getBrandId() {
+        return this.brand.getId();
+    }
+
+//    get Category Id
+
+    public int getCategoryId() {
+        return this.category.getId();
     }
 }

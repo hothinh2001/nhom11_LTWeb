@@ -7,14 +7,14 @@ public class Users{
     private String username;
     private String gender;
     private String birthdate;
-    private int roleId;
+    private Role roleId;
     private String phone;
     private String email;
     private String password;
     private String address;
     private boolean emailConfirmed;
 
-    public Users(int id, String name, String avatar, String username, String gender, String birthdate, int roleId, String phone, String email, String password, String address, boolean emailConfirmed) {
+    public Users(int id, String name, String avatar, String username, String gender, String birthdate, Role roleId, String phone, String email, String password, String address, boolean emailConfirmed) {
         this.id = id;
         this.name = name;
         this.avatar = avatar;
@@ -45,11 +45,11 @@ public class Users{
         this.name = name;
     }
 
-    public String getavatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setavatar(String avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
@@ -77,11 +77,11 @@ public class Users{
         this.birthdate = birthdate;
     }
 
-    public int getRoleId() {
+    public Role getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(int roleId) {
+    public void setRoleId(Role roleId) {
         this.roleId = roleId;
     }
 
@@ -125,8 +125,8 @@ public class Users{
         this.emailConfirmed = emailConfirmed;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Users{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
@@ -141,5 +141,8 @@ public class Users{
                 ", address='" + address + '\'' +
                 ", emailConfirmed=" + emailConfirmed +
                 '}';
+    }
+    public Users(){
+
     }
 }

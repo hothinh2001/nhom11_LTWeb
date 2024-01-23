@@ -2,15 +2,15 @@ package vn.edu.hcmuaf.fit.webanimalfeed.entity;
 
 public class Inventory {
     private int id;
-    private String nameProduct;
+    private String note;
     private int quantity;
 
     public Inventory() {
     }
 
-    public Inventory(int id, String nameProduct, int quantity) {
+    public Inventory(int id, String note, int quantity) {
         this.id = id;
-        this.nameProduct = nameProduct;
+        this.note = note;
         this.quantity = quantity;
     }
 
@@ -22,12 +22,12 @@ public class Inventory {
         this.id = id;
     }
 
-    public String getNameProduct() {
-        return nameProduct;
+    public String getNote() {
+        return note;
     }
 
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public int getQuantity() {
@@ -42,7 +42,7 @@ public class Inventory {
     public String toString() {
         return "Inventory{" +
                 "id=" + id +
-                ", nameProduct='" + nameProduct + '\'' +
+                ", note='" + note + '\'' +
                 ", quantity=" + quantity +
                 '}';
     }

@@ -1,8 +1,7 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.dao;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.context.DBContext;
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.Category;
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.SlideShow;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -66,12 +65,135 @@ public class DAO {
         return list;
     }
 
+    public List<Brand> getAllBrands() {
+        List<Brand> list = new ArrayList<>();
+        String query = "SELECT id, nameBrand, note FROM brands";
+        try {
+            // Kết nối đến MySQL
+            Connection conn = new DBContext().getConnection();
+
+            // Tạo PreparedStatement và thực hiện truy vấn
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            // Xử lý kết quả và thêm vào danh sách
+            while (rs.next()) {
+                list.add(new Brand(
+                        rs.getInt("id"),
+                        rs.getString("nameBrand"),
+                        rs.getString("note")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static Brand getBrandById(String bid) {
+        String query = "SELECT id, nameBrand, note FROM brands WHERE id = ?";
+        try {
+            // Kết nối đến MySQL
+            Connection conn = new DBContext().getConnection();
+
+            // Tạo PreparedStatement và thực hiện truy vấn
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, bid);
+            ResultSet rs = ps.executeQuery();
+
+            // Xử lý kết quả và thêm vào danh sách
+            while (rs.next()) {
+                return new Brand(
+                        rs.getInt("id"),
+                        rs.getString("nameBrand"),
+                        rs.getString("note")
+                );
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Inventory> getAllInventories() {
+        List<Inventory> list = new ArrayList<>();
+        String query = "SELECT id, note, quantity FROM inventories";
+        try {
+            // Kết nối đến MySQL
+            Connection conn = new DBContext().getConnection();
+
+            // Tạo PreparedStatement và thực hiện truy vấn
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            // Xử lý kết quả và thêm vào danh sách
+            while (rs.next()) {
+                list.add(new Inventory(
+                        rs.getInt("id"),
+                        rs.getString("note"),
+                        rs.getInt("quantity")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<Product> searchByName(String txtSearch) {
+        List<Product> list = new ArrayList<>();
+        String query = "SELECT * FROM products\n" +
+                "WHERE LOWER(name) LIKE LOWER(?) OR LOWER(nameDetail) LIKE LOWER(?);";
+
+        try {
+            // Kết nối đến MySQL
+            Connection conn = new DBContext().getConnection();
+
+            // Tạo PreparedStatement và thực hiện truy vấn
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + txtSearch + "%");
+            ps.setString(2, "%" + txtSearch + "%");
+            ResultSet rs = ps.executeQuery();
+
+            // Xử lý kết quả và thêm vào danh sách
+            while (rs.next()) {
+                Category category = new Category();
+                category.setNameCate(rs.getString("nameCate"));
+                Brand brand = new Brand();
+                brand.setNameBrand(rs.getString("nameBrand"));
+                Inventory inventory = new Inventory();
+                inventory.setQuantity(rs.getInt("Quantity"));
+                list.add(new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("nameDetail"),
+                        rs.getInt("price"),
+                        rs.getString("ingredients"),
+                        rs.getString("nutritionInfo"),
+                        rs.getString("usageInstruction"),
+                        rs.getString("urlImage"),
+                        category,
+                        brand,
+                        inventory,
+                        rs.getInt("quantityAvailable")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 
     public static void main(String[] args) {
         DAO dao = new DAO();
-        List<Category> list = dao.getAllCategory();
-        for (Category product : list) {
-            System.out.println(product);
+        List<Product> list = dao.searchByName("con cò c24s");
+        for (Product p : list) {
+            System.out.println(p.getName() + "\t" + p.getNameDetail());
         }
     }
 }

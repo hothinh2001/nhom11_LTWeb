@@ -5,16 +5,26 @@ import java.sql.DriverManager;
 
 public class DBContext {
     public static Connection getConnection() throws Exception {
-        String url = "jdbc:mysql://viaduct.proxy.rlwy.net:56556/" + dbName;
+        String url = "jdbc:mysql://viaduct.proxy.rlwy.net:53895/" + dbName;
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(url, userID, password);
     }
 
     // Insert your other code right after this comment
     // Change/update information of your database connection, DO NOT change name of instance variables in this class
+
+//    private static final String dbName = "animal-feed";
+//    private static final String userID = "root";
+//    private static final String password = "admin";
+
     private static final String dbName = "animal-feed";
     private static final String userID = "root";
-    private static final String password = "663bhhEFffaH2CEBG6GcHga5cd2EghCc";
+
+    //private static final String password = "admin";
+
+
+    private static final String password = "SKnaYiae7nc~tp.NczWq4NKEe1Y9tYxi";
+
 
     public static void main(String[] args) {
         try {

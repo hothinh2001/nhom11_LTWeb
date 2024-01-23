@@ -22,7 +22,7 @@
         <div class="header__logo hide-on-tablet">
             <div class="header__logo-container">
                 <div class="logo-holder logo-4">
-                    <a href="../home/index.html" class="header__logo-link">
+                    <a href="home" class="header__logo-link">
                         <img src="././assets/img/logo.jpg" alt="">
                     </a>
                 </div>
@@ -40,7 +40,7 @@
         <div class="auth-form__container">
           <div class="auth-form__header">
             <h3 class="auth-form__heading">Đăng nhập</h3>
-           <a href="" <span class="auth-form__switch-btn js-switch-register"
+           <a href="Signup.jsp" > <span class="auth-form__switch-btn js-switch-register"
               >Đăng ký</span
             ></a>
           </div>
@@ -71,7 +71,7 @@
 
           <div class="auth-form__aside">
             <div class="auth-form__help">
-              <a href="" class="auth-form__help-link auth-form__help-forgot">
+              <a href="GetEmail.jsp" class="auth-form__help-link auth-form__help-forgot">
                 Quên mật khẩu
               </a>
               <span class="auth-form__help-separate"></span>
@@ -79,11 +79,11 @@
             </div>
           </div>
           <div class="auth-form__controls">
-           <a href="../home/index.html" ><button class="btn btn--normal auth-form__control-back-btn">
+           <a href="home" ><button class="btn btn--normal auth-form__control-back-btn">
               TRỞ LẠI
             </button>
               </a>
-            <button class="btn btn--primary">ĐĂNG NHẬP</button>
+            <button type="submit" value="login" class="btn btn--primary">ĐĂNG NHẬP</button>
           </div>
         </div>
         <div class="auth-form__socials">
@@ -113,8 +113,8 @@
         </div>
         </div>
 
+</form>
       </div>
-      </form>
 </div>
 </body>
 </html>
