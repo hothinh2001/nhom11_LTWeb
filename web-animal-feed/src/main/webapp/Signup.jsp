@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+
+    <title>SignUp</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/signup.css">
     <link
             rel="stylesheet"
@@ -37,7 +38,7 @@
     </div>
 </header>
 <div class="container">
-    <form action="signup" method="post">
+    <form action="signup" method="post" id="myForm">
         <div id="regiter-form" class="auth-form">
             <div class="auth-form__container">
                 <div class="auth-form__header">
@@ -48,12 +49,14 @@
                 <div class="auth-form__form" action="signup" method="post">
                     <div class="auth-form__group">
                         <input
-                                type="email"
+                                type="text"
                                 class="auth-form__input"
                                 id="registerEmail"
                                 name="email"
                                 placeholder="Email của bạn"
+                                autocomplete="off"
                         />
+                        <small style="color:red;"></small>
                     </div>
                     <div class="auth-form__group">
                         <input
@@ -62,7 +65,9 @@
                                 id="registerUsername"
                                 name="username"
                                 placeholder="username"
+                                autocomplete="off"
                         />
+                        <small style="color:red;"></small>
                     </div>
                     <div class="auth-form__group">
                         <div class="auth-form__input" style="border:none">
@@ -84,12 +89,14 @@
                     </div>
                     <div class="auth-form__group">
                         <input
-                                type="number"
+                                type="text"
                                 class="auth-form__input"
                                 id="registerPhone"
                                 name="phone"
                                 placeholder="Số điện thoại"
+                                autocomplete="off"
                         />
+                        <small style="color:red;"></small>
                     </div>
 
                     <div class="auth-form__group">
@@ -111,7 +118,7 @@
                                 placeholder="Nhập lại mật khẩu"
                         />
                     </div>
-                    <p class="text-danger">${mess}</p>
+                    <p style="color:red;" class="text-danger">${mess}</p>
 
 
                     <div class="auth-form__aside">
@@ -123,14 +130,15 @@
                         </p>
                     </div>
                     <div class="auth-form__controls">
-                        <a href="home">
+                        <a href="home.jsp">
                             <button class="btn btn--normal auth-form__control-back-btn">
                                 TRỞ LẠI
                             </button>
                         </a>
-                        <button class="btn btn--primary" type="submit" value="signup">ĐĂNG KÝ</button>
+                        <button class="btn btn--primary" value="signup" id="btn-register">ĐĂNG KÝ</button>
                     </div>
                 </div>
+
                 <div class="auth-form__socials">
                     <a
                             href=""
@@ -159,7 +167,84 @@
         </div>
     </form>
 
+
 </div>
 </body>
+<script>
+    const usernameEle = document.getElementById('registerUsername');
+    const emailEle = document.getElementById('registerEmail');
+    const phoneEle = document.getElementById('registerPhone');
+
+    const btnRegister = document.getElementById('btn-register');
+    const inputEles = document.querySelectorAll('.auth-form__group'); //class auth-form
+
+    btnRegister.addEventListener('click', function () {
+        Array.from(inputEles).map((ele) =>
+            ele.classList.remove('success', 'error')
+        );
+        let isValid = checkValidate();
+
+        if (isValid) {
+            alert('Gửi đăng ký thành công');
+        }
+    });
+
+    function checkValidate() {
+        let usernameValue = usernameEle.value;
+        let emailValue = emailEle.value;
+        let phoneValue = phoneEle.value;
+
+        let isCheck = true;
+
+        if (usernameValue == '') {
+            setError(usernameEle, 'Tên không được để trống');
+            isCheck = false;
+        } else {
+            setSuccess(usernameEle);
+        }
+
+        if (emailValue == '') {
+            setError(emailEle, 'Email không được để trống');
+            isCheck = false;
+        } else if (!isEmail(emailValue)) {
+            setError(emailEle, 'Email không đúng định dạng');
+            isCheck = false;
+        } else {
+            setSuccess(emailEle);
+        }
+
+        if (phoneValue == '') {
+            setError(phoneEle, 'Số điện thoại không được để trống');
+            isCheck = false;
+        } else if (!isPhone(phoneValue)) {
+            setError(phoneEle, 'Số điện thoại không đúng định dạng');
+            isCheck = false;
+        } else {
+            setSuccess(phoneEle);
+        }
+
+        return isCheck;
+    }
+
+    function setSuccess(ele) {
+        ele.parentNode.classList.add('success');
+    }
+
+    function setError(ele, message) {
+        let parentEle = ele.parentNode;
+        parentEle.classList.add('error');
+        parentEle.querySelector('small').innerText = message;
+    }
+
+    function isEmail(email) {
+        return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            email
+        );
+    }
+
+    function isPhone(number) {
+        return /(84|0[3|5|7|8|9])+([0-9]{8})\b/.test(number);
+    }
+</script>
 </html>
   
