@@ -21,7 +21,7 @@
                     <li
                             class="navbar__item navbar__item--strong navbar__item--separate js-register"
                     >
-                        <a href="../../Signup.jsp"> Đăng ký</a>
+                        <a href="${pageContext.request.contextPath}/Signup.jsp"> Đăng ký</a>
                     </li>
                     <li class="navbar__item navbar__item--strong js-login">
                         <a href="${pageContext.request.contextPath}/Login.jsp"> Đăng nhập </a>
@@ -117,7 +117,7 @@
                                     </li>
                                     <li class="nav-item dropdown header__cart-wrapper">
                                         <a class="nav-link nav-link-sm dropdown-toggle"
-                                           href="./product-list/index.html" id="productDropdown"
+                                           href="${pageContext.request.contextPath}/product-list" id="productDropdown"
                                            role="button"
                                         >
                                             Thức ăn cho heo
