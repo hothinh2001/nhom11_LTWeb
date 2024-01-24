@@ -8,8 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UserEditDao {
+public class UserDao {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -119,9 +121,58 @@ public class UserEditDao {
         return null;
     }
 
+    //getAllUser
+    public List<Users> getAllUser() {
+        List<Users> list = new ArrayList<>();
+        String query = "SELECT u.id,\n" +
+                "u.`name`,\n" +
+                "u.avatar,\n" +
+                "u.username,\n" +
+                "u.gender,\n" +
+                "u.birthdate,\n" +
+                "u.phone,\n" +
+                "r.nameRole AS nameRole,\n" +
+                "u.`email`,\n" +
+                "u.`password`,\n" +
+                "u.address,\n" +
+                "u.emailConfirmed\n" +
+                "FROM users u\n" +
+                "JOIN roles r ON u.roleId = r.id\n";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Role r = new Role();
+                r.setNameRole(rs.getString("nameRole"));
+
+                list.add(new Users(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("avatar"),
+                        rs.getString("username"),
+                        rs.getString("gender"),
+                        rs.getString("birthdate"),
+                        r,
+                        rs.getString("phone"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getString("address"),
+                        rs.getBoolean("emailConfirmed")
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
-        UserEditDao dao = new UserEditDao();
-        Users u = dao.getDanhsachUser("1");
-        System.out.println(u.getName());
+        UserDao dao = new UserDao();
+        List<Users> list = dao.getAllUser();
+        for (Users u : list) {
+            System.out.println(u.getRoleId().getNameRole());
+        }
     }
 }

@@ -45,6 +45,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="#">
+                        <i class="fa-solid fa-people-roof"></i>
+                        <small>Tài khoản</small>
+                    </a>
+                </li>
+                <li>
                     <a href="managerBrand">
                         <img class="img-brand" src="${pageContext.request.contextPath}/assets/img/logoBrand.png" alt="">
                         <small>Thương hiệu</small>

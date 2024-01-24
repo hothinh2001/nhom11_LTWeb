@@ -1,8 +1,6 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.controller;
 
-import vn.edu.hcmuaf.fit.webanimalfeed.dao.DAO;
-import vn.edu.hcmuaf.fit.webanimalfeed.dao.UserEditDao;
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.Brand;
+import vn.edu.hcmuaf.fit.webanimalfeed.dao.UserDao;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Users;
 
 import javax.servlet.*;
@@ -22,7 +20,7 @@ public class LoadUser extends HttpServlet {
 
         if (u != null) {
             int uid = u.getId();
-            UserEditDao uDao = new UserEditDao();
+            UserDao uDao = new UserDao();
             Users user = uDao.getDanhsachUser(String.valueOf(uid));
 
             request.setAttribute("user", user);

@@ -1,9 +1,7 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.controller.admin;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.OrderDao;
-import vn.edu.hcmuaf.fit.webanimalfeed.dao.UserEditDao;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Orders;
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.Users;
 import vn.edu.hcmuaf.fit.webanimalfeed.service.OrderService;
 
 import javax.servlet.*;

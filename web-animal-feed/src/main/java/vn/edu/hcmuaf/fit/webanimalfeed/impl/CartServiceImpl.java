@@ -1,10 +1,15 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.impl;
 
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.CartProduct;
+import vn.edu.hcmuaf.fit.webanimalfeed.dao.cart.CartDAO;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.cart.Cart;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.cart.CartItems;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.cart.CartProduct;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
 import vn.edu.hcmuaf.fit.webanimalfeed.service.CartService;
 import vn.edu.hcmuaf.fit.webanimalfeed.service.ProductService;
+import vn.edu.hcmuaf.fit.webanimalfeed.utils.GeneralIdUtils;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,9 +67,48 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public boolean saveCartToDatabase(String userId) {
-        return false;
+    public void saveCartFromSessionToDatabase(int userId, CartProduct cartSession) {
+        CartDAO cartDAO = new CartDAO();
+        Cart cartInput = new Cart();
+        cartInput.setId(Integer.parseInt(GeneralIdUtils.generateId()));
+        cartInput.setUserId(userId);
+        cartInput.setTotalPrice(cartSession.getTotalPrice());
+        cartInput.setCreateAt(new Date());
+        cartInput.setModifiedAt(new Date());
+        cartDAO.saveCartToDB(cartInput);
+        for (Map.Entry<Integer, CartProduct> entry : data.entrySet()) {
+            CartProduct cartProduct = entry.getValue();
+            CartItems cartItems = new CartItems();
+            cartItems.setId(Integer.parseInt(GeneralIdUtils.generateId()));
+            cartItems.setCartId(cartInput.getId());
+            cartItems.setProductId(cartProduct.getProduct().getId());
+            cartItems.setQuantity(cartProduct.getQuantity());
+            cartItems.setTotalPrice(cartProduct.getTotalPrice());
+            cartItems.setCreateAt(new Date());
+            cartItems.setModifiedAt(new Date());
+            cartDAO.saveCartItemsToDB(cartItems);
+        }
     }
+
+    @Override
+    public boolean isCartExist(int userId) {
+        CartDAO cartDAO = new CartDAO();
+        return cartDAO.isCartExist(userId);
+    }
+
+    @Override
+    public void createCart(int userId) {
+        CartDAO cartDAO = new CartDAO();
+        Cart cart = new Cart();
+        cart.setId(Integer.parseInt(GeneralIdUtils.generateId()));
+        cart.setUserId(userId);
+        cart.setTotalPrice(0);
+        cart.setCreateAt(new Date());
+        cart.setModifiedAt(new Date());
+        cartDAO.saveCartToDB(cart);
+    }
+
+
 
     @Override
     public boolean remove(int id) {

@@ -37,7 +37,8 @@
                         <span class="navbar__user-name">Xin Chao ${sessionScope.acc.name} </span>
                         <ul class="navbar__user-menu">
                             <li class="navbar__user-item">
-                                <a href="loadUser?uid=${sessionScope.acc.id}" class="navbar__user-link">Tài khoản của tôi</a>
+                                <a href="loadUser?uid=${sessionScope.acc.id}" class="navbar__user-link">Tài khoản của
+                                    tôi</a>
                             </li>
                             <li class="navbar__user-item">
                                 <a href="" class="navbar__user-link">Đơn mua</a>
@@ -301,7 +302,7 @@
                             </li>
                         </ul>
                         <a
-                                href="${pageContext.request.contextPath}/webpage/cart/cart.jsp"
+                                href="${pageContext.request.contextPath}/cart"
                                 class="header__cart-view-cart btn-base btn--primary"
                         >
                             Xem giỏ hàng

@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.controller;
 
-import vn.edu.hcmuaf.fit.webanimalfeed.dao.UserEditDao;
+import vn.edu.hcmuaf.fit.webanimalfeed.dao.UserDao;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Users;
 
 import javax.servlet.*;
@@ -31,7 +31,7 @@ public class EditUserController extends HttpServlet {
 
         HttpSession session = request.getSession();
         Users u = (Users) session.getAttribute("acc");
-        UserEditDao uDao = new UserEditDao();
+        UserDao uDao = new UserDao();
         if (u != null) {
             int uid = u.getId();
             Users user = uDao.editUserById(uid, name, birthday, gender, address, email, phone, fileName);

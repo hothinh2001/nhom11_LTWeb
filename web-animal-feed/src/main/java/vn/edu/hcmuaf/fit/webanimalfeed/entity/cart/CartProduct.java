@@ -1,4 +1,6 @@
-package vn.edu.hcmuaf.fit.webanimalfeed.entity;
+package vn.edu.hcmuaf.fit.webanimalfeed.entity.cart;
+
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
 
 public class CartProduct {
     private int quantity;
