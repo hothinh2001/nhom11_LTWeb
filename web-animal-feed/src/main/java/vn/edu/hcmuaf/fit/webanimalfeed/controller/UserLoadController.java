@@ -9,29 +9,19 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet(name = "LoadUser", value = "/loadUser")
-public class LoadUser extends HttpServlet {
+public class UserLoadController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        int uid = Integer.parseInt(request.getParameter("uid"));
+        UserDao uDao = new UserDao();
+        Users user = uDao.getUserById(String.valueOf(uid));
 
-        HttpSession session = request.getSession(true);
-        Users u = (Users) session.getAttribute("acc");
+        request.setAttribute("user", user);
+        request.getRequestDispatcher("userEdit.jsp").forward(request, response);
 
-        if (u != null) {
-            int uid = u.getId();
-            UserDao uDao = new UserDao();
-            Users user = uDao.getDanhsachUser(String.valueOf(uid));
-
-            request.setAttribute("user", user);
-            request.getRequestDispatcher("user.jsp").forward(request, response);
-        } else {
-            // Người dùng chưa đăng nhập, có thể chuyển hướng hoặc thực hiện hành động khác
-            response.sendRedirect("Login.jsp");
-        }
     }
-
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

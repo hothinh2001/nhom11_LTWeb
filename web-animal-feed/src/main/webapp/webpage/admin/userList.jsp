@@ -63,9 +63,9 @@
                 <div class="content-title-item content-title-name">${u.getName()}</div>
                 <div class="content-title-item content-title-email">${u.getEmail()}></div>
                 <div class="content-title-item content-title-phone">${u.getPhone()}</div>
-                <div class="content-title-item content-title-role">${u.getRoleId().getNameRole()}</div>
+                <div class="content-title-item content-title-role">${u.getRole().getNameRole()}</div>
                 <div class="content-title-item content-title-edit">
-                    <a href="#">
+                    <a href="loadUserAdmin?uid=${u.getId()}">
                         <span class="las la-edit"></span>
                     </a>
                 </div>
@@ -80,7 +80,6 @@
                 </div>
             </div>
             </c:forEach>
-
 
     </main>
 
