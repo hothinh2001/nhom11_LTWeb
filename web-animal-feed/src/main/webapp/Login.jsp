@@ -17,6 +17,7 @@
    
 </head>
 <body>
+<input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
 <header class="header">
     <div class="grid wide">
         <div class="header__logo hide-on-tablet">
@@ -35,7 +36,7 @@
     </div>
 </header>
 <div class="container">
-<form action="login" method="post">
+
     <div id="login-form" class="auth-form">
         <div class="auth-form__container">
           <div class="auth-form__header">
@@ -45,9 +46,8 @@
             ></a>
           </div>
           <div class="auth-form__form">
-
-
-          <p class="text-danger">${mess}</p>
+              <form action="login" method="post">
+          <p class="text-danger" style="color: red">${mess}</p>
 
             <div class="auth-form__group">
               <input
@@ -67,8 +67,6 @@
               />
             </div>
 
-            </div>
-
           <div class="auth-form__aside">
             <div class="auth-form__help">
               <a href="GetEmail.jsp" class="auth-form__help-link auth-form__help-forgot">
@@ -79,11 +77,13 @@
             </div>
           </div>
           <div class="auth-form__controls">
-           <a href="home" ><button class="btn btn--normal auth-form__control-back-btn">
+           <a href="home.jsp"  class="btn btn--normal auth-form__control-back-btn">
               TRỞ LẠI
-            </button>
-              </a>
-            <button type="submit" value="login" class="btn btn--primary">ĐĂNG NHẬP</button>
+           </a>
+
+            <button type="submit" class="btn btn--primary">ĐĂNG NHẬP</button>
+          </div>
+              </form>
           </div>
         </div>
         <div class="auth-form__socials">
@@ -112,9 +112,16 @@
             </a>
         </div>
         </div>
-
-</form>
       </div>
 </div>
+<script type="text/javascript">
+    var status = document.getElementById("status").value;
+    if(status==="failed"){
+        alert('Đăng Nhập thất bại');
+    }else if(status==="success"){
+        alert("Đăng Nhập Thành công")
+    }
+
+</script>
 </body>
 </html>

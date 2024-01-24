@@ -46,22 +46,24 @@ public class Signup {
     }
 
     public void AddSignup(String email, String username, String dateOfBirth, String gender, String phone, String pass, int role) {
-        String query = "INSERT users (email, username, birthdate, gender, phone, `password`,roleId) VALUES (?,?,?,?,?,?,?)";
-        try {
-            conn = new DBContext().getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, email);
-            ps.setString(2, username);
-            ps.setString(3, dateOfBirth);
-            ps.setString(4, gender);
-            ps.setString(5, phone);
-            ps.setString(6, pass);
-            ps.setInt(7, role);
-            ps.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
+            String query = "INSERT users (email, username, birthdate, gender, phone, `password`,roleId) VALUES (?,?,?,?,?,?,?)";
+            try {
+                conn = new DBContext().getConnection();
+                ps = conn.prepareStatement(query);
+                ps.setString(1, email);
+                ps.setString(2, username);
+                ps.setString(3, dateOfBirth);
+                ps.setString(4, gender);
+                ps.setString(5, phone);
+                ps.setString(6, pass);
+                ps.setInt(7, role);
+                ps.executeUpdate();
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-    }
 }
 
 

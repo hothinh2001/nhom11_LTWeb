@@ -27,15 +27,15 @@ public class NewPassword extends HttpServlet {
 		String newPassword = request.getParameter("password");
 		String confPassword = request.getParameter("confPassword");
 		String email =request.getParameter("email");
+		String username = request.getParameter("username");
 
 		RequestDispatcher dispatcher = null;
 		if (newPassword != null && confPassword != null && newPassword.equals(confPassword)) {
 			try {
 				ForgotPass forgot = new ForgotPass();
-				Users u = forgot.updatePass(newPassword,email);
+				Users u = forgot.updatePass(newPassword,username);
 
-				//if(rowCount >0){
-				if (u != null) {
+				if(u == null) {
 					request.setAttribute("status", "resetSuccess");
 					dispatcher = request.getRequestDispatcher("Login.jsp");
 				} else {

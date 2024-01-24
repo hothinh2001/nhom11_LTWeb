@@ -20,6 +20,7 @@
     />
 </head>
 <body>
+<input type="hidden" id="status" value="<%=request.getAttribute("status")%>">
 <header class="header">
     <div class="grid wide">
         <div class="header__logo hide-on-tablet">
@@ -38,7 +39,7 @@
     </div>
 </header>
 <div class="container">
-    <form action="signup" method="post" id="myForm">
+
         <div id="regiter-form" class="auth-form">
             <div class="auth-form__container">
                 <div class="auth-form__header">
@@ -46,7 +47,8 @@
                     <a href="Login.jsp"><span class="auth-form__switch-btn js-switch-login"
                     >Đăng nhập</span></a>
                 </div>
-                <div class="auth-form__form" action="signup" method="post">
+                <div class="auth-form__form">
+                    <form action="signup" method="POST">
                     <div class="auth-form__group">
                         <input
                                 type="text"
@@ -131,12 +133,12 @@
                     </div>
                     <div class="auth-form__controls">
                         <a href="home.jsp">
-                            <button class="btn btn--normal auth-form__control-back-btn">
+                            <input class="btn btn--normal auth-form__control-back-btn">
                                 TRỞ LẠI
-                            </button>
                         </a>
-                        <button class="btn btn--primary" value="signup" id="btn-register">ĐĂNG KÝ</button>
+                        <button class="btn btn--primary" id="btn-register" type="submit">ĐĂNG KÝ</button>
                     </div>
+                    </form>
                 </div>
 
                 <div class="auth-form__socials">
@@ -165,10 +167,19 @@
                 </div>
             </div>
         </div>
-    </form>
 
 
 </div>
+
+
+<script type="text/javascript">
+    var status = document.getElementById("status").value;
+    if(status==="success"){
+      alert("Đăng kí Thành Công!!");
+    }else if(status==="failed"){
+        alert("Đăng kí thất bại");
+    }
+</script>
 </body>
 <script>
     const usernameEle = document.getElementById('registerUsername');
@@ -184,9 +195,9 @@
         );
         let isValid = checkValidate();
 
-        if (isValid) {
-            alert('Gửi đăng ký thành công');
-        }
+        // if (isValid) {
+        //     alert('Đăng ký thành công');
+        // }
     });
 
     function checkValidate() {
@@ -246,5 +257,8 @@
         return /(84|0[3|5|7|8|9])+([0-9]{8})\b/.test(number);
     }
 </script>
+
+
+
 </html>
   

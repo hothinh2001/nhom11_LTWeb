@@ -15,7 +15,8 @@
   />
 
 </head>
-<body>
+<body oncontextmenu='return false'>
+<input type="hidden" id="status" value="<%=request.getAttribute("status")%>">
 <header class="header">
   <div class="grid wide">
     <div class="header__logo hide-on-tablet">
@@ -59,20 +60,30 @@
           />
         </div>
 
-      </div>
 
       <div class="auth-form__controls">
         <a href="Login.jsp" ><button class="btn btn--normal auth-form__control-back-btn">
           TRỞ LẠI
         </button>
         </a>
-        <button class="btn btn--primary">RESET</button>
+        <input class="btn btn--primary" type="submit" value="Reset">
       </div>
       </form>
+
     </div>
   </div>
 
 
 </div>
+</div>
+<script type="text/javascript">
+  var status= document.getElementById("status").value;
+  if(status==="resetSuccess"){
+    alert("Thành công");
+  }else if(status==="resetFailed"){
+    alert("Sorry! Thử lại sau");
+  }
+
+</script>
 </body>
 </html>
