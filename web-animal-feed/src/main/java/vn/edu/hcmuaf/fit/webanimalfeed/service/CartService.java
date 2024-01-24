@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.service;
 
-import vn.edu.hcmuaf.fit.webanimalfeed.entity.CartProduct;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.cart.CartProduct;
 
 import java.util.Map;
 
@@ -14,7 +14,11 @@ public interface CartService {
 
     void decreaseQuantity(int productId, int quantity);
 
-    boolean saveCartToDatabase(String userId);
+    void saveCartFromSessionToDatabase(int userId );
+
+    boolean isCartExist(int userId);
+
+    void createCart(int userId);
 
     boolean remove(int id);
 
@@ -24,4 +28,9 @@ public interface CartService {
 
     Map<Integer, CartProduct> getData();
 
+    CartService getCartDetail(int id);
+
+    boolean contains(int productId);
+
+    void saveCartToDatabase(CartService cart, int userId);
 }

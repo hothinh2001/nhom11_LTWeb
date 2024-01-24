@@ -25,7 +25,7 @@ public class AddToCart extends HttpServlet {
         session.setAttribute("cartMap", cart);
         session.setAttribute(("totalCartPrice"), cart.getTotalCartPrice());
         // Thực hiện chuyển hướng sau khi thêm vào giỏ hàng
-        response.sendRedirect("webpage/cart/cart.jsp");
+        response.sendRedirect(request.getContextPath() + "/cart");
     }
 
     @Override

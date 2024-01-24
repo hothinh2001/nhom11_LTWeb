@@ -36,25 +36,25 @@
 <jsp:include page="webpage/include/header.jsp"/>
 <!-- Header end -->
 <div id="wrapper">
-    <form action="loadUser" id="form-login" method="post">
+    <form action="managerUserController" id="form-login" method="post">
         <h1 class="form-heading">Thông tin chỉnh sửa</h1>
         <div class="form-content">
             <div class="form-info" disabled="">
                 <div class="form-group">
                     <i class="far fa-user"></i>
-                    <input type="text" class="form-input" name="HoTen" value="${user.name}"
+                    <input type="text" class="form-input" name="name" value="${user.name}"
                            placeholder="Họ và Tên của bạn"/>
                 </div>
 
                 <div class="form-group">
                     <label for="datepicker">Ngày sinh:</label>
-                    <input value="${user.birthdate}" type="date" id="datepicker" name="birthdate"
+                    <input value="${user.birthdate}" type="date" id="datepicker" name="birthday"
                            placeholder="Ngày sinh của bạn"/>
                 </div>
 
                 <div class="form-group">
                     <label style="width: 80px">Giới tính</label>
-                    <input value="${user.gender}" type="text" class="form-input" name="address"
+                    <input value="${user.gender}" type="text" class="form-input" name="gender"
                            placeholder="Giới tính của bạn"/>
                 </div>
 
@@ -74,7 +74,7 @@
                            placeholder="Số điện thoại"/>
                 </div>
                 <div class="btn-confirm">
-                    <a href="userEdit.jsp">
+                    <a href="loadUser?uid=${user.getId()}">
                         <button type="button" class="form-submit">Chỉnh sửa thông tin</button>
                     </a>
                 </div>

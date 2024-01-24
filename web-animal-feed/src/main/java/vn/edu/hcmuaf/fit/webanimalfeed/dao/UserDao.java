@@ -8,13 +8,49 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UserEditDao {
+public class UserDao {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public Users editUserById(int id, String name, String birthday, String gender, String address, String email, String phone, String avatar) {
+    public Users editUserById(int id, String name, String email, String username, String password, String phone, String address, String roleId, String gender, String birthday, String avatar) {
+        try {
+            String query = "UPDATE users SET `name` = ?,\n" +
+                    "username = ?, \n" +
+                    "password = ?, \n" +
+                    "email = ?,\n" +
+                    "phone = ?, \n" +
+                    "address = ?,\n" +
+                    "roleId = ?,\n" +
+                    "gender = ?,\n" +
+                    "birthdate = ?,\n" +
+                    "avatar = ?\n" +
+
+                    "WHERE id=?";
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, name);
+            ps.setString(2, username);
+            ps.setString(3, password);
+            ps.setString(4, email);
+            ps.setString(5, phone);
+            ps.setString(6, address);
+            ps.setInt(7, Integer.parseInt(roleId));
+            ps.setString(8, gender);
+            ps.setString(9, birthday);
+            ps.setString(10, avatar);
+            ps.setInt(11, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Users editUser(String name, String birthday, String gender, String address, String email, String phone, String avatar, int id) {
         try {
             String query = "UPDATE users SET `name` = ?,\n" +
                     "birthdate = ?,\n" +
@@ -23,6 +59,7 @@ public class UserEditDao {
                     "email = ?,\n" +
                     "phone = ?, \n" +
                     "avatar = ?\n" +
+
                     "WHERE id=?";
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -42,7 +79,7 @@ public class UserEditDao {
     }
 
     //hiển thị danh sách user trên trang chỉnh sửa thông tin
-    public Users getDanhsachUser(String uid) {
+    public Users getUserById(String uid) {
         String query = "SELECT u.id, u.`name`,u.avatar, u.username, u.gender, u.birthdate, r.nameRole AS 'nameRole', u.phone, u.email,u.password,u.address,u.emailConfirmed\n" +
                 "FROM users u\n" +
                 "JOIN roles r ON u.roleId = r.id\n" +
@@ -95,6 +132,7 @@ public class UserEditDao {
             // Xử lý kết quả và thêm vào danh sách
             while (rs.next()) {
                 Role r = new Role();
+                r.setId(rs.getInt("roleId"));
                 r.setNameRole(rs.getString("nameRole"));
                 return new Users(rs.getInt("id"),
                         rs.getString("name"),
@@ -119,9 +157,55 @@ public class UserEditDao {
         return null;
     }
 
+    //getAllUser
+    public List<Users> getAllUser() {
+        List<Users> list = new ArrayList<>();
+        String query = "SELECT u.id,\n" +
+                "u.`name`,\n" +
+                "u.avatar,\n" +
+                "u.username,\n" +
+                "u.gender,\n" +
+                "u.birthdate,\n" +
+                "u.phone,\n" +
+                "r.nameRole AS nameRole,\n" +
+                "u.`email`,\n" +
+                "u.`password`,\n" +
+                "u.address,\n" +
+                "u.emailConfirmed\n" +
+                "FROM users u\n" +
+                "JOIN roles r ON u.roleId = r.id\n";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Role r = new Role();
+                r.setNameRole(rs.getString("nameRole"));
+
+                list.add(new Users(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("avatar"),
+                        rs.getString("username"),
+                        rs.getString("gender"),
+                        rs.getString("birthdate"),
+                        r,
+                        rs.getString("phone"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getString("address"),
+                        rs.getBoolean("emailConfirmed")
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
-        UserEditDao dao = new UserEditDao();
-        Users u = dao.getDanhsachUser("1");
-        System.out.println(u.getName());
+        UserDao dao = new UserDao();
+
     }
 }

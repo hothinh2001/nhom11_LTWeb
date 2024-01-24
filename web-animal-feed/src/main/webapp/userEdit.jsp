@@ -50,19 +50,19 @@
             <div class="form-info">
                 <div class="form-group">
                     <i class="far fa-user"></i>
-                    <input type="text" class="form-input" name="HoTen" value="${user.name}"/>
+                    <input type="text" class="form-input" name="name" value="${user.name}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="datepicker">Ngày sinh:</label>
-                    <input value="${user.birthdate}" type="date" id="datepicker" name="dateOfBirth"/>
+                    <input value="${user.birthdate}" type="date" id="datepicker" name="birthday"/>
                 </div>
 
                 <div class="form-group" style="width: 100%;border-bottom:none">
                     <label for="gender" style="width: 80px">Giới tính</label>
                     <select id="gender" name="gender"
                             style="width: 100%; font-size: 16px; padding: 6.5px 10px">
-                        <option value="${user.gender}">${user.gender}</option>
+                        <option>${user.gender}</option>
                         <option value="Nam">Nam</option>
                         <option value="Nu">Nữ</option>
                         <option value="Khac">Khác</option>
@@ -85,8 +85,13 @@
                     <input value="${user.phone}" type="number" class="form-input" name="phone"
                            placeholder="Số điện thoại"/>
                 </div>
+                <div class="form-group">
+                    <i class="fas fa-phone"></i>
+                    <input value="${user.avatar}" type="url" class="form-input" name="avatar"
+                           placeholder="Đường link của ảnh"/>
+                </div>
                 <div class="btn-confirm">
-                    <button type="submit" class="form-submit" value="${pageContext.request.contextPath}/editUser">
+                    <button type="submit" class="form-submit" value="editUser">
                         Cập Nhật
                     </button>
                 </div>
@@ -105,7 +110,7 @@
                 <input id="file-upload" type="file" name="urlImage" accept="image/*"/>
                 <button type="submit" class=" btn btn-primary btn-save" id="save_1">Lưu ảnh
                 </button>
-                <div><a href="loadUser">Hủy</a>
+                <div><a href="managerUserController">Hủy</a>
                 </div>
             </div>
         </div>

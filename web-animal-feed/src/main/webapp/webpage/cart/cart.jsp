@@ -257,7 +257,8 @@
                             </span>
                             </div>
                             <div class="cart-detail__btn-confirm">
-                                <button class="btn-base btn-confirm" onclick="clickCheckout()">Tiến hành đặt hàng
+                                <button class="btn-base btn-confirm" >
+                                    <a href="${pageContext.request.contextPath}/checkout">Tiến hành đặt hàng</a>
                                 </button>
                             </div>
                         </div>
