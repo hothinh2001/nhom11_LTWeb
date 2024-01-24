@@ -40,18 +40,20 @@
 <%--end header--%>
 <main class="main">
     <div class="main__menu">
-        <form action="" class="form-info">
+        <form action="${pageContext.request.contextPath}/checkout-confirm?shippingFee=${shippingFee}&totalCartPrice=${totalCartPrice}" method="post"
+              class="form-info">
             <h3>Thông tin khách mua hàng</h3>
             <div class="form-gender">
                 <div class="form-check form-check-inline">
                     <input
                             class="form-check-input"
                             type="radio"
-                            name="inlineRadioOptions"
-                            id="inlineRadio1"
-                            value="option1"
+                            name="gender"
+                            id="gender"
+                            value="Nam"
+                    ${sessionScope.acc.gender == "Nam" ? "checked" : ""}
                     />
-                    <label class="form-check-label" for="inlineRadio1">Anh</label>
+                    <label class="form-check-label" for="gender">Anh</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input
@@ -59,7 +61,9 @@
                             type="radio"
                             name="inlineRadioOptions"
                             id="inlineRadio2"
-                            value="option2"
+                            value="Nữ"
+                    ${sessionScope.acc.gender == "Nu" ? "checked" : ""}
+
                     />
                     <label class="form-check-label" for="inlineRadio2">Chị</label>
                 </div>
@@ -69,19 +73,23 @@
                     <input
                             type="text"
                             class="form-control"
-                            id="floatingInput"
-                            placeholder="name@example.com"
+                            id="payment-username"
+                            name="username"
+                            value="${sessionScope.acc.name}"
                     />
-                    <label for="floatingInput">Nhập Họ và Tên</label>
+                    <label for="payment-username">
+                        Nhập Họ và Tên
+                    </label>
                 </div>
                 <div class="form-floating mb-3 form-phone">
                     <input
                             type="text"
                             class="form-control"
-                            id="floatingInput2"
-                            placeholder="name@example.com"
+                            id="payment-phone"
+                            name="phone"
+                            value="${sessionScope.acc.phone}"
                     />
-                    <label for="floatingInput2">Nhập số điện thoại</label>
+                    <label for="payment-phone">Nhập số điện thoại</label>
                 </div>
             </div>
             <h3>Địa chỉ nhận hàng</h3>
@@ -90,22 +98,25 @@
                     <input
                             type="text"
                             class="form-control"
-                            id="floatingInput3"
-                            placeholder="name@example.com"
+                            id="payment-address"
+                            name="address"
+                            value="${sessionScope.acc.address}"
                     />
-                    <label for="floatingInput3">Nhập địa chỉ</label>
+                    <label for="payment-address">Nhập địa chỉ</label>
                 </div>
             </div>
             <div class="form-fee">
                 <span class="title-fee">Phí vận chuyển</span>
-                <span class="transport-fee">30.000vnđ</span>
+                <span class="transport-fee">${shippingFee}vnđ</span>
             </div>
             <div class="form-total">
                 <span class="title-total">Tổng tiền:</span>
-                <span class="total-price">1.000.000vnđ</span>
+                <span class="total-price">${totalCartPrice}</span>
             </div>
             <div class="form-btn">
-                <button type="button" class="btn btn-primary">Đặt hàng ngay</button>
+                <button type="submit" class="btn btn-primary">
+                    Thanh toán
+                </button>
             </div>
         </form>
     </div>

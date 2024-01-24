@@ -14,7 +14,7 @@ public interface CartService {
 
     void decreaseQuantity(int productId, int quantity);
 
-    void saveCartFromSessionToDatabase(int userId, CartProduct cartSession);
+    void saveCartFromSessionToDatabase(int userId );
 
     boolean isCartExist(int userId);
 
@@ -28,4 +28,9 @@ public interface CartService {
 
     Map<Integer, CartProduct> getData();
 
+    CartService getCartDetail(int id);
+
+    boolean contains(int productId);
+
+    void saveCartToDatabase(CartService cart, int userId);
 }

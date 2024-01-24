@@ -49,60 +49,62 @@
                     <div class="left">
                         <span>• Khách hàng:</span>
                     </div>
-                    <div class="right">Hồ Thịnh</div>
+                    <div class="right">
+                        ${username}
+                    </div>
                 </div>
                 <div class="line">
                     <div class="left">
                         <span>• Số điện thoại</span>
                     </div>
-                    <div class="right">0986547851</div>
+                    <div class="right">${phone}</div>
                 </div>
                 <div class="line">
                     <div class="left">
                         <span>• Địa chỉ nhận hàng</span>
                     </div>
-                    <div class="right">Thủ Đức</div>
-                </div>
-                <div class="line">
-                    <div class="left">
-                        <span>• Tạm tính</span>
+                    <div class="right">${address}</div>
                     </div>
-                    <div class="right">1.690.000vnđ</div>
-                </div>
-                <div class="line">
-                    <div class="left">
-                        <span>• Phí vận chuyển</span>
+                    <div class="line">
+                        <div class="left">
+                            <span>• Tạm tính</span>
+                        </div>
+                        <div class="right">${totalCartPrice}</div>
                     </div>
-                    <div class="right">Miễn phí</div>
-                </div>
-                <div class="line">
-                    <div class="left">
-                        <span>• Tổng tiền</span>
+                    <div class="line">
+                        <div class="left">
+                            <span>• Phí vận chuyển</span>
+                        </div>
+                        <div class="right">${shippingFee}</div>
                     </div>
-                    <div class="right">1.690.000vnđ</div>
-                </div>
-            </div>
-            <div class="cart-method">
-                <h2>Phương thức thanh toán</h2>
-                <div class="line">
-                    <div class="left">
-                        <img
-                                src="https://file.hstatic.net/200000636033/file/pay_2d752907ae604f08ad89868b2a5554da.png"
-                                alt=""
-                        />
-                    </div>
-                    <div class="right">
-                        <span>Thanh toán khi nhận hàng (COD)</span>
+                    <div class="line">
+                        <div class="left">
+                            <span>• Tổng tiền</span>
+                        </div>
+                        <div class="right">${total}</div>
                     </div>
                 </div>
-            </div>
-            <div class="form-total">
-                <span class="title-total">Tổng tiền:</span>
-                <span class="total-price">1.000.000vnđ</span>
-            </div>
-            <div class="form-btn">
-                <button type="button" class="btn btn-primary">Đặt hàng ngay</button>
-            </div>
+                <div class="cart-method">
+                    <h2>Phương thức thanh toán</h2>
+                    <div class="line">
+                        <div class="left">
+                            <img
+                                    src="https://file.hstatic.net/200000636033/file/pay_2d752907ae604f08ad89868b2a5554da.png"
+                                    alt=""
+                            />
+                        </div>
+                        <div class="right">
+                            <span>Thanh toán khi nhận hàng (COD)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-total">
+                    <span class="title-total">Tổng tiền:</span>
+                    <span class="total-price">${total}</span>
+                </div>
+                <div class="form-btn">
+                    <button type="button" class="btn btn-primary">Đặt hàng ngay</button>
+                </div>
         </form>
     </div>
 </main>
