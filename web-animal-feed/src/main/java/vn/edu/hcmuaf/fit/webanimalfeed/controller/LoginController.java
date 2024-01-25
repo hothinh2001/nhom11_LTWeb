@@ -36,10 +36,18 @@ public class LoginController extends HttpServlet {
             request.setAttribute("status","success");
             HttpSession session = request.getSession();
             session.setAttribute("acc", u);
-            if (role == 1)
-                response.sendRedirect("manager");
-            else if (role == 2)
-                response.sendRedirect("home");
+            if (role == 1) {
+                response.sendRedirect("admin");
+            } else if (role == 2) {
+                // Kiểm tra nếu URL trước đó là "checkout", chuyển hướng đến "paymentForm.jsp"
+                String redirectUrl = (String) session.getAttribute("url");
+                if (redirectUrl != null && redirectUrl.equals("checkout")) {
+                    session.removeAttribute("url"); // Xóa URL trước đó
+                    response.sendRedirect("cart");
+                } else {
+                    response.sendRedirect("home");
+                }
+            }
         }
     }
 

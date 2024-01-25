@@ -1,13 +1,13 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.entity;
 
-public class Users{
+public class Users {
     private int id;
     private String name;
     private String avatar;
     private String username;
     private String gender;
     private String birthdate;
-    private Role roleId;
+    private Role role;
     private String phone;
     private String email;
     private String password;
@@ -21,7 +21,7 @@ public class Users{
         this.username = username;
         this.gender = gender;
         this.birthdate = birthdate;
-        this.roleId = roleId;
+        this.role = roleId;
         this.phone = phone;
         this.email = email;
         this.password = password;
@@ -77,12 +77,12 @@ public class Users{
         this.birthdate = birthdate;
     }
 
-    public Role getRoleId() {
-        return roleId;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoleId(Role roleId) {
-        this.roleId = roleId;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getPhone() {
@@ -134,7 +134,7 @@ public class Users{
                 ", username='" + username + '\'' +
                 ", gender='" + gender + '\'' +
                 ", birthdate='" + birthdate + '\'' +
-                ", roleId=" + roleId +
+                ", roleId=" + role +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
@@ -142,7 +142,11 @@ public class Users{
                 ", emailConfirmed=" + emailConfirmed +
                 '}';
     }
-    public Users(){
 
+    public Users() {
+    }
+
+    public int getRoleId() {
+        return this.role.getId();
     }
 }

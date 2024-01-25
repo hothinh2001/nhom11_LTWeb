@@ -145,7 +145,23 @@ public class DAO {
 
     public List<Product> searchByName(String txtSearch) {
         List<Product> list = new ArrayList<>();
-        String query = "SELECT * FROM products\n" +
+        String query = "SELECT\n" +
+                "    p.id,\n" +
+                "    p.name,\n" +
+                "    p.nameDetail,\n" +
+                "    p.urlImage,\n" +
+                "    p.price,\n" +
+                "    p.ingredients, \n" +
+                "    p.nutritionInfo, \n" +
+                "    p.usageInstruction,\n" +
+                "    p.quantityAvailable,\n" +
+                "    c.`nameCate` AS nameCate,\n" +
+                "\t\tb. `nameBrand`  AS nameBrand,\n" +
+                "\t\ti.quantity AS Quantity\n" +
+                "FROM products p\n" +
+                "JOIN categories c ON p.categoryId = c.id\n" +
+                "JOIN brands b ON p.brandId = b.id\n" +
+                "JOIN inventories i ON p.inventoryId = i.id\n" +
                 "WHERE LOWER(name) LIKE LOWER(?) OR LOWER(nameDetail) LIKE LOWER(?);";
 
         try {
@@ -191,7 +207,7 @@ public class DAO {
 
     public static void main(String[] args) {
         DAO dao = new DAO();
-        List<Product> list = dao.searchByName("con cò c24s");
+        List<Product> list = dao.searchByName("gà để");
         for (Product p : list) {
             System.out.println(p.getName() + "\t" + p.getNameDetail());
         }

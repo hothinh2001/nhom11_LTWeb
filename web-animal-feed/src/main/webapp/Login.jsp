@@ -37,19 +37,28 @@
 </header>
 <div class="container">
 
+    <form action="login" method="post">
+        <div id="login-form" class="auth-form">
+            <div class="auth-form__container">
+                <div class="auth-form__header">
+                    <h3 class="auth-form__heading">Đăng nhập</h3>
+                    <a href="Signup.jsp"> <span class="auth-form__switch-btn js-switch-register"
+                    >Đăng ký</span
+                    ></a>
+                </div>
+                <div class="auth-form__form">
 
-    <div id="login-form" class="auth-form">
-        <div class="auth-form__container">
-            <div class="auth-form__header">
-                <h3 class="auth-form__heading">Đăng nhập</h3>
-                <a href="Signup.jsp" > <span class="auth-form__switch-btn js-switch-register"
-                >Đăng ký</span
-                ></a>
-            </div>
-            <div class="auth-form__form">
-                <form action="login" method="post">
-                    <p class="text-danger" style="color: red">${mess}</p>
-                    >>>>>>> BaoTran
+
+                    <div class="auth-form__group">
+                        <input
+                                type="text"
+                                class="auth-form__input"
+                                name="username"
+                                placeholder="Username"
+                        />
+                    </div>
+
+                    <p class="text-danger">${mess}</p>
 
                     <div class="auth-form__group">
                         <input
@@ -69,57 +78,59 @@
                         />
                     </div>
 
+                </div>
 
-
-                    <div class="auth-form__aside">
-                        <div class="auth-form__help">
-                            <a href="GetEmail.jsp" class="auth-form__help-link auth-form__help-forgot">
-                                Quên mật khẩu
-                            </a>
-                            <span class="auth-form__help-separate"></span>
-                            <a href="" class="auth-form__help-link"> Cần trợ giúp? </a>
-                        </div>
-                    </div>
-                    <div class="auth-form__controls">
-                        <a href="home.jsp"  class="btn btn--normal auth-form__control-back-btn">
-                            TRỞ LẠI
+                <div class="auth-form__aside">
+                    <div class="auth-form__help">
+                        <a href="GetEmail.jsp" class="auth-form__help-link auth-form__help-forgot">
+                            Quên mật khẩu
                         </a>
-
-                        <button type="submit" class="btn btn--primary">ĐĂNG NHẬP</button>
+                        <span class="auth-form__help-separate"></span>
+                        <a href="" class="auth-form__help-link"> Cần trợ giúp? </a>
                     </div>
-                </form>
+                </div>
+                <div class="auth-form__controls">
+                    <a href="home">
+                        <button class="btn btn--normal auth-form__control-back-btn">
+                            TRỞ LẠI
+                        </button>
+                    </a>
+                    <button type="submit" value="login" class="btn btn--primary">ĐĂNG NHẬP</button>
+                </div>
             </div>
-        </div>
-        <div class="auth-form__socials">
-            <a
-                    href=""
-                    class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
-            >
-                <i
-                        class="auth-form__socials-icon fa-brands fa-facebook-square"
-                ></i>
-                <span class="auth-form__socials-title">Kết nối với Facebook</span>
-            </a>
-            <a
-                    href=""
-                    class="auth-form__socials--google btn btn--size-s btn--with-icon"
-            >
-                <!-- <i class="auth-form__socials-icon fa-brands fa-google"></i> -->
-                <span class="auth-form__logo-social-img">
->>>>>>> BaoTran
+            <div class="auth-form__socials">
+                <a
+                        href=""
+                        class="auth-form__socials--facebook btn btn--size-s btn--with-icon"
+                >
+                    <i
+                            class="auth-form__socials-icon fa-brands fa-facebook-square"
+                    ></i>
+                    <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                </a>
+                <a
+                        href=""
+                        class="auth-form__socials--google btn btn--size-s btn--with-icon"
+                >
+                    <!-- <i class="auth-form__socials-icon fa-brands fa-google"></i> -->
+                    <span class="auth-form__logo-social-img">
+
+
               <img
                       src="../../assets/img/google_signin.png"
                       alt="Google"
                       class="google-login__img"
               />
             </span>
-                <span class="auth-form__socials-title">Kết nối với Google</span>
-            </a>
-        </div>
-    </div>
 
+                    <span class="auth-form__socials-title">Kết nối với Google</span>
+                </a>
+            </div>
+        </div>
+
+    </form>
 </div>
->>>>>>> BaoTran
+</div>
 </div>
 <script type="text/javascript">
     var status = document.getElementById("status").value;
@@ -128,7 +139,6 @@
     }else if(status==="success"){
         alert("Đăng Nhập Thành công")
     }
-
 </script>
 </body>
 </html>
