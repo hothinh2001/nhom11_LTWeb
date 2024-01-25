@@ -28,10 +28,12 @@ public class LoginController extends HttpServlet {
         LoginDao loginDao = new LoginDao();
         int role = loginDao.checkRole(user, pass);
         Users u = loginDao.checkLogin(user, pass);
-        if (null == u) {
+        if (u == null) {
+            request.setAttribute("status","failed");
             request.setAttribute("mess", "Username hoặc mật khẩu không đúng!");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
+           request.getRequestDispatcher("Login.jsp").forward(request,response);
         } else {
+            request.setAttribute("status","success");
             HttpSession session = request.getSession();
             session.setAttribute("acc", u);
             if (role == 1) {

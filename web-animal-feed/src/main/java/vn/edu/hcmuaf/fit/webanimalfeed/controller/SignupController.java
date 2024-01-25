@@ -27,26 +27,26 @@ public class SignupController extends HttpServlet {
         String phone = request.getParameter("phone");
         String pass = request.getParameter("pass");
         String repass = request.getParameter("repass");
-        int role = 2;
-        if (!pass.equals(repass)) {
-            request.setAttribute("mess", "Mật khẩu không trùng khớp");
-            request.getRequestDispatcher("Signup.jsp").forward(request, response);
-        } else {
+//        RequestDispatcher dispatcher=null;
+            int role = 2;
             Signup dao = new Signup();
             Users u = dao.checkUserExist(username);
-            if (u == null)  {
-                //user chưa  có nên add vào
+            if (u == null && pass.equals(repass))  {
+                //user chưa  có nên add vào và pass== repass
+                request.setAttribute("status","success");
                 dao.AddSignup(email, username, birthdate, gender, phone, pass, role);
-                response.sendRedirect("home.jsp");
 
+                request.getRequestDispatcher("Login.jsp").forward(request,response);
             } else {
                 // bị trung username đẩy về trang login
-                response.sendRedirect("Login.jsp");
-
+                request.setAttribute("mess", "Mật khẩu không trùng khớp");
+                request.setAttribute("status","failed");
+                request.getRequestDispatcher("Signup.jsp").forward(request,response);
             }
+
         }
     }
-}
+
 
 
 

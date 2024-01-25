@@ -17,6 +17,7 @@
 
 </head>
 <body>
+<input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
 <header class="header">
     <div class="grid wide">
         <div class="header__logo hide-on-tablet">
@@ -35,6 +36,7 @@
     </div>
 </header>
 <div class="container">
+
     <form action="login" method="post">
         <div id="login-form" class="auth-form">
             <div class="auth-form__container">
@@ -46,6 +48,15 @@
                 </div>
                 <div class="auth-form__form">
 
+
+                    <div class="auth-form__group">
+                        <input
+                                type="text"
+                                class="auth-form__input"
+                                name="username"
+                                placeholder="Username"
+                        />
+                    </div>
 
                     <p class="text-danger">${mess}</p>
 
@@ -104,18 +115,21 @@
                     <!-- <i class="auth-form__socials-icon fa-brands fa-google"></i> -->
                     <span class="auth-form__logo-social-img">
 
+
               <img
                       src="../../assets/img/google_signin.png"
                       alt="Google"
                       class="google-login__img"
               />
             </span>
+
                     <span class="auth-form__socials-title">Kết nối với Google</span>
                 </a>
             </div>
         </div>
 
     </form>
+</div>
 </div>
 </div>
 <script type="text/javascript">
