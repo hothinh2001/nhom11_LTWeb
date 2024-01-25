@@ -17,6 +17,7 @@
 
 </head>
 <body>
+<input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
 <header class="header">
     <div class="grid wide">
         <div class="header__logo hide-on-tablet">
@@ -35,6 +36,7 @@
     </div>
 </header>
 <div class="container">
+
     <form action="login" method="post">
         <div id="login-form" class="auth-form">
             <div class="auth-form__container">
@@ -45,7 +47,6 @@
                     ></a>
                 </div>
                 <div class="auth-form__form">
-
 
                     <p class="text-danger">${mess}</p>
 
@@ -103,12 +104,15 @@
                 >
                     <!-- <i class="auth-form__socials-icon fa-brands fa-google"></i> -->
                     <span class="auth-form__logo-social-img">
+
+
               <img
                       src="../../assets/img/google_signin.png"
                       alt="Google"
                       class="google-login__img"
               />
             </span>
+
                     <span class="auth-form__socials-title">Kết nối với Google</span>
                 </a>
             </div>
@@ -116,5 +120,15 @@
 
     </form>
 </div>
+</div>
+</div>
+<script type="text/javascript">
+    var status = document.getElementById("status").value;
+    if(status==="failed"){
+        alert('Đăng Nhập thất bại');
+    }else if(status==="success"){
+        alert("Đăng Ký Thành công")
+    }
+</script>
 </body>
 </html>

@@ -41,6 +41,7 @@
     />
 </head>
 <body>
+<input type="hidden" id="status" value="<%=request.getAttribute("status")%>">
 <!-- Header start -->
 <jsp:include page="webpage/include/header.jsp"/>
 <!-- Header end -->
@@ -599,6 +600,12 @@
     </div>
 </footer>
 <script src="././assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script>
+    var status = document.getElementById("status").value;
+    if(status ==="success"){
+        alert("Đăng nhập thành công")
+    }
+</script>
 </body>
 </html>
 

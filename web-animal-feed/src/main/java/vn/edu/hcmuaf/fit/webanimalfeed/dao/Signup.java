@@ -13,16 +13,15 @@ public class Signup {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public Users checkUserExist(String user) {
+    public Users checkUserExist(String username) {
         try {
             String query = "select * from users where username =?";
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1, user);
+            ps.setString(1, username);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Role r = new Role();
-                r.setNameRole(rs.getString("nameRole"));
                 return new Users(rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("avatar"),
@@ -46,22 +45,24 @@ public class Signup {
     }
 
     public void AddSignup(String email, String username, String dateOfBirth, String gender, String phone, String pass, int role) {
-        String query = "INSERT users (email, username, birthdate, gender, phone, `password`,roleId) VALUES (?,?,?,?,?,?,?)";
-        try {
-            conn = new DBContext().getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, email);
-            ps.setString(2, username);
-            ps.setString(3, dateOfBirth);
-            ps.setString(4, gender);
-            ps.setString(5, phone);
-            ps.setString(6, pass);
-            ps.setInt(7, role);
-            ps.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
+            String query = "INSERT users (email, username, birthdate, gender, phone, `password`,roleId) VALUES (?,?,?,?,?,?,?)";
+            try {
+                conn = new DBContext().getConnection();
+                ps = conn.prepareStatement(query);
+                ps.setString(1, email);
+                ps.setString(2, username);
+                ps.setString(3, dateOfBirth);
+                ps.setString(4, gender);
+                ps.setString(5, phone);
+                ps.setString(6, pass);
+                ps.setInt(7, role);
+                ps.executeUpdate();
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-    }
 }
 
 
