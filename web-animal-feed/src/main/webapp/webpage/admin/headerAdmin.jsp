@@ -30,8 +30,15 @@
                     <img src="${sessionScope.acc.avatar}" alt="">
                 </div>
 
+                <c:if test="${sessionScope.acc != null}">
                 <span class="las la-power-off"></span>
-                <span>Đăng xuất</span>
+                <a href="logOut">
+                    <span>Đăng xuất</span>
+                </a>
+                </c:if>
+                <c:if test="${sessionScope.acc == null}">
+                    <span></span>
+                </c:if>
             </div>
         </div>
     </div>

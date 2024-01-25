@@ -11,10 +11,11 @@
         <div class="profile">
             <div class="">
                 <img alt='TravelerWP'
+                        src="${sessionScope.acc.avatar}"
                      class='avatar avatar-50 photo profile-img bg-img' height='50' width='50' loading='lazy'
                      decoding='async'/>
             </div>
-            <h4 class="user-name">TRAN NGOC BAO TRAN</h4>
+            <h4 class="user-name">${sessionScope.acc.name}</h4>
             <span class="user-role"></span>
         </div>
 
@@ -33,19 +34,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../order/orderList.html">
+                    <a href="#">
                         <span class="las la-shopping-cart"></span>
                         <small>Order List</small>
                     </a>
                 </li>
                 <li>
-                    <a href="../category/index.html">
+                    <a href="managerCategory">
                         <span class="las la-clipboard-list"></span>
                         <small>Danh mục</small>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="managerUser">
                         <i class="fa-solid fa-people-roof"></i>
                         <small>Tài khoản</small>
                     </a>

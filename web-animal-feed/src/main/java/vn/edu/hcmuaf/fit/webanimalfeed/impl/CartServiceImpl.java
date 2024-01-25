@@ -24,7 +24,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public boolean add(int productId) {
-        return add(productId, 1);
+        return add(productId, 1); // thêm 1 sản phẩm vào giỏ hàng
     }
 
     @Override
@@ -32,21 +32,21 @@ public class CartServiceImpl implements CartService {
         Product product = ProductService.getInstance().getProductById(String.valueOf(productId));
         if (product == null) return false;
         CartProduct cartProduct = null;
-        if (data.containsKey(productId)) {
-            cartProduct = data.get(productId);
-            cartProduct.increaseQuantity(quantity);
+        if (data.containsKey(productId)) { //check xem sản phẩm đã có trong giỏ hàng chưa
+            cartProduct = data.get(productId); // nếu có thì lấy sản phẩm đó ra
+            cartProduct.increaseQuantity(quantity); // tăng số lượng sản phẩm lên
         } else {
             cartProduct = new CartProduct(quantity, product);
         }
-        data.put(productId, cartProduct);
+        data.put(productId, cartProduct); // thêm sản phẩm vào giỏ hàng thêm vào map vs key là id sản phẩm và value là sản phẩm
         return true;
     }
-
+    // y chang ở trên
     @Override
     public void increaseQuantity(int productId, int quantity) {
         Product product = ProductService.getInstance().getProductById(String.valueOf(productId));
         if (product == null) return;
-        CartProduct cartProduct = null;  //
+        CartProduct cartProduct = null;
         if (data.containsKey(productId)) {
             cartProduct = data.get(productId);
             cartProduct.increaseQuantity(quantity);
@@ -65,7 +65,7 @@ public class CartServiceImpl implements CartService {
         CartProduct cartProduct = null;  //
         if (data.containsKey(productId)) {
             cartProduct = data.get(productId);
-            cartProduct.decreaseQuantity(quantity);
+            cartProduct.decreaseQuantity(quantity); //giảm thì trừ
         } else {
             cartProduct = new CartProduct(quantity, product);
         }
@@ -125,6 +125,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public long getTotalCartPrice() {
+        // hàm này sài dòng for each để duyệt qua từng sản phẩm trong giỏ hàng rồi cộng tiền lại
         long total = 0;
         for (Map.Entry<Integer, CartProduct> entry : data.entrySet()) {
             total += entry.getValue().getTotalPrice();

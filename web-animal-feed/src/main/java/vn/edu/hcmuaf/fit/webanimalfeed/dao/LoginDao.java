@@ -78,7 +78,7 @@ public class LoginDao {
 //    }
 public static void main(String[] args) {
     LoginDao dao = new LoginDao();
-    int u = dao.checkRole("thinh123", "123");
+    int u = dao.checkRole("cuti123", "111");
     System.out.println(u);
 }
 }

@@ -29,8 +29,8 @@ public class OrderDao {
                 "s.`nameStatus` As Orderstatus\n" +
                 "        FROM orders o JOIN users u ON o.userId = u.id\n" +
                 "        JOIN payment p ON o.paymentId = p.id\n" +
-                "        JOIN methob m ON p.methobId = m.id\n" +
-                "        JOIN statused s ON o.statusId = s.id";
+                "        JOIN method m ON p.methobId = m.id\n" +
+                "        JOIN status s ON o.statusId = s.id";
         try {
             // Kết nối đến MySQL
             Connection conn = new DBContext().getConnection();

@@ -18,16 +18,16 @@ public class CheckoutController extends HttpServlet {
         HttpSession session = request.getSession();
         Users user = (Users) session.getAttribute("acc");
         CartService cart = (CartService) session.getAttribute("cartMap");
-        if (user != null) {
+        if (user != null) { //Nếu đã đăng nhập, quay lại trang checkout truyền mấy cái này đi
             if (cart != null && cart.getTotalQuantity() > 0) {
                 session.setAttribute("shippingFee", 30000);
                 session.setAttribute("cartMap", cart);
                 session.setAttribute("totalCartPrice", cart.getTotalCartPrice());
             }
-            request.getRequestDispatcher("paymentForm.jsp").forward(request, response);
-        } else {
+            request.getRequestDispatcher("paymentForm.jsp").forward(request, response); //Chuyểnquan cái form
+        } else { //Nếu chưa đăng nhập thì tạo cái session url để lưu lại url hiện tại
             session.setAttribute("url", "checkout");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
+            request.getRequestDispatcher("Login.jsp").forward(request, response); //Chuyển sang trang đăng nhập
         }
     }
 
