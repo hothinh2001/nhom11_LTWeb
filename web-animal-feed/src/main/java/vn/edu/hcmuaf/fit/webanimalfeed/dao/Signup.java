@@ -13,16 +13,15 @@ public class Signup {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public Users checkUserExist(String user) {
+    public Users checkUserExist(String username) {
         try {
             String query = "select * from users where username =?";
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1, user);
+            ps.setString(1, username);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Role r = new Role();
-                r.setNameRole(rs.getString("nameRole"));
                 return new Users(rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("avatar"),

@@ -47,7 +47,8 @@ public class LoginController extends HttpServlet {
 
                     response.sendRedirect("cart");
                 } else {
-                    response.sendRedirect("home");
+                    request.getRequestDispatcher("home").forward(request,response);
+                    //response.sendRedirect("home");
                 }
             }
         }

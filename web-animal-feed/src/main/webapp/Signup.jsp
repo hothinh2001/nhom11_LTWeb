@@ -70,6 +70,7 @@
                                 autocomplete="off"
                         />
                         <small style="color:red;"></small>
+                        <p style="color:red;" class="text-danger">${umess}</p>
                     </div>
                     <div class="auth-form__group">
                         <div class="auth-form__input" style="border:none">
@@ -174,10 +175,10 @@
 
 <script type="text/javascript">
     var status = document.getElementById("status").value;
-    if(status==="success"){
-      alert("Đăng kí Thành Công!!");
-    }else if(status==="failed"){
-        alert("Đăng kí thất bại");
+    if(status==="failedPass"){
+      alert("Nhập mật khẩu không trùng khớp !! Mời bạn Đăng ký lại .");
+    }else if(status==="failedUser"){
+        alert("username bị trùng !! Mời bạn Đăng ký lại.");
     }
 </script>
 </body>
