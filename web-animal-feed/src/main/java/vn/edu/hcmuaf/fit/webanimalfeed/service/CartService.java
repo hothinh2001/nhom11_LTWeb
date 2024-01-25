@@ -32,5 +32,10 @@ public interface CartService {
 
     boolean contains(int productId);
 
-    void saveCartToDatabase(CartService cart, int userId);
+    void saveCartToDatabase(CartService cart, int userId, int cartId);
+
+
+    int getCartId(int userId);
+
+    void updateQuantity(int productId, int quantity);
 }

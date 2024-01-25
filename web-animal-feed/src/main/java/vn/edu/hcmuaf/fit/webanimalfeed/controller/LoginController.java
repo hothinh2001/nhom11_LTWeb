@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.webanimalfeed.controller;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.dao.LoginDao;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Users;
+import vn.edu.hcmuaf.fit.webanimalfeed.impl.CartServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -43,6 +44,7 @@ public class LoginController extends HttpServlet {
                 String redirectUrl = (String) session.getAttribute("url");
                 if (redirectUrl != null && redirectUrl.equals("checkout")) {
                     session.removeAttribute("url"); // Xóa URL trước đó
+
                     response.sendRedirect("cart");
                 } else {
                     response.sendRedirect("home");

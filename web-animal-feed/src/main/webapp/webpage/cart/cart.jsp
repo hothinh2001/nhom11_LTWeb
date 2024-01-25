@@ -46,6 +46,7 @@
     $(document).ready(function () {
         $(".removeFromCartButtonClick").click(function (e) {
             e.preventDefault();
+            $("#loading-spinner").show();
             var productId = $(this).data("product-id");
             $.ajax({
                 type: "POST",
@@ -65,12 +66,18 @@
                 },
                 error: function () {
                     alert("Error while communicating with the server.");
+                },
+                complete: function () {
+                    // Ẩn loading spinner khi Ajax hoàn tất (thành công hoặc thất bại)
+                    $("#loading-spinner").hide();
                 }
             });
         });
 
         $(".btn-quantity-decrease").click(function (e) {
             e.preventDefault();
+            // Hiển thị loading spinner khi bắt đầu Ajax
+            $("#loading-spinner").show();
             var productId = $(this).data("product-id");
             $.ajax({
                 type: "POST",
@@ -89,12 +96,18 @@
                 },
                 error: function () {
                     alert("Error while communicating with the server.");
+                },
+                complete: function () {
+                    // Ẩn loading spinner khi Ajax hoàn tất (thành công hoặc thất bại)
+                    $("#loading-spinner").hide();
                 }
+
             });
         });
 
         $(".btn-quantity-increase").click(function (e) {
             e.preventDefault();
+            $("#loading-spinner").show();
             var productId = $(this).data("product-id");
             $.ajax({
                 type: "POST",
@@ -113,6 +126,10 @@
                 },
                 error: function () {
                     alert("Error while communicating with the server.");
+                },
+                complete: function () {
+                    // Ẩn loading spinner khi Ajax hoàn tất (thành công hoặc thất bại)
+                    $("#loading-spinner").hide();
                 }
             });
         });
@@ -154,9 +171,15 @@
                                 ${cartMap.data.size()} sản phẩm
                             </span>
                         </div>
+
                         <div class="cart-detail__left-body">
                             <ul class="cart-detail__left-list">
                                 <c:forEach items="${cartMap.data.values()}" var="cart">
+                                    <div class="loading-spinner" id="loading-spinner">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
                                     <li class="cart-detail__left-item">
                                         <div class="cart-detail__left-item-img">
                                             <img
@@ -257,7 +280,7 @@
                             </span>
                             </div>
                             <div class="cart-detail__btn-confirm">
-                                <button class="btn-base btn-confirm" >
+                                <button class="btn-base btn-confirm">
                                     <a href="${pageContext.request.contextPath}/checkout">Tiến hành đặt hàng</a>
                                 </button>
                             </div>
