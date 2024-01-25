@@ -103,6 +103,7 @@
                 >
                     <!-- <i class="auth-form__socials-icon fa-brands fa-google"></i> -->
                     <span class="auth-form__logo-social-img">
+
               <img
                       src="../../assets/img/google_signin.png"
                       alt="Google"
@@ -116,5 +117,14 @@
 
     </form>
 </div>
+</div>
+<script type="text/javascript">
+    var status = document.getElementById("status").value;
+    if(status==="failed"){
+        alert('Đăng Nhập thất bại');
+    }else if(status==="success"){
+        alert("Đăng Nhập Thành công")
+    }
+</script>
 </body>
 </html>
