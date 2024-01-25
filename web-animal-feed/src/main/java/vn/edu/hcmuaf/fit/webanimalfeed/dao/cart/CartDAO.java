@@ -91,6 +91,7 @@ public class CartDAO {
         return cart;
     }
 
+
     public List<CartItems> getCartItemsDetail(int cartId) {
         List<CartItems> cartItemsList = new ArrayList<>();
         String sql = "SELECT * FROM cartItems WHERE cartId = ?";
@@ -116,9 +117,40 @@ public class CartDAO {
         return cartItemsList;
     }
 
+
     public static void main(String[] args) {
         CartDAO cartDAO = new CartDAO();
         System.out.println(cartDAO.isCartExist(2));
     }
 
+    public void updateQuantity(int cartId, int productId, int quantity) {
+        String sql = "UPDATE cartItems SET quantity = ? WHERE cartId = ? AND productId = ?";
+        try {
+            connectionDB = DBContext.getConnection();
+            ps = connectionDB.prepareStatement(sql);
+            ps.setInt(1, quantity);
+            ps.setInt(2, cartId);
+            ps.setInt(3, productId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getQuantity(int productId, int cartId) {
+        String sql = "SELECT quantity FROM cartItems WHERE productId = ? AND cartId = ?";
+        try {
+            connectionDB = DBContext.getConnection();
+            ps = connectionDB.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ps.setInt(2, cartId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("quantity");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

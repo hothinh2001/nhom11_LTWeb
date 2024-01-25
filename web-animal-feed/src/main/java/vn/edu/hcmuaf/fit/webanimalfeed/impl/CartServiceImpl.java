@@ -205,4 +205,20 @@ public class CartServiceImpl implements CartService {
             System.out.println(entry.getValue().getTotalPrice());
         }
     }
+
+    public void saveCartToDatabase(int id) {
+        CartDAO cartDAO = new CartDAO();
+        for (Map.Entry<Integer, CartProduct> entry : data.entrySet()) {
+            CartProduct cartProduct = entry.getValue();
+            CartItems cartItems = new CartItems();
+            cartItems.setId(Integer.parseInt(GeneralIdUtils.generateId()));
+            cartItems.setCartId(id);
+            cartItems.setProductId(cartProduct.getProduct().getId());
+            cartItems.setQuantity(cartProduct.getQuantity());
+            cartItems.setTotalPrice(cartProduct.getTotalPrice());
+            cartItems.setCreateAt(new Date());
+            cartItems.setModifiedAt(new Date());
+            cartDAO.saveCartItemsToDB(cartItems);
+        }
+    }
 }
