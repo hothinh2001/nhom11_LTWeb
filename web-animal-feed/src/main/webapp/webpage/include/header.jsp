@@ -152,7 +152,7 @@
                                     </li>
                                     <li class="nav-item dropdown header__cart-wrapper">
                                         <a class="nav-link nav-link-sm dropdown-toggle"
-                                           href="./product-list/index.html" id="productDropdown2"
+                                           href="${pageContext.request.contextPath}/product-list" id="productDropdown2"
                                            role="button"
                                         >
                                             Thức ăn cho Cá
@@ -180,7 +180,7 @@
                                     </li>
                                     <li class="nav-item dropdown header__cart-wrapper">
                                         <a class="nav-link nav-link-sm dropdown-toggle"
-                                           href="./product-list/index.html" id="productDropdown3"
+                                           href="${pageContext.request.contextPath}/product-list" id="productDropdown3"
                                            role="button"
                                         >
                                             Thức ăn Gia Cầm
@@ -189,7 +189,8 @@
                                             <!-- Cart index product start -->
                                             <div class="header__cart-list-product-type">
                                                 <div class="header__cart-list-product-name">
-                                                    <a href="#" class="header__cart-list-product-link">
+                                                    <a href="${pageContext.request.contextPath}/product-list"
+                                                       class="header__cart-list-product-link">
                                                         Thức ăn Gia cầm
                                                     </a>
                                                     <hr width="30%" align="left"/>
