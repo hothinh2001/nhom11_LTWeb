@@ -154,9 +154,8 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void saveCartToDatabase(CartService cart, int userId) {
+    public void saveCartToDatabase(CartService cart, int userId, int cartId) {
         CartDAO cartDAO = new CartDAO();
-        int cartId = cartDAO.getCartDetail(userId).getId();
         for (Map.Entry<Integer, CartProduct> entry : cart.getData().entrySet()) {
             CartProduct cartProduct = entry.getValue();
             CartItems cartItems = new CartItems();
@@ -170,6 +169,29 @@ public class CartServiceImpl implements CartService {
             cartDAO.saveCartItemsToDB(cartItems);
         }
     }
+
+    @Override
+
+    public int getCartId(int userId) {
+        CartDAO cartDAO = new CartDAO();
+        Cart cart = cartDAO.getCartDetail(userId);
+        return cart != null ? cart.getId() : -1; // Return -1 or some default value if cart is not found
+    }
+
+    @Override
+    public void updateQuantity(int productId, int quantity) {
+        Product product = ProductService.getInstance().getProductById(String.valueOf(productId));
+        if (product == null) return;
+        CartProduct cartProduct = null;  //
+        if (data.containsKey(productId)) {
+            cartProduct = data.get(productId);
+            cartProduct.setQuantity(quantity);
+        } else {
+            cartProduct = new CartProduct(quantity, product);
+        }
+        data.put(productId, cartProduct);
+    }
+
 
     public static void main(String[] args) {
         CartService cartService = new CartServiceImpl();

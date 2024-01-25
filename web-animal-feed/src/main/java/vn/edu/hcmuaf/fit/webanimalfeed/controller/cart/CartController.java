@@ -23,6 +23,7 @@ public class CartController extends HttpServlet {
         HttpSession session = request.getSession();
         CartService cart = (CartService) session.getAttribute("cartMap");
         Users user = (Users) session.getAttribute("acc");
+        int cartId;
         if (cart == null) {
             cart = new CartServiceImpl();
         }
@@ -35,6 +36,7 @@ public class CartController extends HttpServlet {
             }
             // Lấy thông tin giỏ hàng từ cơ sở dữ liệu
             cart = cartService.getCartDetail(user.getId());
+            cartId = cartService.getCartId(user.getId());
             // Lấy giỏ hàng từ session
             CartService cartSession = (CartService) session.getAttribute("cartMap");
 
@@ -50,12 +52,11 @@ public class CartController extends HttpServlet {
                         cart.add(productId, cartProductSession.getQuantity());
                     } else {
                         // Nếu sản phẩm đã tồn tại, cập nhật số lượng
-                        cart.increaseQuantity(productId, cartProductSession.getQuantity());
+                        cart.updateQuantity(productId, cartProductSession.getQuantity());
                     }
                 }
-
                 // Lưu lại giỏ hàng đã cập nhật vào cơ sở dữ liệu
-                cartService.saveCartToDatabase(cart, user.getId());
+                cartService.saveCartToDatabase(cart, user.getId(), cartId);
             }
         }
         session.setAttribute("cartMap", cart);
