@@ -39,10 +39,6 @@
         <div class="page-header">
             <h1>Danh sách Khách hàng</h1>
             <small>Home / Danh sách Khách hàng</small>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    onclick="redirectToProductPage()">
-                Thêm sản phẩm
-            </button>
         </div>
 
 
@@ -61,7 +57,7 @@
             <div class="content-title">
                 <div class="content-title-item content-title-stt">${loop.index + 1}</div>
                 <div class="content-title-item content-title-name">${u.getName()}</div>
-                <div class="content-title-item content-title-email">${u.getEmail()}></div>
+                <div class="content-title-item content-title-email">${u.getEmail()}</div>
                 <div class="content-title-item content-title-phone">${u.getPhone()}</div>
                 <div class="content-title-item content-title-role">${u.getRole().getNameRole()}</div>
                 <div class="content-title-item content-title-edit">

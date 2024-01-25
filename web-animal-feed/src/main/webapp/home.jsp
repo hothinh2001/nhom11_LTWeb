@@ -80,15 +80,18 @@
                 </div>
 
                 <div class="category">
-                    <c:forEach var="category" items="${listCate}">
-                        <div class="cate-item">
-                            <a href="product-list">
-                                <img src="${category.getIconCate()}" alt=""/>
-                                    ${category.getNameCate()}
-                            </a>
-                        </div>
+                    <c:forEach var="category" items="${listCate}" varStatus="loopStatus">
+                        <c:if test="${loopStatus.index < 4}">
+                            <div class="cate-item">
+                                <a href="product-list">
+                                    <img src="${category.getIconCate()}" alt=""/>
+                                        ${category.getNameCate()}
+                                </a>
+                            </div>
+                        </c:if>
                     </c:forEach>
                 </div>
+
             </div>
             <!-- san pham ba chay -->
             <div class="best__selling">
@@ -547,7 +550,7 @@
                                                 <a href="${pageContext.request.contextPath}/product-list">
                                                     Thức ăn cho Heo
                                                 </a>
-                                                
+
                                             </li>
                                             <li
                                                     id="menu-item-2399"

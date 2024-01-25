@@ -10,6 +10,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <!DOCTYPE html>
@@ -110,10 +111,22 @@
                             ${detail.getUsageInstruction()}
                         </div>
                         <div class="product-detail__info-price">
-                            <span class="product-detail__info-price-current"
-                            >${detail.getPrice()}đ</span
-                            >
+                            <%--                            <span class="product-detail__info-price-current"--%>
+                            <%--                            >${detail.getPrice()}đ</span--%>
+                            <%--                            >--%>
+                            <c:set var="price" value="${detail.getPrice()}"/>
+                            <fmt:formatNumber type="currency"
+                                              currencyCode="VND"
+                                              value="${price}"
+                                              pattern="#,##0.##"
+                                              var="orginPrice"/>
+                            <span class="cart-detail__left-item-price">
+                                 ${orginPrice} vnđ
+                        </span>
+
                         </div>
+
+
                         <div class="product-detail__info-quantity">
                     <span class="product-detail__info-quantity-title"
                     >Số lượng:</span
@@ -134,13 +147,14 @@
                             </div>
                             <div class="product-detail__info-inventory">
                       <span class="product-detail__info-inventory-quantity">
-                        Còn 100 sản phẩm
+                        Còn ${detail.getQuantityAvailable()} sản phẩm
                       </span>
                             </div>
                         </div>
 
                         <div class="product-detail__info-cart-btn">
                             <button class="btn--cart__add">
+                                <%--                                lấy product id--%>
                                 <a href="add-cart?id=${detail.getId()}">
                                     <i class="fas fa-cart-plus"></i>
                                     Thêm vào giỏ hàng
@@ -183,7 +197,15 @@
                                             ${listR.getNameDetail()}
                                     </h4>
                                     <div class="product-item__price">
-                                        <span class="product-item__price-current">${listR.getPrice()}đ</span>
+                                        <c:set var="price" value="${listR.getPrice()}"/>
+                                        <fmt:formatNumber type="currency"
+                                                          currencyCode="VND"
+                                                          value="${price}"
+                                                          pattern="#,##0.##"
+                                                          var="orginPrice"/>
+                                        <span class="product-item__price-current">
+                                                ${orginPrice} vnđ
+                                        </span>
                                     </div>
                                     <div class="product-item__action">
                                         <!-- product-item__like--liked -->

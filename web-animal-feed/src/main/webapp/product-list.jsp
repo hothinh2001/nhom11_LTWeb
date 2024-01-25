@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -83,7 +84,7 @@
                                     Danh mục
                                 </div>
                                 <c:forEach items="${listCate}" var="c">
-                                    <a href="#"
+                                    <a href="category?cid=${c.getId()}"
                                        class="list-group-item list-group-item-action cate-item">${c.getNameCate()}</a>
                                 </c:forEach>
                             </div>
@@ -95,7 +96,7 @@
                                     Thương hiệu
                                 </div>
                                 <c:forEach items="${listB}" var="b">
-                                    <a href="#"
+                                    <a href="brand?bid=${b.getId()}"
                                        class="list-group-item list-group-item-action cate-item">${b.getNameBrand()}</a>
                                 </c:forEach>
                             </div>
@@ -175,9 +176,9 @@
 
 
                             <div class="best__selling--content">
-                                <div class="row sm-gutter product-item-wrapper">
+                                <div id="content" class="row sm-gutter product-item-wrapper">
                                     <c:forEach items="${listP}" var="product">
-                                        <div class="col l-2-4 c-6">
+                                        <div class="productList col l-2-4 c-6">
                                             <!-- Product Item -->
                                             <a
                                                     class="product-item"
@@ -191,9 +192,19 @@
                                                 <h4 class="product-item__name">
                                                         ${product.getNameDetail()}
                                                 </h4>
+
                                                 <div class="product-item__price">
-                                                    <span class="product-item__price-current">${product.getPrice()}đ</span>
+                                                    <c:set var="price" value="${product.getPrice()}"/>
+                                                    <fmt:formatNumber type="currency"
+                                                                      currencyCode="VND"
+                                                                      value="${price}"
+                                                                      pattern="#,##0.##"
+                                                                      var="orginPrice"/>
+                                                    <span class="product-item__price-current">
+                                                            ${orginPrice} vnđ
+                                                    </span>
                                                 </div>
+
                                                 <div class="product-item__action">
                                                     <!-- product-item__like--liked -->
                                                     <span class="product-item__like"> </span>
@@ -201,7 +212,7 @@
                                                     <div class="product-item__sold"></div>
                                                 </div>
                                                 <div class="product-item__origin">
-                                                    <span class="product-item__brand">Con Cò</span>
+                                                    <span class="product-item__brand">${product.getBrand().getNameBrand()}</span>
                                                 </div>
                                                 <div class="product-item__favourite"></div>
                                             </a>
@@ -209,7 +220,8 @@
                                     </c:forEach>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary btn-load-more">Xem thêm</button>
+                            <button onclick="loadMore()" class="btn btn-primary btn-load-more">Xem thêm
+                            </button>
                         </div>
 
 
@@ -319,7 +331,24 @@
 
 
 <script src="${pageContext.request.contextPath}/assets/bootstrap-5.0.2/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+<script>
+    function loadMore() {
+        var amount = document.getElementsByClassName("productList").length;
+        $.ajax({
+            type: "get",
+            url: "/animal-feed/loadMore",
+            data: {
+                exits: amount
+            },
+            success: function (data) {
+                const row = document.getElementById("content");
+                row.innerHTML += data;
+            }
+        });
+    }
+</script>
 
 </body>
 </html>

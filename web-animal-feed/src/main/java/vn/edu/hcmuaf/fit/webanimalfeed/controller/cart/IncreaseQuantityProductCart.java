@@ -24,7 +24,7 @@ public class IncreaseQuantityProductCart extends HttpServlet {
         if (cart != null) {
             String productId = request.getParameter("productId");
             String quantity = request.getParameter("quantity");
-            cart.increaseQuantity(Integer.parseInt(productId), Integer.parseInt(quantity));
+            cart.increaseQuantity(Integer.parseInt(productId), Integer.parseInt(quantity)); //tăng số lượng sản phẩm
             session.setAttribute("cartMap", cart);
             session.setAttribute(("totalCartPrice"), cart.getTotalCartPrice());
 

@@ -20,11 +20,10 @@ public class AddToCart extends HttpServlet {
         if (cart == null) {
             cart = new CartServiceImpl();
         }
-        String productId = request.getParameter("id");
-        cart.add(Integer.parseInt(productId));
+        String productId = request.getParameter("id"); // Lấy mã sản phẩm từ request
+        cart.add(Integer.parseInt(productId)); // Thêm sản phẩm vào giỏ hàng truyền id từ đây
         session.setAttribute("cartMap", cart);
         session.setAttribute(("totalCartPrice"), cart.getTotalCartPrice());
-        // Thực hiện chuyển hướng sau khi thêm vào giỏ hàng
         response.sendRedirect(request.getContextPath() + "/cart");
     }
 

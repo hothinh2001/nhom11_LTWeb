@@ -104,7 +104,7 @@
                 </div>
                 <div class="form-btn">
                     <button type="button" class="btn btn-primary">
-                        <a href="${pageContext.request.contextPath}/order">Quay lại giỏ hàng</a>
+                        <a href="${pageContext.request.contextPath}/order">Thanh toán</a>
                     </button>
                 </div>
         </form>

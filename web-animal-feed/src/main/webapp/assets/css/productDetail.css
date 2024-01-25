@@ -5,8 +5,14 @@ a {
     font-weight: 700;
     cursor: pointer;
 }
-body .hide-navbar-nav{
+
+body .hide-navbar-nav {
     display: none;
+}
+
+body .cart-detail__left-item-price {
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .breadcrumb-wrapper {

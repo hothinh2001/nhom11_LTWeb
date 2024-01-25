@@ -205,11 +205,8 @@ public class DAO {
     }
 
 
+
+
     public static void main(String[] args) {
-        DAO dao = new DAO();
-        List<Product> list = dao.searchByName("gà để");
-        for (Product p : list) {
-            System.out.println(p.getName() + "\t" + p.getNameDetail());
-        }
     }
 }
