@@ -48,16 +48,6 @@
                 </div>
                 <div class="auth-form__form">
 
-
-                    <div class="auth-form__group">
-                        <input
-                                type="text"
-                                class="auth-form__input"
-                                name="username"
-                                placeholder="Username"
-                        />
-                    </div>
-
                     <p class="text-danger">${mess}</p>
 
                     <div class="auth-form__group">
@@ -137,7 +127,7 @@
     if(status==="failed"){
         alert('Đăng Nhập thất bại');
     }else if(status==="success"){
-        alert("Đăng Nhập Thành công")
+        alert("Đăng Ký Thành công")
     }
 </script>
 </body>
