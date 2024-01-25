@@ -103,7 +103,9 @@
                     <span class="total-price">${total}</span>
                 </div>
                 <div class="form-btn">
-                    <button type="button" class="btn btn-primary">Đặt hàng ngay</button>
+                    <button type="button" class="btn btn-primary">
+                        <a href="${pageContext.request.contextPath}/order">Quay lại giỏ hàng</a>
+                    </button>
                 </div>
         </form>
     </div>
