@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.webanimalfeed.dao;
 
 import vn.edu.hcmuaf.fit.webanimalfeed.context.DBContext;
+import vn.edu.hcmuaf.fit.webanimalfeed.entity.Product;
 import vn.edu.hcmuaf.fit.webanimalfeed.entity.Role;
 
 import java.sql.Connection;
@@ -35,6 +36,8 @@ public class RoleDao {
         }
         return list;
     }
+
+
 
     public static void main(String[] args) {
         RoleDao dao = new RoleDao();

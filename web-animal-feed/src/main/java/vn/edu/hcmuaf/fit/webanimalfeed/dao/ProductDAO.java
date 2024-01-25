@@ -207,17 +207,125 @@ public class ProductDAO {
         return null;
     }
 
+    public List<Product> getTop16Product() {
+        List<Product> list = new ArrayList<>();
+        String query = "SELECT\n" +
+                "    p.id,\n" +
+                "    p.name,\n" +
+                "    p.nameDetail,\n" +
+                "    p.urlImage,\n" +
+                "    p.price,\n" +
+                "    p.ingredients,\n" +
+                "    p.nutritionInfo,\n" +
+                "    p.usageInstruction,\n" +
+                "    p.quantityAvailable,\n" +
+                "    c.`nameCate` AS nameCate,\n" +
+                "    b.`nameBrand` AS nameBrand,\n" +
+                "    i.quantity AS Quantity\n" +
+                "FROM products p\n" +
+                "JOIN categories c ON p.categoryId = c.id\n" +
+                "JOIN brands b ON p.brandId = b.id\n" +
+                "JOIN inventories i ON p.inventoryId = i.id\n" +
+                "ORDER BY p.id ASC\n" +
+                "LIMIT 16";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Category category = new Category();
+                category.setNameCate(rs.getString("nameCate"));
+                Brand brand = new Brand();
+                brand.setNameBrand(rs.getString("nameBrand"));
+                Inventory inventory = new Inventory();
+                inventory.setQuantity(rs.getInt("Quantity"));
+                list.add(new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("nameDetail"),
+                        rs.getInt("price"),
+                        rs.getString("ingredients"),
+                        rs.getString("nutritionInfo"),
+                        rs.getString("usageInstruction"),
+                        rs.getString("urlImage"),
+                        category,
+                        brand,
+                        inventory,
+                        rs.getInt("quantityAvailable")
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 
-    //    public static void main(String[] args) throws Exception {
-//        ProductDAO dao = new ProductDAO();
-//        List<Product> list = dao.get4ProductByCategory(3 + "", 1 + "");
-//        for (Product product : list) {
-//            System.out.println(product.getName());
-//        }
-//    }
+    public List<Product> getNextTop16(int amount) {
+        List<Product> list = new ArrayList<>();
+        String query = "SELECT\n" +
+                "    p.id,\n" +
+                "    p.name,\n" +
+                "    p.nameDetail,\n" +
+                "    p.urlImage,\n" +
+                "    p.price,\n" +
+                "    p.ingredients, \n" +
+                "    p.nutritionInfo, \n" +
+                "    p.usageInstruction,\n" +
+                "    p.quantityAvailable,\n" +
+                "    c.`nameCate` AS nameCate,\n" +
+                "\t\tb. `nameBrand`  AS nameBrand,\n" +
+                "\t\ti.quantity AS Quantity\n" +
+                "FROM products p\n" +
+                "JOIN categories c ON p.categoryId = c.id\n" +
+                "JOIN brands b ON p.brandId = b.id\n" +
+                "JOIN inventories i ON p.inventoryId = i.id\n" +
+                "ORDER BY id LIMIT 16 OFFSET ?";
+        try {
+
+            // Kết nối đến MySQL
+            Connection conn = new DBContext().getConnection();
+
+            // Tạo PreparedStatement và thực hiện truy vấn
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, amount);
+            ResultSet rs = ps.executeQuery();
+
+            // Xử lý kết quả và thêm vào danh sách
+            while (rs.next()) {
+                Category category = new Category();
+                category.setNameCate(rs.getString("nameCate"));
+                Brand brand = new Brand();
+                brand.setNameBrand(rs.getString("nameBrand"));
+                Inventory inventory = new Inventory();
+                inventory.setQuantity(rs.getInt("Quantity"));
+                list.add(new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("nameDetail"),
+                        rs.getInt("price"),
+                        rs.getString("ingredients"),
+                        rs.getString("nutritionInfo"),
+                        rs.getString("usageInstruction"),
+                        rs.getString("urlImage"),
+                        category,
+                        brand,
+                        inventory,
+                        rs.getInt("quantityAvailable")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+
+    }
+
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        Category category = dao.getCategoryByProductId("2");
-        System.out.println(category.getNameCate());
+        List<Product> list = dao.getNextTop16(16);
+        for (Product o : list) {
+            System.out.println(o.getId());
+        }
     }
 }

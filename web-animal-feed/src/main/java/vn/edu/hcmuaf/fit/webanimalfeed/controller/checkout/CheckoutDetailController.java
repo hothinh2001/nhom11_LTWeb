@@ -11,12 +11,16 @@ import java.io.IOException;
 public class CheckoutDetailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        //lấy thông tin từ form
         String username = request.getParameter("username");
         double shippingFee = Double.parseDouble(request.getParameter("shippingFee"));
         double totalCartPrice = Double.parseDouble(request.getParameter("totalCartPrice"));
         double total = totalCartPrice + shippingFee;
         String address = request.getParameter("address");
         String phone = request.getParameter("phone");
+
+            //gửi thông tin sang paymentConfirm.jsp
 
         request.setAttribute("username", username);
         request.setAttribute("shippingFee", shippingFee);

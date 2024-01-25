@@ -44,15 +44,15 @@
 <script src="${pageContext.request.contextPath}/webpage/lib-script/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function () {
-        $(".removeFromCartButtonClick").click(function (e) {
+        $(".removeFromCartButtonClick").click(function (e) { // xài jquery lây cái class này
             e.preventDefault();
             $("#loading-spinner").show();
-            var productId = $(this).data("product-id");
+            var productId = $(this).data("product-id"); // cái này lấy cái data-product-id
             $.ajax({
                 type: "POST",
-                url: "${pageContext.request.contextPath}/remove-from-cart",
+                url: "${pageContext.request.contextPath}/remove-from-cart", //gọi đến controllẻ này là bên đây
                 data: {
-                    productId: productId,
+                    productId: productId, //truyền product id lên
                 },
                 success: function (response) {
                     if (response.status === "success") {
@@ -78,10 +78,10 @@
             e.preventDefault();
             // Hiển thị loading spinner khi bắt đầu Ajax
             $("#loading-spinner").show();
-            var productId = $(this).data("product-id");
+            var productId = $(this).data("product-id"); // cái này lấy cái data-product-id
             $.ajax({
                 type: "POST",
-                url: "${pageContext.request.contextPath}/decrease-quantity-product",
+                url: "${pageContext.request.contextPath}/decrease-quantity-product", //gọi đến controllẻ này là bên đây
                 data: {
                     productId: productId,
                     quantity: 1,
@@ -105,22 +105,22 @@
             });
         });
 
-        $(".btn-quantity-increase").click(function (e) {
+        $(".btn-quantity-increase").click(function (e) { // cái này lấy class
             e.preventDefault();
             $("#loading-spinner").show();
-            var productId = $(this).data("product-id");
+            var productId = $(this).data("product-id"); // cái này lấy cái data-product-id
             $.ajax({
                 type: "POST",
-                url: "${pageContext.request.contextPath}/increase-quantity-product",
-                data: {
+                url: "${pageContext.request.contextPath}/increase-quantity-product", //gọi đến controllẻ này là bên đây
+                data: { // cái này là data gửi lên url
                     productId: productId,
                     quantity: 1,
                 },
-                success: function (response) {
-                    if (response.status === "success") {
+                success: function (response) { // cái này là response trả về 2 cái đó
+                    if (response.status === "success") { //nêu thành công thì reload lại trang
                         window.location.reload();
                     } else {
-                        console.log(response.message)
+                        console.log(response.message) // nếu thất bại thì log ra console
                         console.log("Failed to remove product from cart. " + response.message);
                     }
                 },
@@ -209,6 +209,7 @@
                                                 >
                                                     <button
                                                             class="btn-quantity-decrease"
+<%--                                                            cái giảm này y chang--%>
                                                             id="btn-quantity-decrease"
                                                             data-product-id="${cart.getProduct().getId()}"
                                                         ${cart.quantity == 1 ? "disabled" : "" }
@@ -223,7 +224,9 @@
                                                             readonly
                                                     />
                                                     <button id="btn-quantity-increase"
+<%--                                                            lấy class này--%>
                                                             class="btn-quantity-increase"
+<%--                                                            thêm cái này để click;= lấy product id--%>
                                                             data-product-id="${cart.getProduct().getId()}">
                                                         <i class="fa-solid fa-add"></i>
                                                     </button>
@@ -241,6 +244,7 @@
                                             </div>
 
                                             <div class="cart-detail__left-item-body">
+<%--                                               lấy clas vs product id y chang 2 cái kia--%>
                                                 <button class="cart-detail__left-item-remove removeFromCartButtonClick"
                                                         data-product-id="${cart.getProduct().getId()}">
                                                     <i class="fa-solid fa-trash"></i>Xóa
@@ -281,6 +285,7 @@
                             </div>
                             <div class="cart-detail__btn-confirm">
                                 <button class="btn-base btn-confirm">
+<%--                                    gọi qua controllẻ checkout--%>
                                     <a href="${pageContext.request.contextPath}/checkout">Tiến hành đặt hàng</a>
                                 </button>
                             </div>

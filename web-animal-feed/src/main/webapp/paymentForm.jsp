@@ -40,6 +40,7 @@
 <%--end header--%>
 <main class="main">
     <div class="main__menu">
+<%--        action là cái url controller xử lý 2 cá này là t tính toán sẳn rồi truyền qua từ serlet bên kia--%>
         <form action="${pageContext.request.contextPath}/checkout-confirm?shippingFee=${shippingFee}&totalCartPrice=${totalCartPrice}" method="post"
               class="form-info">
             <h3>Thông tin khách mua hàng</h3>
@@ -48,6 +49,7 @@
                     <input
                             class="form-check-input"
                             type="radio"
+
                             name="gender"
                             id="gender"
                             value="Nam"
@@ -74,6 +76,7 @@
                             type="text"
                             class="form-control"
                             id="payment-username"
+                    <%--                            trong cái input của cái fỏm phải có name mới truyền paramêtr đc--%>
                             name="username"
                             value="${sessionScope.acc.name}"
                     />
@@ -114,6 +117,7 @@
                 <span class="total-price">${totalCartPrice}</span>
             </div>
             <div class="form-btn">
+<%--                truyền tham số bằng form thì cái nút phải là type submit--%>
                 <button type="submit" class="btn btn-primary">
                     Thanh toán
                 </button>

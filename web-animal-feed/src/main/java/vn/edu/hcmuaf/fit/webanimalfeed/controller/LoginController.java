@@ -30,15 +30,22 @@ public class LoginController extends HttpServlet {
         int role = loginDao.checkRole(user, pass);
         Users u = loginDao.checkLogin(user, pass);
         if (u == null) {
-            request.setAttribute("status","failed");
+            request.setAttribute("status", "failed");
             request.setAttribute("mess", "Username hoặc mật khẩu không đúng!");
-           request.getRequestDispatcher("Login.jsp").forward(request,response);
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
         } else {
-            request.setAttribute("status","success");
+            request.setAttribute("status", "success");
             HttpSession session = request.getSession();
             session.setAttribute("acc", u);
             if (role == 1) {
-                response.sendRedirect("admin");
+                String redirectUrl = (String) session.getAttribute("url");
+                if (redirectUrl != null && redirectUrl.equals("manager")) {
+                    session.removeAttribute("url"); // Xóa URL trước đó
+                    response.sendRedirect("manager");
+                } else {
+                    request.getRequestDispatcher("home").forward(request, response);
+                    //response.sendRedirect("home");
+                }
             } else if (role == 2) {
                 // Kiểm tra nếu URL trước đó là "checkout", chuyển hướng đến "paymentForm.jsp"
                 String redirectUrl = (String) session.getAttribute("url");
@@ -47,7 +54,7 @@ public class LoginController extends HttpServlet {
 
                     response.sendRedirect("cart");
                 } else {
-                    request.getRequestDispatcher("home").forward(request,response);
+                    request.getRequestDispatcher("home").forward(request, response);
                     //response.sendRedirect("home");
                 }
             }

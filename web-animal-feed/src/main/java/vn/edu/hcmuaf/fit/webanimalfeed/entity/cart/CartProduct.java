@@ -27,7 +27,7 @@ public class CartProduct {
         this.quantity = quantity;
         this.product = p;
     }
-
+    //hàm tăng số lượng sản phẩm
     public void increaseQuantity(int quantity) {
         this.quantity += quantity;
     }
